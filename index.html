@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToolNex - Turn Yourself Into a Cartoon</title>
+  <meta name="description" content="Upload your photo and turn yourself into a cartoon instantly with ToolNex. Fun, fast, and free!">
+  <link rel="canonical" href="https://www.toolnex.xyz/">
+  
+  <!-- TailwindCSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+  <!-- Header -->
+  <header class="bg-white shadow-md py-8 text-center">
+    <h1 class="text-4xl font-bold mb-2">Turn Yourself Into a Cartoon!</h1>
+    <p class="text-gray-600 text-lg max-w-2xl mx-auto">Upload a photo and see yourself transformed into a fun animated version instantly.</p>
+  </header>
+
+  <!-- Upload Section -->
+  <main class="max-w-3xl mx-auto mt-12 px-4">
+    <section class="bg-white p-6 rounded-lg shadow-md text-center">
+      <h2 class="text-2xl font-semibold mb-4">Upload Your Photo</h2>
+      <input type="file" accept="image/*" id="photoUpload" class="mb-4">
+      <button id="generateBtn" class="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600 transition">Generate Cartoon</button>
+    </section>
+
+    <!-- Preview Section -->
+    <section class="bg-white p-6 rounded-lg shadow-md text-center mt-8 hidden" id="previewSection">
+      <h2 class="text-2xl font-semibold mb-4">Preview</h2>
+      <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+        <div>
+          <p class="text-gray-500 mb-2">Original</p>
+          <img id="originalImage" src="" alt="Original Photo" class="w-48 h-48 object-cover rounded-lg border">
+        </div>
+        <div>
+          <p class="text-gray-500 mb-2">Cartoon Version</p>
+          <img id="cartoonImage" src="" alt="Cartoon Photo" class="w-48 h-48 object-cover rounded-lg border">
+        </div>
+      </div>
+      <button id="downloadBtn" class="mt-6 bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600 transition">Download Cartoon</button>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white text-center py-6 border-t mt-12">
+    <p class="text-gray-500 text-sm">&copy; 2026 ToolNex.xyz. All rights reserved.</p>
+  </footer>
+
+  <!-- Simple JS for MVP preview -->
+  <script>
+    const photoUpload = document.getElementById('photoUpload');
+    const generateBtn = document.getElementById('generateBtn');
+    const previewSection = document.getElementById('previewSection');
+    const originalImage = document.getElementById('originalImage');
+    const cartoonImage = document.getElementById('cartoonImage');
+
+    generateBtn.addEventListener('click', () => {
+      const file = photoUpload.files[0];
+      if (!file) {
+        alert('Please upload a photo first!');
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        originalImage.src = e.target.result;
+        // MVP: Cartoon image is just a placeholder (later replaced by AI result)
+        cartoonImage.src = e.target.result; 
+        previewSection.classList.remove('hidden');
+      }
+      reader.readAsDataURL(file);
+    });
+
+    const downloadBtn = document.getElementById('downloadBtn');
+    downloadBtn.addEventListener('click', () => {
+      const link = document.createElement('a');
+      link.href = cartoonImage.src;
+      link.download = 'cartoon.png';
+      link.click();
+    });
+  </script>
+
+</body>
+</html>
