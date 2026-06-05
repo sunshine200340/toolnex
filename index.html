@@ -3,60 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ToolNex - Turn Yourself Into a Cartoon</title>
-  <meta name="description" content="Upload your photo and turn yourself into a cartoon instantly with ToolNex. Fun, fast, and free!">
-  <link rel="canonical" href="https://www.toolnex.xyz/">
+  <title>ToolNex - AI Cartoon Generator</title>
+  <meta name="description" content="Upload your photo and transform into a cartoon instantly! Supports multiple styles.">
+
+  <!-- TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- SEO / Open Graph -->
   <meta property="og:title" content="AI Cartoon Generator">
   <meta property="og:description" content="Turn Yourself Into Cartoon Online Free">
   <meta property="og:image" content="/preview.jpg">
   <meta property="og:type" content="website">
-
-  <!-- Schema.org -->
-  <script type="application/ld+json">
-  {
-   "@context":"https://schema.org",
-   "@type":"WebApplication",
-   "name":"ToolNex AI Cartoon Generator",
-   "applicationCategory":"MultimediaApplication"
-  }
-  </script>
-
-  <!-- TailwindCSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans">
 
-  <!-- Language Switcher -->
-  <div class="absolute right-6 top-6">
-    <select id="languageSwitcher" class="border rounded px-3 py-1">
-      <option value="en">English</option>
-      <option value="zh">中文</option>
-      <option value="ja">日本語</option>
-      <option value="ko">한국어</option>
-      <option value="fr">Français</option>
-      <option value="de">Deutsch</option>
-    </select>
-  </div>
-
   <!-- Header -->
-  <header class="bg-white shadow-md py-8 text-center">
+  <header class="bg-white shadow-md py-8 text-center relative">
     <h1 class="text-4xl font-bold mb-2">Turn Yourself Into a Cartoon!</h1>
     <p class="text-gray-600 text-lg max-w-2xl mx-auto">
-      Upload a photo and see yourself transformed into a fun animated version instantly.
+      Upload a photo and choose a style to transform yourself instantly.
     </p>
   </header>
 
-  <!-- Upload & AI Cartoon Generator -->
-  <main class="max-w-3xl mx-auto mt-12 px-4">
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto mt-12 px-4">
+
+    <!-- Upload Section -->
     <section class="bg-white p-6 rounded-lg shadow-md text-center">
       <h2 class="text-2xl font-semibold mb-4">Upload Your Photo</h2>
       <input type="file" accept="image/*" id="photoUpload" class="mb-4">
-      
+
       <!-- Style Selection -->
       <div class="mt-6">
-        <h3 class="font-semibold mb-3">Choose Style</h3>
+        <h3 class="font-semibold mb-3">Choose a Style</h3>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
           <button class="style-btn border rounded p-3" data-style="ghibli">🌸 Ghibli</button>
           <button class="style-btn border rounded p-3" data-style="pixar">🎬 Pixar</button>
@@ -74,7 +53,7 @@
         Generate Cartoon
       </button>
 
-      <!-- Loading Animation -->
+      <!-- Loading -->
       <div id="loading" class="hidden mt-6">
         <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto"></div>
         <p class="mt-4 text-gray-500">Generating...</p>
@@ -94,31 +73,9 @@
           <p class="text-gray-500 mt-2">After</p>
         </div>
       </div>
-      <button id="downloadBtn" class="mt-6 bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600 transition">Download Cartoon</button>
-    </section>
-
-    <!-- Features Section -->
-    <section class="mt-16">
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="p-6 bg-white rounded shadow text-center">⚡ Fast Generation</div>
-        <div class="p-6 bg-white rounded shadow text-center">🌎 Multi-language</div>
-        <div class="p-6 bg-white rounded shadow text-center">🎨 Multiple Styles</div>
-      </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="mt-16">
-      <h2 class="text-3xl font-bold text-center mb-8">FAQ</h2>
-      <div class="space-y-4 max-w-2xl mx-auto text-left">
-        <div>
-          <h3 class="font-semibold">Is it free?</h3>
-          <p>Yes, you can generate cartoons for free.</p>
-        </div>
-        <div>
-          <h3 class="font-semibold">Which styles are supported?</h3>
-          <p>Ghibli, Pixar, Anime, Disney, Comic, Watercolor and more.</p>
-        </div>
-      </div>
+      <button id="downloadBtn" class="mt-6 bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600 transition">
+        Download Cartoon
+      </button>
     </section>
 
   </main>
@@ -139,6 +96,8 @@
     const loading = document.getElementById('loading');
 
     let selectedStyle = 'ghibli';
+
+    // Style selection
     document.querySelectorAll('.style-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.style-btn').forEach(b => b.classList.remove('bg-blue-100'));
@@ -147,6 +106,7 @@
       });
     });
 
+    // Generate Cartoon
     generateBtn.addEventListener('click', async () => {
       const file = photoUpload.files[0];
       if (!file) {
@@ -163,29 +123,36 @@
       previewSection.classList.remove('hidden');
       loading.classList.remove('hidden');
 
-      // 模拟API调用
-      setTimeout(() => {
-        // MVP: 目前用原图代替卡通图，接入真实AI API即可替换
-        cartoonImage.src = originalImage.src;
-        loading.classList.add('hidden');
-      }, 2000);
+      // ======= 调用后端 API 生成卡通图 =======
+      // 注意：这里必须替换为你自己的后端 API
+      const formData = new FormData();
+      formData.append('image', file);
+      formData.append('style', selectedStyle);
+
+      try {
+        const response = await fetch('/api/cartoon', {
+          method: 'POST',
+          body: formData
+        });
+
+        const data = await response.json();
+
+        cartoonImage.src = data.imageUrl; // 后端返回的卡通图 URL
+      } catch (err) {
+        alert('Failed to generate cartoon');
+        console.error(err);
+      }
+
+      loading.classList.add('hidden');
     });
 
+    // Download cartoon
     downloadBtn.addEventListener('click', () => {
       const link = document.createElement('a');
       link.href = cartoonImage.src;
       link.download = 'cartoon.png';
       link.click();
     });
-
-    // 简单语言切换示例
-    const lang = document.getElementById('languageSwitcher');
-    lang.addEventListener('change', () => {
-      const value = lang.value;
-      if(value === 'zh'){
-        document.querySelector('h1').textContent = '将自己变成卡通！';
-        document.querySelector('header p').textContent = '上传照片并立即将自己转换为有趣的动画版本。';
-        generateBtn.textContent = '生成卡通';
-        downloadBtn.textContent = '下载卡通';
-      } else if(value === 'en'){
-       
+  </script>
+</body>
+</html>
