@@ -1,412 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ToolNex — AI Photo to Cartoon &amp; Animation Converter | Ghibli-Style Portrait</title>
-  <meta name="description" content="ToolNex transforms your real photos into hand-painted animation-style portraits. Upload a selfie and get Ghibli-inspired, anime, Pixar, or watercolor art in seconds — free online at www.toolnex.xyz.">
-  <meta name="keywords" content="toolnex, photo to cartoon, ghibli style portrait, ai animation converter, turn photo into anime, cartoon generator">
-  <meta name="author" content="ToolNex">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.toolnex.xyz/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToolNex — AI Photo to Cartoon & Animation Converter | Ghibli-Style Portrait</title>
+    <meta name="description" content="ToolNex transforms your real photos into hand-painted animation-style portraits. Upload a selfie and get Ghibli-inspired, anime, Pixar, or watercolor art in seconds — free online at www.toolnex.xyz.">
+    <meta name="keywords" content="toolnex, photo to cartoon, ghibli style portrait, ai animation converter, turn photo into anime, cartoon generator">
+    <meta name="author" content="ToolNex">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.toolnex.xyz/">
 
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.toolnex.xyz/">
-  <meta property="og:title" content="ToolNex — Turn Real Photos Into Animated Art">
-  <meta property="og:description" content="Upload a photo and transform yourself into a hand-painted animation-style portrait with ToolNex.">
-  <meta property="og:site_name" content="ToolNex">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="ToolNex — AI Photo to Cartoon Converter">
-  <meta name="twitter:description" content="Turn real portraits into animation-style art with ToolNex. Ghibli-inspired hand-painted looks in one click.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.toolnex.xyz/">
+    <meta property="og:title" content="ToolNex — Turn Real Photos Into Animated Art">
+    <meta property="og:description" content="Upload a photo and transform yourself into a hand-painted animation-style portrait with ToolNex.">
+    <meta property="og:site_name" content="ToolNex">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ToolNex — AI Photo to Cartoon Converter">
+    <meta name="twitter:description" content="Turn real portraits into animation-style art with ToolNex. Ghibli-inspired hand-painted looks in one click.">
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "ToolNex",
-    "url": "https://www.toolnex.xyz/",
-    "description": "Free online tool that converts real photos into animation-style portraits including Ghibli-inspired hand-painted looks.",
-    "applicationCategory": "MultimediaApplication",
-    "operatingSystem": "Any",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-  }
-  </script>
-
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: #fbfbfd; --surface: #fff; --text: #1d1d1f; --text-secondary: #6e6e73;
-      --accent: #0071e3; --accent-hover: #0077ed; --border: rgba(0,0,0,.08);
-      --radius: 18px; --radius-sm: 12px; --shadow: 0 4px 24px rgba(0,0,0,.06);
-      --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "ToolNex",
+        "url": "https://www.toolnex.xyz/",
+        "description": "Free online tool that converts real photos into animation-style portraits including Ghibli-inspired hand-painted looks.",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
     }
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.47; letter-spacing: -.022em; -webkit-font-smoothing: antialiased; }
-    a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
-    .container { max-width: 980px; margin: 0 auto; padding: 0 22px; }
-    nav { position: sticky; top: 0; z-index: 100; background: rgba(251,251,253,.82); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--border); }
-    .nav-inner { max-width: 980px; margin: 0 auto; padding: 14px 22px; display: flex; align-items: center; justify-content: space-between; }
-    .logo { font-size: 21px; font-weight: 600; color: var(--text); }
-    .nav-links { display: flex; gap: 28px; list-style: none; }
-    .nav-links a { font-size: 14px; color: var(--text-secondary); text-decoration: none; }
-    .nav-links a:hover { color: var(--text); }
-    .hero { text-align: center; padding: 72px 22px 48px; }
-    .hero-badge { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); background: rgba(0,113,227,.08); padding: 6px 14px; border-radius: 980px; margin-bottom: 20px; }
-    h1 { font-size: clamp(40px, 6vw, 56px); font-weight: 700; letter-spacing: -.025em; line-height: 1.07; margin-bottom: 16px; }
-    .hero-sub { font-size: clamp(19px, 2.5vw, 24px); color: var(--text-secondary); max-width: 640px; margin: 0 auto 40px; line-height: 1.35; }
-    .tool-card { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--border); padding: 36px; max-width: 720px; margin: 0 auto 80px; }
-    .upload-zone { border: 2px dashed var(--border); border-radius: var(--radius-sm); padding: 40px 24px; text-align: center; cursor: pointer; transition: border-color .2s, background .2s; margin-bottom: 28px; }
-    .upload-zone:hover, .upload-zone.dragover { border-color: var(--accent); background: rgba(0,113,227,.03); }
-    .upload-zone input { display: none; }
-    .upload-label { font-size: 17px; font-weight: 600; display: block; margin-bottom: 6px; }
-    .upload-hint { font-size: 14px; color: var(--text-secondary); }
-    .file-name { margin-top: 10px; font-size: 13px; color: var(--accent); font-weight: 500; }
-    h3.section-label { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--text-secondary); margin-bottom: 14px; }
-    .style-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; margin-bottom: 28px; }
-    .style-btn { font-family: var(--font); font-size: 14px; font-weight: 500; padding: 12px 8px; border: 1.5px solid var(--border); border-radius: var(--radius-sm); background: var(--surface); cursor: pointer; transition: all .2s; color: var(--text); }
-    .style-btn:hover { border-color: var(--accent); }
-    .style-btn.active { border-color: var(--accent); background: rgba(0,113,227,.08); color: var(--accent); }
-    .btn-primary { width: 100%; font-family: var(--font); font-size: 17px; font-weight: 600; padding: 16px; background: var(--accent); color: #fff; border: none; border-radius: 980px; cursor: pointer; transition: background .2s; }
-    .btn-primary:hover { background: var(--accent-hover); }
-    .btn-primary:disabled { opacity: .5; cursor: not-allowed; }
-    .preview-section { margin-top: 32px; display: none; }
-    .preview-section.visible { display: block; }
-    .preview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
-    @media (max-width: 520px) { .preview-grid { grid-template-columns: 1fr; } }
-    .preview-box { border-radius: var(--radius-sm); overflow: hidden; background: #f5f5f7; aspect-ratio: 1; position: relative; }
-    .preview-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .preview-tag { position: absolute; top: 10px; left: 10px; font-size: 11px; font-weight: 600; text-transform: uppercase; background: rgba(0,0,0,.55); color: #fff; padding: 4px 10px; border-radius: 980px; }
-    .loading { text-align: center; padding: 24px; display: none; }
-    .loading.visible { display: block; }
-    .spinner { width: 32px; height: 32px; border: 3px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin .8s linear infinite; margin: 0 auto 12px; }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .btn-secondary { font-family: var(--font); font-size: 15px; font-weight: 600; padding: 12px 28px; background: transparent; color: var(--accent); border: 1.5px solid var(--accent); border-radius: 980px; cursor: pointer; display: block; margin: 0 auto; }
-    .btn-secondary:hover { background: var(--accent); color: #fff; }
-    section.content-block { padding: 64px 0; border-top: 1px solid var(--border); }
-    h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 700; letter-spacing: -.02em; line-height: 1.1; margin-bottom: 12px; text-align: center; }
-    .section-intro { text-align: center; color: var(--text-secondary); font-size: 19px; max-width: 600px; margin: 0 auto 48px; line-height: 1.4; }
-    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
-    .feature-card { background: var(--surface); border-radius: var(--radius); padding: 28px; border: 1px solid var(--border); }
-    .feature-card h3 { font-size: 19px; font-weight: 600; margin-bottom: 8px; }
-    .feature-card p { font-size: 15px; color: var(--text-secondary); line-height: 1.5; }
-    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; }
-    .step-item { text-align: center; }
-    .step-num { width: 44px; height: 44px; border-radius: 50%; background: var(--text); color: #fff; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
-    .step-item h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
-    .step-item p { font-size: 15px; color: var(--text-secondary); line-height: 1.5; }
-    .faq-list { max-width: 680px; margin: 0 auto; }
-    .faq-item { border-bottom: 1px solid var(--border); padding: 24px 0; }
-    .faq-item h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
-    .faq-item p { font-size: 15px; color: var(--text-secondary); line-height: 1.5; }
-    footer { text-align: center; padding: 40px 22px; font-size: 13px; color: var(--text-secondary); border-top: 1px solid var(--border); }
-    footer a { color: var(--text-secondary); }
-  </style>
+    </script>
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --bg: #f4f4f4; /* Light grey background */
+            --surface: #ffffff; /* White for cards */
+            --text: #333333; /* Dark grey text */
+            --text-secondary: #666666; /* Lighter grey for secondary text */
+            --accent: #007bff; /* Blue for accents */
+            --accent-hover: #0056b3; /* Darker blue for hover */
+            --border: rgba(0, 0, 0, .15); /* Light border */
+            --radius: 18px; --radius-sm: 12px; --shadow: 0 4px 24px rgba(0,0,0,.06);
+            --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.47; letter-spacing: -.022em; -webkit-font-smoothing: antialiased; }
+        a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
+        .container { max-width: 980px; margin: 0 auto; padding: 0 22px; }
+        nav { position: sticky; top: 0; z-index: 100; background: rgba(251,251,253,.82); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 980px; margin: 0 auto; padding: 14px 22px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 21px; font-weight: 600; color: var(--text); }
+        .nav-links { display: flex; gap: 28px; list-style: none; }
+        .nav-links a { font-size: 14px; color: var(--text-secondary); text-decoration: none; }
+        .nav-links a:hover { color: var(--text); }
+        .hero { text-align: center; padding: 72px 22px 48px; }
+        .hero-badge { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); background: rgba(0,113,227,.08); padding: 6px 14px; border-radius: 980px; margin-bottom: 20px; }
+        h1 { font-size: clamp(40px, 6vw, 56px); font-weight: 700; letter-spacing: -.025em; line-height: 1.07; margin-bottom: 16px; }
+        .hero-sub { font-size: clamp(19px, 2.5vw, 24px); color: var(--text-secondary); max-width: 640px; margin: 0 auto 40px; line-height: 1.35; }
+        .tool-card { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--border); padding: 36px; max-width: 720px; margin: 0 auto 80px; }
+        .upload-zone { border: 2px dashed var(--border); border-radius: var(--radius-sm); padding: 40px 24px; text-align: center; cursor: pointer; transition: border-color .2s, background .2s; margin-bottom: 28px; }
+        .upload-zone:hover, .upload-zone.dragover { border-color: var(--accent); background: rgba(0,113,227,.03); }
+        .upload-zone input { display: none; }
+        .upload-label { font-size: 17px; font-weight: 600; display: block; margin-bottom: 6px; }
+        .upload-hint { font-size: 14px; color: var(--text-secondary); }
+        .file-name { margin-top: 10px; font-size: 13px; color: var(--accent); font-weight: 500; }
+        h3.section-label { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--text-secondary); margin-bottom: 14px; }
+        .style-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; margin-bottom: 28px; }
+        .style-btn { font-family: var(--font); font-size: 14px; font-weight: 500; padding: 12px 8px; border: 1.5px solid var(--border); border-radius: var(--radius-sm); background: var(--surface); cursor: pointer; transition: all .2s; color: var(--text); }
+        .style-btn:hover { border-color: var(--accent); }
+        .style-btn.active { border-color: var(--accent); background: rgba(0,113,227,.08); color: var(--accent); }
+        .btn-primary { width: 100%; font-family: var(--font); font-size: 17px; font-weight: 600; padding: 16px; background: var(--accent); color: #fff; border: none; border-radius: 980px; cursor: pointer; transition: background .2s; }
+        .btn-primary:hover { background: var(--accent-hover); }
+        .btn-primary:disabled { opacity: .5; cursor: not-allowed; }
+        .preview-section { margin-top: 32px; display: none; }
+        .preview-section.visible { display: block; }
+        .preview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+        @media (max-width: 520px) { .preview-grid { grid-template-columns: 1fr; } }
+        .preview-box { border-radius: var(--radius-sm); overflow: hidden; background: #f5f5f7; aspect-ratio: 1; position: relative; }
+        .preview-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .preview-tag { position: absolute; top: 10px; left: 10px; font-size: 11px; font-weight: 600; text-transform: uppercase; background: rgba(0,0,0,.55); color: #fff; padding: 4px 10px; border-radius: 980px; }
+        .loading { text-align: center; padding: 24px; display: none; }
+        .loading.visible { display: block; }
+        .spinner { width: 32px; height: 32px; border: 3px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin .8s linear infinite; margin: 0 auto 12px; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .btn-secondary { font-family: var(--font); font-size: 15px; font-weight: 600; padding: 12px 28px; background: transparent; color: var(--accent); border: 1.5px solid var(--accent); border-radius: 980px; cursor: pointer; display: block; margin: 0 auto; }
+        .btn-secondary:hover { background: var(--accent); color: #fff; }
+        section.content-block { padding: 64px 0; border-top: 1px solid var(--border); }
+        h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 700; letter-spacing: -.02em; line-height: 1.1; margin-bottom: 12px; text-align: center; }
+        .section-intro { text-align: center; color: var(--text-secondary); font-size: 19px; max-width: 600px; margin: 0 auto 48px; line-height: 1.4; }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+        .feature-card { background: var(--surface); border-radius: var(--radius); padding: 28px; border: 1px solid var(--border); }
+        .feature-card h3 { font-size: 19px; font-weight: 600; margin-bottom: 8px; }
+        .feature-card p { font-size: 15px; color: var(--text-secondary); line-height: 1.5; }
+        .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; }
+        .step-item { text-align: center; }
+        .step-num { width: 44px; height: 44px; border-radius: 50%; background: var(--text); color: #fff; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+        .step-item h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
+        .step-item p { font-size: 15px; color: var(--text-secondary); line-height: 1.5; }
+        .faq-list { max-width: 680px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid var(--border); padding: 24px 0; }
+        .faq-item h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
+        .faq-item p { font-size: 15px; color: var(--text-secondary); line-height: 1.5; }
+        footer { text-align: center; padding: 40px 22px; font-size: 13px; color: var(--text-secondary); border-top: 1px solid var(--border); }
+        footer a { color: var(--text-secondary); }
+    </style>
 </head>
 <body>
 
-  <nav aria-label="Main navigation">
+<nav aria-label="Main navigation">
     <div class="nav-inner">
-      <span class="logo">ToolNex</span>
-      <ul class="nav-links">
-        <li><a href="#tool">Try It</a></li>
-        <li><a href="#styles">Styles</a></li>
-        <li><a href="#how-it-works">How It Works</a></li>
-        <li><a href="#faq">FAQ</a></li>
-      </ul>
+        <span class="logo">ToolNex</span>
+        <ul class="nav-links">
+            <li><a href="#tool">Try It</a></li>
+            <li><a href="#styles">Styles</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
     </div>
-  </nav>
+</nav>
 
-  <header class="hero">
+<header class="hero">
     <span class="hero-badge">Free Online Tool</span>
     <h1>ToolNex — Turn Real Photos Into Animation-Style Art</h1>
     <p class="hero-sub">Upload a portrait and watch ToolNex reshape it into a hand-painted, storybook look — soft watercolor tones, expressive eyes, and the warmth of classic Japanese animation aesthetics.</p>
-  </header>
+</header>
 
-  <main>
+<main>
     <section id="tool" class="container">
-      <div class="tool-card">
-        <div class="upload-zone" id="uploadZone" role="button" tabindex="0">
-          <input type="file" id="photoUpload" accept="image/jpeg,image/png,image/webp">
-          <div style="font-size:36px;margin-bottom:12px;opacity:.6">📷</div>
-          <span class="upload-label">Upload Your Photo</span>
-          <span class="upload-hint">JPG, PNG, or WebP · Face-forward portraits work best</span>
-          <div class="file-name" id="fileName"></div>
-        </div>
-
-        <h3 class="section-label">Choose Animation Style</h3>
-        <div class="style-grid">
-          <button type="button" class="style-btn active" data-style="ghibli">Ghibli-Inspired</button>
-          <button type="button" class="style-btn" data-style="anime">Anime</button>
-          <button type="button" class="style-btn" data-style="pixar">3D Pixar</button>
-          <button type="button" class="style-btn" data-style="disney">Classic Disney</button>
-          <button type="button" class="style-btn" data-style="watercolor">Watercolor</button>
-          <button type="button" class="style-btn" data-style="comic">Comic Book</button>
-          <button type="button" class="style-btn" data-style="simpsons">Flat Cartoon</button>
-          <button type="button" class="style-btn" data-style="3d">3D Render</button>
-        </div>
-
-        <button type="button" class="btn-primary" id="generateBtn">Generate with ToolNex</button>
-
-        <div class="loading" id="loading">
-          <div class="spinner"></div>
-          <p>Painting your portrait…</p>
-        </div>
-
-        <div class="preview-section" id="previewSection">
-          <div class="preview-grid">
-            <div class="preview-box">
-              <span class="preview-tag">Original</span>
-              <img id="originalImage" alt="Your uploaded photo before ToolNex conversion">
+        <div class="tool-card">
+            <div class="upload-zone" id="uploadZone" role="button" tabindex="0">
+                <input type="file" id="photoUpload" accept="image/jpeg,image/png,image/webp">
+                <div style="font-size:36px;margin-bottom:12px;opacity:.6">📷</div>
+                <span class="upload-label">Upload Your Photo</span>
+                <span class="upload-hint">JPG, PNG, or WebP · Face-forward portraits work best</span>
+                <div class="file-name" id="fileName"></div>
             </div>
-            <div class="preview-box">
-              <span class="preview-tag">ToolNex Result</span>
-              <img id="cartoonImage" alt="Your photo converted to animation-style art by ToolNex">
+
+            <h3 class="section-label">Choose Animation Style</h3>
+            <div class="style-grid">
+                <button type="button" class="style-btn active" data-style="ghibli">Ghibli-Inspired</button>
+                <button type="button" class="style-btn" data-style="anime">Anime</button>
+                <button type="button" class="style-btn" data-style="pixar">3D Pixar</button>
+                <button type="button" class="style-btn" data-style="disney">Classic Disney</button>
+                <button type="button" class="style-btn" data-style="watercolor">Watercolor</button>
+                <button type="button" class="style-btn" data-style="comic">Comic Book</button>
+                <button type="button" class="style-btn" data-style="simpsons">Flat Cartoon</button>
+                <button type="button" class="style-btn" data-style="3d">3D Render</button>
             </div>
-          </div>
-          <button type="button" class="btn-secondary" id="downloadBtn">Download Result</button>
+
+            <button type="button" class="btn-primary" id="generateBtn">Generate with ToolNex</button>
+
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Painting your portrait…</p>
+            </div>
+
+            <div class="preview-section" id="previewSection">
+                <div class="preview-grid">
+                    <div class="preview-box">
+                        <span class="preview-tag">Original</span>
+                        <img id="originalImage" alt="Your uploaded photo before ToolNex conversion">
+                    </div>
+                    <div class="preview-box">
+                        <span class="preview-tag">ToolNex Result</span>
+                        <img id="cartoonImage" alt="Your photo converted to animation-style art by ToolNex">
+                    </div>
+                </div>
+                <button type="button" class="btn-secondary" id="downloadBtn">Download Result</button>
+            </div>
         </div>
-      </div>
     </section>
 
     <section id="styles" class="content-block">
-      <div class="container">
-        <h2>Animation Styles Available on ToolNex</h2>
-        <p class="section-intro">ToolNex offers multiple artistic directions so every portrait feels personal — from gentle hand-painted scenes to bold comic panels.</p>
-        <div class="feature-grid">
-          <article class="feature-card">
-            <h3>Ghibli-Inspired Hand-Painted Look</h3>
-            <p>Soft pastel skies, warm skin tones, and delicate linework evoke a quiet meadow scene. ToolNex emphasizes natural lighting and gentle color gradients — ideal for profile pictures that feel nostalgic and alive.</p>
-          </article>
-          <article class="feature-card">
-            <h3>Anime &amp; Manga Portrait</h3>
-            <p>Sharper contours, larger expressive eyes, and saturated hair colors transform everyday selfies into character art ready for avatars, streaming overlays, or fan projects.</p>
-          </article>
-          <article class="feature-card">
-            <h3>3D &amp; Pixar-Style Characters</h3>
-            <p>Rounded forms, studio lighting, and polished surfaces give your photo a friendly, cinematic 3D character appearance — perfect for family portraits with a playful twist.</p>
-          </article>
+        <div class="container">
+            <h2>Animation Styles Available on ToolNex</h2>
+            <p class="section-intro">ToolNex offers multiple artistic directions so every portrait feels personal — from gentle hand-painted scenes to bold comic panels.</p>
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <h3>Ghibli-Inspired Hand-Painted Look</h3>
+                    <p>Soft pastel skies, warm skin tones, and delicate linework evoke a quiet meadow scene. ToolNex emphasizes natural lighting and gentle color gradients — ideal for profile pictures that feel nostalgic and alive.</p>
+                </article>
+                <article class="feature-card">
+                    <h3>Anime &amp; Manga Portrait</h3>
+                    <p>Sharper contours, larger expressive eyes, and saturated hair colors transform everyday selfies into character art ready for avatars, streaming overlays, or fan projects.</p>
+                </article>
+                <article class="feature-card">
+                    <h3>3D &amp; Pixar-Style Characters</h3>
+                    <p>Rounded forms, studio lighting, and polished surfaces give your photo a friendly, cinematic 3D character appearance — perfect for family portraits with a playful twist.</p>
+                </article>
+            </div>
         </div>
-      </div>
     </section>
 
     <section id="how-it-works" class="content-block">
-      <div class="container">
-        <h2>How ToolNex Converts Your Photo</h2>
-        <p class="section-intro">Three simple steps — no design skills required. ToolNex handles the artistic transformation automatically.</p>
-        <div class="steps">
-          <div class="step-item">
-            <div class="step-num">1</div>
-            <h3>Upload a Clear Portrait</h3>
-            <p>Choose a well-lit photo where your face is visible and centered. ToolNex works best with front-facing selfies or headshots on a simple background.</p>
-          </div>
-          <div class="step-item">
-            <div class="step-num">2</div>
-            <h3>Pick an Animation Style</h3>
-            <p>Select Ghibli-inspired, anime, watercolor, or another look. Each style applies a distinct color palette, edge treatment, and texture to your image.</p>
-          </div>
-          <div class="step-item">
-            <div class="step-num">3</div>
-            <h3>Download &amp; Share</h3>
-            <p>Preview the before-and-after side by side, then save your new animated portrait. Use it on social media, messaging apps, or as a creative gift.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="content-block">
-      <div class="container">
-        <h2>Why Choose ToolNex for Photo Animation</h2>
-        <p class="section-intro">ToolNex is built for anyone who wants a quick, beautiful portrait transformation without learning complex editing software.</p>
-        <div class="feature-grid">
-          <article class="feature-card">
-            <h3>Browser-Based &amp; Instant</h3>
-            <p>Run ToolNex directly at www.toolnex.xyz — no app install, no account signup. Upload, generate, and download in your browser within seconds.</p>
-          </article>
-          <article class="feature-card">
-            <h3>Real People, Animated Feel</h3>
-            <p>Unlike generic filters, ToolNex focuses on preserving facial identity while shifting texture, color, and line quality toward an illustrated, animation-ready appearance.</p>
-          </article>
-          <article class="feature-card">
-            <h3>Multiple Art Directions</h3>
-            <p>One photo, eight styles. Compare Ghibli-inspired warmth against bold comic ink or soft watercolor washes — all from a single upload on ToolNex.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="faq" class="content-block">
-      <div class="container">
-        <h2>ToolNex Frequently Asked Questions</h2>
-        <p class="section-intro">Common questions about turning real photos into animation-style art with ToolNex.</p>
-        <div class="faq-list">
-          <article class="faq-item">
-            <h3>What is ToolNex?</h3>
-            <p>ToolNex is a free online photo converter that transforms real portraits into animation-style artwork. It supports Ghibli-inspired hand-painted looks, anime, Pixar-style 3D, watercolor, and more.</p>
-          </article>
-          <article class="faq-item">
-            <h3>What makes the Ghibli-inspired style different?</h3>
-            <p>The Ghibli-inspired preset on ToolNex applies muted greens and blues, soft edge blending, and warm highlight tones reminiscent of hand-painted animation backgrounds — without copying any specific copyrighted character or film frame.</p>
-          </article>
-          <article class="faq-item">
-            <h3>What photos work best on ToolNex?</h3>
-            <p>Use a high-resolution, front-facing portrait with even lighting. Avoid heavy sunglasses, extreme angles, or group shots where faces are small — ToolNex produces clearer results with a single, centered subject.</p>
-          </article>
-          <article class="faq-item">
-            <h3>Is ToolNex free to use?</h3>
-            <p>Yes. ToolNex at www.toolnex.xyz is free for personal portrait conversions. Upload your photo, choose a style, and download the result at no cost.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2026 <a href="https://www.toolnex.xyz/">ToolNex.xyz</a>. All rights reserved.</p>
-    <p style="margin-top:8px"><a href="https://github.com/sunshine200340/toolnex" rel="noopener noreferrer">View on GitHub</a></p>
-  </footer>
-
-  <script>
-    const photoUpload = document.getElementById('photoUpload');
-    const uploadZone = document.getElementById('uploadZone');
-    const fileName = document.getElementById('fileName');
-    const generateBtn = document.getElementById('generateBtn');
-    const previewSection = document.getElementById('previewSection');
-    const originalImage = document.getElementById('originalImage');
-    const cartoonImage = document.getElementById('cartoonImage');
-    const downloadBtn = document.getElementById('downloadBtn');
-    const loading = document.getElementById('loading');
-
-    let selectedStyle = 'ghibli';
-    let currentFile = null;
-
-    uploadZone.addEventListener('click', () => photoUpload.click());
-    uploadZone.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); photoUpload.click(); }
-    });
-    uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('dragover'); });
-    uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('dragover'));
-    uploadZone.addEventListener('drop', e => {
-      e.preventDefault();
-      uploadZone.classList.remove('dragover');
-      if (e.dataTransfer.files[0]) { photoUpload.files = e.dataTransfer.files; handleFileSelect(); }
-    });
-    photoUpload.addEventListener('change', handleFileSelect);
-
-    function handleFileSelect() {
-      const file = photoUpload.files[0];
-      if (file) { currentFile = file; fileName.textContent = file.name; }
-    }
-
-    document.querySelectorAll('.style-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.style-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        selectedStyle = btn.dataset.style;
-      });
-    });
-
-    function applyStyle(canvas, ctx, img, style) {
-      const w = canvas.width, h = canvas.height;
-      ctx.drawImage(img, 0, 0, w, h);
-      const imageData = ctx.getImageData(0, 0, w, h);
-      const d = imageData.data;
-      const presets = {
-        ghibli:     { sat: 0.85, bright: 12, warm: 18, blur: 1.2, levels: 6 },
-        anime:      { sat: 1.4,  bright: 5,  warm: -5, blur: 0,   levels: 8 },
-        pixar:      { sat: 1.2,  bright: 8,  warm: 10, blur: 0.6, levels: 10 },
-        disney:     { sat: 1.15, bright: 10, warm: 15, blur: 0.8, levels: 7 },
-        watercolor: { sat: 0.7,  bright: 15, warm: 5,  blur: 2,   levels: 5 },
-        comic:      { sat: 1.5,  bright: 0,  warm: 0,  blur: 0,   levels: 4 },
-        simpsons:   { sat: 1.3,  bright: 5,  warm: 20, blur: 0,   levels: 5 },
-        '3d':       { sat: 1.1,  bright: 6,  warm: 8,  blur: 0.4, levels: 12 }
-      };
-      const p = presets[style] || presets.ghibli;
-      for (let i = 0; i < d.length; i += 4) {
-        let r = d[i], g = d[i+1], b = d[i+2];
-        r = Math.min(255, r * p.sat + p.warm);
-        g = Math.min(255, g * p.sat + p.bright * 0.3);
-        b = Math.min(255, b * p.sat - p.warm * 0.3 + p.bright * 0.2);
-        const step = 255 / p.levels;
-        r = Math.round(r / step) * step;
-        g = Math.round(g / step) * step;
-        b = Math.round(b / step) * step;
-        d[i] = r; d[i+1] = g; d[i+2] = b;
-      }
-      ctx.putImageData(imageData, 0, 0);
-      if (p.blur > 0) {
-        ctx.filter = `blur(${p.blur}px) saturate(${p.sat})`;
-        ctx.globalAlpha = 0.35;
-        ctx.drawImage(canvas, 0, 0);
-        ctx.globalAlpha = 1;
-        ctx.filter = 'none';
-      }
-    }
-
-    function stylizeLocally(file) {
-      return new Promise((resolve, reject) => {
-        const img = new Image();
-        const reader = new FileReader();
-        reader.onload = e => {
-          img.onload = () => {
-            let w = img.width, h = img.height;
-            const max = 800;
-            if (w > max || h > max) {
-              const ratio = Math.min(max / w, max / h);
-              w = Math.round(w * ratio); h = Math.round(h * ratio);
-            }
-            const canvas = document.createElement('canvas');
-            canvas.width = w; canvas.height = h;
-            applyStyle(canvas, canvas.getContext('2d'), img, selectedStyle);
-            resolve(canvas.toDataURL('image/png'));
-          };
-          img.onerror = reject;
-          img.src = e.target.result;
-        };
-        reader.onerror = reject;
-        reader.readAsDataURL(file);
-      });
-    }
-
-    generateBtn.addEventListener('click', async () => {
-      if (!currentFile) { alert('Please upload a photo first.'); return; }
-
-      const reader = new FileReader();
-      reader.onload = e => { originalImage.src = e.target.result; };
-      reader.readAsDataURL(currentFile);
-
-      previewSection.classList.add('visible');
-      loading.classList.add('visible');
-      generateBtn.disabled = true;
-
-      let resultUrl = null;
-      try {
-        const formData = new FormData();
-        formData.append('image', currentFile);
-        formData.append('style', selectedStyle);
-        const response = await fetch('/api/cartoon', { method: 'POST', body: formData });
-        if (response.ok) {
-          const data = await response.json();
-          if (data.imageUrl) resultUrl = data.imageUrl;
-        }
-      } catch (_) { /* fallback below */ }
-
-      if (!resultUrl) {
-        try { resultUrl = await stylizeLocally(currentFile); }
-        catch (err) { alert('Unable to process this image. Please try a different photo.'); console.error(err); }
-      }
-
-      if (resultUrl) cartoonImage.src = resultUrl;
-      loading.classList.remove('visible');
-      generateBtn.disabled = false;
-    });
-
-    downloadBtn.addEventListener('click', () => {
-      if (!cartoonImage.src) return;
-      const link = document.createElement('a');
-      link.href = cartoonImage.src;
-      link.download = `toolnex-${selectedStyle}.png`;
-      link.click();
-    });
-  </script>
-</body>
-</html>
+        <div class="container">
+            <h2>How ToolNex Converts Your Photo</h2>
+            <p class="section-intro">Three simple steps — no design skills required. ToolNex handles the artistic transformation automatically.</p>
+            <div class="steps">
+                <div class="step-item">
+                    <div class="step-num">1</div>
+                    <h3>Upload a Clear Portrait</h3>
+                   
