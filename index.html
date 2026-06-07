@@ -1049,50 +1049,151 @@
       return Math.min(max, Math.max(min, value));
     }
 
+    function mix(a, b, t) {
+      return a * (1 - t) + b * t;
+    }
+
+    function getLuma(r, g, b) {
+      return 0.299 * r + 0.587 * g + 0.114 * b;
+    }
+
+    function adjustSaturation(value, luma, factor) {
+      return clamp(luma + (value - luma) * factor, 0, 255);
+    }
+
+    function posterize(value, levels) {
+      if (levels < 2) return value;
+      const step = 255 / (levels - 1);
+      return Math.round(value / step) * step;
+    }
+
+    function generateEdgeMask(data, w, h, threshold) {
+      const edges = new Uint8ClampedArray(data.length);
+      const toGray = (r, g, b) => 0.299 * r + 0.587 * g + 0.114 * b;
+      for (let y = 0; y < h; y++) {
+        for (let x = 0; x < w; x++) {
+          const idx = (y * w + x) * 4;
+          const current = toGray(data[idx], data[idx + 1], data[idx + 2]);
+          const right = x < w - 1 ? toGray(data[idx + 4], data[idx + 5], data[idx + 6]) : current;
+          const below = y < h - 1 ? toGray(data[idx + w * 4], data[idx + w * 4 + 1], data[idx + w * 4 + 2]) : current;
+          const diff = Math.abs(current - right) + Math.abs(current - below);
+          const alpha = diff > threshold ? 255 : 0;
+          edges[idx] = 0;
+          edges[idx + 1] = 0;
+          edges[idx + 2] = 0;
+          edges[idx + 3] = alpha;
+        }
+      }
+      return new ImageData(edges, w, h);
+    }
+
     function advancedCartoonFilter(canvas, ctx, img, style, power) {
       const w = canvas.width;
       const h = canvas.height;
-      ctx.drawImage(img, 0, 0, w, h);
+
+      const source = document.createElement('canvas');
+      source.width = w;
+      source.height = h;
+      const sourceCtx = source.getContext('2d');
+      sourceCtx.drawImage(img, 0, 0, w, h);
 
       const styleConfig = {
-        ghibli: { contrast: 0.22, brightness: 0.06, saturate: 0.16, sat: 0.9, warm: 20, bright: 18, redShift: 0.02, greenShift: 0.01, blueShift: -0.01, level: 4, blur: 2.4, blurAlpha: 0.36, edge: false, edgeThick: 0, glow: 0.06, vignette: true },
-        anime: { contrast: 0.38, brightness: 0.08, saturate: 0.32, sat: 1.8, warm: -10, bright: 12, redShift: 0.04, greenShift: 0.03, blueShift: -0.02, level: 12, blur: 0, blurAlpha: 0, edge: true, edgeThick: 1.6, glow: 0, vignette: false },
-        pixar: { contrast: 0.28, brightness: 0.10, saturate: 0.25, sat: 1.4, warm: 16, bright: 14, redShift: 0.03, greenShift: 0.02, blueShift: 0, level: 16, blur: 1.1, blurAlpha: 0.24, edge: false, edgeThick: 0, glow: 0.08, vignette: true },
-        disney: { contrast: 0.24, brightness: 0.10, saturate: 0.24, sat: 1.5, warm: 24, bright: 16, redShift: 0.03, greenShift: 0.02, blueShift: 0, level: 8, blur: 1.2, blurAlpha: 0.30, edge: false, edgeThick: 0, glow: 0.05, vignette: true },
-        watercolor: { contrast: 0.14, brightness: 0.14, saturate: 0.08, sat: 0.8, warm: 10, bright: 24, redShift: 0.01, greenShift: 0.01, blueShift: 0.02, level: 3, blur: 3.0, blurAlpha: 0.5, edge: false, edgeThick: 0, glow: 0.04, vignette: false },
-        comic: { contrast: 0.4, brightness: 0.04, saturate: 0.35, sat: 2.2, warm: 0, bright: 4, redShift: 0.05, greenShift: 0.01, blueShift: -0.02, level: 2, blur: 0, blurAlpha: 0, edge: true, edgeThick: 2.4, glow: 0, vignette: false },
-        simpsons: { contrast: 0.32, brightness: 0.12, saturate: 0.40, sat: 2.0, warm: 22, bright: 10, redShift: 0.06, greenShift: 0.01, blueShift: -0.04, level: 5, blur: 0, blurAlpha: 0, edge: true, edgeThick: 1.8, glow: 0, vignette: false },
-        '3d': { contrast: 0.26, brightness: 0.12, saturate: 0.22, sat: 1.5, warm: 14, bright: 12, redShift: 0.02, greenShift: 0.02, blueShift: 0.01, level: 18, blur: 0.8, blurAlpha: 0.18, edge: false, edgeThick: 0, glow: 0.1, vignette: true }
+        ghibli: { contrast: 0.28, brightness: 0.08, saturate: 0.22, sat: 1.0, warm: 18, bright: 20, redShift: 0.03, greenShift: 0.02, blueShift: -0.03, level: 5, blur: 2.4, blurAlpha: 0.3, edge: false, edgeThick: 0, glow: 0.1, vignette: true },
+        anime: { contrast: 0.54, brightness: 0.06, saturate: 0.45, sat: 2.5, warm: -6, bright: 10, redShift: 0.04, greenShift: 0.03, blueShift: 0.02, level: 10, blur: 0, blurAlpha: 0, edge: true, edgeThick: 2.8, glow: 0, vignette: false },
+        pixar: { contrast: 0.36, brightness: 0.14, saturate: 0.34, sat: 1.8, warm: 20, bright: 18, redShift: 0.04, greenShift: 0.03, blueShift: 0.01, level: 12, blur: 1.1, blurAlpha: 0.22, edge: false, edgeThick: 0, glow: 0.14, vignette: true },
+        disney: { contrast: 0.32, brightness: 0.13, saturate: 0.28, sat: 1.6, warm: 26, bright: 18, redShift: 0.02, greenShift: 0.015, blueShift: 0.01, level: 8, blur: 1.3, blurAlpha: 0.25, edge: false, edgeThick: 0, glow: 0.08, vignette: true },
+        watercolor: { contrast: 0.18, brightness: 0.16, saturate: 0.12, sat: 0.6, warm: 14, bright: 22, redShift: 0.02, greenShift: 0.02, blueShift: 0.03, level: 4, blur: 3.8, blurAlpha: 0.45, edge: false, edgeThick: 0, glow: 0.04, vignette: false },
+        comic: { contrast: 0.58, brightness: 0.05, saturate: 0.55, sat: 2.8, warm: 0, bright: 8, redShift: 0.04, greenShift: 0.03, blueShift: -0.03, level: 3, blur: 0, blurAlpha: 0, edge: true, edgeThick: 4.0, glow: 0, vignette: false },
+        simpsons: { contrast: 0.42, brightness: 0.18, saturate: 0.55, sat: 2.5, warm: 32, bright: 14, redShift: 0.12, greenShift: 0.04, blueShift: -0.14, level: 4, blur: 0, blurAlpha: 0, edge: true, edgeThick: 3.0, glow: 0, vignette: false },
+        '3d': { contrast: 0.38, brightness: 0.16, saturate: 0.34, sat: 1.9, warm: 16, bright: 16, redShift: 0.02, greenShift: 0.02, blueShift: 0.03, level: 14, blur: 1.0, blurAlpha: 0.22, edge: false, edgeThick: 0, glow: 0.16, vignette: true }
       };
       const cfg = styleConfig[style] || styleConfig.ghibli;
       const p = power;
 
       ctx.filter = `contrast(${1 + cfg.contrast * p}) brightness(${1 + cfg.brightness * p}) saturate(${1 + cfg.saturate * p})`;
-      ctx.drawImage(canvas, 0, 0);
+      ctx.drawImage(source, 0, 0);
       ctx.filter = 'none';
 
-      const imageData = ctx.getImageData(0, 0, w, h);
-      const data = imageData.data;
+      let imageData = ctx.getImageData(0, 0, w, h);
+      let data = imageData.data;
       const colorStep = 255 / cfg.level;
 
       for (let i = 0; i < data.length; i += 4) {
         let r = data[i];
         let g = data[i + 1];
         let b = data[i + 2];
+        const luma = getLuma(r, g, b);
+        const satFactor = 1 + cfg.sat * p;
 
-        r = clamp(r * (1 + cfg.sat * p) + cfg.warm * p + cfg.redShift * 255 * p, 0, 255);
-        g = clamp(g * (1 + cfg.sat * p) + cfg.bright * 0.28 * p + cfg.greenShift * 255 * p, 0, 255);
-        b = clamp(b * (1 + cfg.sat * p) - cfg.warm * 0.22 * p + cfg.blueShift * 255 * p, 0, 255);
+        r = adjustSaturation(r, luma, satFactor);
+        g = adjustSaturation(g, luma, satFactor);
+        b = adjustSaturation(b, luma, satFactor);
 
-        if (cfg.level > 1) {
-          r = Math.round(r / colorStep) * colorStep;
-          g = Math.round(g / colorStep) * colorStep;
-          b = Math.round(b / colorStep) * colorStep;
+        if (style === 'watercolor') {
+          const wash = (r + g + b) / 3;
+          r = mix(r, wash + 24 * p, 0.2);
+          g = mix(g, wash + 20 * p, 0.2);
+          b = mix(b, wash + 30 * p, 0.28);
+        }
+
+        r = clamp(r + cfg.warm * p * 0.12 + cfg.redShift * 255 * p, 0, 255);
+        g = clamp(g + cfg.bright * 0.24 * p + cfg.greenShift * 255 * p, 0, 255);
+        b = clamp(b - cfg.warm * 0.14 * p + cfg.blueShift * 255 * p, 0, 255);
+
+        switch (style) {
+          case 'ghibli':
+            r = clamp(r + 12 * p, 0, 255);
+            g = clamp(g + 10 * p, 0, 255);
+            b = clamp(b - 6 * p, 0, 255);
+            break;
+          case 'anime':
+            r = clamp(r * 1.1 + 18 * p, 0, 255);
+            g = clamp(g * 1.05 + 10 * p, 0, 255);
+            b = clamp(b * 1.08 + 6 * p, 0, 255);
+            break;
+          case 'pixar':
+            const shine = getLuma(r, g, b) / 255;
+            r = clamp(r + shine * 16 * p, 0, 255);
+            g = clamp(g + shine * 11 * p, 0, 255);
+            b = clamp(b + shine * 8 * p, 0, 255);
+            break;
+          case 'disney':
+            r = clamp(r + 14 * p, 0, 255);
+            g = clamp(g + 9 * p, 0, 255);
+            b = clamp(b - 8 * p, 0, 255);
+            break;
+          case 'comic':
+            r = clamp(r * 1.08, 0, 255);
+            g = clamp(g * 1.08, 0, 255);
+            b = clamp(b * 1.08, 0, 255);
+            break;
+          case 'simpsons':
+            r = clamp(r * 1.18 + 25 * p, 0, 255);
+            g = clamp(g * 1.15 + 34 * p, 0, 255);
+            b = clamp(b * 0.6 + 14 * p, 0, 255);
+            break;
+          case '3d':
+            const depth = (luma - 128) / 128;
+            r = clamp(r + depth * 12 * p, 0, 255);
+            g = clamp(g + depth * 9 * p, 0, 255);
+            b = clamp(b + depth * 14 * p, 0, 255);
+            break;
+        }
+
+        if (style === 'comic' || style === 'simpsons' || style === 'anime') {
+          const posterLevels = style === 'comic' ? 3 : style === 'simpsons' ? 4 : 8;
+          r = posterize(r, posterLevels);
+          g = posterize(g, posterLevels);
+          b = posterize(b, posterLevels);
+        } else if (cfg.level > 1) {
+          r = posterize(r, cfg.level);
+          g = posterize(g, cfg.level);
+          b = posterize(b, cfg.level);
         }
 
         data[i] = r;
-        data[i+1] = g;
-        data[i+2] = b;
+        data[i + 1] = g;
+        data[i + 2] = b;
       }
 
       ctx.putImageData(imageData, 0, 0);
@@ -1105,9 +1206,46 @@
         ctx.filter = 'none';
       }
 
+      if (style === 'anime' || style === 'comic' || style === 'simpsons') {
+        const edgeData = generateEdgeMask(imageData.data, w, h, 24 + 12 * p);
+        ctx.putImageData(edgeData, 0, 0);
+        ctx.globalAlpha = 0.28 * p;
+        ctx.drawImage(canvas, 0, 0);
+        ctx.globalAlpha = 1;
+      }
+
       if (cfg.glow > 0) {
         ctx.globalCompositeOperation = 'screen';
-        ctx.fillStyle = `rgba(255,255,255,${cfg.glow * p})`;
+        ctx.fillStyle = style === 'pixar' || style === '3d' ? `rgba(255,255,250,${cfg.glow * p})` : `rgba(255,255,245,${cfg.glow * p})`;
+        ctx.fillRect(0, 0, w, h);
+        ctx.globalCompositeOperation = 'source-over';
+      }
+
+      if (style === 'pixar' || style === '3d') {
+        const highlight = ctx.createRadialGradient(w * 0.3, h * 0.2, w * 0.05, w * 0.3, h * 0.2, w * 0.6);
+        highlight.addColorStop(0, `rgba(255,255,255,${0.18 * p})`);
+        highlight.addColorStop(1, 'rgba(255,255,255,0)');
+        ctx.fillStyle = highlight;
+        ctx.fillRect(0, 0, w, h);
+      }
+
+      if (style === 'disney') {
+        ctx.globalCompositeOperation = 'overlay';
+        ctx.fillStyle = `rgba(255,220,180,${0.1 * p})`;
+        ctx.fillRect(0, 0, w, h);
+        ctx.globalCompositeOperation = 'source-over';
+      }
+
+      if (style === 'watercolor') {
+        ctx.globalCompositeOperation = 'lighten';
+        ctx.fillStyle = `rgba(255, 240, 235, ${0.12 * p})`;
+        ctx.fillRect(0, 0, w, h);
+        ctx.globalCompositeOperation = 'source-over';
+      }
+
+      if (style === 'simpsons') {
+        ctx.globalCompositeOperation = 'multiply';
+        ctx.fillStyle = `rgba(255, 235, 120, ${0.08 * p})`;
         ctx.fillRect(0, 0, w, h);
         ctx.globalCompositeOperation = 'source-over';
       }
@@ -1120,7 +1258,7 @@
         ctx.fillRect(0, 0, w, h);
       }
 
-      if (cfg.edge && cfg.edgeThick > 0) {
+      if (cfg.edge && cfg.edgeThick > 0 && style !== 'anime' && style !== 'comic' && style !== 'simpsons') {
         ctx.strokeStyle = '#000000';
         ctx.lineWidth = cfg.edgeThick * p;
         ctx.globalAlpha = 0.4 * p;
