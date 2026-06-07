@@ -208,6 +208,27 @@
       color: var(--primary);
       font-weight: 600;
     }
+    .style-info {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 18px 16px;
+      margin-bottom: 24px;
+      border: 1px solid rgba(30, 64, 175, 0.12);
+      border-radius: var(--radius-sm);
+      background: #f8fbff;
+    }
+    .style-info strong {
+      display: block;
+      font-size: 15px;
+      color: var(--primary);
+      font-weight: 700;
+    }
+    .style-info p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
 
     /* 功能按钮 */
     .btn-primary {
@@ -413,6 +434,11 @@
           <button type="button" class="style-btn" data-style="3d" data-i18n="style3d">3D Render</button>
         </div>
 
+        <div class="style-info" id="styleInfo">
+          <strong id="styleName">Ghibli-Inspired</strong>
+          <p id="styleDesc">Soft hand-painted lighting, warm edges and gentle color transitions for a polished animation portrait.</p>
+        </div>
+
         <div class="strength-label">
           <span data-i18n="strengthText">Style Strength</span>
           <span id="strengthValue">80%</span>
@@ -458,6 +484,26 @@
           <article class="feature-card">
             <h3 data-i18n="cardPixarTitle">3D & Pixar-Style Characters</h3>
             <p data-i18n="cardPixarDesc">Rounded forms and studio lighting create friendly cinematic 3D cartoon characters.</p>
+          </article>
+          <article class="feature-card">
+            <h3 data-i18n="cardDisneyTitle">Classic Disney Illustration</h3>
+            <p data-i18n="cardDisneyDesc">Golden lighting and soft facial modeling for a polished storybook portrait.</p>
+          </article>
+          <article class="feature-card">
+            <h3 data-i18n="cardWatercolorTitle">Watercolor Portrait</h3>
+            <p data-i18n="cardWatercolorDesc">Airy brush textures and flowing color washes mimic premium watercolor art.</p>
+          </article>
+          <article class="feature-card">
+            <h3 data-i18n="cardComicTitle">Comic Book Pop Art</h3>
+            <p data-i18n="cardComicDesc">Bold outlines, bright palette and graphic shading for an energetic comic finish.</p>
+          </article>
+          <article class="feature-card">
+            <h3 data-i18n="cardCartoonTitle">Flat Cartoon Render</h3>
+            <p data-i18n="cardCartoonDesc">Simple color fields and clear shapes for a modern flat cartoon look.</p>
+          </article>
+          <article class="feature-card">
+            <h3 data-i18n="card3dTitle">3D Render Glow</h3>
+            <p data-i18n="card3dDesc">Soft highlights and beautiful depth for a polished 3D-style finish.</p>
           </article>
         </div>
       </div>
@@ -914,10 +960,54 @@
     const loading = document.getElementById('loading');
     const styleStrength = document.getElementById('styleStrength');
     const strengthValue = document.getElementById('strengthValue');
+    const styleName = document.getElementById('styleName');
+    const styleDesc = document.getElementById('styleDesc');
 
     let selectedStyle = 'ghibli';
     let currentFile = null;
     let strength = 0.8;
+
+    const styleInfoMap = {
+      ghibli: {
+        label: 'Ghibli-Inspired',
+        description: 'Soft hand-painted lighting, warm edges and gentle color transitions for a polished animation portrait.'
+      },
+      anime: {
+        label: 'Anime',
+        description: 'Crisp edges, vivid contrast and expressive color tones tuned for manga-style portraits.'
+      },
+      pixar: {
+        label: '3D Pixar',
+        description: 'Smooth skin, soft studio highlights and cinematic depth for friendly 3D character art.'
+      },
+      disney: {
+        label: 'Classic Disney',
+        description: 'Warm storybook lighting, subtle shading and smooth detail for a timeless illustration look.'
+      },
+      watercolor: {
+        label: 'Watercolor',
+        description: 'Loose brush textures, layered color washes and soft blur for an artistic watercolor finish.'
+      },
+      comic: {
+        label: 'Comic Book',
+        description: 'Bold ink outlines, saturated tones and graphic shading that feel like pop art panels.'
+      },
+      simpsons: {
+        label: 'Flat Cartoon',
+        description: 'Clean flat color fields, crisp shapes and bold linework for a modern cartoon effect.'
+      },
+      '3d': {
+        label: '3D Render',
+        description: 'Subtle highlights, polished depth and soft shadows to mimic CGI-inspired portrait style.'
+      }
+    };
+
+    function updateStyleInfo(style) {
+      const info = styleInfoMap[style] || styleInfoMap.ghibli;
+      selectedStyle = style;
+      styleName.textContent = info.label;
+      styleDesc.textContent = info.description;
+    }
 
     // 强度滑块
     styleStrength.addEventListener('input', () => {
@@ -949,75 +1039,92 @@
       btn.addEventListener('click', () => {
         document.querySelectorAll('.style-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        selectedStyle = btn.dataset.style;
+        updateStyleInfo(btn.dataset.style);
       });
     });
+    updateStyleInfo(selectedStyle);
 
     // ========== 3. 升级版图像处理算法（深度卡通化，彻底区分原图） ==========
+    function clamp(value, min, max) {
+      return Math.min(max, Math.max(min, value));
+    }
+
     function advancedCartoonFilter(canvas, ctx, img, style, power) {
       const w = canvas.width;
       const h = canvas.height;
       ctx.drawImage(img, 0, 0, w, h);
 
-      // 1. 基础强化：对比度+亮度+降噪
-      ctx.filter = `contrast(${1.3 + power*0.2}) brightness(${1.08}) saturate(${1.1})`;
+      const styleConfig = {
+        ghibli: { contrast: 0.22, brightness: 0.06, saturate: 0.16, sat: 0.9, warm: 20, bright: 18, redShift: 0.02, greenShift: 0.01, blueShift: -0.01, level: 4, blur: 2.4, blurAlpha: 0.36, edge: false, edgeThick: 0, glow: 0.06, vignette: true },
+        anime: { contrast: 0.38, brightness: 0.08, saturate: 0.32, sat: 1.8, warm: -10, bright: 12, redShift: 0.04, greenShift: 0.03, blueShift: -0.02, level: 12, blur: 0, blurAlpha: 0, edge: true, edgeThick: 1.6, glow: 0, vignette: false },
+        pixar: { contrast: 0.28, brightness: 0.10, saturate: 0.25, sat: 1.4, warm: 16, bright: 14, redShift: 0.03, greenShift: 0.02, blueShift: 0, level: 16, blur: 1.1, blurAlpha: 0.24, edge: false, edgeThick: 0, glow: 0.08, vignette: true },
+        disney: { contrast: 0.24, brightness: 0.10, saturate: 0.24, sat: 1.5, warm: 24, bright: 16, redShift: 0.03, greenShift: 0.02, blueShift: 0, level: 8, blur: 1.2, blurAlpha: 0.30, edge: false, edgeThick: 0, glow: 0.05, vignette: true },
+        watercolor: { contrast: 0.14, brightness: 0.14, saturate: 0.08, sat: 0.8, warm: 10, bright: 24, redShift: 0.01, greenShift: 0.01, blueShift: 0.02, level: 3, blur: 3.0, blurAlpha: 0.5, edge: false, edgeThick: 0, glow: 0.04, vignette: false },
+        comic: { contrast: 0.4, brightness: 0.04, saturate: 0.35, sat: 2.2, warm: 0, bright: 4, redShift: 0.05, greenShift: 0.01, blueShift: -0.02, level: 2, blur: 0, blurAlpha: 0, edge: true, edgeThick: 2.4, glow: 0, vignette: false },
+        simpsons: { contrast: 0.32, brightness: 0.12, saturate: 0.40, sat: 2.0, warm: 22, bright: 10, redShift: 0.06, greenShift: 0.01, blueShift: -0.04, level: 5, blur: 0, blurAlpha: 0, edge: true, edgeThick: 1.8, glow: 0, vignette: false },
+        '3d': { contrast: 0.26, brightness: 0.12, saturate: 0.22, sat: 1.5, warm: 14, bright: 12, redShift: 0.02, greenShift: 0.02, blueShift: 0.01, level: 18, blur: 0.8, blurAlpha: 0.18, edge: false, edgeThick: 0, glow: 0.1, vignette: true }
+      };
+      const cfg = styleConfig[style] || styleConfig.ghibli;
+      const p = power;
+
+      ctx.filter = `contrast(${1 + cfg.contrast * p}) brightness(${1 + cfg.brightness * p}) saturate(${1 + cfg.saturate * p})`;
       ctx.drawImage(canvas, 0, 0);
       ctx.filter = 'none';
 
       const imageData = ctx.getImageData(0, 0, w, h);
       const data = imageData.data;
-
-      // 2. 各风格专属参数（大幅拉大风格差异）
-      const styleConfig = {
-        ghibli: { sat: 0.6, warm: 28, bright: 22, level: 4, blur: 2.5, edge: false, edgeThick: 0 },
-        anime: { sat: 2.2, warm: -12, bright: 10, level: 12, blur: 0, edge: true, edgeThick: 1.8 },
-        pixar: { sat: 1.6, warm: 18, bright: 14, level: 16, blur: 1.0, edge: false, edgeThick: 0 },
-        disney: { sat: 1.5, warm: 22, bright: 18, level: 9, blur: 1.4, edge: false, edgeThick: 0 },
-        watercolor: { sat: 0.5, warm: 12, bright: 26, level: 3, blur: 3.2, edge: false, edgeThick: 0 },
-        comic: { sat: 2.4, warm: 0, bright: 0, level: 2, blur: 0, edge: true, edgeThick: 2.2 },
-        simpsons: { sat: 1.9, warm: 30, bright: 12, level: 5, blur: 0, edge: true, edgeThick: 1.5 },
-        '3d': { sat: 1.5, warm: 15, bright: 12, level: 18, blur: 0.8, edge: false, edgeThick: 0 }
-      };
-      const cfg = styleConfig[style] || styleConfig.ghibli;
-      const p = power;
-
-      // 3. 色彩重映射 + 色块量化（核心卡通效果）
       const colorStep = 255 / cfg.level;
+
       for (let i = 0; i < data.length; i += 4) {
         let r = data[i];
-        let g = data[i+1];
-        let b = data[i+2];
+        let g = data[i + 1];
+        let b = data[i + 2];
 
-        r = Math.min(255, r * (1 + cfg.sat * p) + cfg.warm * p);
-        g = Math.min(255, g * (1 + cfg.sat * p) + cfg.bright * 0.3 * p);
-        b = Math.min(255, b * (1 + cfg.sat * p) - cfg.warm * 0.3 * p + cfg.bright * 0.2 * p);
+        r = clamp(r * (1 + cfg.sat * p) + cfg.warm * p + cfg.redShift * 255 * p, 0, 255);
+        g = clamp(g * (1 + cfg.sat * p) + cfg.bright * 0.28 * p + cfg.greenShift * 255 * p, 0, 255);
+        b = clamp(b * (1 + cfg.sat * p) - cfg.warm * 0.22 * p + cfg.blueShift * 255 * p, 0, 255);
 
-        // 色块扁平化
-        r = Math.round(r / colorStep) * colorStep;
-        g = Math.round(g / colorStep) * colorStep;
-        b = Math.round(b / colorStep) * colorStep;
+        if (cfg.level > 1) {
+          r = Math.round(r / colorStep) * colorStep;
+          g = Math.round(g / colorStep) * colorStep;
+          b = Math.round(b / colorStep) * colorStep;
+        }
 
         data[i] = r;
         data[i+1] = g;
         data[i+2] = b;
       }
+
       ctx.putImageData(imageData, 0, 0);
 
-      // 4. 水彩/柔化模糊
-      if(cfg.blur > 0) {
+      if (cfg.blur > 0) {
         ctx.filter = `blur(${cfg.blur * p}px)`;
-        ctx.globalAlpha = 0.45;
+        ctx.globalAlpha = cfg.blurAlpha;
         ctx.drawImage(canvas, 0, 0);
         ctx.globalAlpha = 1;
         ctx.filter = 'none';
       }
 
-      // 5. 动漫/漫画黑色描边
-      if(cfg.edge && cfg.edgeThick > 0) {
-        ctx.strokeStyle = "#000000";
+      if (cfg.glow > 0) {
+        ctx.globalCompositeOperation = 'screen';
+        ctx.fillStyle = `rgba(255,255,255,${cfg.glow * p})`;
+        ctx.fillRect(0, 0, w, h);
+        ctx.globalCompositeOperation = 'source-over';
+      }
+
+      if (cfg.vignette) {
+        const gradient = ctx.createRadialGradient(w / 2, h / 2, w * 0.22, w / 2, h / 2, w * 0.9);
+        gradient.addColorStop(0, 'rgba(255,255,255,0)');
+        gradient.addColorStop(1, 'rgba(0,0,0,0.28)');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, w, h);
+      }
+
+      if (cfg.edge && cfg.edgeThick > 0) {
+        ctx.strokeStyle = '#000000';
         ctx.lineWidth = cfg.edgeThick * p;
         ctx.globalAlpha = 0.4 * p;
-        ctx.strokeRect(0,0,w,h);
+        ctx.strokeRect(0, 0, w, h);
         ctx.globalAlpha = 1;
       }
     }
