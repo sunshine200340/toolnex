@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ToolNex — AI Photo to Cartoon &amp; Animation Converter | Ghibli-Style Portrait</title>
+  <title>ToolNex — AI Photo to Cartoon & Animation Converter | Ghibli-Style Portrait</title>
   <meta name="description" content="ToolNex transforms your real photos into hand-painted animation-style portraits. Upload a selfie and get Ghibli-inspired, anime, Pixar, or watercolor art in seconds — free online at www.toolnex.xyz.">
   <meta name="keywords" content="toolnex, photo to cartoon, ghibli style portrait, ai animation converter, turn photo into anime, cartoon generator">
   <meta name="author" content="ToolNex">
@@ -62,6 +62,22 @@
     .upload-hint { font-size: 14px; color: var(--text-secondary); }
     .file-name { margin-top: 10px; font-size: 13px; color: var(--accent); font-weight: 500; }
     h3.section-label { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--text-secondary); margin-bottom: 14px; }
+    
+    /* 新增：风格强度滑块 */
+    .strength-slider {
+      width: 100%;
+      margin: 10px 0 28px 0;
+      accent-color: var(--accent);
+      height: 6px;
+    }
+    .strength-label {
+      font-size: 14px;
+      color: var(--text-secondary);
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
     .style-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; margin-bottom: 28px; }
     .style-btn { font-family: var(--font); font-size: 14px; font-weight: 500; padding: 12px 8px; border: 1.5px solid var(--border); border-radius: var(--radius-sm); background: var(--surface); cursor: pointer; transition: all .2s; color: var(--text); }
     .style-btn:hover { border-color: var(--accent); }
@@ -145,6 +161,13 @@
           <button type="button" class="style-btn" data-style="3d">3D Render</button>
         </div>
 
+        <!-- 新增：风格强度调节滑块 -->
+        <div class="strength-label">
+          <span>Style Strength</span>
+          <span id="strengthValue">80%</span>
+        </div>
+        <input type="range" min="30" max="100" value="80" class="strength-slider" id="styleStrength">
+
         <button type="button" class="btn-primary" id="generateBtn">Generate with ToolNex</button>
 
         <div class="loading" id="loading">
@@ -178,11 +201,11 @@
             <p>Soft pastel skies, warm skin tones, and delicate linework evoke a quiet meadow scene. ToolNex emphasizes natural lighting and gentle color gradients — ideal for profile pictures that feel nostalgic and alive.</p>
           </article>
           <article class="feature-card">
-            <h3>Anime &amp; Manga Portrait</h3>
+            <h3>Anime & Manga Portrait</h3>
             <p>Sharper contours, larger expressive eyes, and saturated hair colors transform everyday selfies into character art ready for avatars, streaming overlays, or fan projects.</p>
           </article>
           <article class="feature-card">
-            <h3>3D &amp; Pixar-Style Characters</h3>
+            <h3>3D & Pixar-Style Characters</h3>
             <p>Rounded forms, studio lighting, and polished surfaces give your photo a friendly, cinematic 3D character appearance — perfect for family portraits with a playful twist.</p>
           </article>
         </div>
@@ -206,7 +229,7 @@
           </div>
           <div class="step-item">
             <div class="step-num">3</div>
-            <h3>Download &amp; Share</h3>
+            <h3>Download & Share</h3>
             <p>Preview the before-and-after side by side, then save your new animated portrait. Use it on social media, messaging apps, or as a creative gift.</p>
           </div>
         </div>
@@ -219,7 +242,7 @@
         <p class="section-intro">ToolNex is built for anyone who wants a quick, beautiful portrait transformation without learning complex editing software.</p>
         <div class="feature-grid">
           <article class="feature-card">
-            <h3>Browser-Based &amp; Instant</h3>
+            <h3>Browser-Based & Instant</h3>
             <p>Run ToolNex directly at www.toolnex.xyz — no app install, no account signup. Upload, generate, and download in your browser within seconds.</p>
           </article>
           <article class="feature-card">
@@ -275,9 +298,18 @@
     const cartoonImage = document.getElementById('cartoonImage');
     const downloadBtn = document.getElementById('downloadBtn');
     const loading = document.getElementById('loading');
+    const styleStrength = document.getElementById('styleStrength');
+    const strengthValue = document.getElementById('strengthValue');
 
     let selectedStyle = 'ghibli';
     let currentFile = null;
+    let strength = 0.8;
+
+    // 风格强度滑块实时显示
+    styleStrength.addEventListener('input', () => {
+      strength = styleStrength.value / 100;
+      strengthValue.textContent = styleStrength.value + '%';
+    });
 
     uploadZone.addEventListener('click', () => photoUpload.click());
     uploadZone.addEventListener('keydown', e => {
@@ -305,40 +337,129 @@
       });
     });
 
-    function applyStyle(canvas, ctx, img, style) {
-      const w = canvas.width, h = canvas.height;
+    // 核心优化：超强卡通化+风格化算法
+    function applyStrongCartoonStyle(canvas, ctx, img, style, strength) {
+      const w = canvas.width;
+      const h = canvas.height;
       ctx.drawImage(img, 0, 0, w, h);
+      
+      // 1. 基础卡通轮廓（解决和原图一样的问题）
+      ctx.filter = 'contrast(1.3) brightness(1.05)';
+      ctx.drawImage(canvas, 0, 0);
+      ctx.filter = 'none';
+
       const imageData = ctx.getImageData(0, 0, w, h);
       const d = imageData.data;
-      const presets = {
-        ghibli:     { sat: 0.85, bright: 12, warm: 18, blur: 1.2, levels: 6 },
-        anime:      { sat: 1.4,  bright: 5,  warm: -5, blur: 0,   levels: 8 },
-        pixar:      { sat: 1.2,  bright: 8,  warm: 10, blur: 0.6, levels: 10 },
-        disney:     { sat: 1.15, bright: 10, warm: 15, blur: 0.8, levels: 7 },
-        watercolor: { sat: 0.7,  bright: 15, warm: 5,  blur: 2,   levels: 5 },
-        comic:      { sat: 1.5,  bright: 0,  warm: 0,  blur: 0,   levels: 4 },
-        simpsons:   { sat: 1.3,  bright: 5,  warm: 20, blur: 0,   levels: 5 },
-        '3d':       { sat: 1.1,  bright: 6,  warm: 8,  blur: 0.4, levels: 12 }
+
+      // 2. 每个风格专属强化参数
+      const stylePresets = {
+        ghibli: {
+          saturation: 0.7 * strength,
+          warmth: 22 * strength,
+          brightness: 18 * strength,
+          quantization: 5,
+          blur: 2.0 * strength,
+          outline: false
+        },
+        anime: {
+          saturation: 1.8 * strength,
+          warmth: -8 * strength,
+          brightness: 8 * strength,
+          quantization: 10,
+          blur: 0,
+          outline: true
+        },
+        pixar: {
+          saturation: 1.4 * strength,
+          warmth: 15 * strength,
+          brightness: 12 * strength,
+          quantization: 14,
+          blur: 0.8 * strength,
+          outline: false
+        },
+        disney: {
+          saturation: 1.3 * strength,
+          warmth: 20 * strength,
+          brightness: 15 * strength,
+          quantization: 8,
+          blur: 1.2 * strength,
+          outline: false
+        },
+        watercolor: {
+          saturation: 0.6 * strength,
+          warmth: 10 * strength,
+          brightness: 22 * strength,
+          quantization: 4,
+          blur: 2.8 * strength,
+          outline: false
+        },
+        comic: {
+          saturation: 2.0 * strength,
+          warmth: 0,
+          brightness: 0,
+          quantization: 3,
+          blur: 0,
+          outline: true
+        },
+        simpsons: {
+          saturation: 1.6 * strength,
+          warmth: 25 * strength,
+          brightness: 10 * strength,
+          quantization: 6,
+          blur: 0,
+          outline: true
+        },
+        '3d': {
+          saturation: 1.3 * strength,
+          warmth: 12 * strength,
+          brightness: 10 * strength,
+          quantization: 16,
+          blur: 0.6 * strength,
+          outline: false
+        }
       };
-      const p = presets[style] || presets.ghibli;
+
+      const s = stylePresets[style] || stylePresets.ghibli;
+
+      // 3. 色彩量化 = 真正卡通化（核心优化）
       for (let i = 0; i < d.length; i += 4) {
-        let r = d[i], g = d[i+1], b = d[i+2];
-        r = Math.min(255, r * p.sat + p.warm);
-        g = Math.min(255, g * p.sat + p.bright * 0.3);
-        b = Math.min(255, b * p.sat - p.warm * 0.3 + p.bright * 0.2);
-        const step = 255 / p.levels;
+        let r = d[i];
+        let g = d[i + 1];
+        let b = d[i + 2];
+
+        // 饱和度与色温
+        r = Math.min(255, r * (1 + s.saturation) + s.warmth);
+        g = Math.min(255, g * (1 + s.saturation) + s.brightness * 0.3);
+        b = Math.min(255, b * (1 + s.saturation) - s.warmth * 0.3 + s.brightness * 0.2);
+
+        // 色块化（卡通核心）
+        const step = 255 / s.quantization;
         r = Math.round(r / step) * step;
         g = Math.round(g / step) * step;
         b = Math.round(b / step) * step;
-        d[i] = r; d[i+1] = g; d[i+2] = b;
+
+        d[i] = r;
+        d[i + 1] = g;
+        d[i + 2] = b;
       }
       ctx.putImageData(imageData, 0, 0);
-      if (p.blur > 0) {
-        ctx.filter = `blur(${p.blur}px) saturate(${p.sat})`;
-        ctx.globalAlpha = 0.35;
+
+      // 4. 模糊/水彩质感
+      if (s.blur > 0) {
+        ctx.filter = `blur(${s.blur}px)`;
+        ctx.globalAlpha = 0.4;
         ctx.drawImage(canvas, 0, 0);
         ctx.globalAlpha = 1;
         ctx.filter = 'none';
+      }
+
+      // 5. 漫画/动漫轮廓线
+      if (s.outline) {
+        ctx.globalAlpha = 0.35 * strength;
+        ctx.strokeStyle = '#000';
+        ctx.lineWidth = 1.2;
+        ctx.strokeRect(0, 0, w, h);
+        ctx.globalAlpha = 1;
       }
     }
 
@@ -349,14 +470,16 @@
         reader.onload = e => {
           img.onload = () => {
             let w = img.width, h = img.height;
-            const max = 800;
+            const max = 900;
             if (w > max || h > max) {
               const ratio = Math.min(max / w, max / h);
-              w = Math.round(w * ratio); h = Math.round(h * ratio);
+              w = Math.round(w * ratio);
+              h = Math.round(h * ratio);
             }
             const canvas = document.createElement('canvas');
-            canvas.width = w; canvas.height = h;
-            applyStyle(canvas, canvas.getContext('2d'), img, selectedStyle);
+            canvas.width = w;
+            canvas.height = h;
+            applyStrongCartoonStyle(canvas, canvas.getContext('2d'), img, selectedStyle, strength);
             resolve(canvas.toDataURL('image/png'));
           };
           img.onerror = reject;
@@ -380,19 +503,10 @@
 
       let resultUrl = null;
       try {
-        const formData = new FormData();
-        formData.append('image', currentFile);
-        formData.append('style', selectedStyle);
-        const response = await fetch('/api/cartoon', { method: 'POST', body: formData });
-        if (response.ok) {
-          const data = await response.json();
-          if (data.imageUrl) resultUrl = data.imageUrl;
-        }
-      } catch (_) { /* fallback below */ }
-
-      if (!resultUrl) {
-        try { resultUrl = await stylizeLocally(currentFile); }
-        catch (err) { alert('Unable to process this image. Please try a different photo.'); console.error(err); }
+        resultUrl = await stylizeLocally(currentFile);
+      } catch (err) {
+        alert('Unable to process image. Try another photo.');
+        console.error(err);
       }
 
       if (resultUrl) cartoonImage.src = resultUrl;
