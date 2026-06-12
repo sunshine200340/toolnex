@@ -1,1340 +1,466 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ToolNex — AI Photo to Cartoon & Animation Converter | Ghibli-Style Portrait</title>
-  <meta name="description" content="ToolNex transforms your real photos into hand-painted animation-style portraits. Upload a selfie and get Ghibli-inspired, anime, Pixar, or watercolor art in seconds.">
-  <meta name="keywords" content="toolnex, photo to cartoon, ghibli style portrait, ai animation converter, turn photo into anime, cartoon generator">
-  <meta name="author" content="ToolNex">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.toolnex.xyz/">
-
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.toolnex.xyz/">
-  <meta property="og:title" content="ToolNex — Turn Real Photos Into Animated Art">
-  <meta property="og:description" content="Upload a photo and transform yourself into a hand-painted animation-style portrait with ToolNex.">
-  <meta property="og:site_name" content="ToolNex">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="ToolNex — AI Photo to Cartoon Converter">
-  <meta name="twitter:description" content="Turn real portraits into animation-style art with ToolNex. Ghibli-inspired hand-painted looks in one click.">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "ToolNex",
-    "url": "https://www.toolnex.xyz/",
-    "description": "Free online tool that converts real photos into animation-style portraits including Ghibli-inspired hand-painted looks.",
-    "applicationCategory": "MultimediaApplication",
-    "operatingSystem": "Any",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-  }
-  </script>
-
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    /* ========== 商务风配色全局变量 ========== */
-    :root {
-      --bg: #f5f7fa;
-      --surface: #ffffff;
-      --text: #1a202c;
-      --text-secondary: #64748b;
-      --primary: #1e40af;
-      --primary-hover: #1e3a8a;
-      --primary-light: rgba(30, 64, 175, 0.1);
-      --border: rgba(30, 64, 175, 0.15);
-      --radius: 18px;
-      --radius-sm: 12px;
-      --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--font);
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.47;
-      letter-spacing: -.022em;
-      -webkit-font-smoothing: antialiased;
-    }
-    a { color: var(--primary); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .container { max-width: 980px; margin: 0 auto; padding: 0 22px; }
-
-    /* 导航栏 */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: saturate(180%) blur(20px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 14px 22px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .logo { font-size: 21px; font-weight: 600; color: var(--primary); }
-    .nav-links { display: flex; gap: 28px; list-style: none; }
-    .nav-links a {
-      font-size: 14px;
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--primary); }
-
-    /* 语言选择器 */
-    .lang-select {
-      padding: 6px 10px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: var(--surface);
-      color: var(--text);
-      font-size: 13px;
-      cursor: pointer;
-      outline: none;
-    }
-    .lang-select:focus { border-color: var(--primary); }
-
-    /* 头部横幅 */
-    .hero { text-align: center; padding: 72px 22px 48px; }
-    .hero-badge {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-      color: var(--primary);
-      background: var(--primary-light);
-      padding: 6px 14px;
-      border-radius: 980px;
-      margin-bottom: 20px;
-    }
-    h1 {
-      font-size: clamp(40px, 6vw, 56px);
-      font-weight: 700;
-      letter-spacing: -.025em;
-      line-height: 1.07;
-      margin-bottom: 16px;
-    }
-    .hero-sub {
-      font-size: clamp(19px, 2.5vw, 24px);
-      color: var(--text-secondary);
-      max-width: 640px;
-      margin: 0 auto 40px;
-      line-height: 1.35;
-    }
-
-    /* 工具主卡片 */
-    .tool-card {
-      background: var(--surface);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
-      padding: 36px;
-      max-width: 720px;
-      margin: 0 auto 80px;
-    }
-    .upload-zone {
-      border: 2px dashed var(--border);
-      border-radius: var(--radius-sm);
-      padding: 40px 24px;
-      text-align: center;
-      cursor: pointer;
-      transition: border-color .2s, background .2s;
-      margin-bottom: 28px;
-    }
-    .upload-zone:hover, .upload-zone.dragover {
-      border-color: var(--primary);
-      background: var(--primary-light);
-    }
-    .upload-zone input { display: none; }
-    .upload-label { font-size: 17px; font-weight: 600; display: block; margin-bottom: 6px; }
-    .upload-hint { font-size: 14px; color: var(--text-secondary); }
-    .file-name { margin-top: 10px; font-size: 13px; color: var(--primary); font-weight: 500; }
-    h3.section-label {
-      font-size: 13px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      color: var(--text-secondary);
-      margin-bottom: 14px;
-    }
-
-    /* 风格强度滑块 */
-    .strength-slider {
-      width: 100%;
-      margin: 10px 0 28px 0;
-      accent-color: var(--primary);
-      height: 6px;
-    }
-    .strength-label {
-      font-size: 14px;
-      color: var(--text-secondary);
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 8px;
-    }
-
-    /* 风格选择按钮 */
-    .style-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-      gap: 10px;
-      margin-bottom: 28px;
-    }
-    .style-btn {
-      font-family: var(--font);
-      font-size: 14px;
-      font-weight: 500;
-      padding: 12px 8px;
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius-sm);
-      background: var(--surface);
-      cursor: pointer;
-      transition: all .2s;
-      color: var(--text);
-    }
-    .style-btn:hover { border-color: var(--primary); background: var(--primary-light); }
-    .style-btn.active {
-      border-color: var(--primary);
-      background: var(--primary-light);
-      color: var(--primary);
-      font-weight: 600;
-    }
-    .style-info {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      padding: 18px 16px;
-      margin-bottom: 24px;
-      border: 1px solid rgba(30, 64, 175, 0.12);
-      border-radius: var(--radius-sm);
-      background: #f8fbff;
-    }
-    .style-info strong {
-      display: block;
-      font-size: 15px;
-      color: var(--primary);
-      font-weight: 700;
-    }
-    .style-info p {
-      font-size: 14px;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-
-    /* 功能按钮 */
-    .btn-primary {
-      width: 100%;
-      font-family: var(--font);
-      font-size: 17px;
-      font-weight: 600;
-      padding: 16px;
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      border-radius: 980px;
-      cursor: pointer;
-      transition: background .2s;
-    }
-    .btn-primary:hover { background: var(--primary-hover); }
-    .btn-primary:disabled { opacity: .5; cursor: not-allowed; }
-    .btn-secondary {
-      font-family: var(--font);
-      font-size: 15px;
-      font-weight: 600;
-      padding: 12px 28px;
-      background: transparent;
-      color: var(--primary);
-      border: 1.5px solid var(--primary);
-      border-radius: 980px;
-      cursor: pointer;
-      display: block;
-      margin: 0 auto;
-      transition: all 0.2s;
-    }
-    .btn-secondary:hover { background: var(--primary); color: #fff; }
-
-    /* 预览区域 */
-    .preview-section { margin-top: 32px; display: none; }
-    .preview-section.visible { display: block; }
-    .preview-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-bottom: 20px;
-    }
-    @media (max-width: 520px) { .preview-grid { grid-template-columns: 1fr; } }
-    .preview-box {
-      border-radius: var(--radius-sm);
-      overflow: hidden;
-      background: #e2e8f0;
-      aspect-ratio: 1;
-      position: relative;
-    }
-    .preview-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .preview-tag {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      background: rgba(26, 32, 44, 0.6);
-      color: #fff;
-      padding: 4px 10px;
-      border-radius: 980px;
-    }
-
-    /* 加载动画 */
-    .loading { text-align: center; padding: 24px; display: none; }
-    .loading.visible { display: block; }
-    .spinner {
-      width: 32px;
-      height: 32px;
-      border: 3px solid var(--border);
-      border-top-color: var(--primary);
-      border-radius: 50%;
-      animation: spin .8s linear infinite;
-      margin: 0 auto 12px;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    /* 内容区块 */
-    section.content-block { padding: 64px 0; border-top: 1px solid var(--border); }
-    h2 {
-      font-size: clamp(28px, 4vw, 40px);
-      font-weight: 700;
-      letter-spacing: -.02em;
-      line-height: 1.1;
-      margin-bottom: 12px;
-      text-align: center;
-    }
-    .section-intro {
-      text-align: center;
-      color: var(--text-secondary);
-      font-size: 19px;
-      max-width: 600px;
-      margin: 0 auto 48px;
-      line-height: 1.4;
-    }
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-    }
-    .feature-card {
-      background: var(--surface);
-      border-radius: var(--radius);
-      padding: 28px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-    }
-    .feature-card h3 { font-size: 19px; font-weight: 600; margin-bottom: 8px; }
-    .feature-card p { font-size: 15px; color: var(--text-secondary); line-height: 1.5; }
-
-    /* 步骤区域 */
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 32px;
-    }
-    .step-item { text-align: center; }
-    .step-num {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: var(--primary);
-      color: #fff;
-      font-size: 18px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 16px;
-    }
-    .step-item h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
-    .step-item p { font-size: 15px; color: var(--text-secondary); line-height: 1.5; }
-
-    /* 问答区域 */
-    .faq-list { max-width: 680px; margin: 0 auto; }
-    .faq-item { border-bottom: 1px solid var(--border); padding: 24px 0; }
-    .faq-item h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
-    .faq-item p { font-size: 15px; color: var(--text-secondary); line-height: 1.5; }
-
-    /* 页脚 */
-    footer {
-      text-align: center;
-      padding: 40px 22px;
-      font-size: 13px;
-      color: var(--text-secondary);
-      border-top: 1px solid var(--border);
-      background: var(--surface);
-    }
-    footer a { color: var(--text-secondary); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToolNex | Free All-in-One Cross Border E-commerce Tools</title>
+    <!-- 谷歌SEO描述，海外搜索引流 -->
+    <meta name="description" content="100% free online tools for Amazon, Shopify, Facebook cross-border sellers. Product copy generator, image optimizer, SEO checker, no signup required.">
+    <meta name="keywords" content="ecommerce tools, amazon listing generator, shopify image tool, cross border seller tools">
+    <!-- 谷歌AdSense验证预留区域 -->
+    <meta name="google-adsense-account" content="pub-9894972538238783">
+    <style>
+        /* 全局重置 - 欧美极简风格 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+        body {
+            background-color: #F7FAFC;
+            color: #1D2939;
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+        /* 全局容器 */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* 导航栏 悬浮固定 */
+        header {
+            position: sticky;
+            top: 0;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            z-index: 99;
+        }
+        .nav-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #165DFF;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+        }
+        .nav-menu a {
+            font-weight: 500;
+            color: #475467;
+            transition: color 0.2s;
+        }
+        .nav-menu a:hover {
+            color: #165DFF;
+        }
+        .nav-buttons {
+            display: flex;
+            gap: 16px;
+        }
+        /* 按钮规范 海外网站标准 */
+        .btn-primary {
+            background: #165DFF;
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+        .btn-outline {
+            border: 1px solid #165DFF;
+            color: #165DFF;
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+        /* Hero首屏 黄金视觉区 抓海外访客眼球 */
+        .hero {
+            padding: 80px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .hero-text h1 {
+            font-size: 42px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #101828;
+        }
+        .hero-text p {
+            font-size: 18px;
+            color: #475467;
+            margin-bottom: 32px;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+        .hero-img {
+            background: #E8F3FF;
+            border-radius: 12px;
+            height: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #165DFF;
+            font-size: 20px;
+        }
+        /* 工具分类板块 */
+        .tools-section {
+            padding: 60px 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 48px;
+        }
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .tool-card {
+            background: #fff;
+            padding: 28px;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            transition: transform 0.2s;
+        }
+        .tool-card:hover {
+            transform: translateY(-4px);
+        }
+        .tool-card h3 {
+            font-size: 20px;
+            margin: 12px 0 10px;
+            color: #101828;
+        }
+        .tool-card p {
+            color: #475467;
+            margin-bottom: 16px;
+        }
+        .tool-card a {
+            color: #165DFF;
+            font-weight: 500;
+        }
+        /* 信任背书板块 提升停留时长，利于AdSense审核 */
+        .trust-section {
+            padding: 60px 0;
+            background: #fff;
+            margin: 40px 0;
+        }
+        .trust-wrap {
+            text-align: center;
+        }
+        .trust-text {
+            font-size: 22px;
+            color: #101828;
+            margin-bottom: 24px;
+        }
+        .brand-logos {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            color: #667085;
+            font-weight: 600;
+            font-size: 18px;
+        }
+        /* Blog资讯板块 扩充站点内容，解决AdSense内容单薄卡审 */
+        .blog-section {
+            padding: 60px 0;
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .blog-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        }
+        .blog-card .blog-img {
+            height: 160px;
+            background: #E8F3FF;
+        }
+        .blog-card .blog-content {
+            padding: 20px;
+        }
+        .blog-card h4 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        .blog-card p {
+            color: #475467;
+            font-size: 14px;
+        }
+        /* AdSense广告位（全站合规嵌入，审核必看） */
+        .ads-block {
+            max-width: 900px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            color: #667085;
+        }
+        /* 页脚 合规核心！隐私/关于/联系 解决AdSense第一卡点 */
+        footer {
+            background: #1D2939;
+            color: #fff;
+            padding: 60px 0 30px;
+            margin-top: 60px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 36px;
+            margin-bottom: 40px;
+        }
+        .footer-col h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #F9FAFB;
+        }
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+        .footer-col ul li a {
+            color: #D0D5DD;
+            transition: color 0.2s;
+        }
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+        .copyright {
+            text-align: center;
+            color: #98A2B3;
+            font-size: 14px;
+        }
+        /* GDPR Cookie弹窗 欧盟强制合规，缺失延长审核 */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            padding: 16px 24px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            z-index: 999;
+        }
+        .cookie-banner p {
+            color: #475467;
+            max-width: 800px;
+        }
+        .cookie-buttons {
+            display: flex;
+            gap: 12px;
+        }
+        /* 移动端自适应 */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 40px 0;
+            }
+            .hero-text h1 {
+                font-size: 28px;
+            }
+            .hero-buttons {
+                flex-direction: column;
+            }
+            .cookie-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- 顶部导航栏 -->
+    <header>
+        <div class="container nav-wrap">
+            <a href="/" class="logo">ToolNex</a>
+            <ul class="nav-menu">
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#guides">Guides</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="#tools" class="btn-primary">Free Tools</a>
+                <a href="/contact" class="btn-outline">Contact Us</a>
+            </div>
+        </div>
+    </header>
 
-  <nav aria-label="Main navigation">
-    <div class="nav-inner">
-      <span class="logo">ToolNex</span>
-      <ul class="nav-links">
-        <li><a href="#tool" data-i18n="navTry">Try It</a></li>
-        <li><a href="#styles" data-i18n="navStyles">Styles</a></li>
-        <li><a href="#how-it-works" data-i18n="navHow">How It Works</a></li>
-        <li><a href="#faq" data-i18n="navFaq">FAQ</a></li>
-      </ul>
-      <!-- 多语言选择器 -->
-      <select class="lang-select" id="langSelect">
-        <option value="en">English</option>
-        <option value="de">Deutsch</option>
-        <option value="it">Italiano</option>
-        <option value="fr">Français</option>
-        <option value="es">Español</option>
-        <option value="ja">日本語</option>
-        <option value="ko">한국어</option>
-      </select>
+    <main class="container">
+        <!-- Hero首屏 第一眼抓海外用户 -->
+        <section class="hero">
+            <div class="hero-text">
+                <h1>All-in-One Free Tools For Cross-Border Sellers</h1>
+                <p>Simplify your Amazon, Shopify & Facebook store workflow. Generate product copy, optimize images & check SEO in one click. No signup, no hidden fees, instant access.</p>
+                <div class="hero-buttons">
+                    <a href="#tools" class="btn-primary">Browse All Tools</a>
+                    <a href="#blog" class="btn-outline">Read Seller Guides</a>
+                </div>
+            </div>
+            <div class="hero-img">ToolNex Tool Preview Mockup</div>
+        </section>
+
+        <!-- AdSense广告位1（页面中部，合规展示） -->
+        <div class="ads-block">
+            <p>Google AdSense Advertisement Slot</p>
+            <!-- 此处粘贴你后台获取的AdSense广告代码 -->
+            <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9894972538238783"
+                 crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-9894972538238783"
+                 data-ad-slot="填入你的广告位ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script> -->
+        </div>
+
+        <!-- 工具分类板块 -->
+        <section id="tools" class="tools-section">
+            <h2 class="section-title">Popular Free E-commerce Tools</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h3>Amazon Listing Generator</h3>
+                    <p>Create high-click product titles & descriptions optimized for Amazon algorithm, boost organic ranking fast.</p>
+                    <a href="/tools/amazon-listing">Open Tool →</a>
+                </div>
+                <div class="tool-card">
+                    <h3>Store Image Resizer</h3>
+                    <p>Auto crop & compress product photos for Shopify, Facebook & TikTok shop without quality loss.</p>
+                    <a href="/tools/image-resizer">Open Tool →</a>
+                </div>
+                <div class="tool-card">
+                    <h3>SEO Website Checker</h3>
+                    <p>Scan your independent store traffic, keyword ranking & page speed in 10 seconds.</p>
+                    <a href="/tools/seo-checker">Open Tool →</a>
+                </div>
+                <div class="tool-card">
+                    <h3>Facebook Ad Copy Maker</h3>
+                    <p>Generate persuasive short ad copy for social media promotion, increase store conversion rate.</p>
+                    <a href="/tools/fb-ad-copy">Open Tool →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 信任背书板块 提升站点权重 -->
+        <section class="trust-section">
+            <div class="container trust-wrap">
+                <div class="trust-text">Trusted by 5,000+ Global Cross-Border Merchants</div>
+                <div class="brand-logos">
+                    <span>Amazon</span>
+                    <span>Shopify</span>
+                    <span>Facebook Shop</span>
+                    <span>TikTok Shop</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog资讯板块 扩充有效页面，解决AdSense内容单薄 -->
+        <section id="blog" class="blog-section">
+            <h2 class="section-title">Latest Seller Guides</h2>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-img"></div>
+                    <div class="blog-content">
+                        <h4>How To Write High CTR Amazon Listing In 2026</h4>
+                        <p>Step-by-step tutorial to optimize your product copy and get more organic clicks.</p>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-img"></div>
+                    <div class="blog-content">
+                        <h4>Shopify Image Optimization Rules For Higher Sales</h4>
+                        <p>Image size, format & compression guide fit all social & store platforms.</p>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-img"></div>
+                    <div class="blog-content">
+                        <h4>10 Free Tools For Small Cross-border Business Owners</h4>
+                        <p>Zero-cost workflow tools to save your daily operation time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚（AdSense审核强制要求三大合规页面入口） -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4>ToolNex</h4>
+                <ul>
+                    <li><a href="#tools">All Free Tools</a></li>
+                    <li><a href="#blog">Seller Blog</a></li>
+                    <li><a href="/faq">FAQ Center</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#guides">Operation Guides</a></li>
+                    <li><a href="/contact">Support Email</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal Pages</h4>
+                <ul>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="/cookie">Cookie Policy</a></li>
+                    <li><a href="/about">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li>contact@toolnex.xyz</li>
+                    <li>UTC+0 9:00 - 18:00 Working Hour</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 ToolNex. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- GDPR Cookie合规弹窗 海外站点必备，加速AdSense审核 -->
+    <div class="cookie-banner">
+        <p>We use cookies to improve your experience and serve Google AdSense personalized ads. You can manage or reject non-essential cookies.</p>
+        <div class="cookie-buttons">
+            <button class="btn-outline">Reject Non-Essential</button>
+            <button class="btn-primary">Accept All Cookies</button>
+        </div>
     </div>
-  </nav>
-
-  <header class="hero">
-    <span class="hero-badge" data-i18n="heroBadge">Free Online Tool</span>
-    <h1 data-i18n="heroTitle">ToolNex — Turn Real Photos Into Animation-Style Art</h1>
-    <p class="hero-sub" data-i18n="heroDesc">Upload a portrait and watch ToolNex reshape it into a hand-painted, storybook look — soft watercolor tones, expressive eyes, and the warmth of classic animation aesthetics.</p>
-  </header>
-
-  <main>
-    <section id="tool" class="container">
-      <div class="tool-card">
-        <div class="upload-zone" id="uploadZone" role="button" tabindex="0">
-          <input type="file" id="photoUpload" accept="image/jpeg,image/png,image/webp">
-          <div style="font-size:36px;margin-bottom:12px;opacity:.6">📷</div>
-          <span class="upload-label" data-i18n="uploadLabel">Upload Your Photo</span>
-          <span class="upload-hint" data-i18n="uploadHint">JPG, PNG, or WebP · Face-forward portraits work best</span>
-          <div class="file-name" id="fileName"></div>
-        </div>
-
-        <h3 class="section-label" data-i18n="styleLabel">Choose Animation Style</h3>
-        <div class="style-grid">
-          <button type="button" class="style-btn active" data-style="ghibli" data-i18n="styleGhibli">Ghibli-Inspired</button>
-          <button type="button" class="style-btn" data-style="anime" data-i18n="styleAnime">Anime</button>
-          <button type="button" class="style-btn" data-style="pixar" data-i18n="stylePixar">3D Pixar</button>
-          <button type="button" class="style-btn" data-style="disney" data-i18n="styleDisney">Classic Disney</button>
-          <button type="button" class="style-btn" data-style="watercolor" data-i18n="styleWatercolor">Watercolor</button>
-          <button type="button" class="style-btn" data-style="comic" data-i18n="styleComic">Comic Book</button>
-          <button type="button" class="style-btn" data-style="simpsons" data-i18n="styleCartoon">Flat Cartoon</button>
-          <button type="button" class="style-btn" data-style="3d" data-i18n="style3d">3D Render</button>
-        </div>
-
-        <div class="style-info" id="styleInfo">
-          <strong id="styleName">Ghibli-Inspired</strong>
-          <p id="styleDesc">Soft hand-painted lighting, warm edges and gentle color transitions for a polished animation portrait.</p>
-        </div>
-
-        <div class="strength-label">
-          <span data-i18n="strengthText">Style Strength</span>
-          <span id="strengthValue">80%</span>
-        </div>
-        <input type="range" min="30" max="100" value="80" class="strength-slider" id="styleStrength">
-
-        <button type="button" class="btn-primary" id="generateBtn" data-i18n="generateBtn">Generate with ToolNex</button>
-
-        <div class="loading" id="loading">
-          <div class="spinner"></div>
-          <p data-i18n="loadingText">Painting your portrait…</p>
-        </div>
-
-        <div class="preview-section" id="previewSection">
-          <div class="preview-grid">
-            <div class="preview-box">
-              <span class="preview-tag" data-i18n="tagOriginal">Original</span>
-              <img id="originalImage" alt="Original photo">
-            </div>
-            <div class="preview-box">
-              <span class="preview-tag" data-i18n="tagResult">ToolNex Result</span>
-              <img id="cartoonImage" alt="Converted art">
-            </div>
-          </div>
-          <button type="button" class="btn-secondary" id="downloadBtn" data-i18n="downloadBtn">Download Result</button>
-        </div>
-      </div>
-    </section>
-
-    <section id="styles" class="content-block">
-      <div class="container">
-        <h2 data-i18n="stylePageTitle">Animation Styles Available on ToolNex</h2>
-        <p class="section-intro" data-i18n="stylePageDesc">ToolNex offers multiple artistic directions so every portrait feels personal — from gentle hand-painted scenes to bold comic panels.</p>
-        <div class="feature-grid">
-          <article class="feature-card">
-            <h3 data-i18n="cardGhibliTitle">Ghibli-Inspired Hand-Painted Look</h3>
-            <p data-i18n="cardGhibliDesc">Soft pastel tones, warm skin tones, and delicate linework evoke a quiet hand-painted style.</p>
-          </article>
-          <article class="feature-card">
-            <h3 data-i18n="cardAnimeTitle">Anime & Manga Portrait</h3>
-            <p data-i18n="cardAnimeDesc">Sharper contours, large expressive eyes and saturated colors turn photos into anime character art.</p>
-          </article>
-          <article class="feature-card">
-            <h3 data-i18n="cardPixarTitle">3D & Pixar-Style Characters</h3>
-            <p data-i18n="cardPixarDesc">Rounded forms and studio lighting create friendly cinematic 3D cartoon characters.</p>
-          </article>
-          <article class="feature-card">
-            <h3 data-i18n="cardDisneyTitle">Classic Disney Illustration</h3>
-            <p data-i18n="cardDisneyDesc">Golden lighting and soft facial modeling for a polished storybook portrait.</p>
-          </article>
-          <article class="feature-card">
-            <h3 data-i18n="cardWatercolorTitle">Watercolor Portrait</h3>
-            <p data-i18n="cardWatercolorDesc">Airy brush textures and flowing color washes mimic premium watercolor art.</p>
-          </article>
-          <article class="feature-card">
-            <h3 data-i18n="cardComicTitle">Comic Book Pop Art</h3>
-            <p data-i18n="cardComicDesc">Bold outlines, bright palette and graphic shading for an energetic comic finish.</p>
-          </article>
-          <article class="feature-card">
-            <h3 data-i18n="cardCartoonTitle">Flat Cartoon Render</h3>
-            <p data-i18n="cardCartoonDesc">Simple color fields and clear shapes for a modern flat cartoon look.</p>
-          </article>
-          <article class="feature-card">
-            <h3 data-i18n="card3dTitle">3D Render Glow</h3>
-            <p data-i18n="card3dDesc">Soft highlights and beautiful depth for a polished 3D-style finish.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="how-it-works" class="content-block">
-      <div class="container">
-        <h2 data-i18n="howTitle">How ToolNex Converts Your Photo</h2>
-        <p class="section-intro" data-i18n="howDesc">Three simple steps — no design skills required. ToolNex handles the artistic transformation automatically.</p>
-        <div class="steps">
-          <div class="step-item">
-            <div class="step-num">1</div>
-            <h3 data-i18n="step1Title">Upload a Clear Portrait</h3>
-            <p data-i18n="step1Desc">Choose a well-lit front-facing photo with centered subject for best results.</p>
-          </div>
-          <div class="step-item">
-            <div class="step-num">2</div>
-            <h3 data-i18n="step2Title">Pick an Animation Style</h3>
-            <p data-i18n="step2Desc">Select your favorite style, each with unique color and texture effects.</p>
-          </div>
-          <div class="step-item">
-            <div class="step-num">3</div>
-            <h3 data-i18n="step3Title">Download & Share</h3>
-            <p data-i18n="step3Desc">Preview the result and save your new animated portrait for social media or personal use.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="content-block">
-      <div class="container">
-        <h2 data-i18n="advTitle">Why Choose ToolNex for Photo Animation</h2>
-        <p class="section-intro" data-i18n="advDesc">Fast, professional photo conversion tool for creating cartoon and animation art easily.</p>
-        <div class="feature-grid">
-          <article class="feature-card">
-            <h3 data-i18n="adv1Title">Browser-Based & Instant</h3>
-            <p data-i18n="adv1Desc">No installation or registration needed, use directly in your browser.</p>
-          </article>
-          <article class="feature-card">
-            <h3 data-i18n="adv2Title">Unique Cartoon Effects</h3>
-            <p data-i18n="adv2Desc">Preserve your features while applying professional illustrated styles.</p>
-          </article>
-          <article class="feature-card">
-            <h3 data-i18n="adv3Title">Multiple Art Styles</h3>
-            <p data-i18n="adv3Desc">8 different artistic styles to choose from for diverse creative results.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="faq" class="content-block">
-      <div class="container">
-        <h2 data-i18n="faqPageTitle">ToolNex Frequently Asked Questions</h2>
-        <p class="section-intro" data-i18n="faqPageDesc">Common questions about our photo to animation conversion tool.</p>
-        <div class="faq-list">
-          <article class="faq-item">
-            <h3 data-i18n="faq1Title">What is ToolNex?</h3>
-            <p data-i18n="faq1Desc">ToolNex is a free online tool to convert real photos into various animation and cartoon art styles.</p>
-          </article>
-          <article class="faq-item">
-            <h3 data-i18n="faq2Title">Which photos work best?</h3>
-            <p data-i18n="faq2Desc">High-resolution, front-facing single portraits with even lighting deliver the best conversion effect.</p>
-          </article>
-          <article class="faq-item">
-            <h3 data-i18n="faq3Title">Is ToolNex completely free?</h3>
-            <p data-i18n="faq3Desc">Yes, all conversion and download functions are free for personal use.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p data-i18n="footerCopyright">&copy; 2026 ToolNex.xyz. All rights reserved.</p>
-    <p style="margin-top:8px"><a href="https://github.com/sunshine200340/toolnex" rel="noopener noreferrer">View on GitHub</a></p>
-  </footer>
-
-  <script>
-    // ========== 1. 多语言词典 (英/德/意/法/西/日/韩) ==========
-    const i18n = {
-      en: {
-        navTry: "Try It", navStyles: "Styles", navHow: "How It Works", navFaq: "FAQ",
-        heroBadge: "Free Online Tool",
-        heroTitle: "ToolNex — Turn Real Photos Into Animation-Style Art",
-        heroDesc: "Upload a portrait and watch ToolNex reshape it into a hand-painted, storybook look — soft watercolor tones, expressive eyes, and the warmth of classic animation aesthetics.",
-        uploadLabel: "Upload Your Photo",
-        uploadHint: "JPG, PNG, or WebP · Face-forward portraits work best",
-        styleLabel: "Choose Animation Style",
-        styleGhibli: "Ghibli-Inspired", styleAnime: "Anime", stylePixar: "3D Pixar",
-        styleDisney: "Classic Disney", styleWatercolor: "Watercolor", styleComic: "Comic Book",
-        styleCartoon: "Flat Cartoon", style3d: "3D Render",
-        strengthText: "Style Strength",
-        generateBtn: "Generate with ToolNex",
-        loadingText: "Painting your portrait…",
-        tagOriginal: "Original", tagResult: "ToolNex Result",
-        downloadBtn: "Download Result",
-        stylePageTitle: "Animation Styles Available on ToolNex",
-        stylePageDesc: "ToolNex offers multiple artistic directions so every portrait feels personal — from gentle hand-painted scenes to bold comic panels.",
-        cardGhibliTitle: "Ghibli-Inspired Hand-Painted Look",
-        cardGhibliDesc: "Soft pastel tones, warm skin tones, and delicate linework evoke a quiet hand-painted style.",
-        cardAnimeTitle: "Anime & Manga Portrait",
-        cardAnimeDesc: "Sharper contours, large expressive eyes and saturated colors turn photos into anime character art.",
-        cardPixarTitle: "3D & Pixar-Style Characters",
-        cardPixarDesc: "Rounded forms and studio lighting create friendly cinematic 3D cartoon characters.",
-        howTitle: "How ToolNex Converts Your Photo",
-        howDesc: "Three simple steps — no design skills required. ToolNex handles the artistic transformation automatically.",
-        step1Title: "Upload a Clear Portrait",
-        step1Desc: "Choose a well-lit front-facing photo with centered subject for best results.",
-        step2Title: "Pick an Animation Style",
-        step2Desc: "Select your favorite style, each with unique color and texture effects.",
-        step3Title: "Download & Share",
-        step3Desc: "Preview the result and save your new animated portrait for social media or personal use.",
-        advTitle: "Why Choose ToolNex for Photo Animation",
-        advDesc: "Fast, professional photo conversion tool for creating cartoon and animation art easily.",
-        adv1Title: "Browser-Based & Instant",
-        adv1Desc: "No installation or registration needed, use directly in your browser.",
-        adv2Title: "Unique Cartoon Effects",
-        adv2Desc: "Preserve your features while applying professional illustrated styles.",
-        adv3Title: "Multiple Art Styles",
-        adv3Desc: "8 different artistic styles to choose from for diverse creative results.",
-        faqPageTitle: "ToolNex Frequently Asked Questions",
-        faqPageDesc: "Common questions about our photo to animation conversion tool.",
-        faq1Title: "What is ToolNex?",
-        faq1Desc: "ToolNex is a free online tool to convert real photos into various animation and cartoon art styles.",
-        faq2Title: "Which photos work best?",
-        faq2Desc: "High-resolution, front-facing single portraits with even lighting deliver the best conversion effect.",
-        faq3Title: "Is ToolNex completely free?",
-        faq3Desc: "Yes, all conversion and download functions are free for personal use.",
-        footerCopyright: "&copy; 2026 ToolNex.xyz. All rights reserved."
-      },
-      de: {
-        navTry: "Ausprobieren", navStyles: "Stile", navHow: "Funktionsweise", navFaq: "FAQ",
-        heroBadge: "Kostenloses Online-Tool",
-        heroTitle: "ToolNex – Wandeln Sie Fotos in Animationskunst um",
-        heroDesc: "Laden Sie ein Porträt hoch und verwandeln Sie es in handgemalte Kunst mit sanften Aquarelltönen und ausdrucksstarken Merkmalen.",
-        uploadLabel: "Foto hochladen",
-        uploadHint: "JPG, PNG oder WebP · Frontalporträts funktionieren am besten",
-        styleLabel: "Animationsstil auswählen",
-        styleGhibli: "Ghibli-Stil", styleAnime: "Anime", stylePixar: "3D Pixar",
-        styleDisney: "Klassisches Disney", styleWatercolor: "Aquarell", styleComic: "Comic",
-        styleCartoon: "Flacher Cartoon", style3d: "3D-Render",
-        strengthText: "Stilintensität",
-        generateBtn: "Mit ToolNex generieren",
-        loadingText: "Porträt wird gestaltet…",
-        tagOriginal: "Original", tagResult: "Ergebnis",
-        downloadBtn: "Ergebnis herunterladen",
-        stylePageTitle: "Verfügbare Animationsstile",
-        stylePageDesc: "Wählen Sie aus vielen künstlerischen Stilen für Ihr individuelles Porträt.",
-        cardGhibliTitle: "Ghibli-Handmalstil",
-        cardGhibliDesc: "Sanfte Pastellfarben und feine Linien im typischen Zeichentrickstil.",
-        cardAnimeTitle: "Anime & Manga Porträt",
-        cardAnimeDesc: "Klare Konturen, große Augen und lebhafte Farben für Anime-Charaktere.",
-        cardPixarTitle: "3D & Pixar-Stil",
-        cardPixarDesc: "Abgerundete Formen und Studio-Beleuchtung für freundliche 3D-Charaktere.",
-        howTitle: "So funktioniert ToolNex",
-        howDesc: "Drei einfache Schritte ohne Designkenntnisse erforderlich.",
-        step1Title: "Klares Porträt hochladen",
-        step1Desc: "Nutzen Sie gut ausgeleuchtete Frontalfotos für beste Ergebnisse.",
-        step2Title: "Stil auswählen",
-        step2Desc: "Jeder Stil hat eigene Farben und Texturen.",
-        step3Title: "Herunterladen & Teilen",
-        step3Desc: "Vorschau ansehen und Ihr neues Kunstwerk speichern.",
-        advTitle: "Warum ToolNex wählen?",
-        advDesc: "Schnelles und professionelles Werkzeug für Cartoon- und Animationskunst.",
-        adv1Title: "Browserbasiert & Sofort",
-        adv1Desc: "Keine Installation oder Anmeldung notwendig.",
-        adv2Title: "Einzigartige Cartoon-Effekte",
-        adv2Desc: "Ihre Merkmale bleiben erhalten mit professionellen Illustrationen.",
-        adv3Title: "Viele Kunststile",
-        adv3Desc: "8 verschiedene Stile für kreative Ergebnisse.",
-        faqPageTitle: "Häufig gestellte Fragen",
-        faqPageDesc: "Antworten zu unserem Foto-zu-Animations-Tool.",
-        faq1Title: "Was ist ToolNex?",
-        faq1Desc: "Ein kostenloses Online-Tool zum Umwandeln von Fotos in Cartoon- und Animationskunst.",
-        faq2Title: "Welche Fotos funktionieren am besten?",
-        faq2Desc: "Hochauflösende Frontalporträts mit gleichmäßiger Beleuchtung.",
-        faq3Title: "Ist ToolNex komplett kostenlos?",
-        faq3Desc: "Ja, alle Funktionen sind für den privaten Gebrauch kostenlos.",
-        footerCopyright: "&copy; 2026 ToolNex.xyz. Alle Rechte vorbehalten."
-      },
-      it: {
-        navTry: "Prova", navStyles: "Stili", navHow: "Funzionamento", navFaq: "Domande",
-        heroBadge: "Strumento gratuito",
-        heroTitle: "ToolNex – Trasforma foto in arte animata",
-        heroDesc: "Carica un ritratto e trasformalo in dipinto a mano con toni acquerello e tratti espressivi.",
-        uploadLabel: "Carica foto",
-        uploadHint: "JPG, PNG, WebP · Ritratti frontali consigliati",
-        styleLabel: "Scegli stile animazione",
-        styleGhibli: "Stile Ghibli", styleAnime: "Anime", stylePixar: "3D Pixar",
-        styleDisney: "Disney classico", styleWatercolor: "Acquerello", styleComic: "Fumetto",
-        styleCartoon: "Cartone piatto", style3d: "Render 3D",
-        strengthText: "Intensità stile",
-        generateBtn: "Genera con ToolNex",
-        loadingText: "Elaborazione ritratto…",
-        tagOriginal: "Originale", tagResult: "Risultato",
-        downloadBtn: "Scarica risultato",
-        stylePageTitle: "Stili animazione disponibili",
-        stylePageDesc: "Molti stili artistici per personalizzare il tuo ritratto.",
-        cardGhibliTitle: "Stile Ghibli dipinto a mano",
-        cardGhibliDesc: "Toni pastello e linee delicate tipiche dell'animazione giapponese.",
-        cardAnimeTitle: "Ritratto Anime & Manga",
-        cardAnimeDesc: "Contorni definiti, occhi grandi e colori vivaci per personaggi anime.",
-        cardPixarTitle: "Stile 3D & Pixar",
-        cardPixarDesc: "Forme arrotondate e illuminazione da studio per personaggi 3D.",
-        howTitle: "Come funziona ToolNex",
-        howDesc: "Tre passaggi semplici, senza competenze di design.",
-        step1Title: "Carica ritratto chiaro",
-        step1Desc: "Usa foto frontali ben illuminate per risultati ottimali.",
-        step2Title: "Scegli stile",
-        step2Desc: "Ogni stile ha colori e texture uniche.",
-        step3Title: "Scarica & Condividi",
-        step3Desc: "Visualizza l'anteprima e salva la tua nuova opera.",
-        advTitle: "Perché scegliere ToolNex",
-        advDesc: "Strumento veloce e professionale per creare arte cartoon e animata.",
-        adv1Title: "Basato su browser",
-        adv1Desc: "Nessuna installazione o registrazione richiesta.",
-        adv2Title: "Effetti cartoon unici",
-        adv2Desc: "Mantiene i tuoi tratti con illustrazioni professionali.",
-        adv3Title: "Molti stili artistici",
-        adv3Desc: "8 stili diversi per risultati creativi.",
-        faqPageTitle: "Domande frequenti",
-        faqPageDesc: "Risposte sul nostro strumento di conversione foto.",
-        faq1Title: "Cos'è ToolNex?",
-        faq1Desc: "Strumento online gratuito per convertire foto in arte cartoon e animata.",
-        faq2Title: "Quali foto funzionano meglio?",
-        faq2Desc: "Ritratti frontali ad alta risoluzione con illuminazione uniforme.",
-        faq3Title: "ToolNex è completamente gratuito?",
-        faq3Desc: "Sì, tutte le funzioni sono gratuite per uso personale.",
-        footerCopyright: "&copy; 2026 ToolNex.xyz. Tutti i diritti riservati."
-      },
-      fr: {
-        navTry: "Essayer", navStyles: "Styles", navHow: "Fonctionnement", navFaq: "FAQ",
-        heroBadge: "Outil gratuit",
-        heroTitle: "ToolNex – Transformez vos photos en art animé",
-        heroDesc: "Téléversez un portrait et transformez-le en peinture à la main avec des tons aquarelle et des traits expressifs.",
-        uploadLabel: "Téléverser une photo",
-        uploadHint: "JPG, PNG, WebP · Portraits de face recommandés",
-        styleLabel: "Choisir le style d'animation",
-        styleGhibli: "Style Ghibli", styleAnime: "Anime", stylePixar: "3D Pixar",
-        styleDisney: "Disney classique", styleWatercolor: "Aquarelle", styleComic: "Bande dessinée",
-        styleCartoon: "Dessin plat", style3d: "Rendu 3D",
-        strengthText: "Intensité du style",
-        generateBtn: "Générer avec ToolNex",
-        loadingText: "Création du portrait…",
-        tagOriginal: "Original", tagResult: "Résultat",
-        downloadBtn: "Télécharger le résultat",
-        stylePageTitle: "Styles d'animation disponibles",
-        stylePageDesc: "Plusieurs styles artistiques pour personnaliser votre portrait.",
-        cardGhibliTitle: "Style peint Ghibli",
-        cardGhibliDesc: "Tons pastels et traits fins dans un style d'animation traditionnel.",
-        cardAnimeTitle: "Portrait Anime & Manga",
-        cardAnimeDesc: "Contours nets, grands yeux et couleurs vives pour personnages anime.",
-        cardPixarTitle: "Style 3D & Pixar",
-        cardPixarDesc: "Formes arrondies et éclairage studio pour personnages 3D sympathiques.",
-        howTitle: "Comment fonctionne ToolNex",
-        howDesc: "Trois étapes simples, aucune compétence en design requise.",
-        step1Title: "Téléverser un portrait clair",
-        step1Desc: "Utilisez des photos de face bien éclairées pour un meilleur rendu.",
-        step2Title: "Choisir un style",
-        step2Desc: "Chaque style possède des couleurs et textures uniques.",
-        step3Title: "Télécharger & Partager",
-        step3Desc: "Prévisualisez et enregistrez votre nouvelle création.",
-        advTitle: "Pourquoi choisir ToolNex",
-        advDesc: "Outil rapide et professionnel pour créer des dessins animés et cartoons.",
-        adv1Title: "Sans installation",
-        adv1Desc: "Aucune installation ni inscription nécessaire.",
-        adv2Title: "Effets cartoon uniques",
-        adv2Desc: "Conserve vos traits avec des illustrations professionnelles.",
-        adv3Title: "Nombreux styles artistiques",
-        adv3Desc: "8 styles différents pour des résultats créatifs.",
-        faqPageTitle: "Questions fréquentes",
-        faqPageDesc: "Réponses sur notre outil de conversion de photos.",
-        faq1Title: "Qu'est-ce que ToolNex ?",
-        faq1Desc: "Outil en ligne gratuit pour transformer vos photos en art cartoon et animé.",
-        faq2Title: "Quelles photos fonctionnent le mieux ?",
-        faq2Desc: "Portraits de face haute résolution avec un éclairage uniforme.",
-        faq3Title: "ToolNex est-il totalement gratuit ?",
-        faq3Desc: "Oui, toutes les fonctionnalités sont gratuites pour un usage personnel.",
-        footerCopyright: "&copy; 2026 ToolNex.xyz. Tous droits réservés."
-      },
-      es: {
-        navTry: "Probar", navStyles: "Estilos", navHow: "Funcionamiento", navFaq: "Preguntas",
-        heroBadge: "Herramienta gratuita",
-        heroTitle: "ToolNex – Convierte fotos en arte animado",
-        heroDesc: "Sube un retrato y conviértelo en pintura a mano con tonos de acuarela y rasgos expresivos.",
-        uploadLabel: "Subir foto",
-        uploadHint: "JPG, PNG, WebP · Retratos frontales recomendados",
-        styleLabel: "Elegir estilo de animación",
-        styleGhibli: "Estilo Ghibli", styleAnime: "Anime", stylePixar: "3D Pixar",
-        styleDisney: "Disney clásico", styleWatercolor: "Acuarela", styleComic: "Cómic",
-        styleCartoon: "Dibujo plano", style3d: "Render 3D",
-        strengthText: "Intensidad del estilo",
-        generateBtn: "Generar con ToolNex",
-        loadingText: "Creando tu retrato…",
-        tagOriginal: "Original", tagResult: "Resultado",
-        downloadBtn: "Descargar resultado",
-        stylePageTitle: "Estilos de animación disponibles",
-        stylePageDesc: "Varios estilos artísticos para personalizar tu retrato.",
-        cardGhibliTitle: "Estilo pintado Ghibli",
-        cardGhibliDesc: "Tonos pasteles y líneas finas de animación tradicional.",
-        cardAnimeTitle: "Retrato Anime y Manga",
-        cardAnimeDesc: "Contornos definidos, ojos grandes y colores vivos para personajes anime.",
-        cardPixarTitle: "Estilo 3D y Pixar",
-        cardPixarDesc: "Formas redondeadas e iluminación de estudio para personajes 3D.",
-        howTitle: "Cómo funciona ToolNex",
-        howDesc: "Tres pasos sencillos, no se requieren conocimientos de diseño.",
-        step1Title: "Subir un retrato claro",
-        step1Desc: "Usa fotos frontales bien iluminadas para mejores resultados.",
-        step2Title: "Elegir estilo",
-        step2Desc: "Cada estilo tiene colores y texturas únicas.",
-        step3Title: "Descargar y compartir",
-        step3Desc: "Previsualiza y guarda tu nueva obra artística.",
-        advTitle: "Por qué elegir ToolNex",
-        advDesc: "Herramienta rápida y profesional para crear arte de dibujos animados.",
-        adv1Title: "Basado en navegador",
-        adv1Desc: "Sin instalación ni registro obligatorio.",
-        adv2Title: "Efectos de dibujo únicos",
-        adv2Desc: "Mantiene tus rasgos con ilustraciones profesionales.",
-        adv3Title: "Muchos estilos artísticos",
-        adv3Desc: "8 estilos diferentes para resultados creativos.",
-        faqPageTitle: "Preguntas frecuentes",
-        faqPageDesc: "Respuestas sobre nuestra herramienta de conversión de fotos.",
-        faq1Title: "¿Qué es ToolNex?",
-        faq1Desc: "Herramienta online gratuita para convertir fotos en arte de dibujos animados.",
-        faq2Title: "¿Qué fotos funcionan mejor?",
-        faq2Desc: "Retratos frontales de alta resolución con iluminación uniforme.",
-        faq3Title: "¿ToolNex es totalmente gratuito?",
-        faq3Desc: "Sí, todas las funciones son gratuitas para uso personal.",
-        footerCopyright: "&copy; 2026 ToolNex.xyz. Todos los derechos reservados."
-      },
-      ja: {
-        navTry: "試す", navStyles: "スタイル", navHow: "使い方", navFaq: "よくある質問",
-        heroBadge: "無料ツール",
-        heroTitle: "ToolNex — 写真をアニメ風アートに変換",
-        heroDesc: "ポートレートをアップロードし、水彩調の手描き風アニメアートに変換します。",
-        uploadLabel: "写真をアップロード",
-        uploadHint: "JPG/PNG/WebP推奨 · 正面顔写真が最適",
-        styleLabel: "アニメスタイルを選択",
-        styleGhibli: "ジブリ風", styleAnime: "アニメ", stylePixar: "3Dピクサー",
-        styleDisney: "クラシックディズニー", styleWatercolor: "水彩画", styleComic: "コミック",
-        styleCartoon: "フラットカートゥーン", style3d: "3Dレンダー",
-        strengthText: "スタイル強度",
-        generateBtn: "生成する",
-        loadingText: "画像を加工中…",
-        tagOriginal: "元画像", tagResult: "変換結果",
-        downloadBtn: "ダウンロード",
-        stylePageTitle: "利用可能なアニメスタイル",
-        stylePageDesc: "多彩な芸術スタイルから好みのデザインを選べます。",
-        cardGhibliTitle: "ジブリ風手描きアート",
-        cardGhibliDesc: "優しいパステル調の色彩と繊細な線画が特徴です。",
-        cardAnimeTitle: "アニメ・マンガ風ポートレート",
-        cardAnimeDesc: "輪郭を強調し、大きな瞳と鮮やかな色彩でアニメキャラ風に変換。",
-        cardPixarTitle: "3D・ピクサー風キャラクター",
-        cardPixarDesc: "丸みのあるフォルムと映画風の照明で3Dキャラクターに。",
-        howTitle: "ToolNex の使い方",
-        howDesc: "3つの簡単な手順で、誰でも簡単に画像変換が可能です。",
-        step1Title: "写真をアップロード",
-        step1Desc: "明るい正面顔写真を使用すると最良の結果になります。",
-        step2Title: "スタイルを選択",
-        step2Desc: "各スタイルごとに独自の色彩と質感が適用されます。",
-        step3Title: "ダウンロード・共有",
-        step3Desc: "プレビューを確認し、作成したアートを保存・共有できます。",
-        advTitle: "ToolNex を選ぶ理由",
-        advDesc: "高速かつ高品質な写真変換ツールです。",
-        adv1Title: "ブラウザで即利用",
-        adv1Desc: "インストールや会員登録不要で、すぐに使用可能。",
-        adv2Title: "独自のカートゥーン効果",
-        adv2Desc: "顔の特徴を残しつつ、プロ仕様のイラスト風に加工。",
-        adv3Title: "豊富なアートスタイル",
-        adv3Desc: "全8種類のスタイルから自由に選択できます。",
-        faqPageTitle: "よくある質問",
-        faqPageDesc: "写真変換ツールに関する一般的な質問と回答。",
-        faq1Title: "ToolNex とは何ですか？",
-        faq1Desc: "写真をアニメ・カートゥーン風アートに変換する無料オンラインツールです。",
-        faq2Title: "どの写真が適していますか？",
-        faq2Desc: "高画質で正面を向いた単独の顔写真が推奨です。",
-        faq3Title: "完全に無料ですか？",
-        faq3Desc: "はい、個人利用に限り全機能を無料でご利用いただけます。",
-        footerCopyright: "&copy; 2026 ToolNex.xyz 著作権所有"
-      },
-      ko: {
-        navTry: "사용해보기", navStyles: "스타일", navHow: "사용방법", navFaq: "자주묻는질문",
-        heroBadge: "무료 온라인 툴",
-        heroTitle: "ToolNex — 사진을 애니메이션 스타일 아트로 변환",
-        heroDesc: "초상화를 업로드하고 수채화 느낌의 손그림 애니메이션 아트로 변환하세요.",
-        uploadLabel: "사진 업로드",
-        uploadHint: "JPG/PNG/WebP 지원 · 정면 인물 사진 추천",
-        styleLabel: "애니메이션 스타일 선택",
-        styleGhibli: "지브리 스타일", styleAnime: "애니메이션", stylePixar: "3D 픽사",
-        styleDisney: "클래식 디즈니", styleWatercolor: "수채화", styleComic: "코믹",
-        styleCartoon: "플랫 카툰", style3d: "3D 렌더",
-        strengthText: "스타일 강도",
-        generateBtn: "생성하기",
-        loadingText: "이미지 제작 중…",
-        tagOriginal: "원본", tagResult: "결과물",
-        downloadBtn: "다운로드",
-        stylePageTitle: "사용 가능한 애니메이션 스타일",
-        stylePageDesc: "다양한 예술 스타일로 나만의 초상화를 꾸밀 수 있습니다.",
-        cardGhibliTitle: "지브리 수채 스타일",
-        cardGhibliDesc: "부드러운 파스텔 톤과 섬세한 선이 특징인 손그림 스타일입니다.",
-        cardAnimeTitle: "애니메이션 & 만화 초상화",
-        cardAnimeDesc: "윤곽을 강조하고 선명한 색감으로 애니메이션 캐릭터로 변환합니다.",
-        cardPixarTitle: "3D & 픽사 스타일 캐릭터",
-        cardPixarDesc: "부드러운 곡면과 영화 조명 효과로 친근한 3D 캐릭터 제작.",
-        howTitle: "ToolNex 사용 방법",
-        howDesc: "3단계의 간단한 과정으로 누구나 쉽게 이미지를 변환할 수 있습니다.",
-        step1Title: "선명한 사진 업로드",
-        step1Desc: "밝은 정면 인물 사진을 사용하면 최상의 결과를 얻을 수 있습니다.",
-        step2Title: "스타일 선택",
-        step2Desc: "각 스타일마다 고유한 색상과 질감이 적용됩니다.",
-        step3Title: "다운로드 & 공유",
-        step3Desc: "미리보기를 확인 후 제작된 아트를 저장하고 공유하세요.",
-        advTitle: "ToolNex를 선택하는 이유",
-        advDesc: "빠르고 전문적인 사진 변환 툴로 카툰 아트를 제작하세요.",
-        adv1Title: "브라우저에서 즉시 사용",
-        adv1Desc: "프로그램 설치나 회원가입 없이 바로 이용 가능합니다.",
-        adv2Title: "독특한 카툰 효과",
-        adv2Desc: "본인의 특징은 유지한 채 전문 일러스트 스타일로 변환합니다.",
-        adv3Title: "다양한 예술 스타일",
-        adv3Desc: "총 8가지 스타일로 다채로운 창작 결과물을 만들 수 있습니다.",
-        faqPageTitle: "자주 묻는 질문",
-        faqPageDesc: "사진 변환 툴 관련 자주 묻는 질문 답변입니다.",
-        faq1Title: "ToolNex는 무엇인가요?",
-        faq1Desc: "실사 사진을 애니메이션, 카툰 스타일 아트로 변환하는 무료 온라인 툴입니다.",
-        faq2Title: "어떤 사진이 가장 적합한가요?",
-        faq2Desc: "고화질의 정면 인물 사진을 사용하시면 좋은 결과를 얻으실 수 있습니다.",
-        faq3Title: "완전 무료인가요?",
-        faq3Desc: "네, 개인 사용에 한해 모든 기능을 무료로 이용하실 수 있습니다.",
-        footerCopyright: "&copy; 2026 ToolNex.xyz 모든 권리 보유"
-      }
-    };
-
-    // 多语言切换函数
-    const langSelect = document.getElementById('langSelect');
-    function setLanguage(lang) {
-      const dict = i18n[lang] || i18n.en;
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if(dict[key]) el.textContent = dict[key];
-      });
-      document.documentElement.lang = lang;
-    }
-    langSelect.addEventListener('change', e => setLanguage(e.target.value));
-
-    // ========== 2. 页面基础元素绑定 ==========
-    const photoUpload = document.getElementById('photoUpload');
-    const uploadZone = document.getElementById('uploadZone');
-    const fileName = document.getElementById('fileName');
-    const generateBtn = document.getElementById('generateBtn');
-    const previewSection = document.getElementById('previewSection');
-    const originalImage = document.getElementById('originalImage');
-    const cartoonImage = document.getElementById('cartoonImage');
-    const downloadBtn = document.getElementById('downloadBtn');
-    const loading = document.getElementById('loading');
-    const styleStrength = document.getElementById('styleStrength');
-    const strengthValue = document.getElementById('strengthValue');
-    const styleName = document.getElementById('styleName');
-    const styleDesc = document.getElementById('styleDesc');
-
-    let selectedStyle = 'ghibli';
-    let currentFile = null;
-    let strength = 0.8;
-
-    const styleInfoMap = {
-      ghibli: {
-        label: 'Ghibli-Inspired',
-        description: 'Soft hand-painted lighting, warm edges and gentle color transitions for a polished animation portrait.'
-      },
-      anime: {
-        label: 'Anime',
-        description: 'Crisp edges, vivid contrast and expressive color tones tuned for manga-style portraits.'
-      },
-      pixar: {
-        label: '3D Pixar',
-        description: 'Smooth skin, soft studio highlights and cinematic depth for friendly 3D character art.'
-      },
-      disney: {
-        label: 'Classic Disney',
-        description: 'Warm storybook lighting, subtle shading and smooth detail for a timeless illustration look.'
-      },
-      watercolor: {
-        label: 'Watercolor',
-        description: 'Loose brush textures, layered color washes and soft blur for an artistic watercolor finish.'
-      },
-      comic: {
-        label: 'Comic Book',
-        description: 'Bold ink outlines, saturated tones and graphic shading that feel like pop art panels.'
-      },
-      simpsons: {
-        label: 'Flat Cartoon',
-        description: 'Clean flat color fields, crisp shapes and bold linework for a modern cartoon effect.'
-      },
-      '3d': {
-        label: '3D Render',
-        description: 'Subtle highlights, polished depth and soft shadows to mimic CGI-inspired portrait style.'
-      }
-    };
-
-    function updateStyleInfo(style) {
-      const info = styleInfoMap[style] || styleInfoMap.ghibli;
-      selectedStyle = style;
-      styleName.textContent = info.label;
-      styleDesc.textContent = info.description;
-    }
-
-    // 强度滑块
-    styleStrength.addEventListener('input', () => {
-      strength = styleStrength.value / 100;
-      strengthValue.textContent = styleStrength.value + '%';
-    });
-
-    // 上传区域交互
-    uploadZone.addEventListener('click', () => photoUpload.click());
-    uploadZone.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); photoUpload.click(); }
-    });
-    uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('dragover'); });
-    uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('dragover'));
-    uploadZone.addEventListener('drop', e => {
-      e.preventDefault();
-      uploadZone.classList.remove('dragover');
-      if (e.dataTransfer.files[0]) { photoUpload.files = e.dataTransfer.files; handleFileSelect(); }
-    });
-    photoUpload.addEventListener('change', handleFileSelect);
-
-    function handleFileSelect() {
-      const file = photoUpload.files[0];
-      if (file) { currentFile = file; fileName.textContent = file.name; }
-    }
-
-    // 风格选择
-    document.querySelectorAll('.style-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.style-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        updateStyleInfo(btn.dataset.style);
-      });
-    });
-    updateStyleInfo(selectedStyle);
-
-    // ========== 3. 升级版图像处理算法（深度卡通化，彻底区分原图） ==========
-    function clamp(value, min, max) {
-      return Math.min(max, Math.max(min, value));
-    }
-
-    function mix(a, b, t) {
-      return a * (1 - t) + b * t;
-    }
-
-    function getLuma(r, g, b) {
-      return 0.299 * r + 0.587 * g + 0.114 * b;
-    }
-
-    function adjustSaturation(value, luma, factor) {
-      return clamp(luma + (value - luma) * factor, 0, 255);
-    }
-
-    function posterize(value, levels) {
-      if (levels < 2) return value;
-      const step = 255 / (levels - 1);
-      return Math.round(value / step) * step;
-    }
-
-    function generateEdgeMask(data, w, h, threshold) {
-      const edges = new Uint8ClampedArray(data.length);
-      const toGray = (r, g, b) => 0.299 * r + 0.587 * g + 0.114 * b;
-      for (let y = 0; y < h; y++) {
-        for (let x = 0; x < w; x++) {
-          const idx = (y * w + x) * 4;
-          const current = toGray(data[idx], data[idx + 1], data[idx + 2]);
-          const right = x < w - 1 ? toGray(data[idx + 4], data[idx + 5], data[idx + 6]) : current;
-          const below = y < h - 1 ? toGray(data[idx + w * 4], data[idx + w * 4 + 1], data[idx + w * 4 + 2]) : current;
-          const diff = Math.abs(current - right) + Math.abs(current - below);
-          const alpha = diff > threshold ? 255 : 0;
-          edges[idx] = 0;
-          edges[idx + 1] = 0;
-          edges[idx + 2] = 0;
-          edges[idx + 3] = alpha;
-        }
-      }
-      return new ImageData(edges, w, h);
-    }
-
-    function advancedCartoonFilter(canvas, ctx, img, style, power) {
-      const w = canvas.width;
-      const h = canvas.height;
-
-      const source = document.createElement('canvas');
-      source.width = w;
-      source.height = h;
-      const sourceCtx = source.getContext('2d');
-      sourceCtx.drawImage(img, 0, 0, w, h);
-
-      const styleConfig = {
-        ghibli: { contrast: 0.28, brightness: 0.08, saturate: 0.22, sat: 1.0, warm: 18, bright: 20, redShift: 0.03, greenShift: 0.02, blueShift: -0.03, level: 5, blur: 2.4, blurAlpha: 0.3, edge: false, edgeThick: 0, glow: 0.1, vignette: true },
-        anime: { contrast: 0.54, brightness: 0.06, saturate: 0.45, sat: 2.5, warm: -6, bright: 10, redShift: 0.04, greenShift: 0.03, blueShift: 0.02, level: 10, blur: 0, blurAlpha: 0, edge: true, edgeThick: 2.8, glow: 0, vignette: false },
-        pixar: { contrast: 0.36, brightness: 0.14, saturate: 0.34, sat: 1.8, warm: 20, bright: 18, redShift: 0.04, greenShift: 0.03, blueShift: 0.01, level: 12, blur: 1.1, blurAlpha: 0.22, edge: false, edgeThick: 0, glow: 0.14, vignette: true },
-        disney: { contrast: 0.32, brightness: 0.13, saturate: 0.28, sat: 1.6, warm: 26, bright: 18, redShift: 0.02, greenShift: 0.015, blueShift: 0.01, level: 8, blur: 1.3, blurAlpha: 0.25, edge: false, edgeThick: 0, glow: 0.08, vignette: true },
-        watercolor: { contrast: 0.18, brightness: 0.16, saturate: 0.12, sat: 0.6, warm: 14, bright: 22, redShift: 0.02, greenShift: 0.02, blueShift: 0.03, level: 4, blur: 3.8, blurAlpha: 0.45, edge: false, edgeThick: 0, glow: 0.04, vignette: false },
-        comic: { contrast: 0.58, brightness: 0.05, saturate: 0.55, sat: 2.8, warm: 0, bright: 8, redShift: 0.04, greenShift: 0.03, blueShift: -0.03, level: 3, blur: 0, blurAlpha: 0, edge: true, edgeThick: 4.0, glow: 0, vignette: false },
-        simpsons: { contrast: 0.42, brightness: 0.18, saturate: 0.55, sat: 2.5, warm: 32, bright: 14, redShift: 0.12, greenShift: 0.04, blueShift: -0.14, level: 4, blur: 0, blurAlpha: 0, edge: true, edgeThick: 3.0, glow: 0, vignette: false },
-        '3d': { contrast: 0.38, brightness: 0.16, saturate: 0.34, sat: 1.9, warm: 16, bright: 16, redShift: 0.02, greenShift: 0.02, blueShift: 0.03, level: 14, blur: 1.0, blurAlpha: 0.22, edge: false, edgeThick: 0, glow: 0.16, vignette: true }
-      };
-      const cfg = styleConfig[style] || styleConfig.ghibli;
-      const p = power;
-
-      ctx.filter = `contrast(${1 + cfg.contrast * p}) brightness(${1 + cfg.brightness * p}) saturate(${1 + cfg.saturate * p})`;
-      ctx.drawImage(source, 0, 0);
-      ctx.filter = 'none';
-
-      let imageData = ctx.getImageData(0, 0, w, h);
-      let data = imageData.data;
-      const colorStep = 255 / cfg.level;
-
-      for (let i = 0; i < data.length; i += 4) {
-        let r = data[i];
-        let g = data[i + 1];
-        let b = data[i + 2];
-        const luma = getLuma(r, g, b);
-        const satFactor = 1 + cfg.sat * p;
-
-        r = adjustSaturation(r, luma, satFactor);
-        g = adjustSaturation(g, luma, satFactor);
-        b = adjustSaturation(b, luma, satFactor);
-
-        if (style === 'watercolor') {
-          const wash = (r + g + b) / 3;
-          r = mix(r, wash + 24 * p, 0.2);
-          g = mix(g, wash + 20 * p, 0.2);
-          b = mix(b, wash + 30 * p, 0.28);
-        }
-
-        r = clamp(r + cfg.warm * p * 0.12 + cfg.redShift * 255 * p, 0, 255);
-        g = clamp(g + cfg.bright * 0.24 * p + cfg.greenShift * 255 * p, 0, 255);
-        b = clamp(b - cfg.warm * 0.14 * p + cfg.blueShift * 255 * p, 0, 255);
-
-        switch (style) {
-          case 'ghibli':
-            r = clamp(r + 12 * p, 0, 255);
-            g = clamp(g + 10 * p, 0, 255);
-            b = clamp(b - 6 * p, 0, 255);
-            break;
-          case 'anime':
-            r = clamp(r * 1.1 + 18 * p, 0, 255);
-            g = clamp(g * 1.05 + 10 * p, 0, 255);
-            b = clamp(b * 1.08 + 6 * p, 0, 255);
-            break;
-          case 'pixar':
-            const shine = getLuma(r, g, b) / 255;
-            r = clamp(r + shine * 16 * p, 0, 255);
-            g = clamp(g + shine * 11 * p, 0, 255);
-            b = clamp(b + shine * 8 * p, 0, 255);
-            break;
-          case 'disney':
-            r = clamp(r + 14 * p, 0, 255);
-            g = clamp(g + 9 * p, 0, 255);
-            b = clamp(b - 8 * p, 0, 255);
-            break;
-          case 'comic':
-            r = clamp(r * 1.08, 0, 255);
-            g = clamp(g * 1.08, 0, 255);
-            b = clamp(b * 1.08, 0, 255);
-            break;
-          case 'simpsons':
-            r = clamp(r * 1.18 + 25 * p, 0, 255);
-            g = clamp(g * 1.15 + 34 * p, 0, 255);
-            b = clamp(b * 0.6 + 14 * p, 0, 255);
-            break;
-          case '3d':
-            const depth = (luma - 128) / 128;
-            r = clamp(r + depth * 12 * p, 0, 255);
-            g = clamp(g + depth * 9 * p, 0, 255);
-            b = clamp(b + depth * 14 * p, 0, 255);
-            break;
-        }
-
-        if (style === 'comic' || style === 'simpsons' || style === 'anime') {
-          const posterLevels = style === 'comic' ? 3 : style === 'simpsons' ? 4 : 8;
-          r = posterize(r, posterLevels);
-          g = posterize(g, posterLevels);
-          b = posterize(b, posterLevels);
-        } else if (cfg.level > 1) {
-          r = posterize(r, cfg.level);
-          g = posterize(g, cfg.level);
-          b = posterize(b, cfg.level);
-        }
-
-        data[i] = r;
-        data[i + 1] = g;
-        data[i + 2] = b;
-      }
-
-      ctx.putImageData(imageData, 0, 0);
-
-      if (cfg.blur > 0) {
-        ctx.filter = `blur(${cfg.blur * p}px)`;
-        ctx.globalAlpha = cfg.blurAlpha;
-        ctx.drawImage(canvas, 0, 0);
-        ctx.globalAlpha = 1;
-        ctx.filter = 'none';
-      }
-
-      if (style === 'anime' || style === 'comic' || style === 'simpsons') {
-        const edgeData = generateEdgeMask(imageData.data, w, h, 24 + 12 * p);
-        ctx.putImageData(edgeData, 0, 0);
-        ctx.globalAlpha = 0.28 * p;
-        ctx.drawImage(canvas, 0, 0);
-        ctx.globalAlpha = 1;
-      }
-
-      if (cfg.glow > 0) {
-        ctx.globalCompositeOperation = 'screen';
-        ctx.fillStyle = style === 'pixar' || style === '3d' ? `rgba(255,255,250,${cfg.glow * p})` : `rgba(255,255,245,${cfg.glow * p})`;
-        ctx.fillRect(0, 0, w, h);
-        ctx.globalCompositeOperation = 'source-over';
-      }
-
-      if (style === 'pixar' || style === '3d') {
-        const highlight = ctx.createRadialGradient(w * 0.3, h * 0.2, w * 0.05, w * 0.3, h * 0.2, w * 0.6);
-        highlight.addColorStop(0, `rgba(255,255,255,${0.18 * p})`);
-        highlight.addColorStop(1, 'rgba(255,255,255,0)');
-        ctx.fillStyle = highlight;
-        ctx.fillRect(0, 0, w, h);
-      }
-
-      if (style === 'disney') {
-        ctx.globalCompositeOperation = 'overlay';
-        ctx.fillStyle = `rgba(255,220,180,${0.1 * p})`;
-        ctx.fillRect(0, 0, w, h);
-        ctx.globalCompositeOperation = 'source-over';
-      }
-
-      if (style === 'watercolor') {
-        ctx.globalCompositeOperation = 'lighten';
-        ctx.fillStyle = `rgba(255, 240, 235, ${0.12 * p})`;
-        ctx.fillRect(0, 0, w, h);
-        ctx.globalCompositeOperation = 'source-over';
-      }
-
-      if (style === 'simpsons') {
-        ctx.globalCompositeOperation = 'multiply';
-        ctx.fillStyle = `rgba(255, 235, 120, ${0.08 * p})`;
-        ctx.fillRect(0, 0, w, h);
-        ctx.globalCompositeOperation = 'source-over';
-      }
-
-      if (cfg.vignette) {
-        const gradient = ctx.createRadialGradient(w / 2, h / 2, w * 0.22, w / 2, h / 2, w * 0.9);
-        gradient.addColorStop(0, 'rgba(255,255,255,0)');
-        gradient.addColorStop(1, 'rgba(0,0,0,0.28)');
-        ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, w, h);
-      }
-
-      if (cfg.edge && cfg.edgeThick > 0 && style !== 'anime' && style !== 'comic' && style !== 'simpsons') {
-        ctx.strokeStyle = '#000000';
-        ctx.lineWidth = cfg.edgeThick * p;
-        ctx.globalAlpha = 0.4 * p;
-        ctx.strokeRect(0, 0, w, h);
-        ctx.globalAlpha = 1;
-      }
-    }
-
-    // 图像处理主函数
-    function processImage(file) {
-      return new Promise((resolve, reject) => {
-        const img = new Image();
-        const reader = new FileReader();
-        reader.onload = e => {
-          img.onload = () => {
-            let w = img.width, h = img.height;
-            const maxSize = 900;
-            if (w > maxSize || h > maxSize) {
-              const ratio = Math.min(maxSize / w, maxSize / h);
-              w = Math.round(w * ratio);
-              h = Math.round(h * ratio);
-            }
-            const canvas = document.createElement('canvas');
-            canvas.width = w;
-            canvas.height = h;
-            const ctx = canvas.getContext('2d');
-            advancedCartoonFilter(canvas, ctx, img, selectedStyle, strength);
-            resolve(canvas.toDataURL('image/png'));
-          };
-          img.onerror = reject;
-          img.src = e.target.result;
-        };
-        reader.onerror = reject;
-        reader.readAsDataURL(file);
-      });
-    }
-
-    // 生成按钮点击事件
-    generateBtn.addEventListener('click', async () => {
-      if (!currentFile) {
-        alert(i18n[document.documentElement.lang].uploadHint);
-        return;
-      }
-
-      // 渲染原图预览
-      const reader = new FileReader();
-      reader.onload = e => { originalImage.src = e.target.result; };
-      reader.readAsDataURL(currentFile);
-
-      previewSection.classList.add('visible');
-      loading.classList.add('visible');
-      generateBtn.disabled = true;
-
-      try {
-        const result = await processImage(currentFile);
-        cartoonImage.src = result;
-      } catch (err) {
-        alert(i18n[document.documentElement.lang].faq2Desc);
-        console.error(err);
-      }
-
-      loading.classList.remove('visible');
-      generateBtn.disabled = false;
-    });
-
-    // 下载功能
-    downloadBtn.addEventListener('click', () => {
-      if (!cartoonImage.src) return;
-      const a = document.createElement('a');
-      a.href = cartoonImage.src;
-      a.download = `toolnex-${selectedStyle}.png`;
-      a.click();
-    });
-
-    // 初始化默认语言
-    setLanguage('en');
-  </script>
 </body>
 </html>
