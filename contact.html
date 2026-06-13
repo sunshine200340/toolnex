@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | ToolNex Free Cross-border E-commerce Tools</title>
+    <meta name="description" content="Contact ToolNex support team for tool feedback, business cooperation and technical questions.">
+    <meta name="google-adsense-account" content="pub-9894972538238783">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+        body {
+            background-color: #F7FAFC;
+            color: #1D2939;
+            line-height: 1.7;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            position: sticky;
+            top: 0;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            z-index: 99;
+        }
+        .nav-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #165DFF;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+        }
+        .nav-menu a {
+            font-weight: 500;
+            color: #475467;
+            transition: color 0.2s;
+        }
+        .nav-menu a:hover {
+            color: #165DFF;
+        }
+        .nav-buttons {
+            display: flex;
+            gap: 16px;
+        }
+        .btn-primary {
+            background: #165DFF;
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-primary:hover {
+            background: #0E4BDB;
+        }
+        .btn-outline {
+            border: 1px solid #165DFF;
+            color: #165DFF;
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-weight: 500;
+            background: transparent;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-outline:hover {
+            background: #E8F3FF;
+        }
+        .contact-main {
+            padding: 80px 0;
+        }
+        .contact-title {
+            font-size: 42px;
+            text-align: center;
+            margin-bottom: 24px;
+            color: #101828;
+        }
+        .contact-subtitle {
+            font-size: 20px;
+            text-align: center;
+            color: #475467;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+        .contact-block {
+            background: #fff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            max-width: 900px;
+            margin: 0 auto 40px;
+        }
+        .contact-block h2 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #101828;
+        }
+        .contact-item {
+            margin-bottom: 28px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid #E5E7EB;
+        }
+        .contact-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .contact-item h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #1D2939;
+        }
+        .contact-item p {
+            font-size: 16px;
+            color: #475467;
+            margin-bottom: 8px;
+        }
+        .contact-link {
+            color: #165DFF;
+            font-weight: 500;
+            word-break: break-all;
+        }
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+        .ads-block {
+            max-width: 900px;
+            margin: 60px auto;
+            background: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            color: #667085;
+        }
+        footer {
+            background: #1D2939;
+            color: #fff;
+            padding: 60px 0 30px;
+            margin-top: 60px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 36px;
+            margin-bottom: 40px;
+        }
+        .footer-col h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #F9FAFB;
+        }
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+        .footer-col ul li a {
+            color: #D0D5DD;
+            transition: color 0.2s;
+        }
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+        .copyright {
+            text-align: center;
+            color: #98A2B3;
+            font-size: 14px;
+        }
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            padding: 16px 24px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            z-index: 999;
+        }
+        .cookie-banner p {
+            color: #475467;
+            max-width: 800px;
+        }
+        .cookie-buttons {
+            display: flex;
+            gap: 12px;
+        }
+        @media (max-width: 768px) {
+            .nav-menu {display: none;}
+            .contact-title {font-size:32px;}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav-wrap">
+            <a href="/index.html" class="logo">ToolNex</a>
+            <ul class="nav-menu">
+                <li><a href="/index.html#tools">Tools</a></li>
+                <li><a href="/index.html#guides">Guides</a></li>
+                <li><a href="/index.html#blog">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="/index.html#tools" class="btn-primary">All Free Tools</a>
+                <a href="/contact.html" class="btn-outline">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container contact-main">
+        <h1 class="contact-title">Contact Us</h1>
+        <p class="contact-subtitle">Reach our support team for tool feedback, business cooperation and technical help.</p>
+
+        <div class="contact-block">
+            <h2>Our Contact Channels</h2>
+
+            <!-- ========== 你的WhatsApp代码放在这个区域 ========== -->
+            <div class="contact-item">
+                <h3>WhatsApp Support</h3>
+                <p>Fast real-time chat for seller questions & cooperation</p>
+                <a href="https://wa.me/8615092833346" target="_blank" class="contact-link">
+                    https://wa.me/8615092833346
+                </a>
+            </div>
+
+            <!-- 可后续再加邮箱、其他联系方式 -->
+            <div class="contact-item">
+                <h3>Email Support</h3>
+                <p>Reply within 24 hours for detailed inquiries</p>
+                <a href="mailto:contact@toolnex.xyz" class="contact-link">contact@toolnex.xyz</a>
+            </div>
+        </div>
+    </main>
+
+    <div class="ads-block">
+        <p>Google AdSense Advertisement Slot</p>
+    </div>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4>ToolNex</h4>
+                <ul>
+                    <li><a href="/index.html#tools">All Free Tools</a></li>
+                    <li><a href="/index.html#blog">Seller Guides Blog</a></li>
+                    <li><a href="/faq.html">FAQ Center</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="/index.html#guides">Operation Tutorial Guides</a></li>
+                    <li><a href="/contact.html">Contact Support Email</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal Pages</h4>
+                <ul>
+                    <li><a href="/privacy.html">Privacy Policy</a></li>
+                    <li><a href="/cookie.html">Cookie Policy</a></li>
+                    <li><a href="/about.html">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li>contact@toolnex.xyz</li>
+                    <li>Global Online Support</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 ToolNex. All rights reserved.
+        </div>
+    </footer>
+
+    <div class="cookie-banner">
+        <p>We use cookies to improve your experience and serve Google AdSense personalized ads. You can manage or reject non-essential cookies.</p>
+        <div class="cookie-buttons">
+            <button class="btn-outline" onclick="this.parentElement.parentElement.style.display='none'">Reject Non-Essential</button>
+            <button class="btn-primary" onclick="this.parentElement.parentElement.style.display='none'">Accept All Cookies</button>
+        </div>
+    </div>
+</body>
+</html>
