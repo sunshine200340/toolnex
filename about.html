@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | ToolNex Free Cross-border E-commerce Tools</title>
+    <meta name="description" content="ToolNex provides 100% free tools for Amazon, Shopify, Facebook cross-border sellers, listing generator, image compressor & SEO checker.">
+    <meta name="google-adsense-account" content="pub-9894972538238783">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+        body {
+            background-color: #F7FAFC;
+            color: #1D2939;
+            line-height: 1.7;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* 导航栏和首页完全统一 */
+        header {
+            position: sticky;
+            top: 0;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            z-index: 99;
+        }
+        .nav-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #165DFF;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+        }
+        .nav-menu a {
+            font-weight: 500;
+            color: #475467;
+            transition: color 0.2s;
+        }
+        .nav-menu a:hover {
+            color: #165DFF;
+        }
+        .nav-buttons {
+            display: flex;
+            gap: 16px;
+        }
+        .btn-primary {
+            background: #165DFF;
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-primary:hover {
+            background: #0E4BDB;
+        }
+        .btn-outline {
+            border: 1px solid #165DFF;
+            color: #165DFF;
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-weight: 500;
+            background: transparent;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-outline:hover {
+            background: #E8F3FF;
+        }
+        .about-main {
+            padding: 80px 0;
+        }
+        .about-title {
+            font-size: 42px;
+            text-align: center;
+            margin-bottom: 24px;
+            color: #101828;
+        }
+        .about-subtitle {
+            font-size: 20px;
+            text-align: center;
+            color: #475467;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+        .about-block {
+            background: #fff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            max-width: 900px;
+            margin: 0 auto 40px;
+        }
+        .about-block h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #101828;
+        }
+        .about-block p {
+            font-size: 17px;
+            margin-bottom: 16px;
+            color: #344054;
+        }
+        /* 广告位 */
+        .ads-block {
+            max-width: 900px;
+            margin: 60px auto;
+            background: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            color: #667085;
+        }
+        /* 页脚统一样式 */
+        footer {
+            background: #1D2939;
+            color: #fff;
+            padding: 60px 0 30px;
+            margin-top: 60px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 36px;
+            margin-bottom: 40px;
+        }
+        .footer-col h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #F9FAFB;
+        }
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+        .footer-col ul li a {
+            color: #D0D5DD;
+            transition: color 0.2s;
+        }
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+        .copyright {
+            text-align: center;
+            color: #98A2B3;
+            font-size: 14px;
+        }
+        /* Cookie弹窗 */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            padding: 16px 24px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            z-index: 999;
+        }
+        .cookie-banner p {
+            color: #475467;
+            max-width: 800px;
+        }
+        .cookie-buttons {
+            display: flex;
+            gap: 12px;
+        }
+        @media (max-width: 768px) {
+            .nav-menu {display: none;}
+            .about-title {font-size:32px;}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav-wrap">
+            <a href="/index.html" class="logo">ToolNex</a>
+            <ul class="nav-menu">
+                <li><a href="/index.html#tools">Tools</a></li>
+                <li><a href="/index.html#guides">Guides</a></li>
+                <li><a href="/index.html#blog">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="/index.html#tools" class="btn-primary">All Free Tools</a>
+                <a href="/contact.html" class="btn-outline">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container about-main">
+        <h1 class="about-title">About ToolNex</h1>
+        <p class="about-subtitle">Free, simple, practical tool suite built exclusively for cross-border e-commerce sellers worldwide.</p>
+
+        <div class="about-block">
+            <h2>Our Mission</h2>
+            <p>ToolNex was founded to eliminate expensive third-party tool costs for small and medium cross-border sellers. We provide fully free, no-limit tools covering Amazon listing writing, product image compression, independent station SEO detection, and Facebook advertising copy generation.</p>
+            <p>All tools run directly in the browser without registration, login, or hidden fees, helping sellers cut operating costs and improve listing efficiency.</p>
+        </div>
+
+        <div class="about-block">
+            <h2>Who We Serve</h2>
+            <p>Our tools are designed for Amazon FBA sellers, Shopify independent store operators, Facebook & TikTok Shop social merchants, and cross-border operation beginners.</p>
+            <p>Whether you are a single-person small business or a small e-commerce team, ToolNex’s lightweight toolchain can match your daily listing & advertising workflow.</p>
+        </div>
+
+        <div class="about-block">
+            <h2>Our Core Tools</h2>
+            <p>✅ Amazon Listing Generator: Generate high-ranking titles and five-point descriptions optimized for Amazon algorithm</p>
+            <p>✅ Store Image Resizer: One-click crop & compress product images for all mainstream store & social platforms</p>
+            <p>✅ SEO Website Checker: Quick scan independent station page speed, keyword ranking and SEO defects</p>
+            <p>✅ Facebook Ad Copy Maker: Instantly generate multiple versions of high-converting social media advertising copy</p>
+        </div>
+    </main>
+
+    <div class="ads-block">
+        <p>Google AdSense Advertisement Slot</p>
+    </div>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4>ToolNex</h4>
+                <ul>
+                    <li><a href="/index.html#tools">All Free Tools</a></li>
+                    <li><a href="/index.html#blog">Seller Guides Blog</a></li>
+                    <li><a href="/faq.html">FAQ Center</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="/index.html#guides">Operation Tutorial Guides</a></li>
+                    <li><a href="/contact.html">Contact Support Email</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal Pages</h4>
+                <ul>
+                    <li><a href="/privacy.html">Privacy Policy</a></li>
+                    <li><a href="/cookie.html">Cookie Policy</a></li>
+                    <li><a href="/about.html">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li>contact@toolnex.xyz</li>
+                    <li>Global Online Support</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 ToolNex. All rights reserved.
+        </div>
+    </footer>
+
+    <div class="cookie-banner">
+        <p>We use cookies to improve your experience and serve Google AdSense personalized ads. You can manage or reject non-essential cookies.</p>
+        <div class="cookie-buttons">
+            <button class="btn-outline" onclick="this.parentElement.parentElement.style.display='none'">Reject Non-Essential</button>
+            <button class="btn-primary" onclick="this.parentElement.parentElement.style.display='none'">Accept All Cookies</button>
+        </div>
+    </div>
+</body>
+</html>
