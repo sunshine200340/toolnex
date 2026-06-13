@@ -30,7 +30,7 @@
             margin: 0 auto;
             padding: 0 20px;
         }
-        /* 导航栏 与首页完全统一 */
+        /* 导航栏 */
         header {
             position: sticky;
             top: 0;
@@ -91,7 +91,7 @@
         .btn-outline:hover {
             background: #E8F3FF;
         }
-        /* 工具主体区域 */
+        /* 工具主体 */
         .tool-main {
             padding: 60px 0;
         }
@@ -123,9 +123,16 @@
             font-size: 16px;
             margin-bottom: 16px;
         }
-        .tool-input-area button {
-            padding: 12px 30px;
+        .result-box {
+            width: 100%;
+            min-height: 180px;
+            padding: 14px;
+            border: 1px solid #D0D5DD;
+            border-radius: 8px;
             font-size: 16px;
+            margin-top: 24px;
+            background: #F7FAFC;
+            white-space: pre-wrap;
         }
         .guide-block {
             max-width: 900px;
@@ -160,7 +167,7 @@
         .faq-item p {
             color: #475467;
         }
-        /* AdSense广告 */
+        /* 广告位 */
         .ads-block {
             max-width: 900px;
             margin: 50px auto;
@@ -170,7 +177,7 @@
             border-radius: 8px;
             color: #667085;
         }
-        /* 页脚 统一复用 */
+        /* 页脚 */
         footer {
             background: #1D2939;
             color: #fff;
@@ -256,19 +263,22 @@
         <h1 class="tool-title">Amazon Listing Generator</h1>
         <p class="tool-desc">Create high-click product titles & descriptions optimized for Amazon algorithm, boost organic ranking fast. 100% free, no signup, instant generate.</p>
 
-        <!-- 工具操作输入区 -->
+        <!-- 输入+按钮+输出结果区域 -->
         <div class="tool-input-area">
-            <textarea placeholder="Input your product core keywords, material, features and target crowd..."></textarea>
-            <button class="btn-primary">Generate Optimized Listing</button>
+            <textarea id="productInput" placeholder="Input your product core keywords, material, features and target crowd..."></textarea>
+            <!-- 绑定点击事件 onclick="generateListing()" -->
+            <button class="btn-primary" onclick="generateListing()">Generate Optimized Listing</button>
+            <!-- 生成结果展示框 -->
+            <div class="result-box" id="outputResult">Your optimized Amazon listing will appear here after clicking generate button.</div>
         </div>
 
-        <!-- AdSense广告位（每页必须放，满足审核） -->
+        <!-- AdSense广告位 -->
         <div class="ads-block">
             <p>Google AdSense Advertisement Slot</p>
-            <!-- 粘贴你的广告JS代码 -->
+            <!-- 粘贴你的AdSense广告JS代码 -->
         </div>
 
-        <!-- 使用教程（扩充页面文字，解决AdSense内容单薄） -->
+        <!-- 使用教程 -->
         <div class="guide-block">
             <h3>Step-by-Step Usage Guide</h3>
             <ul>
@@ -279,7 +289,7 @@
             </ul>
         </div>
 
-        <!-- FAQ板块，扩充页面有效文字 -->
+        <!-- FAQ -->
         <div class="faq-block">
             <h3>Frequently Asked Questions</h3>
             <div class="faq-item">
@@ -344,5 +354,42 @@
             <button class="btn-primary" onclick="this.parentElement.parentElement.style.display='none'">Accept All Cookies</button>
         </div>
     </div>
+
+    <!-- 核心交互JS：按钮点击生成文案逻辑 -->
+    <script>
+        function generateListing() {
+            // 获取输入框内容
+            const inputText = document.getElementById('productInput').value.trim();
+            const resultBox = document.getElementById('outputResult');
+
+            // 判断是否为空
+            if (!inputText) {
+                resultBox.textContent = "Please fill in your product keywords, features first!";
+                return;
+            }
+
+            // 模拟生成亚马逊标题+五点描述（可后续对接AI接口）
+            const title = `Premium ${inputText} | Durable High Quality For Daily Use`;
+            const bullet1 = `✅ Made of premium material, long service life, comfortable to use`;
+            const bullet2 = `✅ Optimized design fits most usage scenarios, easy to install & carry`;
+            const bullet3 = `✅ Perfect gift choice for family, friends and business partners`;
+            const bullet4 = `✅ Strict quality inspection before shipment, stable performance`;
+            const bullet5 = `✅ Fast shipping & reliable after-sales service`;
+
+            // 拼接输出内容
+            const output = `# Amazon Product Title
+${title}
+
+# 5 Points Description
+${bullet1}
+${bullet2}
+${bullet3}
+${bullet4}
+${bullet5}`;
+
+            // 写入结果框
+            resultBox.textContent = output;
+        }
+    </script>
 </body>
 </html>
