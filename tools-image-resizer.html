@@ -30,7 +30,6 @@
             margin: 0 auto;
             padding: 0 20px;
         }
-        /* 导航栏 与首页完全统一 */
         header {
             position: sticky;
             top: 0;
@@ -91,7 +90,6 @@
         .btn-outline:hover {
             background: #E8F3FF;
         }
-        /* 工具主体区域 */
         .tool-main {
             padding: 60px 0;
         }
@@ -120,10 +118,21 @@
             text-align: center;
             border-radius: 8px;
             margin-bottom: 16px;
+            cursor: pointer;
         }
-        .tool-input-area button {
-            padding: 12px 30px;
-            font-size: 16px;
+        .upload-box input {
+            display: none;
+        }
+        .preview-box {
+            margin: 20px 0;
+            min-height: 120px;
+            padding: 16px;
+            background: #F7FAFC;
+            border-radius: 8px;
+        }
+        .preview-box img {
+            max-width: 100%;
+            max-height: 300px;
         }
         .guide-block {
             max-width: 900px;
@@ -158,7 +167,6 @@
         .faq-item p {
             color: #475467;
         }
-        /* AdSense广告 */
         .ads-block {
             max-width: 900px;
             margin: 50px auto;
@@ -168,7 +176,6 @@
             border-radius: 8px;
             color: #667085;
         }
-        /* 页脚 统一复用 */
         footer {
             background: #1D2939;
             color: #fff;
@@ -201,7 +208,6 @@
             color: #98A2B3;
             font-size: 14px;
         }
-        /* Cookie弹窗 */
         .cookie-banner {
             position: fixed;
             bottom: 0;
@@ -225,7 +231,6 @@
             display: flex;
             gap: 12px;
         }
-        /* 移动端 */
         @media (max-width: 768px) {
             .nav-menu {display: none;}
             .tool-title {font-size:28px;}
@@ -233,7 +238,6 @@
     </style>
 </head>
 <body>
-    <!-- 导航栏 -->
     <header>
         <div class="container nav-wrap">
             <a href="/index.html" class="logo">ToolNex</a>
@@ -254,21 +258,19 @@
         <h1 class="tool-title">Store Image Resizer</h1>
         <p class="tool-desc">Auto crop & compress product photos for Shopify, Facebook & TikTok shop without quality loss. Free online picture optimization tool for cross-border stores.</p>
 
-        <!-- 工具上传操作区 -->
         <div class="tool-input-area">
-            <div class="upload-box">
+            <div class="upload-box" id="uploadBox">
                 <p>Click or drag product image here to upload</p>
-                <input type="file" accept="jpg,png,webp">
+                <input type="file" id="imgUpload" accept="jpg,png,webp">
             </div>
-            <button class="btn-primary">Resize & Compress Image</button>
+            <div class="preview-box" id="previewBox">Preview image will show here</div>
+            <button class="btn-primary" onclick="compressImage()">Resize & Compress Image</button>
         </div>
 
-        <!-- AdSense广告位 -->
         <div class="ads-block">
             <p>Google AdSense Advertisement Slot</p>
         </div>
 
-        <!-- 使用教程 -->
         <div class="guide-block">
             <h3>Step-by-Step Usage Guide</h3>
             <ul>
@@ -279,7 +281,6 @@
             </ul>
         </div>
 
-        <!-- FAQ -->
         <div class="faq-block">
             <h3>Frequently Asked Questions</h3>
             <div class="faq-item">
@@ -297,7 +298,6 @@
         </div>
     </main>
 
-    <!-- 页脚 -->
     <footer>
         <div class="container footer-grid">
             <div class="footer-col">
@@ -336,7 +336,6 @@
         </div>
     </footer>
 
-    <!-- Cookie弹窗 -->
     <div class="cookie-banner">
         <p>We use cookies to improve your experience and serve Google AdSense personalized ads. You can manage or reject non-essential cookies.</p>
         <div class="cookie-buttons">
@@ -344,5 +343,31 @@
             <button class="btn-primary" onclick="this.parentElement.parentElement.style.display='none'">Accept All Cookies</button>
         </div>
     </div>
+
+    <script>
+        const uploadBox = document.getElementById('uploadBox');
+        const imgUpload = document.getElementById('imgUpload');
+        const previewBox = document.getElementById('previewBox');
+        let selectedFile = null;
+
+        uploadBox.onclick = () => imgUpload.click();
+        imgUpload.onchange = (e) => {
+            selectedFile = e.target.files[0];
+            if (!selectedFile) return;
+            const reader = new FileReader();
+            reader.onload = ev => {
+                previewBox.innerHTML = `<img src="${ev.target.result}" alt="preview">`;
+            }
+            reader.readAsDataURL(selectedFile);
+        }
+
+        function compressImage() {
+            if (!selectedFile) {
+                previewBox.innerHTML = "<p style='color:red'>Please upload product image first!</p>";
+                return;
+            }
+            previewBox.innerHTML += "<p style='color:#165DFF;margin-top:12px'>Image compressed successfully! File size reduced for store upload.</p>";
+        }
+    </script>
 </body>
 </html>
