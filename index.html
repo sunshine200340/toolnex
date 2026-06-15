@@ -1,470 +1,1055 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>ToolNex | Free All-in-One Cross Border E-commerce Tools</title>
+
     <meta name="description" content="100% free online tools for Amazon, Shopify, Facebook cross-border sellers. Product copy generator, image optimizer, SEO checker, no signup required.">
+
     <meta name="keywords" content="ecommerce tools, amazon listing generator, shopify image tool, cross border seller tools">
+
     <meta name="google-adsense-account" content="pub-9894972538238783">
+
     <style>
+
         * {
+
             margin: 0;
+
             padding: 0;
+
             box-sizing: border-box;
+
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
+
         }
+
         body {
+
             background-color: #F7FAFC;
+
             color: #1D2939;
+
             line-height: 1.6;
+
         }
+
         a {
+
             text-decoration: none;
+
             color: inherit;
+
         }
+
         ul {
+
             list-style: none;
+
         }
+
         .container {
+
             max-width: 1280px;
+
             margin: 0 auto;
+
             padding: 0 20px;
+
         }
+
         /* 导航栏 */
+
         header {
+
             position: sticky;
+
             top: 0;
+
             background: #fff;
+
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+
             z-index: 99;
+
         }
+
         .nav-wrap {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            height: 70px;
+
+        }
+
+        .logo {
+
+            font-size: 24px;
+
+            font-weight: 700;
+
+            color: #165DFF;
+
+        }
+
+        .nav-menu {
+
+            display: flex;
+
+            gap: 32px;
+
+        }
+
+        .nav-menu a {
+
+            font-weight: 500;
+
+            color: #475467;
+
+            transition: color 0.2s;
+
+        }
+
+        .nav-menu a:hover {
+
+            color: #165DFF;
+
+        }
+
+        .nav-buttons {
+
+            display: flex;
+
+            gap: 16px;
+
+        }
+
+        .btn-primary {
+
+            background: #165DFF;
+
+            color: #fff;
+
+            padding: 10px 22px;
+
+            border-radius: 6px;
+
+            font-weight: 500;
+
+            border: none;
+
+            cursor: pointer;
+
+            transition: background 0.2s;
+
+        }
+
+        .btn-primary:hover {
+
+            background: #0E4BDB;
+
+        }
+
+        .btn-outline {
+
+            border: 1px solid #165DFF;
+
+            color: #165DFF;
+
+            padding: 10px 22px;
+
+            border-radius: 6px;
+
+            font-weight: 500;
+
+            background: transparent;
+
+            cursor: pointer;
+
+            transition: background 0.2s;
+
+        }
+
+        .btn-outline:hover {
+
+            background: #E8F3FF;
+
+        }
+
+        /* Hero首屏 */
+
+        .hero {
+
+            padding: 80px 0;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 60px;
+
+            align-items: center;
+
+        }
+
+        .hero-text h1 {
+
+            font-size: 42px;
+
+            line-height: 1.2;
+
+            margin-bottom: 20px;
+
+            color: #101828;
+
+        }
+
+        .hero-text p {
+
+            font-size: 18px;
+
+            color: #475467;
+
+            margin-bottom: 32px;
+
+        }
+
+        .hero-buttons {
+
+            display: flex;
+
+            gap: 20px;
+
+        }
+
+        /* ========== 全新升级：右侧SaaS仪表盘UI样式 ========== */
+        .hero-img {
+            background: linear-gradient(145deg, #E8F3FF, #F0F7FF);
+            border-radius: 16px;
+            height: 440px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            box-shadow: 0 8px 30px rgba(22, 93, 255, 0.12);
+            position: relative;
+            overflow: hidden;
+        }
+        /* 仪表盘顶部导航栏 */
+        .dashboard-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 70px;
+            background: #fff;
+            padding: 10px 16px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
         }
-        .logo {
-            font-size: 24px;
+        .dash-logo {
             font-weight: 700;
             color: #165DFF;
-        }
-        .nav-menu {
-            display: flex;
-            gap: 32px;
-        }
-        .nav-menu a {
-            font-weight: 500;
-            color: #475467;
-            transition: color 0.2s;
-        }
-        .nav-menu a:hover {
-            color: #165DFF;
-        }
-        .nav-buttons {
-            display: flex;
-            gap: 16px;
-        }
-        .btn-primary {
-            background: #165DFF;
-            color: #fff;
-            padding: 10px 22px;
-            border-radius: 6px;
-            font-weight: 500;
-            border: none;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .btn-primary:hover {
-            background: #0E4BDB;
-        }
-        .btn-outline {
-            border: 1px solid #165DFF;
-            color: #165DFF;
-            padding: 10px 22px;
-            border-radius: 6px;
-            font-weight: 500;
-            background: transparent;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .btn-outline:hover {
-            background: #E8F3FF;
-        }
-        /* Hero首屏 */
-        .hero {
-            padding: 80px 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-        .hero-text h1 {
-            font-size: 42px;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            color: #101828;
-        }
-        .hero-text p {
             font-size: 18px;
-            color: #475467;
-            margin-bottom: 32px;
         }
-        .hero-buttons {
+        .dash-platform-tags {
             display: flex;
-            gap: 20px;
+            gap: 10px;
         }
-        .hero-img {
-            background: #E8F3FF;
-            border-radius: 12px;
-            height: 380px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #165DFF;
-            font-size: 20px;
-        }
-        /* 工具板块【已修复链接，带.html后缀，匹配扁平文件】 */
-        .tools-section {
-            padding: 60px 0;
-        }
-        .section-title {
-            text-align: center;
-            font-size: 32px;
-            margin-bottom: 48px;
-        }
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-        }
-        .tool-card {
-            background: #fff;
-            padding: 28px;
-            border-radius: 10px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-            transition: transform 0.2s;
-        }
-        .tool-card:hover {
-            transform: translateY(-4px);
-        }
-        .tool-card h3 {
-            font-size: 26px;
-            margin: 12px 0 10px;
-            color: #101828;
-        }
-        .tool-card p {
-            color: #475467;
-            margin-bottom: 20px;
-            font-size: 16px;
-            line-height: 1.7;
-        }
-        .tool-card .open-link {
+        .platform-tag {
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background: #F0F7FF;
             color: #165DFF;
             font-weight: 500;
-            font-size: 18px;
-            display: inline-block;
-            text-decoration: underline;
         }
-        .tool-card .open-link:hover {
-            color: #0E4BDB;
-        }
-        /* 信任区 */
-        .trust-section {
-            padding: 60px 0;
-            background: #fff;
-            margin: 40px 0;
-        }
-        .trust-wrap {
-            text-align: center;
-        }
-        .trust-text {
-            font-size: 22px;
-            color: #101828;
-            margin-bottom: 24px;
-        }
-        .brand-logos {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            color: #667085;
-            font-weight: 600;
-            font-size: 18px;
-        }
-        /* Blog板块 */
-        .blog-section {
-            padding: 60px 0;
-        }
-        .blog-grid {
+        /* 数据指标卡片行 */
+        .data-row {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-        }
-        .blog-card {
-            background: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-        }
-        .blog-card .blog-img {
-            height: 160px;
-            background: #E8F3FF;
-        }
-        .blog-card .blog-content {
-            padding: 20px;
-        }
-        .blog-card h4 {
-            font-size: 18px;
-            margin-bottom: 8px;
-        }
-        .blog-card p {
-            color: #475467;
-            font-size: 14px;
-        }
-        /* AdSense广告位 */
-        .ads-block {
-            max-width: 900px;
-            margin: 50px auto;
-            background: #fff;
-            padding: 20px;
-            text-align: center;
-            border-radius: 8px;
-            color: #667085;
-        }
-        /* 页脚 */
-        footer {
-            background: #1D2939;
-            color: #fff;
-            padding: 60px 0 30px;
-            margin-top: 60px;
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 36px;
-            margin-bottom: 40px;
-        }
-        .footer-col h4 {
-            font-size: 18px;
-            margin-bottom: 20px;
-            color: #F9FAFB;
-        }
-        .footer-col ul li {
-            margin-bottom: 12px;
-        }
-        .footer-col ul li a {
-            color: #D0D5DD;
-            transition: color 0.2s;
-        }
-        .footer-col ul li a:hover {
-            color: #fff;
-        }
-        .copyright {
-            text-align: center;
-            color: #98A2B3;
-            font-size: 14px;
-        }
-        /* GDPR Cookie弹窗 */
-        .cookie-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: #fff;
-            padding: 16px 24px;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
-            z-index: 999;
-        }
-        .cookie-banner p {
-            color: #475467;
-            max-width: 800px;
-        }
-        .cookie-buttons {
-            display: flex;
+            grid-template-columns: repeat(2, 1fr);
             gap: 12px;
         }
-        /* 移动端适配 */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-            .hero {
-                grid-template-columns: 1fr;
-                padding: 40px 0;
-            }
-            .hero-text h1 {
-                font-size: 28px;
-            }
-            .hero-buttons {
-                flex-direction: column;
-            }
-            .cookie-banner {
-                flex-direction: column;
-                text-align: center;
-            }
+        .data-card {
+            background: #fff;
+            padding: 14px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
+        .data-card .num {
+            font-size: 24px;
+            font-weight: 700;
+            color: #101828;
+        }
+        .data-card .desc {
+            font-size: 13px;
+            color: #667085;
+        }
+        /* 工具预览模块 */
+        .tool-preview-block {
+            background: #fff;
+            flex: 1;
+            border-radius: 10px;
+            padding: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .tool-preview-block h4 {
+            color: #101828;
+            margin-bottom: 10px;
+        }
+        .progress-bar-wrap {
+            width: 100%;
+            height: 8px;
+            background: #E8EEF5;
+            border-radius: 4px;
+            margin: 8px 0 16px;
+        }
+        .progress-bar {
+            height: 100%;
+            width: 78%;
+            background: #165DFF;
+            border-radius: 4px;
+        }
+        /* 悬浮CTA按钮，联动左侧转化引导 */
+        .dash-cta-btn {
+            align-self: flex-end;
+            background: #165DFF;
+            color: white;
+            border: none;
+            padding: 9px 18px;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .dash-cta-btn:hover {
+            background: #0E4BDB;
+        }
+        /* 工具板块【已修复链接，带.html后缀，匹配扁平文件】 */
+
+        .tools-section {
+
+            padding: 60px 0;
+
+        }
+
+        .section-title {
+
+            text-align: center;
+
+            font-size: 32px;
+
+            margin-bottom: 48px;
+
+        }
+
+        .tools-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+            gap: 24px;
+
+        }
+
+        .tool-card {
+
+            background: #fff;
+
+            padding: 28px;
+
+            border-radius: 10px;
+
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+
+            transition: transform 0.2s;
+
+        }
+
+        .tool-card:hover {
+
+            transform: translateY(-4px);
+
+        }
+
+        .tool-card h3 {
+
+            font-size: 26px;
+
+            margin: 12px 0 10px;
+
+            color: #101828;
+
+        }
+
+        .tool-card p {
+
+            color: #475467;
+
+            margin-bottom: 20px;
+
+            font-size: 16px;
+
+            line-height: 1.7;
+
+        }
+
+        .tool-card .open-link {
+
+            color: #165DFF;
+
+            font-weight: 500;
+
+            font-size: 18px;
+
+            display: inline-block;
+
+            text-decoration: underline;
+
+        }
+
+        .tool-card .open-link:hover {
+
+            color: #0E4BDB;
+
+        }
+
+        /* 信任区 */
+
+        .trust-section {
+
+            padding: 60px 0;
+
+            background: #fff;
+
+            margin: 40px 0;
+
+        }
+
+        .trust-wrap {
+
+            text-align: center;
+
+        }
+
+        .trust-text {
+
+            font-size: 22px;
+
+            color: #101828;
+
+            margin-bottom: 24px;
+
+        }
+
+        .brand-logos {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 40px;
+
+            flex-wrap: wrap;
+
+            color: #667085;
+
+            font-weight: 600;
+
+            font-size: 18px;
+
+        }
+
+        /* Blog板块 */
+
+        .blog-section {
+
+            padding: 60px 0;
+
+        }
+
+        .blog-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+            gap: 24px;
+
+        }
+
+        .blog-card {
+
+            background: #fff;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+
+        }
+
+        .blog-card .blog-img {
+
+            height: 160px;
+
+            background: #E8F3FF;
+
+        }
+
+        .blog-card .blog-content {
+
+            padding: 20px;
+
+        }
+
+        .blog-card h4 {
+
+            font-size: 18px;
+
+            margin-bottom: 8px;
+
+        }
+
+        .blog-card p {
+
+            color: #475467;
+
+            font-size: 14px;
+
+        }
+
+        /* AdSense广告位 */
+
+        .ads-block {
+
+            max-width: 900px;
+
+            margin: 50px auto;
+
+            background: #fff;
+
+            padding: 20px;
+
+            text-align: center;
+
+            border-radius: 8px;
+
+            color: #667085;
+
+        }
+
+        /* 页脚 */
+
+        footer {
+
+            background: #1D2939;
+
+            color: #fff;
+
+            padding: 60px 0 30px;
+
+            margin-top: 60px;
+
+        }
+
+        .footer-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 36px;
+
+            margin-bottom: 40px;
+
+        }
+
+        .footer-col h4 {
+
+            font-size: 18px;
+
+            margin-bottom: 20px;
+
+            color: #F9FAFB;
+
+        }
+
+        .footer-col ul li {
+
+            margin-bottom: 12px;
+
+        }
+
+        .footer-col ul li a {
+
+            color: #D0D5DD;
+
+            transition: color 0.2s;
+
+        }
+
+        .footer-col ul li a:hover {
+
+            color: #fff;
+
+        }
+
+        .copyright {
+
+            text-align: center;
+
+            color: #98A2B3;
+
+            font-size: 14px;
+
+        }
+
+        /* GDPR Cookie弹窗 */
+
+        .cookie-banner {
+
+            position: fixed;
+
+            bottom: 0;
+
+            left: 0;
+
+            right: 0;
+
+            background: #fff;
+
+            padding: 16px 24px;
+
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 16px;
+
+            z-index: 999;
+
+        }
+
+        .cookie-banner p {
+
+            color: #475467;
+
+            max-width: 800px;
+
+        }
+
+        .cookie-buttons {
+
+            display: flex;
+
+            gap: 12px;
+
+        }
+
+        /* 移动端适配 */
+
+        @media (max-width: 768px) {
+
+            .nav-menu {
+
+                display: none;
+
+            }
+
+            .hero {
+
+                grid-template-columns: 1fr;
+
+                padding: 40px 0;
+
+            }
+
+            .hero-text h1 {
+
+                font-size: 28px;
+
+            }
+
+            .hero-buttons {
+
+                flex-direction: column;
+
+            }
+            .hero-img {
+                height: 380px;
+                margin-top: 30px;
+            }
+            .data-row {
+                grid-template-columns: 1fr;
+            }
+
+            .cookie-banner {
+
+                flex-direction: column;
+
+                text-align: center;
+
+            }
+
+        }
+
     </style>
+
 </head>
+
 <body>
+
     <!-- 导航栏 修复Tools锚点跳转 -->
+
     <header>
+
         <div class="container nav-wrap">
+
             <a href="/index.html" class="logo">ToolNex</a>
+
             <ul class="nav-menu">
+
                 <li><a href="#tools">Tools</a></li>
+
                 <li><a href="#guides">Guides</a></li>
+
                 <li><a href="#blog">Blog</a></li>
+
                 <li><a href="/about.html">About</a></li>
+
             </ul>
+
             <div class="nav-buttons">
+
                 <a href="#tools" class="btn-primary">Free Tools</a>
+
                 <a href="/contact.html" class="btn-outline">Contact Us</a>
+
             </div>
+
         </div>
+
     </header>
 
     <main class="container">
-        <!-- Hero首屏 -->
+
+        <!-- Hero首屏（右侧已全部重写为SaaS仪表盘） -->
+
         <section class="hero">
+
             <div class="hero-text">
+
                 <h1>All-in-One Free Tools For Cross-Border Sellers</h1>
+
                 <p>Simplify your Amazon, Shopify & Facebook store workflow. Generate product copy, optimize images & check SEO in one click. No signup, no hidden fees, instant access.</p>
+
                 <div class="hero-buttons">
+
                     <a href="#tools" class="btn-primary">Browse All Tools</a>
+
                     <a href="#blog" class="btn-outline">Read Seller Guides</a>
+
+                </div>
+
+            </div>
+
+            <!-- 全新真实SaaS仪表盘界面区域 -->
+            <div class="hero-img">
+                <!-- 仪表盘顶部栏 -->
+                <div class="dashboard-header">
+                    <div class="dash-logo">ToolNex Dashboard</div>
+                    <div class="dash-platform-tags">
+                        <span class="platform-tag">Amazon</span>
+                        <span class="platform-tag">Shopify</span>
+                        <span class="platform-tag">Facebook</span>
+                    </div>
+                </div>
+                <!-- 核心转化数据卡片 -->
+                <div class="data-row">
+                    <div class="data-card">
+                        <div class="num">100+</div>
+                        <div class="desc">Free E-commerce Tools</div>
+                    </div>
+                    <div class="data-card">
+                        <div class="num">5,000+</div>
+                        <div class="desc">Daily Active Sellers</div>
+                    </div>
+                    <div class="data-card">
+                        <div class="num">78%</div>
+                        <div class="desc">Operation Efficiency Boost</div>
+                    </div>
+                    <div class="data-card">
+                        <div class="num">0</div>
+                        <div class="desc">Signup / Hidden Fees</div>
+                    </div>
+                </div>
+                <!-- 工具预览面板 -->
+                <div class="tool-preview-block">
+                    <h4>Listing SEO Optimizer · Running</h4>
+                    <div class="progress-bar-wrap">
+                        <div class="progress-bar"></div>
+                    </div>
+                    <span style="font-size:13px; color:#667085">Optimizing keywords & product description for top ranking</span>
+                    <!-- 内部CTA，和左侧按钮联动引流 -->
+                    <a href="#tools" class="dash-cta-btn">Try All Tools Now</a>
                 </div>
             </div>
-            <div class="hero-img">ToolNex Tool Preview Mockup</div>
+
         </section>
 
         <!-- AdSense广告位 -->
+
         <div class="ads-block">
+
             <p>Google AdSense Advertisement Slot</p>
+
             <!-- 粘贴你的AdSense广告JS代码 -->
+
         </div>
 
         <!-- 核心修复：工具卡片链接全部匹配.html扁平文件 -->
+
         <section id="tools" class="tools-section">
+
             <h2 class="section-title">Popular Free E-commerce Tools</h2>
+
             <div class="tools-grid">
+
                 <div class="tool-card">
+
                     <h3>Amazon Listing Generator</h3>
+
                     <p>Create high-click product titles & descriptions optimized for Amazon algorithm, boost organic ranking fast.</p>
+
                     <a href="/tools-amazon-listing.html" class="open-link">Open Tool →</a>
+
                 </div>
+
                 <div class="tool-card">
+
                     <h3>Store Image Resizer</h3>
+
                     <p>Auto crop & compress product photos for Shopify, Facebook & TikTok shop without quality loss.</p>
+
                     <a href="/tools-image-resizer.html" class="open-link">Open Tool →</a>
+
                 </div>
+
                 <div class="tool-card">
+
                     <h3>SEO Website Checker</h3>
+
                     <p>Scan your independent store traffic, keyword ranking & page speed in 10 seconds.</p>
+
                     <a href="/tools-seo-checker.html" class="open-link">Open Tool →</a>
+
                 </div>
+
                 <div class="tool-card">
+
                     <h3>Facebook Ad Copy Maker</h3>
+
                     <p>Generate persuasive short ad copy for social media promotion, increase store conversion rate.</p>
+
                     <a href="/tools-fb-ad-copy.html" class="open-link">Open Tool →</a>
+
                 </div>
+
             </div>
+
         </section>
 
         <!-- 信任背书板块 -->
+
         <section class="trust-section">
+
             <div class="container trust-wrap">
+
                 <div class="trust-text">Trusted by 5,000+ Global Cross-Border Merchants</div>
+
                 <div class="brand-logos">
+
                     <span>Amazon</span>
+
                     <span>Shopify</span>
+
                     <span>Facebook Shop</span>
+
                     <span>TikTok Shop</span>
+
                 </div>
+
             </div>
+
         </section>
 
         <!-- Blog资讯板块 -->
+
         <section id="blog" class="blog-section">
+
             <h2 class="section-title">Latest Seller Guides</h2>
+
             <div class="blog-grid">
+
                 <div class="blog-card">
+
                     <div class="blog-img"></div>
+
                     <div class="blog-content">
+
                         <h4>How To Write High CTR Amazon Listing In 2026</h4>
+
                         <p>Step-by-step tutorial to optimize your product copy and get more organic clicks.</p>
+
                     </div>
+
                 </div>
+
                 <div class="blog-card">
+
                     <div class="blog-img"></div>
+
                     <div class="blog-content">
+
                         <h4>Shopify Image Optimization Rules For Higher Sales</h4>
+
                         <p>Image size, format & compression guide fit all social & store platforms.</p>
+
                     </div>
+
                 </div>
+
                 <div class="blog-card">
+
                     <div class="blog-img"></div>
+
                     <div class="blog-content">
+
                         <h4>10 Free Tools For Small Cross-border Business Owners</h4>
+
                         <p>Zero-cost workflow tools to save your daily operation time.</p>
+
                     </div>
+
                 </div>
+
             </div>
+
         </section>
+
     </main>
 
     <!-- 页脚 -->
+
     <footer>
+
         <div class="container footer-grid">
+
             <div class="footer-col">
+
                 <h4>ToolNex</h4>
+
                 <ul>
+
                     <li><a href="#tools">All Free Tools</a></li>
+
                     <li><a href="#blog">Seller Blog</a></li>
+
                     <li><a href="/faq.html">FAQ Center</a></li>
+
                 </ul>
+
             </div>
+
             <div class="footer-col">
+
                 <h4>Resources</h4>
+
                 <ul>
+
                     <li><a href="#guides">Operation Guides</a></li>
+
                     <li><a href="/contact.html">Support Email</a></li>
+
                 </ul>
+
             </div>
+
             <div class="footer-col">
+
                 <h4>Legal Pages</h4>
+
                 <ul>
+
                     <li><a href="/privacy.html">Privacy Policy</a></li>
+
                     <li><a href="/cookie.html">Cookie Policy</a></li>
+
                     <li><a href="/about.html">About Us</a></li>
+
                 </ul>
+
             </div>
+
             <div class="footer-col">
+
                 <h4>Contact</h4>
+
                 <ul>
+
                     <li>WhatsAPP:+8615092833346</li>
+
                     <li>UTC+0 9:00 - 18:00 Working Hour</li>
+
                 </ul>
+
             </div>
+
         </div>
+
         <div class="copyright">
+
             © 2026 ToolNex. All rights reserved.
+
         </div>
+
     </footer>
 
     <!-- Cookie弹窗交互 -->
+
     <div class="cookie-banner">
+
         <p>We use cookies to improve your experience and serve Google AdSense personalized ads. You can manage or reject non-essential cookies.</p>
+
         <div class="cookie-buttons">
+
             <button class="btn-outline" onclick="this.parentElement.parentElement.style.display='none'">Reject Non-Essential</button>
+
             <button class="btn-primary" onclick="this.parentElement.parentElement.style.display='none'">Accept All Cookies</button>
+
         </div>
+
     </div>
+
 </body>
+
 </html>
