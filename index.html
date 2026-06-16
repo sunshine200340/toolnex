@@ -1,237 +1,124 @@
-<!DOCTYPE html>
-
-<html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>ToolNex | Free All-in-One Cross Border E-commerce Tools</title>
-
     <meta name="description" content="100% free online tools for Amazon, Shopify, Facebook cross-border sellers. Product copy generator, image optimizer, SEO checker, no signup required.">
-
     <meta name="keywords" content="ecommerce tools, amazon listing generator, shopify image tool, cross border seller tools">
-
+    <!-- 原有AdSense元验证标签可保留 -->
     <meta name="google-adsense-account" content="pub-9894972538238783">
+    
+    <!-- 新增：截图里的AdSense官方JS验证代码（必须放在head内） -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9894972538238783"
+     crossorigin="anonymous"></script>
 
     <style>
-
         * {
-
             margin: 0;
-
             padding: 0;
-
             box-sizing: border-box;
-
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
-
         }
-
         body {
-
             background-color: #F7FAFC;
-
             color: #1D2939;
-
             line-height: 1.6;
-
         }
-
         a {
-
             text-decoration: none;
-
             color: inherit;
-
         }
-
         ul {
-
             list-style: none;
-
         }
-
         .container {
-
             max-width: 1280px;
-
             margin: 0 auto;
-
             padding: 0 20px;
-
         }
-
         /* 导航栏 */
-
         header {
-
             position: sticky;
-
             top: 0;
-
             background: #fff;
-
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-
             z-index: 99;
-
         }
-
         .nav-wrap {
-
             display: flex;
-
             justify-content: space-between;
-
             align-items: center;
-
             height: 70px;
-
         }
-
         .logo {
-
             font-size: 24px;
-
             font-weight: 700;
-
             color: #165DFF;
-
         }
-
         .nav-menu {
-
             display: flex;
-
             gap: 32px;
-
         }
-
         .nav-menu a {
-
             font-weight: 500;
-
             color: #475467;
-
             transition: color 0.2s;
-
         }
-
         .nav-menu a:hover {
-
             color: #165DFF;
-
         }
-
         .nav-buttons {
-
             display: flex;
-
             gap: 16px;
-
         }
-
         .btn-primary {
-
             background: #165DFF;
-
             color: #fff;
-
             padding: 10px 22px;
-
             border-radius: 6px;
-
             font-weight: 500;
-
             border: none;
-
             cursor: pointer;
-
             transition: background 0.2s;
-
         }
-
         .btn-primary:hover {
-
             background: #0E4BDB;
-
         }
-
         .btn-outline {
-
             border: 1px solid #165DFF;
-
             color: #165DFF;
-
             padding: 10px 22px;
-
             border-radius: 6px;
-
             font-weight: 500;
-
             background: transparent;
-
             cursor: pointer;
-
             transition: background 0.2s;
-
         }
-
         .btn-outline:hover {
-
             background: #E8F3FF;
-
         }
-
         /* Hero首屏 */
-
         .hero {
-
             padding: 80px 0;
-
             display: grid;
-
             grid-template-columns: 1fr 1fr;
-
             gap: 60px;
-
             align-items: center;
-
         }
-
         .hero-text h1 {
-
             font-size: 42px;
-
             line-height: 1.2;
-
             margin-bottom: 20px;
-
             color: #101828;
-
         }
-
         .hero-text p {
-
             font-size: 18px;
-
             color: #475467;
-
             margin-bottom: 32px;
-
         }
-
         .hero-buttons {
-
             display: flex;
-
             gap: 20px;
-
         }
-
         /* ========== 全新升级：右侧SaaS仪表盘UI样式 ========== */
         .hero-img {
             background: linear-gradient(145deg, #E8F3FF, #F0F7FF);
@@ -723,328 +610,3 @@
     </style>
 
 </head>
-
-<body>
-
-    <!-- 导航栏 修复Tools锚点跳转 -->
-
-    <header>
-
-        <div class="container nav-wrap">
-
-            <a href="/index.html" class="logo">ToolNex</a>
-
-            <ul class="nav-menu">
-
-                <li><a href="#tools">Tools</a></li>
-
-                <li><a href="#guides">Guides</a></li>
-
-                <li><a href="#blog">Blog</a></li>
-
-                <li><a href="/about.html">About</a></li>
-
-            </ul>
-
-            <div class="nav-buttons">
-
-                <a href="#tools" class="btn-primary">Free Tools</a>
-
-                <a href="/contact.html" class="btn-outline">Contact Us</a>
-
-            </div>
-
-        </div>
-
-    </header>
-
-    <main class="container">
-
-        <!-- Hero首屏（右侧已全部重写为SaaS仪表盘） -->
-
-        <section class="hero">
-
-            <div class="hero-text">
-
-                <h1>All-in-One Free Tools For Cross-Border Sellers</h1>
-
-                <p>Simplify your Amazon, Shopify & Facebook store workflow. Generate product copy, optimize images & check SEO in one click. No signup, no hidden fees, instant access.</p>
-
-                <div class="hero-buttons">
-
-                    <a href="#tools" class="btn-primary">Browse All Tools</a>
-
-                    <a href="#blog" class="btn-outline">Read Seller Guides</a>
-
-                </div>
-
-            </div>
-
-            <!-- 全新真实SaaS仪表盘界面区域 -->
-            <div class="hero-img">
-                <!-- 仪表盘顶部栏 -->
-                <div class="dashboard-header">
-                    <div class="dash-logo">ToolNex Dashboard</div>
-                    <div class="dash-platform-tags">
-                        <span class="platform-tag">Amazon</span>
-                        <span class="platform-tag">Shopify</span>
-                        <span class="platform-tag">Facebook</span>
-                    </div>
-                </div>
-                <!-- 核心转化数据卡片 -->
-                <div class="data-row">
-                    <div class="data-card">
-                        <div class="num">100+</div>
-                        <div class="desc">Free E-commerce Tools</div>
-                    </div>
-                    <div class="data-card">
-                        <div class="num">5,000+</div>
-                        <div class="desc">Daily Active Sellers</div>
-                    </div>
-                    <div class="data-card">
-                        <div class="num">78%</div>
-                        <div class="desc">Operation Efficiency Boost</div>
-                    </div>
-                    <div class="data-card">
-                        <div class="num">0</div>
-                        <div class="desc">Signup / Hidden Fees</div>
-                    </div>
-                </div>
-                <!-- 工具预览面板 -->
-                <div class="tool-preview-block">
-                    <h4>Listing SEO Optimizer · Running</h4>
-                    <div class="progress-bar-wrap">
-                        <div class="progress-bar"></div>
-                    </div>
-                    <span style="font-size:13px; color:#667085">Optimizing keywords & product description for top ranking</span>
-                    <!-- 内部CTA，和左侧按钮联动引流 -->
-                    <a href="#tools" class="dash-cta-btn">Try All Tools Now</a>
-                </div>
-            </div>
-
-        </section>
-
-        <!-- AdSense广告位 -->
-
-        <div class="ads-block">
-
-            <p>Google AdSense Advertisement Slot</p>
-
-            <!-- 粘贴你的AdSense广告JS代码 -->
-
-        </div>
-
-        <!-- 核心修复：工具卡片链接全部匹配.html扁平文件 -->
-
-        <section id="tools" class="tools-section">
-
-            <h2 class="section-title">Popular Free E-commerce Tools</h2>
-
-            <div class="tools-grid">
-
-                <div class="tool-card">
-
-                    <h3>Amazon Listing Generator</h3>
-
-                    <p>Create high-click product titles & descriptions optimized for Amazon algorithm, boost organic ranking fast.</p>
-
-                    <a href="/tools-amazon-listing.html" class="open-link">Open Tool →</a>
-
-                </div>
-
-                <div class="tool-card">
-
-                    <h3>Store Image Resizer</h3>
-
-                    <p>Auto crop & compress product photos for Shopify, Facebook & TikTok shop without quality loss.</p>
-
-                    <a href="/tools-image-resizer.html" class="open-link">Open Tool →</a>
-
-                </div>
-
-                <div class="tool-card">
-
-                    <h3>SEO Website Checker</h3>
-
-                    <p>Scan your independent store traffic, keyword ranking & page speed in 10 seconds.</p>
-
-                    <a href="/tools-seo-checker.html" class="open-link">Open Tool →</a>
-
-                </div>
-
-                <div class="tool-card">
-
-                    <h3>Facebook Ad Copy Maker</h3>
-
-                    <p>Generate persuasive short ad copy for social media promotion, increase store conversion rate.</p>
-
-                    <a href="/tools-fb-ad-copy.html" class="open-link">Open Tool →</a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- 信任背书板块 -->
-
-        <section class="trust-section">
-
-            <div class="container trust-wrap">
-
-                <div class="trust-text">Trusted by 5,000+ Global Cross-Border Merchants</div>
-
-                <div class="brand-logos">
-
-                    <span>Amazon</span>
-
-                    <span>Shopify</span>
-
-                    <span>Facebook Shop</span>
-
-                    <span>TikTok Shop</span>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- Blog资讯板块 已优化空白区域，添加主题图标+阅读按钮 -->
-        <section id="blog" class="blog-section">
-
-            <h2 class="section-title">Latest Seller Guides</h2>
-
-            <div class="blog-grid">
-
-                <div class="blog-card">
-                    <!-- 文案指南主题图标 -->
-                    <div class="blog-img">📝</div>
-                    <div class="blog-content">
-                        <h4>How To Write High CTR Amazon Listing In 2026</h4>
-                        <p>Step-by-step tutorial to optimize your product copy and get more organic clicks.</p>
-                        <a href="/blog-amazon-listing-ctr.html" class="blog-read-more">Read Full Guide →</a>
-                    </div>
-                </div>
-
-                <div class="blog-card">
-                    <!-- 图片优化主题图标 -->
-                    <div class="blog-img">🖼️</div>
-                    <div class="blog-content">
-                        <h4>Shopify Image Optimization Rules For Higher Sales</h4>
-                        <p>Image size, format & compression guide fit all social & store platforms.</p>
-                        <a href="/blog-shopify-image-guide.html" class="blog-read-more">Read Full Guide →</a>
-                    </div>
-                </div>
-
-                <div class="blog-card">
-                    <!-- 工具合集主题图标 -->
-                    <div class="blog-img">⚙️</div>
-                    <div class="blog-content">
-                        <h4>10 Free Tools For Small Cross-border Business Owners</h4>
-                        <p>Zero-cost workflow tools to save your daily operation time.</p>
-                        <a href="/blog-free-crossborder-tools.html" class="blog-read-more">Read Full Guide →</a>
-                    </div>
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-    <!-- 页脚 -->
-
-    <footer>
-
-        <div class="container footer-grid">
-
-            <div class="footer-col">
-
-                <h4>ToolNex</h4>
-
-                <ul>
-
-                    <li><a href="#tools">All Free Tools</a></li>
-
-                    <li><a href="#blog">Seller Blog</a></li>
-
-                    <li><a href="/faq.html">FAQ Center</a></li>
-
-                </ul>
-
-            </div>
-
-            <div class="footer-col">
-
-                <h4>Resources</h4>
-
-                <ul>
-
-                    <li><a href="#guides">Operation Guides</a></li>
-
-                    <li><a href="/contact.html">Support Email</a></li>
-
-                </ul>
-
-            </div>
-
-            <div class="footer-col">
-
-                <h4>Legal Pages</h4>
-
-                <ul>
-
-                    <li><a href="/privacy.html">Privacy Policy</a></li>
-
-                    <li><a href="/cookie.html">Cookie Policy</a></li>
-
-                    <li><a href="/about.html">About Us</a></li>
-
-                </ul>
-
-            </div>
-
-            <div class="footer-col">
-
-                <h4>Contact</h4>
-
-                <ul>
-
-                    <li>WhatsAPP:+8615092833346</li>
-
-                    <li>UTC+0 9:00 - 18:00 Working Hour</li>
-
-                </ul>
-
-            </div>
-
-        </div>
-
-        <div class="copyright">
-
-            © 2026 ToolNex. All rights reserved.
-
-        </div>
-
-    </footer>
-
-    <!-- Cookie弹窗交互 -->
-
-    <div class="cookie-banner">
-
-        <p>We use cookies to improve your experience and serve Google AdSense personalized ads. You can manage or reject non-essential cookies.</p>
-
-        <div class="cookie-buttons">
-
-            <button class="btn-outline" onclick="this.parentElement.parentElement.style.display='none'">Reject Non-Essential</button>
-
-            <button class="btn-primary" onclick="this.parentElement.parentElement.style.display='none'">Accept All Cookies</button>
-
-        </div>
-
-    </div>
-
-</body>
-
-</html>
