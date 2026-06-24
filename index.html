@@ -466,7 +466,8 @@
         /* Responsive */
         @media (max-width: 768px) {
             .nav-menu {
-                display: none;
+                flex-wrap: wrap;
+                gap:15px;
             }
             .hero h1 {
                 font-size: 32px;
@@ -700,7 +701,7 @@
     </footer>
 
     <script>
-        // Multilingual Configuration
+        // ===================== 完整7国语言翻译配置 =====================
         const translations = {
             en: {
                 brandName: "INDUSTRIAL RACKING",
@@ -1075,161 +1076,4 @@
                 prod5Desc: "迅速に設置できるボルトレス棚システムで効率的な保管を実現します。",
                 prod6Title: "アングルプレート・付属品",
                 prod6Desc: "各種アングルスチールプレート、ネジ、コーナー金具のフルラインナップ。",
-                learnMore: "詳しく見る →",
-                catTitle: "製品カテゴリー",
-                catSubtitle: "保管用金具とラックアクセサリーの幅広い品揃え",
-                cat1: "スチールアングル",
-                cat2: "アングルプレート",
-                cat3: "ネジ・コーナー",
-                cat4: "保管棚",
-                cat5: "スーパーマーケットラック",
-                cat6: "産業用ラック",
-                cat7: "スチール&ウッドシリーズ",
-                cat8: "金具部品",
-                aboutTitle: "会社について",
-                aboutP1: "私たちは産業用保管機器を専門とするプロの製造・輸出企業です。",
-                aboutP2: "当社製品は倉庫、スーパーマーケット、工場、物流センターで広く使用されています。",
-                aboutF1: "厳格な品質管理システム",
-                aboutF2: "カスタマイズ設計ソリューション",
-                aboutF3: "迅速なグローバル配送",
-                aboutF4: "プロのアフターサービス",
-                aboutImgText: "工場プレビュー",
-                contactTitle: "お問い合わせ",
-                contactSubtitle: "お問い合わせを送信いただければ24時間以内に返信いたします",
-                inputName: "お名前",
-                inputEmail: "メールアドレス",
-                inputSubject: "件名",
-                inputMessage: "メッセージ",
-                submitBtn: "問い合わせを送信",
-                foot1Title: "製品",
-                foot1_1: "重量ラック",
-                foot1_2: "アングル棚",
-                foot1_3: "スーパーマーケット棚",
-                foot1_4: "ボルトレス棚",
-                foot2Title: "会社情報",
-                foot2_1: "会社概要",
-                foot2_2: "工場紹介",
-                foot2_3: "認証",
-                foot2_4: "お問い合わせ",
-                foot3Title: "サポート",
-                foot3_1: "設置ガイド",
-                foot3_2: "よくある質問",
-                foot3_3: "配送情報",
-                foot3_4: "保証",
-                foot4Title: "連絡先",
-                foot4_1: "メール: info@example.com",
-                foot4_2: "電話: +86 xxx xxxx xxxx",
-                foot4_3: "住所: 中国山東省臨沂市",
-                copyright: "© 2026 産業用ラックソリューション. All rights reserved."
-            },
-            ko: {
-                brandName: "산업용 랙",
-                navHome: "홈",
-                navProducts: "제품",
-                navAbout: "회사소개",
-                navContact: "문의하기",
-                heroTitle: "전문적인 산업용 창고 솔루션",
-                heroDesc: "고품질 중량랙, 앵글 선반, 슈퍼마켓 선반 시스템을 제공합니다.",
-                heroBtn: "제품 보기",
-                productsTitle: "제품 소개",
-                productsSubtitle: "모든 산업 요구에 맞는 다양한 창고 랙 시스템",
-                prod1Title: "중량 랙",
-                prod1Desc: "창고 보관용 고하중 팔레트 랙 시스템입니다.",
-                prod2Title: "앵글 선반",
-                prod2Desc: "높이 조절이 가능한 스틸 앵글 선반, 조립이 쉽고 다용도로 사용됩니다.",
-                prod3Title: "중량급 랙",
-                prod3Desc: "중간 하중에 적합하며 유연하고 경제적입니다.",
-                prod4Title: "슈퍼마켓 선반",
-                prod4Desc: "현대적인 디자인과 높은 내구성을 갖춘 매장용 진열대입니다.",
-                prod5Title: "볼트리스 선반",
-                prod5Desc: "빠르게 설치할 수 있는 볼트리스 선반으로 효율적인 보관이 가능합니다.",
-                prod6Title: "앵글 플레이트 및 부속품",
-                prod6Desc: "다양한 앵글 스틸 플레이트, 나사, 코너 부속품을 제공합니다.",
-                learnMore: "자세히 보기 →",
-                catTitle: "제품 카테고리",
-                catSubtitle: "다양한 창고 하드웨어 및 랙 액세서리",
-                cat1: "스틸 앵글",
-                cat2: "앵글 플레이트",
-                cat3: "나사 및 코너",
-                cat4: "보관 선반",
-                cat5: "슈퍼마켓 랙",
-                cat6: "산업용 랙",
-                cat7: "스틸&우드 시리즈",
-                cat8: "하드웨어 부속품",
-                aboutTitle: "회사 소개",
-                aboutP1: "저희는 산업용 보관 장비를 전문으로 하는 전문 제조 및 수출 기업입니다.",
-                aboutP2: "당사 제품은 창고, 슈퍼마켓, 공장, 물류 센터에서 널리 사용됩니다.",
-                aboutF1: "엄격한 품질 관리 시스템",
-                aboutF2: "맞춤형 디자인 솔루션",
-                aboutF3: "빠른 글로벌 배송",
-                aboutF4: "전문적인 애프터서비스",
-                aboutImgText: "공장 미리보기",
-                contactTitle: "문의하기",
-                contactSubtitle: "문의를 보내주시면 24시간 이내에 답변 드리겠습니다",
-                inputName: "이름",
-                inputEmail: "이메일",
-                inputSubject: "제목",
-                inputMessage: "메시지",
-                submitBtn: "문의 보내기",
-                foot1Title: "제품",
-                foot1_1: "중량 랙",
-                foot1_2: "앵글 선반",
-                foot1_3: "슈퍼마켓 선반",
-                foot1_4: "볼트리스 선반",
-                foot2Title: "회사",
-                foot2_1: "회사소개",
-                foot2_2: "공장소개",
-                foot2_3: "인증",
-                foot2_4: "문의하기",
-                foot3Title: "지원",
-                foot3_1: "설치 가이드",
-                foot3_2: "자주 묻는 질문",
-                foot3_3: "배송 정보",
-                foot3_4: "보증",
-                foot4Title: "연락처",
-                foot4_1: "이메일: info@example.com",
-                foot4_2: "전화: +86 xxx xxxx xxxx",
-                foot4_3: "주소: 중국 산둥성 린이시",
-                copyright: "© 2026 산업용 랙 솔루션. All rights reserved."
-            }
-        };
-
-        // Language Switch Logic
-        const langBtn = document.getElementById('langBtn');
-        const langDropdown = document.getElementById('langDropdown');
-        const langButtons = langDropdown.querySelectorAll('button');
-
-        langBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            langDropdown.classList.toggle('active');
-        });
-
-        document.addEventListener('click', () => {
-            langDropdown.classList.remove('active');
-        });
-
-        function setLanguage(lang) {
-            if (!translations[lang]) return;
-            
-            const t = translations[lang];
-            
-            // Update text content
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (t[key]) {
-                    el.textContent = t[key];
-                }
-            });
-
-            // Update placeholders
-            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-                const key = el.getAttribute('data-i18n-placeholder');
-                if (t[key]) {
-                    el.placeholder = t[key];
-                }
-            });
-
-            // Update button text
-            langBtn.textContent = lang.toUpperCase() + ' ▾';
-            
-            // Save preference
+                learnMore: "詳
