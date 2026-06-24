@@ -1,1046 +1,1235 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-    <script src="https://quge5.com/88/tag.min.js" data-zone="251541" async data-cfasync="false"></script>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>ToolNex | Free Amazon Listing Generator</title>
-
-    <meta name="description" content="ToolNex.xyz offers a free Amazon listing generation tool for cross-border sellers. Create optimized titles and descriptions in seconds with no signup.">
-
-    <meta name="keywords" content="Amazon listing generator, product copy tool, free ecommerce tool, ToolNex">
-
-    <meta name="google-adsense-account" content="pub-9894972538238783">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9894972538238783"
-     crossorigin="anonymous"></script>
+    <title>Industrial Storage Racking Solutions | Heavy Duty Shelving Supplier</title>
+    <meta name="description" content="Professional manufacturer and supplier of industrial storage racks, angle shelves, heavy duty racking and supermarket shelving systems.">
     <style>
-
         * {
-
             margin: 0;
-
             padding: 0;
-
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-
+        :root {
+            --primary: #0A2463;
+            --secondary: #D4AF37;
+            --dark: #1A1A2E;
+            --light: #F8F9FA;
+            --gray: #6C757D;
+            --white: #FFFFFF;
+            --border: #E9ECEF;
         }
 
         body {
-
-            background-color: #F7FAFC;
-
-            color: #1D2939;
-
+            color: #333;
             line-height: 1.6;
-
+            background-color: var(--light);
         }
 
-        a {
-
-            text-decoration: none;
-
-            color: inherit;
-
-        }
-
-        ul {
-
-            list-style: none;
-
-        }
-
-        .container {
-
-            max-width: 1280px;
-
-            margin: 0 auto;
-
-            padding: 0 20px;
-
-        }
-
-        /* 导航栏 */
-
-        header {
-
+        /* Header & Navigation */
+        .header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
             position: sticky;
-
             top: 0;
-
-            background: #fff;
-
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-
-            z-index: 99;
-
+            z-index: 1000;
         }
 
-        .nav-wrap {
-
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
             display: flex;
-
             justify-content: space-between;
-
             align-items: center;
-
-            height: 70px;
-
+            height: 80px;
         }
 
-        .logo {
-
+        .brand-text {
             font-size: 24px;
-
             font-weight: 700;
-
-            color: #165DFF;
-
+            color: var(--primary);
+            letter-spacing: 0.5px;
         }
 
         .nav-menu {
-
             display: flex;
-
-            gap: 32px;
-
+            list-style: none;
+            gap: 35px;
+            align-items: center;
         }
 
         .nav-menu a {
-
+            text-decoration: none;
+            color: var(--dark);
             font-weight: 500;
-
-            color: #475467;
-
-            transition: color 0.2s;
-
+            font-size: 15px;
+            transition: color 0.3s;
         }
 
         .nav-menu a:hover {
-
-            color: #165DFF;
-
+            color: var(--secondary);
         }
 
-        .nav-buttons {
-
-            display: flex;
-
-            gap: 16px;
-
+        .lang-switcher {
+            position: relative;
         }
 
-        .btn-primary {
-
-            background: #165DFF;
-
-            color: #fff;
-
-            padding: 10px 22px;
-
-            border-radius: 6px;
-
-            font-weight: 500;
-
+        .lang-btn {
+            background: var(--primary);
+            color: white;
             border: none;
-
+            padding: 8px 16px;
+            border-radius: 4px;
             cursor: pointer;
-
-            transition: background 0.2s;
-
-        }
-
-        .btn-primary:hover {
-
-            background: #0E4BDB;
-
-        }
-
-        .btn-outline {
-
-            border: 1px solid #165DFF;
-
-            color: #165DFF;
-
-            padding: 10px 22px;
-
-            border-radius: 6px;
-
-            font-weight: 500;
-
-            background: transparent;
-
-            cursor: pointer;
-
-            transition: background 0.2s;
-
-        }
-
-        .btn-outline:hover {
-
-            background: #E8F3FF;
-
-        }
-
-        /* Hero首屏 */
-
-        .hero {
-
-            padding: 80px 0;
-
-            display: grid;
-
-            grid-template-columns: 1fr 1fr;
-
-            gap: 60px;
-
+            font-size: 14px;
+            display: flex;
             align-items: center;
-
+            gap: 6px;
         }
 
-        .hero-text h1 {
-
-            font-size: 42px;
-
-            line-height: 1.2;
-
-            margin-bottom: 20px;
-
-            color: #101828;
-
+        .lang-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-radius: 6px;
+            margin-top: 8px;
+            min-width: 140px;
+            display: none;
+            overflow: hidden;
         }
 
-        .hero-text p {
-
-            font-size: 18px;
-
-            color: #475467;
-
-            margin-bottom: 32px;
-
+        .lang-dropdown.active {
+            display: block;
         }
 
-        .hero-buttons {
-
-            display: flex;
-
-            gap: 20px;
-
+        .lang-dropdown button {
+            width: 100%;
+            text-align: left;
+            padding: 10px 16px;
+            border: none;
+            background: white;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.2s;
         }
 
-        /* ========== 全新升级：右侧SaaS仪表盘UI样式 ========== */
-        .hero-img {
-            background: linear-gradient(145deg, #E8F3FF, #F0F7FF);
-            border-radius: 16px;
-            height: 440px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            box-shadow: 0 8px 30px rgba(22, 93, 255, 0.12);
+        .lang-dropdown button:hover {
+            background: #f0f4ff;
+            color: var(--primary);
+        }
+
+        /* Hero Section - No Image, Business Gradient */
+        .hero {
+            background: linear-gradient(135deg, #0A2463 0%, #1E3A8A 50%, #0F172A 100%);
+            color: white;
+            padding: 120px 20px;
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
-        /* 仪表盘顶部导航栏 */
-        .dashboard-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #fff;
-            padding: 10px 16px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
         }
-        .dash-logo {
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
             font-weight: 700;
-            color: #165DFF;
+        }
+
+        .hero p {
             font-size: 18px;
+            margin-bottom: 35px;
+            opacity: 0.9;
         }
-        .dash-platform-tags {
-            display: flex;
-            gap: 10px;
-        }
-        .platform-tag {
-            font-size: 12px;
-            padding: 4px 10px;
-            border-radius: 20px;
-            background: #F0F7FF;
-            color: #165DFF;
-            font-weight: 500;
-        }
-        /* 数据指标卡片行 */
-        .data-row {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
-        .data-card {
-            background: #fff;
-            padding: 14px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        .data-card .num {
-            font-size: 24px;
-            font-weight: 700;
-            color: #101828;
-        }
-        .data-card .desc {
-            font-size: 13px;
-            color: #667085;
-        }
-        /* 工具预览模块 */
-        .tool-preview-block {
-            background: #fff;
-            flex: 1;
-            border-radius: 10px;
-            padding: 16px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .tool-preview-block h4 {
-            color: #101828;
-            margin-bottom: 10px;
-        }
-        .progress-bar-wrap {
-            width: 100%;
-            height: 8px;
-            background: #E8EEF5;
+
+        .hero-btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 14px 36px;
             border-radius: 4px;
-            margin: 8px 0 16px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        .progress-bar {
-            height: 100%;
-            width: 78%;
-            background: #165DFF;
-            border-radius: 4px;
-        }
-        /* 悬浮CTA按钮，联动左侧转化引导 */
-        .dash-cta-btn {
-            align-self: flex-end;
-            background: #165DFF;
-            color: white;
-            border: none;
-            padding: 9px 18px;
-            border-radius: 6px;
-            font-weight: 500;
-            cursor: pointer;
-        }
-        .dash-cta-btn:hover {
-            background: #0E4BDB;
-        }
-        /* 工具板块【已修复链接，带.html后缀，匹配扁平文件】 */
 
-        .tools-section {
+        .hero-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
 
-            padding: 60px 0;
-
+        /* Section Common */
+        .section {
+            padding: 80px 20px;
+            max-width: 1280px;
+            margin: 0 auto;
         }
 
         .section-title {
-
             text-align: center;
-
-            font-size: 32px;
-
-            margin-bottom: 48px;
-
+            margin-bottom: 50px;
         }
 
-        .tools-grid {
-
-            display: grid;
-
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-
-            gap: 24px;
-
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 12px;
         }
 
-        .tool-card {
-
-            background: #fff;
-
-            padding: 28px;
-
-            border-radius: 10px;
-
-            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-
-            transition: transform 0.2s;
-
-        }
-
-        .tool-card:hover {
-
-            transform: translateY(-4px);
-
-        }
-
-        .tool-card h3 {
-
-            font-size: 26px;
-
-            margin: 12px 0 10px;
-
-            color: #101828;
-
-        }
-
-        .tool-card p {
-
-            color: #475467;
-
-            margin-bottom: 20px;
-
+        .section-title p {
+            color: var(--gray);
             font-size: 16px;
-
-            line-height: 1.7;
-
         }
 
-        .tool-card .open-link {
-
-            color: #165DFF;
-
-            font-weight: 500;
-
-            font-size: 18px;
-
-            display: inline-block;
-
-            text-decoration: underline;
-
-        }
-
-        .tool-card .open-link:hover {
-
-            color: #0E4BDB;
-
-        }
-
-        /* 信任区 */
-
-        .trust-section {
-
-            padding: 60px 0;
-
-            background: #fff;
-
-            margin: 40px 0;
-
-        }
-
-        .trust-wrap {
-
-            text-align: center;
-
-        }
-
-        .trust-text {
-
-            font-size: 22px;
-
-            color: #101828;
-
-            margin-bottom: 24px;
-
-        }
-
-        .brand-logos {
-
-            display: flex;
-
-            justify-content: center;
-
-            gap: 40px;
-
-            flex-wrap: wrap;
-
-            color: #667085;
-
-            font-weight: 600;
-
-            font-size: 18px;
-
-        }
-
-        /* ========== Blog板块 全面优化，解决顶部空白问题 ========== */
-        .blog-section {
-            padding: 70px 0;
-        }
-
-        .blog-grid {
+        /* Products Grid */
+        .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 28px;
+            gap: 30px;
         }
 
-        .blog-card {
-            background: #fff;
-            border-radius: 12px;
+        .product-card {
+            background: white;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-            transition: transform 0.2s ease;
-        }
-        .blog-card:hover {
-            transform: translateY(-5px);
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        /* 重构博客图片占位，消除空白，添加渐变+主题图标 */
-        .blog-card .blog-img {
-            height: 180px;
-            background: linear-gradient(135deg, #E8F3FF 0%, #D6E8FF 100%);
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .product-img {
+            height: 220px;
+            background: linear-gradient(135deg, #E2E8F0, #CBD5E1);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #165DFF;
+            color: var(--primary);
             font-size: 48px;
+            font-weight: 300;
         }
 
-        .blog-card .blog-content {
-            padding: 24px;
+        .product-info {
+            padding: 22px;
         }
 
-        .blog-card h4 {
+        .product-info h3 {
             font-size: 20px;
-            margin-bottom: 12px;
-            color: #101828;
-            line-height: 1.3;
+            color: var(--dark);
+            margin-bottom: 10px;
         }
 
-        .blog-card p {
-            color: #475467;
-            font-size: 15px;
-            line-height: 1.65;
-            margin-bottom: 16px;
-        }
-        /* 新增博客阅读链接，统一全站交互 */
-        .blog-read-more {
-            color: #165DFF;
-            font-weight: 500;
-            font-size: 16px;
-            display: inline-block;
-        }
-        .blog-read-more:hover {
-            color: #0E4BDB;
-            text-decoration: underline;
+        .product-info p {
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 15px;
         }
 
-        /* AdSense广告位 */
-
-        .ads-block {
-
-            max-width: 900px;
-
-            margin: 50px auto;
-
-            background: #fff;
-
-            padding: 20px;
-
-            text-align: center;
-
-            border-radius: 8px;
-
-            color: #667085;
-
+        .product-link {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
         }
 
-        /* 页脚 */
-
-        footer {
-
-            background: #1D2939;
-
-            color: #fff;
-
-            padding: 60px 0 30px;
-
-            margin-top: 60px;
-
+        /* Categories Section */
+        .categories-section {
+            background: white;
         }
 
-        .footer-grid {
-
+        .categories-grid {
             display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
 
+        .category-item {
+            text-align: center;
+            padding: 30px 20px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .category-item:hover {
+            border-color: var(--secondary);
+            background: #FFFBF0;
+        }
+
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        .category-item h4 {
+            font-size: 16px;
+            color: var(--dark);
+        }
+
+        /* About Section */
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 16px;
+            color: #555;
+        }
+
+        .about-features {
+            list-style: none;
+            margin-top: 25px;
+        }
+
+        .about-features li {
+            padding: 8px 0;
+            padding-left: 28px;
+            position: relative;
+            color: #444;
+        }
+
+        .about-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        .about-img-placeholder {
+            height: 380px;
+            background: linear-gradient(135deg, #0A2463, #3E5C9A);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.3);
+            font-size: 20px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--primary);
+            color: white;
+        }
+
+        .contact-section .section-title h2 {
+            color: white;
+        }
+
+        .contact-section .section-title p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: grid;
+            gap: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 4px;
+            font-size: 15px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: var(--secondary);
+            color: var(--dark);
+            border: none;
+            padding: 14px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #C9A227;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: rgba(255,255,255,0.7);
+            padding: 50px 20px 20px;
+        }
+
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-
-            gap: 36px;
-
+            gap: 40px;
             margin-bottom: 40px;
-
         }
 
         .footer-col h4 {
-
-            font-size: 18px;
-
+            color: white;
             margin-bottom: 20px;
+            font-size: 16px;
+        }
 
-            color: #F9FAFB;
-
+        .footer-col ul {
+            list-style: none;
         }
 
         .footer-col ul li {
-
-            margin-bottom: 12px;
-
+            margin-bottom: 10px;
         }
 
-        .footer-col ul li a {
-
-            color: #D0D5DD;
-
-            transition: color 0.2s;
-
-        }
-
-        .footer-col ul li a:hover {
-
-            color: #fff;
-
-        }
-
-        .copyright {
-
-            text-align: center;
-
-            color: #98A2B3;
-
+        .footer-col a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
             font-size: 14px;
-
+            transition: color 0.3s;
         }
 
-        /* GDPR Cookie弹窗 */
-
-        .cookie-banner {
-
-            position: fixed;
-
-            bottom: 0;
-
-            left: 0;
-
-            right: 0;
-
-            background: #fff;
-
-            padding: 16px 24px;
-
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            flex-wrap: wrap;
-
-            gap: 16px;
-
-            z-index: 999;
-
+        .footer-col a:hover {
+            color: var(--secondary);
         }
 
-        .cookie-banner p {
-
-            color: #475467;
-
-            max-width: 800px;
-
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px;
         }
 
-        .cookie-buttons {
-
-            display: flex;
-
-            gap: 12px;
-
-        }
-
-        /* 移动端适配 */
-
+        /* Responsive */
         @media (max-width: 768px) {
-
             .nav-menu {
-
                 display: none;
-
             }
-
-            .hero {
-
+            .hero h1 {
+                font-size: 32px;
+            }
+            .about-section {
                 grid-template-columns: 1fr;
-
-                padding: 40px 0;
-
             }
-
-            .hero-text h1 {
-
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .section-title h2 {
                 font-size: 28px;
-
-            }
-
-            .hero-buttons {
-
-                flex-direction: column;
-
-            }
-            .hero-img {
-                height: 380px;
-                margin-top: 30px;
-            }
-            .data-row {
-                grid-template-columns: 1fr;
-            }
-
-            .cookie-banner {
-
-                flex-direction: column;
-
-                text-align: center;
-
-            }
-            .blog-card .blog-img {
-                height: 150px;
-                font-size: 40px;
-            }
-            .blog-section {
-                padding: 45px 0;
             }
         }
-
     </style>
-
 </head>
-
 <body>
-
-    <!-- 导航栏 修复Tools锚点跳转 -->
-
-    <header>
-
-        <div class="container nav-wrap">
-
-            <a href="/index.html" class="logo">ToolNex</a>
-
-            <ul class="nav-menu">
-
-                <li><a href="#tools">Tools</a></li>
-
-                <li><a href="#blog">Guides</a></li>
-
-                <li><a href="/about.html">About</a></li>
-
-                <li><a href="/privacy.html">Privacy Policy</a></li>
-
-            </ul>
-
-            <div class="nav-buttons">
-
-                <a href="#tools" class="btn-primary">Use the Tool</a>
-
-                <a href="/contact.html" class="btn-outline">Contact Us</a>
-
-            </div>
-
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="brand-text" data-i18n="brandName">INDUSTRIAL RACKING</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home" data-i18n="navHome">Home</a></li>
+                    <li><a href="#products" data-i18n="navProducts">Products</a></li>
+                    <li><a href="#about" data-i18n="navAbout">About Us</a></li>
+                    <li><a href="#contact" data-i18n="navContact">Contact</a></li>
+                    <li class="lang-switcher">
+                        <button class="lang-btn" id="langBtn">EN ▾</button>
+                        <div class="lang-dropdown" id="langDropdown">
+                            <button data-lang="en">English</button>
+                            <button data-lang="de">Deutsch</button>
+                            <button data-lang="it">Italiano</button>
+                            <button data-lang="fr">Français</button>
+                            <button data-lang="es">Español</button>
+                            <button data-lang="ja">日本語</button>
+                            <button data-lang="ko">한국어</button>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
         </div>
-
     </header>
 
-    <main class="container">
-
-        <!-- Hero首屏（右侧已全部重写为SaaS仪表盘） -->
-
-        <section class="hero">
-
-            <div class="hero-text">
-
-                <h1>All-in-One Free Tools For Cross-Border Sellers</h1>
-
-                <p>Simplify your Amazon, Shopify & Facebook store workflow. Generate product copy, optimize images & check SEO in one click. No signup, no hidden fees, instant access.</p>
-
-                <div class="hero-buttons">
-
-                    <a href="#tools" class="btn-primary">Browse All Tools</a>
-
-                    <a href="#blog" class="btn-outline">Read Seller Guides</a>
-
-                </div>
-
-            </div>
-
-            <!-- 全新真实SaaS仪表盘界面区域 -->
-            <div class="hero-img">
-                <!-- 仪表盘顶部栏 -->
-                <div class="dashboard-header">
-                    <div class="dash-logo">ToolNex Dashboard</div>
-                    <div class="dash-platform-tags">
-                        <span class="platform-tag">Amazon</span>
-                        <span class="platform-tag">Shopify</span>
-                        <span class="platform-tag">Facebook</span>
-                    </div>
-                </div>
-                <!-- 核心转化数据卡片 -->
-                <div class="data-row">
-                    <div class="data-card">
-                        <div class="num">100+</div>
-                        <div class="desc">Free E-commerce Tools</div>
-                    </div>
-                    <div class="data-card">
-                        <div class="num">5,000+</div>
-                        <div class="desc">Daily Active Sellers</div>
-                    </div>
-                    <div class="data-card">
-                        <div class="num">78%</div>
-                        <div class="desc">Operation Efficiency Boost</div>
-                    </div>
-                    <div class="data-card">
-                        <div class="num">0</div>
-                        <div class="desc">Signup / Hidden Fees</div>
-                    </div>
-                </div>
-                <!-- 工具预览面板 -->
-                <div class="tool-preview-block">
-                    <h4>Listing SEO Optimizer · Running</h4>
-                    <div class="progress-bar-wrap">
-                        <div class="progress-bar"></div>
-                    </div>
-                    <span style="font-size:13px; color:#667085">Optimizing keywords & product description for top ranking</span>
-                    <!-- 内部CTA，和左侧按钮联动引流 -->
-                    <a href="#tools" class="dash-cta-btn">Try All Tools Now</a>
-                </div>
-            </div>
-
-        </section>
-
-        <!-- AdSense广告位 -->
-
-        <div class="ads-block">
-
-            <p>Google AdSense Advertisement Slot</p>
-
-            <!-- 粘贴你的AdSense广告JS代码 -->
-
+    <!-- Hero Section (No Image) -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 data-i18n="heroTitle">Professional Industrial Storage Solutions</h1>
+            <p data-i18n="heroDesc">High-quality heavy duty racking, angle shelves and supermarket shelving systems for global businesses.</p>
+            <a href="#products" class="hero-btn" data-i18n="heroBtn">View Products</a>
         </div>
-
-        <!-- 核心修复：工具卡片链接全部匹配.html扁平文件 -->
-
-        <section id="tools" class="tools-section">
-
-            <h2 class="section-title">Popular Free E-commerce Tools</h2>
-
-            <div class="tools-grid">
-
-                <div class="tool-card">
-
-                    <h3>Amazon Listing Generator</h3>
-
-                    <p>Create high-click product titles & descriptions optimized for Amazon algorithm, boost organic ranking fast.</p>
-
-                    <a href="/tools-amazon-listing.html" class="open-link">Open Tool →</a>
-
-                </div>
-
-                <div class="tool-card">
-
-                    <h3>Store Image Resizer</h3>
-
-                    <p>Auto crop & compress product photos for Shopify, Facebook & TikTok shop without quality loss.</p>
-
-                    <a href="/tools-image-resizer.html" class="open-link">Open Tool →</a>
-
-                </div>
-
-                <div class="tool-card">
-
-                    <h3>SEO Website Checker</h3>
-
-                    <p>Scan your independent store traffic, keyword ranking & page speed in 10 seconds.</p>
-
-                    <a href="/tools-seo-checker.html" class="open-link">Open Tool →</a>
-
-                </div>
-
-                <div class="tool-card">
-
-                    <h3>Facebook Ad Copy Maker</h3>
-
-                    <p>Generate persuasive short ad copy for social media promotion, increase store conversion rate.</p>
-
-                    <a href="/tools-fb-ad-copy.html" class="open-link">Open Tool →</a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- 信任背书板块 -->
-
-        <section class="trust-section">
-
-            <div class="container trust-wrap">
-
-                <div class="trust-text">Trusted by 5,000+ Global Cross-Border Merchants</div>
-
-                <div class="brand-logos">
-
-                    <span>Amazon</span>
-
-                    <span>Shopify</span>
-
-                    <span>Facebook Shop</span>
-
-                    <span>TikTok Shop</span>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- Blog资讯板块 已优化空白区域，添加主题图标+阅读按钮 -->
-        <section id="blog" class="blog-section">
-
-            <h2 class="section-title">Latest Seller Guides</h2>
-
-            <div class="blog-grid">
-
-                <div class="blog-card">
-                    <!-- 文案指南主题图标 -->
-                    <div class="blog-img">📝</div>
-                    <div class="blog-content">
-                        <h4>How To Write High CTR Amazon Listing In 2026</h4>
-                        <p>Step-by-step tutorial to optimize your product copy and get more organic clicks.</p>
-                        <a href="/blog-amazon-listing-ctr.html" class="blog-read-more">Read Full Guide →</a>
-                    </div>
-                </div>
-
-                <div class="blog-card">
-                    <!-- 图片优化主题图标 -->
-                    <div class="blog-img">🖼️</div>
-                    <div class="blog-content">
-                        <h4>Shopify Image Optimization Rules For Higher Sales</h4>
-                        <p>Image size, format & compression guide fit all social & store platforms.</p>
-                        <a href="/blog-shopify-image-guide.html" class="blog-read-more">Read Full Guide →</a>
-                    </div>
-                </div>
-
-                <div class="blog-card">
-                    <!-- 工具合集主题图标 -->
-                    <div class="blog-img">⚙️</div>
-                    <div class="blog-content">
-                        <h4>10 Free Tools For Small Cross-border Business Owners</h4>
-                        <p>Zero-cost workflow tools to save your daily operation time.</p>
-                        <a href="/blog-free-crossborder-tools.html" class="blog-read-more">Read Full Guide →</a>
-                    </div>
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-    <!-- 页脚 -->
-
-    <footer>
-
-        <div class="container footer-grid">
-
-            <div class="footer-col">
-
-                <h4>ToolNex</h4>
-
-                <ul>
-
-                    <li><a href="#tools">All Free Tools</a></li>
-
-                    <li><a href="#blog">Seller Blog</a></li>
-
-                </ul>
-
-            </div>
-
-            <div class="footer-col">
-
-                <h4>Resources</h4>
-
-                <ul>
-
-                    <li><a href="/contact.html">Support Email</a></li>
-
-                </ul>
-
-            </div>
-
-            <div class="footer-col">
-
-                <h4>Legal Pages</h4>
-
-                <ul>
-
-                    <li><a href="/privacy.html">Privacy Policy</a></li>
-
-                    <li><a href="/about.html">About Us</a></li>
-
-                </ul>
-
-            </div>
-
-            <div class="footer-col">
-
-                <h4>Contact</h4>
-
-                <ul>
-
-                    <li>WhatsAPP:+8615092833346</li>
-
-                    <li>UTC+0 9:00 - 18:00 Working Hour</li>
-
-                </ul>
-
-            </div>
-
+    </section>
+
+    <!-- Products Section -->
+    <section class="section" id="products">
+        <div class="section-title">
+            <h2 data-i18n="productsTitle">Our Products</h2>
+            <p data-i18n="productsSubtitle">Wide range of storage racking systems for every industry need</p>
         </div>
-
-        <div class="copyright">
-
-            © 2026 ToolNex. All rights reserved.
-
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-img">HR</div>
+                <div class="product-info">
+                    <h3 data-i18n="prod1Title">Heavy Duty Racking</h3>
+                    <p data-i18n="prod1Desc">High load capacity pallet racking system for warehouse storage.</p>
+                    <a href="#" class="product-link" data-i18n="learnMore">Learn More →</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">AS</div>
+                <div class="product-info">
+                    <h3 data-i18n="prod2Title">Angle Shelf</h3>
+                    <p data-i18n="prod2Desc">Adjustable steel angle shelving, easy assembly and versatile use.</p>
+                    <a href="#" class="product-link" data-i18n="learnMore">Learn More →</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">MR</div>
+                <div class="product-info">
+                    <h3 data-i18n="prod3Title">Medium Duty Racking</h3>
+                    <p data-i18n="prod3Desc">Ideal for medium load storage, flexible and cost-effective.</p>
+                    <a href="#" class="product-link" data-i18n="learnMore">Learn More →</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">SS</div>
+                <div class="product-info">
+                    <h3 data-i18n="prod4Title">Supermarket Shelf</h3>
+                    <p data-i18n="prod4Desc">Retail display shelving with modern design and high durability.</p>
+                    <a href="#" class="product-link" data-i18n="learnMore">Learn More →</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">BL</div>
+                <div class="product-info">
+                    <h3 data-i18n="prod5Title">Boltless Shelf</h3>
+                    <p data-i18n="prod5Desc">Quick-install boltless shelving system for efficient storage.</p>
+                    <a href="#" class="product-link" data-i18n="learnMore">Learn More →</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">AP</div>
+                <div class="product-info">
+                    <h3 data-i18n="prod6Title">Angle Plate & Fittings</h3>
+                    <p data-i18n="prod6Desc">Complete range of angle steel plates, screws and corner fittings.</p>
+                    <a href="#" class="product-link" data-i18n="learnMore">Learn More →</a>
+                </div>
+            </div>
         </div>
+    </section>
 
+    <!-- Categories Section -->
+    <section class="section categories-section">
+        <div class="section-title">
+            <h2 data-i18n="catTitle">Product Categories</h2>
+            <p data-i18n="catSubtitle">Full spectrum of storage hardware and racking accessories</p>
+        </div>
+        <div class="categories-grid">
+            <div class="category-item">
+                <div class="category-icon">▭</div>
+                <h4 data-i18n="cat1">Steel Angle</h4>
+            </div>
+            <div class="category-item">
+                <div class="category-icon">⬜</div>
+                <h4 data-i18n="cat2">Angle Plate</h4>
+            </div>
+            <div class="category-item">
+                <div class="category-icon">⚙</div>
+                <h4 data-i18n="cat3">Screws & Corners</h4>
+            </div>
+            <div class="category-item">
+                <div class="category-icon">📦</div>
+                <h4 data-i18n="cat4">Storage Shelves</h4>
+            </div>
+            <div class="category-item">
+                <div class="category-icon">🏪</div>
+                <h4 data-i18n="cat5">Supermarket Racks</h4>
+            </div>
+            <div class="category-item">
+                <div class="category-icon">🏭</div>
+                <h4 data-i18n="cat6">Industrial Racking</h4>
+            </div>
+            <div class="category-item">
+                <div class="category-icon">🪵</div>
+                <h4 data-i18n="cat7">Steel & Wood Series</h4>
+            </div>
+            <div class="category-item">
+                <div class="category-icon">🔧</div>
+                <h4 data-i18n="cat8">Hardware Fittings</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="about-section">
+            <div class="about-text">
+                <h2 data-i18n="aboutTitle">About Our Company</h2>
+                <p data-i18n="aboutP1">We are a professional manufacturer and exporter specializing in industrial storage equipment, with years of experience in serving global customers.</p>
+                <p data-i18n="aboutP2">Our products are widely used in warehouses, supermarkets, factories and logistics centers, known for reliable quality and competitive prices.</p>
+                <ul class="about-features">
+                    <li data-i18n="aboutF1">Strict quality control system</li>
+                    <li data-i18n="aboutF2">Customized design solutions</li>
+                    <li data-i18n="aboutF3">Fast global delivery</li>
+                    <li data-i18n="aboutF4">Professional after-sales service</li>
+                </ul>
+            </div>
+            <div class="about-img-placeholder" data-i18n="aboutImgText">Factory Preview</div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact-section" id="contact">
+        <div class="section-title">
+            <h2 data-i18n="contactTitle">Get In Touch</h2>
+            <p data-i18n="contactSubtitle">Send us your inquiry and we will reply within 24 hours</p>
+        </div>
+        <form class="contact-form">
+            <div class="form-row">
+                <input type="text" data-i18n-placeholder="inputName" placeholder="Your Name">
+                <input type="email" data-i18n-placeholder="inputEmail" placeholder="Your Email">
+            </div>
+            <input type="text" data-i18n-placeholder="inputSubject" placeholder="Subject">
+            <textarea data-i18n-placeholder="inputMessage" placeholder="Your Message"></textarea>
+            <button type="submit" class="submit-btn" data-i18n="submitBtn">Send Inquiry</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4 data-i18n="foot1Title">Products</h4>
+                <ul>
+                    <li><a href="#" data-i18n="foot1_1">Heavy Duty Racks</a></li>
+                    <li><a href="#" data-i18n="foot1_2">Angle Shelves</a></li>
+                    <li><a href="#" data-i18n="foot1_3">Supermarket Shelves</a></li>
+                    <li><a href="#" data-i18n="foot1_4">Boltless Shelving</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="foot2Title">Company</h4>
+                <ul>
+                    <li><a href="#" data-i18n="foot2_1">About Us</a></li>
+                    <li><a href="#" data-i18n="foot2_2">Our Factory</a></li>
+                    <li><a href="#" data-i18n="foot2_3">Certifications</a></li>
+                    <li><a href="#" data-i18n="foot2_4">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="foot3Title">Support</h4>
+                <ul>
+                    <li><a href="#" data-i18n="foot3_1">Installation Guide</a></li>
+                    <li><a href="#" data-i18n="foot3_2">FAQ</a></li>
+                    <li><a href="#" data-i18n="foot3_3">Shipping Info</a></li>
+                    <li><a href="#" data-i18n="foot3_4">Warranty</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="foot4Title">Contact</h4>
+                <ul>
+                    <li data-i18n="foot4_1">Email: info@example.com</li>
+                    <li data-i18n="foot4_2">Phone: +86 xxx xxxx xxxx</li>
+                    <li data-i18n="foot4_3">Address: Linyi, Shandong, China</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-i18n="copyright">© 2026 Industrial Racking Solutions. All rights reserved.</p>
+        </div>
     </footer>
 
-    <!-- Cookie弹窗交互 -->
+    <script>
+        // Multilingual Configuration
+        const translations = {
+            en: {
+                brandName: "INDUSTRIAL RACKING",
+                navHome: "Home",
+                navProducts: "Products",
+                navAbout: "About Us",
+                navContact: "Contact",
+                heroTitle: "Professional Industrial Storage Solutions",
+                heroDesc: "High-quality heavy duty racking, angle shelves and supermarket shelving systems for global businesses.",
+                heroBtn: "View Products",
+                productsTitle: "Our Products",
+                productsSubtitle: "Wide range of storage racking systems for every industry need",
+                prod1Title: "Heavy Duty Racking",
+                prod1Desc: "High load capacity pallet racking system for warehouse storage.",
+                prod2Title: "Angle Shelf",
+                prod2Desc: "Adjustable steel angle shelving, easy assembly and versatile use.",
+                prod3Title: "Medium Duty Racking",
+                prod3Desc: "Ideal for medium load storage, flexible and cost-effective.",
+                prod4Title: "Supermarket Shelf",
+                prod4Desc: "Retail display shelving with modern design and high durability.",
+                prod5Title: "Boltless Shelf",
+                prod5Desc: "Quick-install boltless shelving system for efficient storage.",
+                prod6Title: "Angle Plate & Fittings",
+                prod6Desc: "Complete range of angle steel plates, screws and corner fittings.",
+                learnMore: "Learn More →",
+                catTitle: "Product Categories",
+                catSubtitle: "Full spectrum of storage hardware and racking accessories",
+                cat1: "Steel Angle",
+                cat2: "Angle Plate",
+                cat3: "Screws & Corners",
+                cat4: "Storage Shelves",
+                cat5: "Supermarket Racks",
+                cat6: "Industrial Racking",
+                cat7: "Steel & Wood Series",
+                cat8: "Hardware Fittings",
+                aboutTitle: "About Our Company",
+                aboutP1: "We are a professional manufacturer and exporter specializing in industrial storage equipment, with years of experience in serving global customers.",
+                aboutP2: "Our products are widely used in warehouses, supermarkets, factories and logistics centers, known for reliable quality and competitive prices.",
+                aboutF1: "Strict quality control system",
+                aboutF2: "Customized design solutions",
+                aboutF3: "Fast global delivery",
+                aboutF4: "Professional after-sales service",
+                aboutImgText: "Factory Preview",
+                contactTitle: "Get In Touch",
+                contactSubtitle: "Send us your inquiry and we will reply within 24 hours",
+                inputName: "Your Name",
+                inputEmail: "Your Email",
+                inputSubject: "Subject",
+                inputMessage: "Your Message",
+                submitBtn: "Send Inquiry",
+                foot1Title: "Products",
+                foot1_1: "Heavy Duty Racks",
+                foot1_2: "Angle Shelves",
+                foot1_3: "Supermarket Shelves",
+                foot1_4: "Boltless Shelving",
+                foot2Title: "Company",
+                foot2_1: "About Us",
+                foot2_2: "Our Factory",
+                foot2_3: "Certifications",
+                foot2_4: "Contact Us",
+                foot3Title: "Support",
+                foot3_1: "Installation Guide",
+                foot3_2: "FAQ",
+                foot3_3: "Shipping Info",
+                foot3_4: "Warranty",
+                foot4Title: "Contact",
+                foot4_1: "Email: info@example.com",
+                foot4_2: "Phone: +86 xxx xxxx xxxx",
+                foot4_3: "Address: Linyi, Shandong, China",
+                copyright: "© 2026 Industrial Racking Solutions. All rights reserved."
+            },
+            de: {
+                brandName: "INDUSTRIE REGALSYSTEME",
+                navHome: "Startseite",
+                navProducts: "Produkte",
+                navAbout: "Über uns",
+                navContact: "Kontakt",
+                heroTitle: "Professionelle Industrielagerlösungen",
+                heroDesc: "Hochwertige Schwerlastregale, Winkelregale und Supermarktregale für globale Unternehmen.",
+                heroBtn: "Produkte ansehen",
+                productsTitle: "Unsere Produkte",
+                productsSubtitle: "Breites Sortiment an Lagerregalsystemen für jeden Industriebedarf",
+                prod1Title: "Schwerlastregal",
+                prod1Desc: "Palettenregalsystem mit hoher Belastbarkeit für die Lagerhaltung.",
+                prod2Title: "Winkelregal",
+                prod2Desc: "Verstellbares Stahlwinkelregal, einfache Montage und vielseitige Verwendung.",
+                prod3Title: "Mittelschweres Regal",
+                prod3Desc: "Ideal für mittlere Lasten, flexibel und kostengünstig.",
+                prod4Title: "Supermarktregal",
+                prod4Desc: "Vitrinenregale für den Einzelhandel mit modernem Design und hoher Haltbarkeit.",
+                prod5Title: "Steckregal",
+                prod5Desc: "Schnell montierbares Steckregalsystem für effiziente Lagerung.",
+                prod6Title: "Winkelbleche & Beschläge",
+                prod6Desc: "Komplettes Sortiment an Stahlwinkelblechen, Schrauben und Eckbeschlägen.",
+                learnMore: "Mehr erfahren →",
+                catTitle: "Produktkategorien",
+                catSubtitle: "Umfassendes Angebot an Lagerhardware und Regalzubehör",
+                cat1: "Stahlwinkel",
+                cat2: "Winkelblech",
+                cat3: "Schrauben & Ecken",
+                cat4: "Lagerregale",
+                cat5: "Supermarktregale",
+                cat6: "Industrieregale",
+                cat7: "Stahl & Holz Serie",
+                cat8: "Hardware Beschläge",
+                aboutTitle: "Über unser Unternehmen",
+                aboutP1: "Wir sind ein professioneller Hersteller und Exporteur von Industrielagerausrüstung mit langjähriger Erfahrung.",
+                aboutP2: "Unsere Produkte werden in Lagern, Supermärkten, Fabriken und Logistikzentren weltweit eingesetzt.",
+                aboutF1: "Strenges Qualitätskontrollsystem",
+                aboutF2: "Kundenspezifische Designlösungen",
+                aboutF3: "Schnelle weltweite Lieferung",
+                aboutF4: "Professioneller Kundendienst",
+                aboutImgText: "Fabrik Vorschau",
+                contactTitle: "Kontakt aufnehmen",
+                contactSubtitle: "Senden Sie uns Ihre Anfrage und wir antworten innerhalb von 24 Stunden",
+                inputName: "Ihr Name",
+                inputEmail: "Ihre E-Mail",
+                inputSubject: "Betreff",
+                inputMessage: "Ihre Nachricht",
+                submitBtn: "Anfrage senden",
+                foot1Title: "Produkte",
+                foot1_1: "Schwerlastregale",
+                foot1_2: "Winkelregale",
+                foot1_3: "Supermarktregale",
+                foot1_4: "Steckregale",
+                foot2Title: "Unternehmen",
+                foot2_1: "Über uns",
+                foot2_2: "Unsere Fabrik",
+                foot2_3: "Zertifizierungen",
+                foot2_4: "Kontakt",
+                foot3Title: "Support",
+                foot3_1: "Montageanleitung",
+                foot3_2: "Häufige Fragen",
+                foot3_3: "Versandinformationen",
+                foot3_4: "Garantie",
+                foot4Title: "Kontakt",
+                foot4_1: "E-Mail: info@example.com",
+                foot4_2: "Telefon: +86 xxx xxxx xxxx",
+                foot4_3: "Adresse: Linyi, Shandong, China",
+                copyright: "© 2026 Industrie Regalsysteme. Alle Rechte vorbehalten."
+            },
+            it: {
+                brandName: "SCAFFALI INDUSTRIALI",
+                navHome: "Home",
+                navProducts: "Prodotti",
+                navAbout: "Chi siamo",
+                navContact: "Contatti",
+                heroTitle: "Soluzioni di stoccaggio industriale professionali",
+                heroDesc: "Scaffali pesanti, scaffali angolari e sistemi per supermercati di alta qualità.",
+                heroBtn: "Vedi prodotti",
+                productsTitle: "I nostri prodotti",
+                productsSubtitle: "Ampia gamma di sistemi di scaffalatura per ogni esigenza industriale",
+                prod1Title: "Scaffalatura pesante",
+                prod1Desc: "Sistema di scaffalatura per pallet ad alta capacità per magazzini.",
+                prod2Title: "Scaffale angolare",
+                prod2Desc: "Scaffale angolare in acciaio regolabile, facile montaggio e uso versatile.",
+                prod3Title: "Scaffalatura media",
+                prod3Desc: "Ideale per carichi medi, flessibile ed economica.",
+                prod4Title: "Scaffale per supermercato",
+                prod4Desc: "Scaffali espositivi per negozi con design moderno e alta durata.",
+                prod5Title: "Scaffale senza bulloni",
+                prod5Desc: "Sistema di scaffalatura a incastro per uno stoccaggio efficiente.",
+                prod6Title: "Piastre angolari e accessori",
+                prod6Desc: "Gamma completa di piastre in acciaio, viti e raccordi angolari.",
+                learnMore: "Scopri di più →",
+                catTitle: "Categorie prodotti",
+                catSubtitle: "Ampia gamma di ferramenta e accessori per scaffalature",
+                cat1: "Angolare in acciaio",
+                cat2: "Piastra angolare",
+                cat3: "Viti e angolari",
+                cat4: "Scaffali di stoccaggio",
+                cat5: "Scaffali supermercato",
+                cat6: "Scaffalature industriali",
+                cat7: "Serie acciaio e legno",
+                cat8: "Accessori ferramenta",
+                aboutTitle: "La nostra azienda",
+                aboutP1: "Siamo un produttore ed esportatore specializzato in attrezzature per stoccaggio industriale.",
+                aboutP2: "I nostri prodotti sono utilizzati in magazzini, supermercati, fabbriche e centri logistici.",
+                aboutF1: "Sistema di controllo qualità rigoroso",
+                aboutF2: "Soluzioni di design personalizzate",
+                aboutF3: "Consegna globale veloce",
+                aboutF4: "Servizio post-vendita professionale",
+                aboutImgText: "Anteprima fabbrica",
+                contactTitle: "Contattaci",
+                contactSubtitle: "Invia la tua richiesta e ti risponderemo entro 24 ore",
+                inputName: "Il tuo nome",
+                inputEmail: "La tua email",
+                inputSubject: "Oggetto",
+                inputMessage: "Il tuo messaggio",
+                submitBtn: "Invia richiesta",
+                foot1Title: "Prodotti",
+                foot1_1: "Scaffali pesanti",
+                foot1_2: "Scaffali angolari",
+                foot1_3: "Scaffali supermercato",
+                foot1_4: "Scaffali a incastro",
+                foot2Title: "Azienda",
+                foot2_1: "Chi siamo",
+                foot2_2: "La nostra fabbrica",
+                foot2_3: "Certificazioni",
+                foot2_4: "Contatti",
+                foot3Title: "Supporto",
+                foot3_1: "Guida installazione",
+                foot3_2: "FAQ",
+                foot3_3: "Informazioni spedizione",
+                foot3_4: "Garanzia",
+                foot4Title: "Contatti",
+                foot4_1: "Email: info@example.com",
+                foot4_2: "Telefono: +86 xxx xxxx xxxx",
+                foot4_3: "Indirizzo: Linyi, Shandong, Cina",
+                copyright: "© 2026 Scaffali Industriali. Tutti i diritti riservati."
+            },
+            fr: {
+                brandName: "RANGEMENTS INDUSTRIELS",
+                navHome: "Accueil",
+                navProducts: "Produits",
+                navAbout: "À propos",
+                navContact: "Contact",
+                heroTitle: "Solutions de stockage industriel professionnelles",
+                heroDesc: "Rayonnages lourds, étagères angulaires et systèmes pour supermarchés de haute qualité.",
+                heroBtn: "Voir les produits",
+                productsTitle: "Nos produits",
+                productsSubtitle: "Large gamme de systèmes de rayonnage pour tous les besoins industriels",
+                prod1Title: "Rayonnage lourd",
+                prod1Desc: "Système de rayonnage à palettes haute capacité pour entrepôts.",
+                prod2Title: "Étagère angulaire",
+                prod2Desc: "Étagère angulaire en acier réglable, montage facile et usage polyvalent.",
+                prod3Title: "Rayonnage mi-lourd",
+                prod3Desc: "Idéal pour charges moyennes, flexible et économique.",
+                prod4Title: "Étagère de supermarché",
+                prod4Desc: "Étagères d'exposition pour magasins avec design moderne et grande durabilité.",
+                prod5Title: "Étagère sans boulons",
+                prod5Desc: "Système d'étagère à emboîtement pour un stockage efficace.",
+                prod6Title: "Platines et accessoires",
+                prod6Desc: "Gamme complète de platines en acier, vis et équerres.",
+                learnMore: "En savoir plus →",
+                catTitle: "Catégories de produits",
+                catSubtitle: "Large gamme de quincaillerie et accessoires de rayonnage",
+                cat1: "Équerre en acier",
+                cat2: "Platine angulaire",
+                cat3: "Vis et équerres",
+                cat4: "Étagères de stockage",
+                cat5: "Rayons de supermarché",
+                cat6: "Rayonnages industriels",
+                cat7: "Série acier et bois",
+                cat8: "Accessoires quincaillerie",
+                aboutTitle: "À propos de notre entreprise",
+                aboutP1: "Nous sommes un fabricant et exportateur spécialisé dans les équipements de stockage industriel.",
+                aboutP2: "Nos produits sont utilisés dans les entrepôts, supermarchés, usines et centres logistiques.",
+                aboutF1: "Système de contrôle qualité strict",
+                aboutF2: "Solutions de conception personnalisées",
+                aboutF3: "Livraison mondiale rapide",
+                aboutF4: "Service après-vente professionnel",
+                aboutImgText: "Aperçu usine",
+                contactTitle: "Contactez-nous",
+                contactSubtitle: "Envoyez votre demande et nous répondrons sous 24 heures",
+                inputName: "Votre nom",
+                inputEmail: "Votre email",
+                inputSubject: "Sujet",
+                inputMessage: "Votre message",
+                submitBtn: "Envoyer la demande",
+                foot1Title: "Produits",
+                foot1_1: "Rayonnages lourds",
+                foot1_2: "Étagères angulaires",
+                foot1_3: "Étagères supermarché",
+                foot1_4: "Étagères à emboîtement",
+                foot2Title: "Entreprise",
+                foot2_1: "À propos",
+                foot2_2: "Notre usine",
+                foot2_3: "Certifications",
+                foot2_4: "Contact",
+                foot3Title: "Support",
+                foot3_1: "Guide d'installation",
+                foot3_2: "FAQ",
+                foot3_3: "Informations livraison",
+                foot3_4: "Garantie",
+                foot4Title: "Contact",
+                foot4_1: "Email : info@example.com",
+                foot4_2: "Téléphone : +86 xxx xxxx xxxx",
+                foot4_3: "Adresse : Linyi, Shandong, Chine",
+                copyright: "© 2026 Rangements Industriels. Tous droits réservés."
+            },
+            es: {
+                brandName: "ESTANTERÍAS INDUSTRIALES",
+                navHome: "Inicio",
+                navProducts: "Productos",
+                navAbout: "Nosotros",
+                navContact: "Contacto",
+                heroTitle: "Soluciones de almacenamiento industrial profesional",
+                heroDesc: "Estanterías pesadas, estanterías angulares y sistemas para supermercados de alta calidad.",
+                heroBtn: "Ver productos",
+                productsTitle: "Nuestros productos",
+                productsSubtitle: "Amplia gama de sistemas de estantería para cada necesidad industrial",
+                prod1Title: "Estantería pesada",
+                prod1Desc: "Sistema de estantería para palets de alta capacidad para almacenes.",
+                prod2Title: "Estantería angular",
+                prod2Desc: "Estantería angular de acero ajustable, montaje fácil y uso versátil.",
+                prod3Title: "Estantería de carga media",
+                prod3Desc: "Ideal para cargas medias, flexible y económica.",
+                prod4Title: "Estantería de supermercado",
+                prod4Desc: "Estantes expositivos para tiendas con diseño moderno y alta durabilidad.",
+                prod5Title: "Estantería sin pernos",
+                prod5Desc: "Sistema de estantería de encaje para almacenamiento eficiente.",
+                prod6Title: "Placas y accesorios angulares",
+                prod6Desc: "Gama completa de placas de acero, tornillos y escuadras.",
+                learnMore: "Saber más →",
+                catTitle: "Categorías de productos",
+                catSubtitle: "Amplia gama de herrajes y accesorios para estanterías",
+                cat1: "Escuadra de acero",
+                cat2: "Placa angular",
+                cat3: "Tornillos y escuadras",
+                cat4: "Estanterías de almacenamiento",
+                cat5: "Estantes de supermercado",
+                cat6: "Estanterías industriales",
+                cat7: "Serie acero y madera",
+                cat8: "Herrajes",
+                aboutTitle: "Sobre nuestra empresa",
+                aboutP1: "Somos un fabricante y exportador especializado en equipos de almacenamiento industrial.",
+                aboutP2: "Nuestros productos se utilizan en almacenes, supermercados, fábricas y centros logísticos.",
+                aboutF1: "Sistema de control de calidad estricto",
+                aboutF2: "Soluciones de diseño personalizadas",
+                aboutF3: "Entrega global rápida",
+                aboutF4: "Servicio postventa profesional",
+                aboutImgText: "Vista previa fábrica",
+                contactTitle: "Contáctanos",
+                contactSubtitle: "Envía tu consulta y te responderemos en 24 horas",
+                inputName: "Tu nombre",
+                inputEmail: "Tu email",
+                inputSubject: "Asunto",
+                inputMessage: "Tu mensaje",
+                submitBtn: "Enviar consulta",
+                foot1Title: "Productos",
+                foot1_1: "Estanterías pesadas",
+                foot1_2: "Estantes angulares",
+                foot1_3: "Estantes de supermercado",
+                foot1_4: "Estanterías de encaje",
+                foot2Title: "Empresa",
+                foot2_1: "Sobre nosotros",
+                foot2_2: "Nuestra fábrica",
+                foot2_3: "Certificaciones",
+                foot2_4: "Contacto",
+                foot3Title: "Soporte",
+                foot3_1: "Guía de instalación",
+                foot3_2: "Preguntas frecuentes",
+                foot3_3: "Información de envío",
+                foot3_4: "Garantía",
+                foot4Title: "Contacto",
+                foot4_1: "Email: info@example.com",
+                foot4_2: "Teléfono: +86 xxx xxxx xxxx",
+                foot4_3: "Dirección: Linyi, Shandong, China",
+                copyright: "© 2026 Estanterías Industriales. Todos los derechos reservados."
+            },
+            ja: {
+                brandName: "産業用ラック",
+                navHome: "ホーム",
+                navProducts: "製品",
+                navAbout: "会社概要",
+                navContact: "お問い合わせ",
+                heroTitle: "プロフェッショナルな産業用保管ソリューション",
+                heroDesc: "高品質な重量ラック、アングル棚、スーパーマーケット用棚システムを提供します。",
+                heroBtn: "製品を見る",
+                productsTitle: "私たちの製品",
+                productsSubtitle: "あらゆる業界ニーズに対応する幅広い保管ラックシステム",
+                prod1Title: "重量ラック",
+                prod1Desc: "倉庫保管用の高耐荷重パレットラックシステムです。",
+                prod2Title: "アングル棚",
+                prod2Desc: "調整可能なスチールアングル棚、組立簡単で多目的に使用できます。",
+                prod3Title: "中量ラック",
+                prod3Desc: "中程度の荷重に最適で、柔軟かつ費用対効果に優れています。",
+                prod4Title: "スーパーマーケット棚",
+                prod4Desc: "モダンなデザインと高耐久性を備えた小売店用ディスプレイ棚です。",
+                prod5Title: "ボルトレス棚",
+                prod5Desc: "迅速に設置できるボルトレス棚システムで効率的な保管を実現します。",
+                prod6Title: "アングルプレート・付属品",
+                prod6Desc: "各種アングルスチールプレート、ネジ、コーナー金具のフルラインナップ。",
+                learnMore: "詳しく見る →",
+                catTitle: "製品カテゴリー",
+                catSubtitle: "保管用金具とラックアクセサリーの幅広い品揃え",
+                cat1: "スチールアングル",
+                cat2: "アングルプレート",
+                cat3: "ネジ・コーナー",
+                cat4: "保管棚",
+                cat5: "スーパーマーケットラック",
+                cat6: "産業用ラック",
+                cat7: "スチール&ウッドシリーズ",
+                cat8: "金具部品",
+                aboutTitle: "会社について",
+                aboutP1: "私たちは産業用保管機器を専門とするプロの製造・輸出企業です。",
+                aboutP2: "当社製品は倉庫、スーパーマーケット、工場、物流センターで広く使用されています。",
+                aboutF1: "厳格な品質管理システム",
+                aboutF2: "カスタマイズ設計ソリューション",
+                aboutF3: "迅速なグローバル配送",
+                aboutF4: "プロのアフターサービス",
+                aboutImgText: "工場プレビュー",
+                contactTitle: "お問い合わせ",
+                contactSubtitle: "お問い合わせを送信いただければ24時間以内に返信いたします",
+                inputName: "お名前",
+                inputEmail: "メールアドレス",
+                inputSubject: "件名",
+                inputMessage: "メッセージ",
+                submitBtn: "問い合わせを送信",
+                foot1Title: "製品",
+                foot1_1: "重量ラック",
+                foot1_2: "アングル棚",
+                foot1_3: "スーパーマーケット棚",
+                foot1_4: "ボルトレス棚",
+                foot2Title: "会社情報",
+                foot2_1: "会社概要",
+                foot2_2: "工場紹介",
+                foot2_3: "認証",
+                foot2_4: "お問い合わせ",
+                foot3Title: "サポート",
+                foot3_1: "設置ガイド",
+                foot3_2: "よくある質問",
+                foot3_3: "配送情報",
+                foot3_4: "保証",
+                foot4Title: "連絡先",
+                foot4_1: "メール: info@example.com",
+                foot4_2: "電話: +86 xxx xxxx xxxx",
+                foot4_3: "住所: 中国山東省臨沂市",
+                copyright: "© 2026 産業用ラックソリューション. All rights reserved."
+            },
+            ko: {
+                brandName: "산업용 랙",
+                navHome: "홈",
+                navProducts: "제품",
+                navAbout: "회사소개",
+                navContact: "문의하기",
+                heroTitle: "전문적인 산업용 창고 솔루션",
+                heroDesc: "고품질 중량랙, 앵글 선반, 슈퍼마켓 선반 시스템을 제공합니다.",
+                heroBtn: "제품 보기",
+                productsTitle: "제품 소개",
+                productsSubtitle: "모든 산업 요구에 맞는 다양한 창고 랙 시스템",
+                prod1Title: "중량 랙",
+                prod1Desc: "창고 보관용 고하중 팔레트 랙 시스템입니다.",
+                prod2Title: "앵글 선반",
+                prod2Desc: "높이 조절이 가능한 스틸 앵글 선반, 조립이 쉽고 다용도로 사용됩니다.",
+                prod3Title: "중량급 랙",
+                prod3Desc: "중간 하중에 적합하며 유연하고 경제적입니다.",
+                prod4Title: "슈퍼마켓 선반",
+                prod4Desc: "현대적인 디자인과 높은 내구성을 갖춘 매장용 진열대입니다.",
+                prod5Title: "볼트리스 선반",
+                prod5Desc: "빠르게 설치할 수 있는 볼트리스 선반으로 효율적인 보관이 가능합니다.",
+                prod6Title: "앵글 플레이트 및 부속품",
+                prod6Desc: "다양한 앵글 스틸 플레이트, 나사, 코너 부속품을 제공합니다.",
+                learnMore: "자세히 보기 →",
+                catTitle: "제품 카테고리",
+                catSubtitle: "다양한 창고 하드웨어 및 랙 액세서리",
+                cat1: "스틸 앵글",
+                cat2: "앵글 플레이트",
+                cat3: "나사 및 코너",
+                cat4: "보관 선반",
+                cat5: "슈퍼마켓 랙",
+                cat6: "산업용 랙",
+                cat7: "스틸&우드 시리즈",
+                cat8: "하드웨어 부속품",
+                aboutTitle: "회사 소개",
+                aboutP1: "저희는 산업용 보관 장비를 전문으로 하는 전문 제조 및 수출 기업입니다.",
+                aboutP2: "당사 제품은 창고, 슈퍼마켓, 공장, 물류 센터에서 널리 사용됩니다.",
+                aboutF1: "엄격한 품질 관리 시스템",
+                aboutF2: "맞춤형 디자인 솔루션",
+                aboutF3: "빠른 글로벌 배송",
+                aboutF4: "전문적인 애프터서비스",
+                aboutImgText: "공장 미리보기",
+                contactTitle: "문의하기",
+                contactSubtitle: "문의를 보내주시면 24시간 이내에 답변 드리겠습니다",
+                inputName: "이름",
+                inputEmail: "이메일",
+                inputSubject: "제목",
+                inputMessage: "메시지",
+                submitBtn: "문의 보내기",
+                foot1Title: "제품",
+                foot1_1: "중량 랙",
+                foot1_2: "앵글 선반",
+                foot1_3: "슈퍼마켓 선반",
+                foot1_4: "볼트리스 선반",
+                foot2Title: "회사",
+                foot2_1: "회사소개",
+                foot2_2: "공장소개",
+                foot2_3: "인증",
+                foot2_4: "문의하기",
+                foot3Title: "지원",
+                foot3_1: "설치 가이드",
+                foot3_2: "자주 묻는 질문",
+                foot3_3: "배송 정보",
+                foot3_4: "보증",
+                foot4Title: "연락처",
+                foot4_1: "이메일: info@example.com",
+                foot4_2: "전화: +86 xxx xxxx xxxx",
+                foot4_3: "주소: 중국 산둥성 린이시",
+                copyright: "© 2026 산업용 랙 솔루션. All rights reserved."
+            }
+        };
 
-    <div class="cookie-banner">
+        // Language Switch Logic
+        const langBtn = document.getElementById('langBtn');
+        const langDropdown = document.getElementById('langDropdown');
+        const langButtons = langDropdown.querySelectorAll('button');
 
-        <p>We use cookies to improve your experience and serve Google AdSense ads. See our <a href="/privacy.html">Privacy Policy</a> for details, and manage or reject non-essential cookies.</p>
+        langBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('active');
+        });
 
-        <div class="cookie-buttons">
+        document.addEventListener('click', () => {
+            langDropdown.classList.remove('active');
+        });
 
-            <button class="btn-outline" onclick="this.parentElement.parentElement.style.display='none'">Reject Non-Essential</button>
+        function setLanguage(lang) {
+            if (!translations[lang]) return;
+            
+            const t = translations[lang];
+            
+            // Update text content
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) {
+                    el.textContent = t[key];
+                }
+            });
 
-            <button class="btn-primary" onclick="this.parentElement.parentElement.style.display='none'">Accept All Cookies</button>
+            // Update placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (t[key]) {
+                    el.placeholder = t[key];
+                }
+            });
 
-        </div>
-
-    </div>
-
-</body>
-
-</html>
+            // Update button text
+            langBtn.textContent = lang.toUpperCase() + ' ▾';
+            
+            // Save preference
