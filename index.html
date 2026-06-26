@@ -417,6 +417,24 @@
             background: #C9A227;
         }
 
+        /* Privacy Policy Section */
+        .privacy-section {
+            background: #fff;
+        }
+        .privacy-content {
+            max-width: 900px;
+            margin: 0 auto;
+            color: #444;
+            line-height: 1.8;
+        }
+        .privacy-content h3 {
+            color: var(--primary);
+            margin: 25px 0 12px;
+        }
+        .privacy-content p {
+            margin-bottom: 15px;
+        }
+
         /* Footer */
         .footer {
             background: var(--dark);
@@ -497,6 +515,8 @@
                     <li><a href="#products" data-i18n="navProducts">Products</a></li>
                     <li><a href="#about" data-i18n="navAbout">About Us</a></li>
                     <li><a href="#contact" data-i18n="navContact">Contact</a></li>
+                    <!-- 新增隐私政策导航 -->
+                    <li><a href="#privacy" data-i18n="navPrivacy">Privacy Policy</a></li>
                     <li class="lang-switcher">
                         <button class="lang-btn" id="langBtn">EN ▾</button>
                         <div class="lang-dropdown" id="langDropdown">
@@ -658,6 +678,39 @@
         </form>
     </section>
 
+    <!-- 新增隐私政策页面区块 -->
+    <section class="section privacy-section" id="privacy">
+        <div class="section-title">
+            <h2 data-i18n="privacyTitle">Privacy Policy</h2>
+            <p data-i18n="privacySubtitle">How we collect, use and protect your personal information</p>
+        </div>
+        <div class="privacy-content" data-i18n="privacyContent">
+            <h3>1. Information We Collect</h3>
+            <p>We may collect personal information you voluntarily submit via our contact form, including your name, email address, phone number and company information. We also automatically collect non-personal data such as IP address, browser type, device information, website access time and browsing behavior through cookies and Google Analytics for website traffic analysis and advertising optimization.</p>
+
+            <h3>2. Purpose of Data Usage</h3>
+            <p>Your personal information will only be used to reply to your business inquiries, provide product quotations, deliver after-sales service, and send you relevant product and industry information upon your consent. Non-personal data is used to improve our website user experience, optimize product display, and deliver targeted advertisements via Google AdSense.</p>
+
+            <h3>3. Cookies Policy</h3>
+            <p>This website uses cookies to record your browsing preferences, realize multi-language switching functions, and assist Google AdSense in delivering relevant advertisements. You can disable cookie permission in your browser settings at any time, but some website functions may be affected after disabling cookies.</p>
+
+            <h3>4. Information Protection</h3>
+            <p>We adopt standard network security technologies to protect your personal data from unauthorized access, disclosure or misuse. We will never sell, rent or share your personal information to any third-party commercial institutions without your explicit written permission.</p>
+
+            <h3>5. Third-Party Services</h3>
+            <p>Our website uses Google AdSense for advertising display and Google Analytics for traffic statistics. These third-party service providers may collect your browsing data in accordance with their own privacy policies. We are not responsible for the data processing rules of third-party platforms.</p>
+
+            <h3>6. Your Rights</h3>
+            <p>You have the right to view, modify or request deletion of your personal information stored on our server. If you need to exercise relevant rights, please contact us via our official email.</p>
+
+            <h3>7. Policy Update</h3>
+            <p>We reserve the right to update this privacy policy irregularly. The updated policy will be published on this page, and the effective date shall be the release date of the revised content. Continued use of our website means you agree to the latest privacy policy terms.</p>
+
+            <h3>8. Contact Us</h3>
+            <p>If you have any questions about this privacy policy, please contact us via email: qiangda68@outlook.com</p>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
@@ -673,10 +726,12 @@
             <div class="footer-col">
                 <h4 data-i18n="foot2Title">Company</h4>
                 <ul>
-                    <li><a href="#" data-i18n="foot2_1">About Us</a></li>
+                    <li><a href="#about" data-i18n="foot2_1">About Us</a></li>
                     <li><a href="#" data-i18n="foot2_2">Our Factory</a></li>
                     <li><a href="#" data-i18n="foot2_3">Certifications</a></li>
-                    <li><a href="#" data-i18n="foot2_4">Contact Us</a></li>
+                    <li><a href="#contact" data-i18n="foot2_4">Contact Us</a></li>
+                    <!-- 页脚新增隐私政策链接 -->
+                    <li><a href="#privacy" data-i18n="foot2_5">Privacy Policy</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -711,6 +766,7 @@
                 navProducts: "Products",
                 navAbout: "About Us",
                 navContact: "Contact",
+                navPrivacy: "Privacy Policy",
                 heroTitle: "Professional Industrial Storage Solutions",
                 heroDesc: "High-quality heavy duty racking, angle shelves and supermarket shelving systems for global businesses.",
                 heroBtn: "View Products",
@@ -754,6 +810,8 @@
                 inputSubject: "Subject",
                 inputMessage: "Your Message",
                 submitBtn: "Send Inquiry",
+                privacyTitle: "Privacy Policy",
+                privacySubtitle: "How we collect, use and protect your personal information",
                 foot1Title: "Products",
                 foot1_1: "Heavy Duty Racks",
                 foot1_2: "Angle Shelves",
@@ -764,6 +822,7 @@
                 foot2_2: "Our Factory",
                 foot2_3: "Certifications",
                 foot2_4: "Contact Us",
+                foot2_5: "Privacy Policy",
                 foot3Title: "Support",
                 foot3_1: "Installation Guide",
                 foot3_2: "FAQ",
@@ -781,6 +840,7 @@
                 navProducts: "Produkte",
                 navAbout: "Über uns",
                 navContact: "Kontakt",
+                navPrivacy: "Datenschutzrichtlinie",
                 heroTitle: "Professionelle Industrielagerlösungen",
                 heroDesc: "Hochwertige Schwerlastregale, Winkelregale und Supermarktregale für globale Unternehmen.",
                 heroBtn: "Produkte ansehen",
@@ -824,6 +884,8 @@
                 inputSubject: "Betreff",
                 inputMessage: "Ihre Nachricht",
                 submitBtn: "Anfrage senden",
+                privacyTitle: "Datenschutzrichtlinie",
+                privacySubtitle: "Wie wir Ihre personenbezogenen Daten erheben, verwenden und schützen",
                 foot1Title: "Produkte",
                 foot1_1: "Schwerlastregale",
                 foot1_2: "Winkelregale",
@@ -834,14 +896,15 @@
                 foot2_2: "Unsere Fabrik",
                 foot2_3: "Zertifizierungen",
                 foot2_4: "Kontakt",
+                foot2_5: "Datenschutzrichtlinie",
                 foot3Title: "Support",
                 foot3_1: "Montageanleitung",
                 foot3_2: "Häufige Fragen",
                 foot3_3: "Versandinformationen",
                 foot3_4: "Garantie",
                 foot4Title: "Kontakt",
-                foot4_1: "E-Mail: info@example.com",
-                foot4_2: "Telefon: +86 xxx xxxx xxxx",
+                foot4_1: "E-Mail: qiangda68@outlook.com",
+                foot4_2: "Telefon: +86 15092833346",
                 foot4_3: "Adresse: Linyi, Shandong, China",
                 copyright: "© 2026 Industrie Regalsysteme. Alle Rechte vorbehalten."
             },
@@ -851,6 +914,7 @@
                 navProducts: "Prodotti",
                 navAbout: "Chi siamo",
                 navContact: "Contatti",
+                navPrivacy: "Informativa sulla privacy",
                 heroTitle: "Soluzioni di stoccaggio industriale professionali",
                 heroDesc: "Scaffali pesanti, scaffali angolari e sistemi per supermercati di alta qualità.",
                 heroBtn: "Vedi prodotti",
@@ -894,6 +958,8 @@
                 inputSubject: "Oggetto",
                 inputMessage: "Il tuo messaggio",
                 submitBtn: "Invia richiesta",
+                privacyTitle: "Informativa sulla privacy",
+                privacySubtitle: "Come raccogliamo, utilizziamo e proteggiamo i tuoi dati personali",
                 foot1Title: "Prodotti",
                 foot1_1: "Scaffali pesanti",
                 foot1_2: "Scaffali angolari",
@@ -904,14 +970,15 @@
                 foot2_2: "La nostra fabbrica",
                 foot2_3: "Certificazioni",
                 foot2_4: "Contatti",
+                foot2_5: "Informativa sulla privacy",
                 foot3Title: "Supporto",
                 foot3_1: "Guida installazione",
                 foot3_2: "FAQ",
                 foot3_3: "Informazioni spedizione",
                 foot3_4: "Garanzia",
                 foot4Title: "Contatti",
-                foot4_1: "Email: info@example.com",
-                foot4_2: "Telefono: +86 xxx xxxx xxxx",
+                foot4_1: "Email: qiangda68@outlook.com",
+                foot4_2: "Telefono: +86 15092833346",
                 foot4_3: "Indirizzo: Linyi, Shandong, Cina",
                 copyright: "© 2026 Scaffali Industriali. Tutti i diritti riservati."
             },
@@ -921,6 +988,7 @@
                 navProducts: "Produits",
                 navAbout: "À propos",
                 navContact: "Contact",
+                navPrivacy: "Politique de confidentialité",
                 heroTitle: "Solutions de stockage industriel professionnelles",
                 heroDesc: "Rayonnages lourds, étagères angulaires et systèmes pour supermarchés de haute qualité.",
                 heroBtn: "Voir les produits",
@@ -964,6 +1032,8 @@
                 inputSubject: "Sujet",
                 inputMessage: "Votre message",
                 submitBtn: "Envoyer la demande",
+                privacyTitle: "Politique de confidentialité",
+                privacySubtitle: "Comment nous collectons, utilisons et protégeons vos données personnelles",
                 foot1Title: "Produits",
                 foot1_1: "Rayonnages lourds",
                 foot1_2: "Étagères angulaires",
@@ -974,6 +1044,7 @@
                 foot2_2: "Notre usine",
                 foot2_3: "Certifications",
                 foot2_4: "Contact",
+                foot2_5: "Politique de confidentialité",
                 foot3Title: "Support",
                 foot3_1: "Guide d'installation",
                 foot3_2: "FAQ",
@@ -991,6 +1062,7 @@
                 navProducts: "Productos",
                 navAbout: "Nosotros",
                 navContact: "Contacto",
+                navPrivacy: "Política de privacidad",
                 heroTitle: "Soluciones de almacenamiento industrial profesional",
                 heroDesc: "Estanterías pesadas, estanterías angulares y sistemas para supermercados de alta calidad.",
                 heroBtn: "Ver productos",
@@ -1000,253 +1072,4 @@
                 prod1Desc: "Sistema de estantería para palets de alta capacidad para almacenes.",
                 prod2Title: "Estantería angular",
                 prod2Desc: "Estantería angular de acero ajustable, montaje fácil y uso versátil.",
-                prod3Title: "Estantería de carga media",
-                prod3Desc: "Ideal para cargas medias, flexible y económica.",
-                prod4Title: "Estantería de supermercado",
-                prod4Desc: "Estantes expositivos para tiendas con diseño moderno y alta durabilidad.",
-                prod5Title: "Estantería sin pernos",
-                prod5Desc: "Sistema de estantería de encaje para almacenamiento eficiente.",
-                prod6Title: "Placas y accesorios angulares",
-                prod6Desc: "Gama completa de placas de acero, tornillos y escuadras.",
-                learnMore: "Saber más →",
-                catTitle: "Categorías de productos",
-                catSubtitle: "Amplia gama de herrajes y accesorios para estanterías",
-                cat1: "Escuadra de acero",
-                cat2: "Placa angular",
-                cat3: "Tornillos y escuadras",
-                cat4: "Estanterías de almacenamiento",
-                cat5: "Estantes de supermercado",
-                cat6: "Estanterías industriales",
-                cat7: "Serie acero y madera",
-                cat8: "Herrajes",
-                aboutTitle: "Sobre nuestra empresa",
-                aboutP1: "Somos un fabricante y exportador especializado en equipos de almacenamiento industrial.",
-                aboutP2: "Nuestros productos se utilizan en almacenes, supermercados, fábricas y centros logísticos.",
-                aboutF1: "Sistema de control de calidad estricto",
-                aboutF2: "Soluciones de diseño personalizadas",
-                aboutF3: "Entrega global rápida",
-                aboutF4: "Servicio postventa profesional",
-                aboutImgText: "Vista previa fábrica",
-                contactTitle: "Contáctanos",
-                contactSubtitle: "Envía tu consulta y te responderemos en 24 horas",
-                inputName: "Tu nombre",
-                inputEmail: "Tu email",
-                inputSubject: "Asunto",
-                inputMessage: "Tu mensaje",
-                submitBtn: "Enviar consulta",
-                foot1Title: "Productos",
-                foot1_1: "Estanterías pesadas",
-                foot1_2: "Estantes angulares",
-                foot1_3: "Estantes de supermercado",
-                foot1_4: "Estanterías de encaje",
-                foot2Title: "Empresa",
-                foot2_1: "Sobre nosotros",
-                foot2_2: "Nuestra fábrica",
-                foot2_3: "Certificaciones",
-                foot2_4: "Contacto",
-                foot3Title: "Soporte",
-                foot3_1: "Guía de instalación",
-                foot3_2: "Preguntas frecuentes",
-                foot3_3: "Información de envío",
-                foot3_4: "Garantía",
-                foot4Title: "Contacto",
-                foot4_1: "Email: info@example.com",
-                foot4_2: "Teléfono: +86 xxx xxxx xxxx",
-                foot4_3: "Dirección: Linyi, Shandong, China",
-                copyright: "© 2026 Estanterías Industriales. Todos los derechos reservados."
-            },
-            ja: {
-                brandName: "産業用ラック",
-                navHome: "ホーム",
-                navProducts: "製品",
-                navAbout: "会社概要",
-                navContact: "お問い合わせ",
-                heroTitle: "プロフェッショナルな産業用保管ソリューション",
-                heroDesc: "高品質な重量ラック、アングル棚、スーパーマーケット用棚システムを提供します。",
-                heroBtn: "製品を見る",
-                productsTitle: "私たちの製品",
-                productsSubtitle: "あらゆる業界ニーズに対応する幅広い保管ラックシステム",
-                prod1Title: "重量ラック",
-                prod1Desc: "倉庫保管用の高耐荷重パレットラックシステムです。",
-                prod2Title: "アングル棚",
-                prod2Desc: "調整可能なスチールアングル棚、組立簡単で多目的に使用できます。",
-                prod3Title: "中量ラック",
-                prod3Desc: "中程度の荷重に最適で、柔軟かつ費用対効果に優れています。",
-                prod4Title: "スーパーマーケット棚",
-                prod4Desc: "モダンなデザインと高耐久性を備えた小売店用ディスプレイ棚です。",
-                prod5Title: "ボルトレス棚",
-                prod5Desc: "迅速に設置できるボルトレス棚システムで効率的な保管を実現します。",
-                prod6Title: "アングルプレート・付属品",
-                prod6Desc: "各種アングルスチールプレート、ネジ、コーナー金具のフルラインナップ。",
-                learnMore: "詳しく見る →",
-                catTitle: "製品カテゴリ",
-                catSubtitle: "保管ラックの幅広いハードウェアとアクセサリー",
-                cat1: "スチールアングル",
-                cat2: "アングルプレート",
-                cat3: "ネジとコーナー",
-                cat4: "収納棚",
-                cat5: "スーパーマーケットラック",
-                cat6: "産業用ラック",
-                cat7: "スチール＆ウッドシリーズ",
-                cat8: "ハードウェア付属品",
-                aboutTitle: "私たちの会社について",
-                aboutP1: "私たちは産業用保管機器の専門メーカー兼輸出業者です。",
-                aboutP2: "当社の製品は倉庫、スーパー、工場、物流センターで広く使用されています。",
-                aboutF1: "厳格な品質管理システム",
-                aboutF2: "カスタマイズされた設計ソリューション",
-                aboutF3: "迅速なグローバル配送",
-                aboutF4: "専門的なアフターサービス",
-                aboutImgText: "工場プレビュー",
-                contactTitle: "お問い合わせ",
-                contactSubtitle: "お問い合わせを送信すると、24時間以内に返信します",
-                inputName: "お名前",
-                inputEmail: "メールアドレス",
-                inputSubject: "件名",
-                inputMessage: "お問い合わせ内容",
-                submitBtn: "問い合わせを送信",
-                foot1Title: "製品",
-                foot1_1: "重量ラック",
-                foot1_2: "アングル棚",
-                foot1_3: "スーパーマーケット棚",
-                foot1_4: "ボルトレス棚",
-                foot2Title: "会社",
-                foot2_1: "会社概要",
-                foot2_2: "工場紹介",
-                foot2_3: "認証情報",
-                foot2_4: "お問い合わせ",
-                foot3Title: "サポート",
-                foot3_1: "設置ガイド",
-                foot3_2: "FAQ",
-                foot3_3: "配送情報",
-                foot3_4: "保証",
-                foot4Title: "連絡先",
-                foot4_1: "メール: info@example.com",
-                foot4_2: "電話: +86 xxx xxxx xxxx",
-                foot4_3: "住所: 中国山東省臨沂市",
-                copyright: "© 2026 産業用ラック。全著作権所有。"
-            },
-            ko: {
-                brandName: "산업용 랙",
-                navHome: "홈",
-                navProducts: "제품",
-                navAbout: "회사 소개",
-                navContact: "문의하기",
-                heroTitle: "전문 산업용 저장 솔루션",
-                heroDesc: "고품질 중량 랙, 앵글 선반 및 슈퍼마켓 선반 시스템을 제공합니다.",
-                heroBtn: "제품 보기",
-                productsTitle: "제품 소개",
-                productsSubtitle: "모든 산업 요구를 위한 다양한 저장 랙 시스템",
-                prod1Title: "중량 랙",
-                prod1Desc: "창고 보관용 고하중 팔레트 랙 시스템입니다.",
-                prod2Title: "앵글 선반",
-                prod2Desc: "조절 가능한 강철 앵글 선반, 쉬운 조립 및 다목적 사용.",
-                prod3Title: "중하중 랙",
-                prod3Desc: "중간 하중에 적합하며 유연하고 비용 효율적입니다.",
-                prod4Title: "슈퍼마켓 선반",
-                prod4Desc: "모던한 디자인과 높은 내구성을 갖춘 소매 전시 선반입니다.",
-                prod5Title: "볼트리스 선반",
-                prod5Desc: "빠른 설치가 가능한 볼트리스 선반 시스템으로 효율적인 보관을 제공합니다.",
-                prod6Title: "앵글 플레이트 및 피팅",
-                prod6Desc: "각종 앵글 강철 플레이트, 나사 및 코너 피팅을 제공합니다.",
-                learnMore: "자세히 보기 →",
-                catTitle: "제품 카테고리",
-                catSubtitle: "저장 하드웨어 및 랙 액세서리의 전체 범위",
-                cat1: "강철 앵글",
-                cat2: "앵글 플레이트",
-                cat3: "나사 및 코너",
-                cat4: "저장 선반",
-                cat5: "슈퍼마켓 랙",
-                cat6: "산업용 랙",
-                cat7: "강철 및 목재 시리즈",
-                cat8: "하드웨어 피팅",
-                aboutTitle: "회사 소개",
-                aboutP1: "저희는 산업용 저장 장비를 전문으로 제조 및 수출하는 회사입니다.",
-                aboutP2: "제품은 창고, 슈퍼마켓, 공장 및 물류 센터에서 널리 사용됩니다.",
-                aboutF1: "엄격한 품질 관리 시스템",
-                aboutF2: "맞춤형 설계 솔루션",
-                aboutF3: "신속한 글로벌 배송",
-                aboutF4: "전문적인 애프터 서비스",
-                aboutImgText: "공장 미리보기",
-                contactTitle: "문의하기",
-                contactSubtitle: "문의 사항을 보내시면 24시간 이내에 답변드립니다",
-                inputName: "이름",
-                inputEmail: "이메일",
-                inputSubject: "제목",
-                inputMessage: "메시지",
-                submitBtn: "문의 전송",
-                foot1Title: "제품",
-                foot1_1: "중량 랙",
-                foot1_2: "앵글 선반",
-                foot1_3: "슈퍼마켓 선반",
-                foot1_4: "볼트리스 선반",
-                foot2Title: "회사",
-                foot2_1: "회사 소개",
-                foot2_2: "공장 소개",
-                foot2_3: "인증",
-                foot2_4: "문의하기",
-                foot3Title: "지원",
-                foot3_1: "설치 가이드",
-                foot3_2: "FAQ",
-                foot3_3: "배송 정보",
-                foot3_4: "보증",
-                foot4Title: "연락처",
-                foot4_1: "이메일: info@example.com",
-                foot4_2: "전화: +86 xxx xxxx xxxx",
-                foot4_3: "주소: 중국 산동성 린이",
-                copyright: "© 2026 산업용 랙. 모든 권리 보유."
-            }
-        };
-
-        const langLabel = {
-            en: 'EN',
-            de: 'DE',
-            it: 'IT',
-            fr: 'FR',
-            es: 'ES',
-            ja: 'JA',
-            ko: 'KO'
-        };
-
-        const langBtn = document.getElementById('langBtn');
-        const langDropdown = document.getElementById('langDropdown');
-        const savedLang = localStorage.getItem('siteLang') || 'en';
-
-        function updateLanguage(lang) {
-            const translation = translations[lang] || translations.en;
-            document.documentElement.lang = lang;
-            langBtn.textContent = `${langLabel[lang] || lang.toUpperCase()} ▾`;
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.dataset.i18n;
-                if (key && translation[key]) {
-                    el.textContent = translation[key];
-                }
-            });
-            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-                const key = el.dataset.i18nPlaceholder;
-                if (key && translation[key]) {
-                    el.placeholder = translation[key];
-                }
-            });
-            localStorage.setItem('siteLang', lang);
-            langDropdown.classList.remove('active');
-        }
-
-        langBtn.addEventListener('click', () => {
-            langDropdown.classList.toggle('active');
-        });
-
-        langDropdown.querySelectorAll('button[data-lang]').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const lang = btn.dataset.lang;
-                updateLanguage(lang);
-            });
-        });
-
-        document.addEventListener('click', event => {
-            if (!langDropdown.contains(event.target) && event.target !== langBtn) {
-                langDropdown.classList.remove('active');
-            }
-        });
-
-        updateLanguage(savedLang);
-    </script>
+                prod3Title: "E
