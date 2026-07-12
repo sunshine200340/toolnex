@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>农场模拟器</title>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        body {background: #87CEEB; display: flex; flex-direction: column; align-items: center; padding: 20px;}
+        #gameCanvas {
+            border: 4px solid #654321;
+            background: #7ccd7c;
+        }
+        .control-panel {
+            margin-top: 12px;
+            display: flex;
+            gap: 10px;
+        }
+        button {
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            background: #f4a460;
+            border: none;
+            border-radius: 4px;
+        }
+        button:hover {background: #ff8c00;}
+    </style>
+</head>
+<body>
+    <h2>2D农场模拟游戏</h2>
+    <!-- 游戏渲染画布，界面核心容器 -->
+    <canvas id="gameCanvas" width="800" height="500"></canvas>
+    <div class="control-panel">
+        <button onclick="plantWheat()">种植小麦</button>
+        <button onclick="waterCrop()">浇水</button>
+        <button onclick="harvest()">收割作物</button>
+    </div>
+
+    <script>
+        // 获取画布与绘图上下文
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        // 农场地块数据
+        const farmLand = [];
+        const landSize = 100;
+        // 初始化9块农田
+        function initFarm() {
+            for(let row = 0; row < 3; row++) {
+                for(let col = 0; col < 3; col++) {
+                    farmLand.push({
+                        x: col * landSize + 50,
+                        y: row * landSize + 50,
+                        type: null, // wheat/carrot/null
+                        growStage: 0 // 0未种植 1幼苗 2成熟
+                    })
+                }
+            }
+            renderFarm();
+        }
+        // 渲染农场界面
+        function renderFarm() {
+            // 清空画布
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            // 绘制土地
+            farmLand.forEach(land => {
+                // 泥土底色
+                ctx.fillStyle = '#966b47';
+                ctx.fillRect(land.x, land.y, landSize-10, landSize-10);
+                ctx.strokeStyle = '#5a3c21';
+                ctx.strokeRect(land.x, land.y, landSize-10, landSize-10);
+                // 绘制作物
+                if(land.type === 'wheat') {
+                    if(land.growStage === 1) {
+                        ctx.fillStyle = '#90ee90';
+                        ctx.fillRect(land.x+35, land.y+40, 20, 30);
+                    } else if(land.growStage === 2) {
+                        ctx.fillStyle = '#ffd700';
+                        ctx.fillRect(land.x+30, land.y+25, 30, 45);
+                    }
+                }
+            })
+        }
+        // 种植小麦
+        function plantWheat() {
+            const emptyLand = farmLand.find(l => l.type === null);
+            if(emptyLand) {
+                emptyLand.type = 'wheat';
+                emptyLand.growStage = 1;
+                renderFarm();
+                // 自动成熟倒计时
+                setTimeout(()=>{
+                    emptyLand.growStage = 2;
+                    renderFarm();
+                }, 3000)
+            } else alert("没有空地可以种植！")
+        }
+        // 浇水（加速成熟）
+        function waterCrop() {
+            const unripe = farmLand.find(l => l.type && l.growStage === 1);
+            if(unripe) {
+                unripe.growStage = 2;
+                renderFarm();
+            } else alert("暂无幼苗需要浇水！")
+        }
+        // 收割
+        function harvest() {
+            const ripe = farmLand.find(l => l.type && l.growStage === 2);
+            if(ripe) {
+                ripe.type = null;
+                ripe.growStage = 0;
+                renderFarm();
+                alert("收割成功，获得小麦！")
+            } else alert("没有成熟作物！")
+        }
+        // 页面加载完成初始化游戏界面
+        window.onload = initFarm;
+    </script>
+</body>
+</html>
