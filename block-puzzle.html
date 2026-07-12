@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block Puzzle Classic | GameHub Navigator Directory</title>
+    <meta name="description" content="GameHub Navigator directory listing for Block Puzzle Classic, presenting a curated browser game recommendation and partner-hosted game preview.">
+    <link rel="canonical" href="https://example.com/games/block-puzzle.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1E3A8A;
+            --primary-light: #2563EB;
+            --bg: #F8FAFC;
+            --card: #FFFFFF;
+            --text-primary: #0F172A;
+            --text-secondary: #64748B;
+            --border: #E2E8F0;
+            --shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
+            --radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 99;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: var(--primary-light);
+            font-weight: 500;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .back-btn:hover {
+            color: var(--primary);
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .main-nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .main-nav a:hover {
+            color: var(--primary-light);
+        }
+
+        /* Game Page Layout */
+        .game-page {
+            padding: 32px 0 60px;
+        }
+
+        .game-header {
+            margin-bottom: 24px;
+        }
+
+        .game-header h1 {
+            font-size: 30px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .game-meta {
+            color: var(--text-secondary);
+            font-size: 14px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .game-note {
+            margin-top: 18px;
+            padding: 18px 20px;
+            background: #EFF6FF;
+            border: 1px solid #D1E9FF;
+            border-radius: 16px;
+        }
+
+        .game-note p {
+            margin: 0;
+            color: var(--text-primary);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .game-tag {
+            background: #EFF6FF;
+            color: var(--primary-light);
+            padding: 3px 12px;
+            border-radius: var(--radius);
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        /* Game Embed Container */
+        .game-embed-container {
+            background: var(--card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 14px;
+            margin-bottom: 32px;
+            border: 1px solid var(--border);
+        }
+
+        .game-frame-wrapper {
+            position: relative;
+            padding-bottom: 75%;
+            height: 0;
+            overflow: hidden;
+            width: 100%;
+            border-radius: 6px;
+            background: #0F172A;
+        }
+
+        .game-frame-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .embed-fallback {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 260px;
+            padding: 28px;
+            background: #F8FAFC;
+            border: 1px dashed #CBD5E1;
+            border-radius: 16px;
+            text-align: center;
+            color: var(--text-primary);
+            gap: 16px;
+        }
+
+        .embed-fallback p {
+            margin: 0;
+            color: var(--text-secondary);
+            max-width: 700px;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        .embed-fallback a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: 999px;
+            background: var(--primary);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s ease;
+        }
+
+        .embed-fallback a:hover {
+            background: var(--primary-light);
+        }
+
+        .game-source {
+            margin-top: 12px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+
+        /* Ad Block */
+        .ad-block {
+            background: #F1F5F9;
+            border-radius: var(--radius);
+            padding: 20px;
+            text-align: center;
+            margin: 32px 0;
+            border: 1px solid var(--border);
+        }
+
+        .ad-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Content Sections */
+        .game-content-section {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .game-content-section h2 {
+            font-size: 19px;
+            font-weight: 600;
+            margin-bottom: 14px;
+            color: var(--text-primary);
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .game-content-section p {
+            color: #334155;
+            margin-bottom: 12px;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .game-content-section ul {
+            padding-left: 22px;
+            color: #334155;
+        }
+
+        .game-content-section li {
+            margin-bottom: 8px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: #0F172A;
+            padding: 36px 0 20px;
+            margin-top: 40px;
+            color: #94A3B8;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .copyright a {
+            color: #94A3B8;
+            text-decoration: none;
+            margin: 0 6px;
+        }
+
+        .copyright a:hover {
+            color: #fff;
+        }
+
+        /* Mobile Adaptation */
+        @media screen and (max-width: 768px) {
+            .game-header h1 {
+                font-size: 24px;
+            }
+            .game-content-section {
+                padding: 20px;
+            }
+            .game-embed-container {
+                padding: 8px;
+            }
+            .game-page {
+                padding: 24px 0 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-inner">
+            <a href="../index.html" class="logo">GameHub Navigator</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../index.html">Directory</a></li>
+                    <li><a href="../index.html#categories">Categories</a></li>
+                    <li><a href="../privacy.html">Privacy</a></li>
+                </ul>
+            </nav>
+            <a href="../index.html" class="back-btn">← Back to Directory</a>
+        </div>
+    </header>
+
+    <main class="container game-page">
+        <!-- Game Title & Meta -->
+        <div class="game-header">
+            <h1>Block Puzzle Classic</h1>
+            <div class="game-meta">
+                <span class="game-tag">Puzzle</span>
+                <span>Play Mode: Single Player</span>
+                <span>Difficulty: Easy</span>
+                <span>No Installation</span>
+            </div>
+            <div class="game-note">
+                <p>This listing highlights a partner-hosted browser game preview. GameHub Navigator is a directory and recommendation portal, with external content provided by the partner site.</p>
+            </div>
+        </div>
+
+        <!-- Game Embed Area -->
+        <div class="game-embed-container">
+            <div class="embed-fallback">
+                <p>FastPlayGames.com does not allow direct embedding for this title, and the original partner page is not available. Use the partner portal below to search for the game or explore other browser titles.</p>
+                <a href="https://fastplaygames.com/" target="_blank" rel="noopener noreferrer">Open FastPlayGames Portal</a>
+            </div>
+            <div class="game-source">Game preview and link provided by partner host FastPlayGames.com</div>
+        </div>
+
+        <!-- Top Ad Unit -->
+        <div class="ad-block">
+            <div class="ad-label">Advertisement</div>
+            <div>Google AdSense Ad Unit Placeholder</div>
+        </div>
+
+        <!-- Game Introduction -->
+        <div class="game-content-section">
+            <h2>Game Overview</h2>
+            <p>Block Puzzle Classic is a widely acclaimed casual puzzle game designed for players of all age groups. The core gameplay follows the classic tile-stacking mechanic: players place geometric blocks of varying shapes onto a 10x10 grid, and complete full horizontal or vertical lines to clear tiles and accumulate scores.</p>
+            <p>Distinguished from timed puzzle titles, this game offers a pressure-free casual experience with no time limits. Players can take sufficient time to plan each placement, making it ideal for short work breaks or extended leisure sessions. The game concludes when there is no remaining valid space on the grid to place upcoming blocks.</p>
+        </div>
+
+        <!-- How to Play -->
+        <div class="game-content-section">
+            <h2>Game Instructions</h2>
+            <ul>
+                <li>Drag available blocks from the bottom panel and drop them onto the game grid to place</li>
+                <li>Fill an entire horizontal or vertical row to clear the line and free up grid space</li>
+                <li>Click on blocks to rotate them before placement for optimal positioning</li>
+                <li>Plan placements strategically to avoid running out of available grid space</li>
+                <li>Clear multiple lines simultaneously to earn bonus points and combo multipliers</li>
+            </ul>
+        </div>
+
+        <!-- Strategy Tips -->
+        <div class="game-content-section">
+            <h2>Strategy & Tips</h2>
+            <ul>
+                <li><strong>Maintain a flat grid layout:</strong> Avoid stacking blocks unevenly in a single area. A level grid provides more flexible placement options for subsequent blocks.</li>
+                <li><strong>Reserve large blocks for combo clears:</strong> Keep 3x3 and other large pieces until you can clear multiple lines at once to maximize score efficiency.</li>
+                <li><strong>Reserve gaps for small blocks:</strong> Always keep 1-2 single-cell gaps available for randomly appearing 1x1 blocks.</li>
+                <li><strong>Avoid hasty placements:</strong> There is no time constraint. Take 2-3 seconds to evaluate all placement options before committing.</li>
+                <li><strong>Prioritize lower line clears:</strong> Clearing rows near the bottom first maximizes usable space and extends gameplay duration.</li>
+            </ul>
+        </div>
+
+        <!-- Bottom Ad Unit -->
+        <div class="ad-block">
+            <div class="ad-label">Advertisement</div>
+            <div>Google AdSense Ad Unit Placeholder</div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container copyright">
+            <p>
+                <a href="../index.html">Home</a> | 
+                <a href="../privacy.html">Privacy Policy</a> | 
+                <a href="../terms.html">Terms of Service</a>
+            </p>
+            <p style="margin-top:10px;">This page is a directory listing within GameHub Navigator. Embedded content is provided by partner hosts and is not directly served by this site.</p>
+        </div>
+    </footer>
+</body>
+</html>
