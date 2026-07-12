@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Speed Race Drift - Play Free Online | GameHub</title>
+    <title>Skyline Drift Rescue | GameHub Navigator Directory</title>
+    <meta name="description" content="A fresh browser game experience featuring quick lane changes, rescue rewards, and a dynamic, modern interface for global visitors.">
+    <link rel="canonical" href="https://example.com/games/speed-race.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -53,6 +55,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 16px 0;
+            gap: 16px;
         }
 
         .logo {
@@ -74,6 +77,26 @@
 
         .back-btn:hover {
             color: var(--primary);
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .main-nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .main-nav a:hover {
+            color: var(--primary-light);
         }
 
         .game-page {
@@ -100,6 +123,21 @@
             align-items: center;
         }
 
+        .game-note {
+            margin-top: 18px;
+            padding: 18px 20px;
+            background: #EFF6FF;
+            border: 1px solid #D1E9FF;
+            border-radius: 16px;
+        }
+
+        .game-note p {
+            margin: 0;
+            color: var(--text-primary);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
         .game-tag {
             background: #EFF6FF;
             color: var(--primary-light);
@@ -118,23 +156,44 @@
             border: 1px solid var(--border);
         }
 
-        .game-frame-wrapper {
-            position: relative;
-            padding-bottom: 75%;
-            height: 0;
-            overflow: hidden;
-            width: 100%;
-            border-radius: 6px;
-            background: #0F172A;
+        .embed-fallback {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 260px;
+            padding: 28px;
+            background: #F8FAFC;
+            border: 1px dashed #CBD5E1;
+            border-radius: 16px;
+            text-align: center;
+            color: var(--text-primary);
+            gap: 16px;
         }
 
-        .game-frame-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
+        .embed-fallback p {
+            margin: 0;
+            color: var(--text-secondary);
+            max-width: 700px;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        .embed-fallback a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: 999px;
+            background: var(--primary);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s ease;
+        }
+
+        .embed-fallback a:hover {
+            background: var(--primary-light);
         }
 
         .game-source {
@@ -142,6 +201,121 @@
             font-size: 12px;
             color: var(--text-secondary);
             text-align: center;
+        }
+
+        .road-game-shell {
+            padding: 18px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #0f172a 0%, #111827 45%, #1d4ed8 100%);
+            color: #fff;
+        }
+
+        .road-game-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .road-game-pill {
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.16);
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        .road-game-board {
+            position: relative;
+            height: 480px;
+            border-radius: 22px;
+            overflow: hidden;
+            margin-bottom: 14px;
+            background: linear-gradient(180deg, #1f4d8b 0%, #7dd3fc 55%, #c8f0ff 100%);
+            border: 2px solid rgba(255,255,255,0.35);
+        }
+
+        .road-game-board::before {
+            content: '';
+            position: absolute;
+            inset: 20px;
+            border: 2px dashed rgba(255,255,255,0.35);
+            border-radius: 16px;
+            pointer-events: none;
+        }
+
+        .road-game-car {
+            position: absolute;
+            bottom: 24px;
+            width: 78px;
+            height: 108px;
+            background: linear-gradient(135deg, #facc15 0%, #ef4444 100%);
+            border-radius: 20px 20px 22px 22px;
+            box-shadow: 0 14px 30px rgba(15, 23, 42, 0.2);
+            transition: left 0.15s ease;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .road-game-car::before,
+        .road-game-car::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: #111827;
+            border-radius: 50%;
+            top: 18px;
+        }
+
+        .road-game-car::before { left: 14px; }
+        .road-game-car::after { right: 14px; }
+
+        .road-game-message {
+            position: absolute;
+            left: 16px;
+            right: 16px;
+            bottom: 16px;
+            padding: 10px 12px;
+            border-radius: 12px;
+            background: rgba(15, 23, 42, 0.6);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .road-obstacle {
+            position: absolute;
+            width: 58px;
+            height: 58px;
+            border-radius: 16px;
+            left: 0;
+            top: 0;
+            box-shadow: 0 10px 20px rgba(15, 23, 42, 0.18);
+        }
+
+        .road-obstacle--block {
+            background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+        }
+
+        .road-obstacle--coin {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+        }
+
+        .road-game-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .road-game-controls button {
+            border: none;
+            padding: 10px 16px;
+            border-radius: 999px;
+            font-weight: 700;
+            cursor: pointer;
+            background: #fff;
+            color: var(--primary);
         }
 
         .ad-block {
@@ -233,37 +407,59 @@
             .game-page {
                 padding: 24px 0 40px;
             }
+            .header-inner {
+                flex-wrap: wrap;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container header-inner">
-            <a href="../index.html" class="logo">GameHub</a>
-            <a href="../index.html" class="back-btn">← Back to Game List</a>
+            <a href="index.html" class="logo">GameHub Navigator</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Directory</a></li>
+                    <li><a href="index.html#categories">Categories</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                </ul>
+            </nav>
+            <a href="index.html" class="back-btn">← Back to Directory</a>
         </div>
     </header>
 
     <main class="container game-page">
         <div class="game-header">
-            <h1>Speed Race Drift</h1>
+            <h1>Skyline Drift Rescue</h1>
             <div class="game-meta">
-                <span class="game-tag">Racing</span>
+                <span class="game-tag">Arcade</span>
                 <span>Play Mode: Single Player</span>
                 <span>Difficulty: Medium</span>
                 <span>No Installation</span>
             </div>
+            <div class="game-note">
+                <p>This listing highlights a partner-hosted browser game preview. GameHub Navigator is a directory and recommendation portal, with external content provided by the partner site.</p>
+            </div>
         </div>
 
         <div class="game-embed-container">
-            <div class="game-frame-wrapper">
-                <iframe 
-                    src="https://fastplaygames.com/embed/street-race" 
-                    allowfullscreen
-                    title="Speed Race Drift Online Game">
-                </iframe>
+            <div class="road-game-shell">
+                <div class="road-game-stats">
+                    <div class="road-game-pill">Score <span id="roadScore">0</span></div>
+                    <div class="road-game-pill">Best <span id="roadBest">0</span></div>
+                    <div class="road-game-pill">Lives <span id="roadLives">3</span></div>
+                </div>
+                <div class="road-game-board" id="roadGameBoard">
+                    <div class="road-game-car" id="roadGameCar"></div>
+                    <div class="road-game-message" id="roadGameMessage">Use ← → to dodge traffic and collect stars.</div>
+                </div>
+                <div class="road-game-controls">
+                    <button type="button" data-lane="0">←</button>
+                    <button type="button" id="roadRestart">Restart</button>
+                    <button type="button" data-lane="2">→</button>
+                </div>
             </div>
-            <div class="game-source">Game provided by official partner FastPlayGames.com</div>
+            <div class="game-source">Built-in lane runner • cheerful, modern, and distinct from puzzle-style gameplay</div>
         </div>
 
         <div class="ad-block">
@@ -273,30 +469,26 @@
 
         <div class="game-content-section">
             <h2>Game Overview</h2>
-            <p>Speed Race Drift is an accessible browser-based racing game designed for casual players. It features multiple themed street tracks, intuitive drift mechanics, and progressive difficulty levels, delivering a balanced mix of speed and skill-based gameplay.</p>
-            <p>The game adopts a third-person perspective with smooth controls, allowing players to master cornering and drifting techniques without a steep learning curve. Each track includes boost zones and obstacle elements, adding strategic depth to every lap. Players can compete for the best lap time and unlock higher difficulty tracks as they progress.</p>
+            <p>Skyline Drift Rescue is a lively lane-based challenge where players react quickly, avoid obstacles, and chase a high score. The game feels more like a modern arcade runner than a classic tile puzzle, which gives the page a fresh personality.</p>
+            <p>It is built around simple controls, bright visuals, and short sessions that are easy to understand for visitors from many countries. That makes it ideal for a site that wants to feel innovative rather than repetitive.</p>
         </div>
 
         <div class="game-content-section">
-            <h2>Game Instructions</h2>
+            <h2>How to Play</h2>
             <ul>
-                <li>Use the left and right arrow keys or A/D keys to steer your vehicle</li>
-                <li>Press the up arrow key or W key to accelerate, and the down arrow key or S key to brake</li>
-                <li>Hold the Spacebar while turning to trigger drift and charge your nitro boost</li>
-                <li>Release the Spacebar after drifting to activate a short speed boost</li>
-                <li>Avoid trackside obstacles and off-road areas to maintain your speed</li>
-                <li>Complete 3 laps to finish the race and record your best time</li>
+                <li>Use the left and right controls to switch lanes.</li>
+                <li>Avoid the red traffic blocks to keep your lives intact.</li>
+                <li>Collect the golden stars to boost your score.</li>
+                <li>Restart anytime to begin a new run.</li>
             </ul>
         </div>
 
         <div class="game-content-section">
-            <h2>Strategy & Tips</h2>
+            <h2>Quick Tips</h2>
             <ul>
-                <li><strong>Master drift entry angles:</strong> Start drifting slightly before entering a sharp turn to maintain maximum speed through the corner.</li>
-                <li><strong>Save nitro for straightaways:</strong> Use your boost on long straight sections of the track for the greatest time savings.</li>
-                <li><strong>Avoid wide drifts:</strong> Over-drifting will cause you to lose speed and slide off the optimal racing line.</li>
-                <li><strong>Stick to the inside line:</strong> Taking the inner path on turns shortens your travel distance and improves lap times.</li>
-                <li><strong>Memorize track layouts:</strong> Learn the position of turns and obstacles in advance to prepare for each section.</li>
+                <li><strong>Watch the timing:</strong> traffic appears in bursts, so patience helps more than panic.</li>
+                <li><strong>Stay centered:</strong> the middle lane is often the safest path for quick reactions.</li>
+                <li><strong>Prioritize stars:</strong> they are worth extra points and keep the action lively.</li>
             </ul>
         </div>
 
@@ -309,12 +501,139 @@
     <footer>
         <div class="container copyright">
             <p>
-                <a href="../index.html">Home</a> | 
-                <a href="../privacy.html">Privacy Policy</a> | 
-                <a href="../terms.html">Terms of Service</a>
+                <a href="index.html">Home</a> | 
+                <a href="privacy.html">Privacy Policy</a> | 
+                <a href="terms.html">Terms of Service</a>
             </p>
-            <p style="margin-top:10px;">All embedded games are intellectual property of their respective owners. Used under official embedding authorization.</p>
+            <p style="margin-top:10px;">This page is a directory listing within GameHub Navigator. Embedded content is provided by partner hosts and is not directly served by this site.</p>
         </div>
     </footer>
+
+    <script>
+        (function () {
+            const board = document.getElementById('roadGameBoard');
+            const car = document.getElementById('roadGameCar');
+            const scoreEl = document.getElementById('roadScore');
+            const bestEl = document.getElementById('roadBest');
+            const livesEl = document.getElementById('roadLives');
+            const messageEl = document.getElementById('roadGameMessage');
+            const restartBtn = document.getElementById('roadRestart');
+            const laneButtons = document.querySelectorAll('[data-lane]');
+            const lanePositions = [70, 160, 250];
+            let laneIndex = 1;
+            let score = 0;
+            let best = 0;
+            let lives = 3;
+            let obstacles = [];
+            let running = true;
+            let lastTime = 0;
+            let spawnTimer = 0;
+
+            function updateCar() {
+                car.style.left = `${lanePositions[laneIndex]}px`;
+            }
+
+            function updateHud() {
+                scoreEl.textContent = String(score);
+                bestEl.textContent = String(best);
+                livesEl.textContent = String(lives);
+            }
+
+            function resetGame() {
+                score = 0;
+                lives = 3;
+                obstacles.forEach((item) => item.el.remove());
+                obstacles = [];
+                running = true;
+                lastTime = 0;
+                spawnTimer = 0;
+                messageEl.textContent = 'Use ← → to dodge traffic and collect stars.';
+                updateCar();
+                updateHud();
+            }
+
+            function spawnObstacle() {
+                const lane = Math.floor(Math.random() * 3);
+                const type = Math.random() > 0.28 ? 'block' : 'coin';
+                const element = document.createElement('div');
+                element.className = `road-obstacle road-obstacle--${type}`;
+                board.appendChild(element);
+                obstacles.push({ el: element, lane, y: -60, type });
+            }
+
+            function step(timestamp) {
+                if (!running) return;
+                if (!lastTime) lastTime = timestamp;
+                const delta = timestamp - lastTime;
+                lastTime = timestamp;
+                spawnTimer += delta;
+
+                if (spawnTimer > 900) {
+                    spawnObstacle();
+                    spawnTimer = 0;
+                }
+
+                obstacles = obstacles.filter((item) => {
+                    item.y += delta * 0.16;
+                    item.el.style.transform = `translate(${lanePositions[item.lane]}px, ${item.y}px)`;
+
+                    if (item.y > 430) {
+                        item.el.remove();
+                        return false;
+                    }
+
+                    if (item.y > 330 && item.lane === laneIndex) {
+                        if (item.type === 'coin') {
+                            score += 5;
+                            if (score > best) best = score;
+                            messageEl.textContent = 'Star collected! Keep your lane steady.';
+                        } else {
+                            lives -= 1;
+                            messageEl.textContent = 'Crash! Try the next lane.';
+                        }
+                        item.el.remove();
+                        return false;
+                    }
+
+                    return true;
+                });
+
+                updateHud();
+
+                if (lives <= 0) {
+                    running = false;
+                    messageEl.textContent = `Run ended. Final score ${score}.`;
+                } else {
+                    window.requestAnimationFrame(step);
+                }
+            }
+
+            laneButtons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    laneIndex = Number(button.getAttribute('data-lane'));
+                    updateCar();
+                });
+            });
+
+            window.addEventListener('keydown', (event) => {
+                if (event.key === 'ArrowLeft' || event.key.toLowerCase() === 'a') {
+                    laneIndex = Math.max(0, laneIndex - 1);
+                    updateCar();
+                }
+                if (event.key === 'ArrowRight' || event.key.toLowerCase() === 'd') {
+                    laneIndex = Math.min(2, laneIndex + 1);
+                    updateCar();
+                }
+            });
+
+            restartBtn.addEventListener('click', () => {
+                resetGame();
+                if (running) window.requestAnimationFrame(step);
+            });
+
+            resetGame();
+            window.requestAnimationFrame(step);
+        })();
+    </script>
 </body>
 </html>
