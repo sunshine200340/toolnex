@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candy Match Blast | GameHub Navigator Directory</title>
+    <meta name="description" content="Play Candy Match Blast, a vibrant match-three puzzle game with hundreds of levels and exciting power-ups.">
+    <link rel="canonical" href="https://example.com/games/candy-match-blast.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1E3A8A;
+            --primary-light: #2563EB;
+            --bg: #F8FAFC;
+            --card: #FFFFFF;
+            --text-primary: #0F172A;
+            --text-secondary: #64748B;
+            --border: #E2E8F0;
+            --shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
+            --radius: 8px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg); color: var(--text-primary); line-height: 1.6; }
+        .container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+        
+        /* 保持原有Header/Layout样式 */
+        header { background: var(--card); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 99; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; }
+        .logo { font-size: 20px; font-weight: 700; color: var(--primary); text-decoration: none; }
+        .back-btn { text-decoration: none; color: var(--primary-light); font-weight: 500; font-size: 14px; }
+        
+        .game-page { padding: 32px 0 60px; }
+        .game-embed-container { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 24px; margin-bottom: 32px; border: 1px solid var(--border); }
+        
+        /* 核心修改：使用 Fallback 样式 */
+        .embed-fallback {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+            padding: 28px;
+            background: #F8FAFC;
+            border: 1px dashed #CBD5E1;
+            border-radius: 16px;
+            text-align: center;
+            gap: 16px;
+        }
+        .embed-fallback p { color: var(--text-secondary); max-width: 500px; }
+        .embed-fallback a {
+            padding: 12px 32px;
+            border-radius: 999px;
+            background: var(--primary);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .embed-fallback a:hover { background: var(--primary-light); }
+        
+        .game-content-section { background: var(--card); border-radius: var(--radius); padding: 28px; margin-bottom: 24px; box-shadow: var(--shadow); border: 1px solid var(--border); }
+        footer { background: #0F172A; padding: 36px 0 20px; margin-top: 40px; color: #94A3B8; text-align: center; font-size: 13px; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <a href="../index.html" class="logo">GameHub Navigator</a>
+            <a href="../index.html" class="back-btn">← Back to Game List</a>
+        </div>
+    </header>
+
+    <main class="container game-page">
+        <div class="game-header">
+            <h1>Candy Match Blast</h1>
+        </div>
+
+        <div class="game-embed-container">
+            <div class="embed-fallback">
+                <h3>Play in New Window</h3>
+                <p>Due to security settings, this game cannot be played directly on our site. Click the button below to play on the official partner website.</p>
+                <a href="https://fastplaygames.com/embed/candy-match" target="_blank">Launch Game</a>
+            </div>
+        </div>
+
+        <div class="game-content-section">
+            <h2>Game Overview</h2>
+            <p>Candy Match Blast is a classic match-three casual puzzle game featuring vibrant candy-themed visuals...</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>This is a directory listing. Embedded content is provided by partner hosts.</p>
+        </div>
+    </footer>
+</body>
+</html>
