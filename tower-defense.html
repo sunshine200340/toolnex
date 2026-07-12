@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tower Defense Kingdom - Play Free Online | GameHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1E3A8A;
+            --primary-light: #2563EB;
+            --bg: #F8FAFC;
+            --card: #FFFFFF;
+            --text-primary: #0F172A;
+            --text-secondary: #64748B;
+            --border: #E2E8F0;
+            --shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
+            --radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 99;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: var(--primary-light);
+            font-weight: 500;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .back-btn:hover {
+            color: var(--primary);
+        }
+
+        .game-page {
+            padding: 32px 0 60px;
+        }
+
+        .game-header {
+            margin-bottom: 24px;
+        }
+
+        .game-header h1 {
+            font-size: 30px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .game-meta {
+            color: var(--text-secondary);
+            font-size: 14px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .game-tag {
+            background: #EFF6FF;
+            color: var(--primary-light);
+            padding: 3px 12px;
+            border-radius: var(--radius);
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .game-embed-container {
+            background: var(--card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 14px;
+            margin-bottom: 32px;
+            border: 1px solid var(--border);
+        }
+
+        .game-frame-wrapper {
+            position: relative;
+            padding-bottom: 75%;
+            height: 0;
+            overflow: hidden;
+            width: 100%;
+            border-radius: 6px;
+            background: #0F172A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 游戏启动卡片（替代被拒绝的 iframe） */
+        .game-launch-card {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #E2E8F0;
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(145deg, #1E293B, #0F172A);
+            border-radius: 6px;
+        }
+
+        .game-launch-card .game-icon {
+            font-size: 64px;
+            margin-bottom: 16px;
+        }
+
+        .game-launch-card h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #F8FAFC;
+        }
+
+        .game-launch-card p {
+            font-size: 15px;
+            max-width: 420px;
+            margin-bottom: 20px;
+            color: #94A3B8;
+        }
+
+        .play-btn {
+            display: inline-block;
+            padding: 12px 32px;
+            background-color: var(--primary-light);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .play-btn:hover {
+            background-color: var(--primary);
+        }
+
+        .play-btn .external-icon {
+            margin-left: 6px;
+        }
+
+        .game-source {
+            margin-top: 12px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+
+        .game-content-section {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .game-content-section h2 {
+            font-size: 19px;
+            font-weight: 600;
+            margin-bottom: 14px;
+            color: var(--text-primary);
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .game-content-section p {
+            color: #334155;
+            margin-bottom: 12px;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .game-content-section ul {
+            padding-left: 22px;
+            color: #334155;
+        }
+
+        .game-content-section li {
+            margin-bottom: 8px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        footer {
+            background: #0F172A;
+            padding: 36px 0 20px;
+            margin-top: 40px;
+            color: #94A3B8;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .copyright a {
+            color: #94A3B8;
+            text-decoration: none;
+            margin: 0 6px;
+        }
+
+        .copyright a:hover {
+            color: #fff;
+        }
+
+        @media screen and (max-width: 768px) {
+            .game-header h1 {
+                font-size: 24px;
+            }
+            .game-content-section {
+                padding: 20px;
+            }
+            .game-embed-container {
+                padding: 8px;
+            }
+            .game-page {
+                padding: 24px 0 40px;
+            }
+            .game-launch-card h3 {
+                font-size: 18px;
+            }
+            .game-launch-card .game-icon {
+                font-size: 48px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <a href="../index.html" class="logo">GameHub</a>
+            <a href="../index.html" class="back-btn">← Back to Game List</a>
+        </div>
+    </header>
+
+    <main class="container game-page">
+        <div class="game-header">
+            <h1>Tower Defense Kingdom</h1>
+            <div class="game-meta">
+                <span class="game-tag">Strategy</span>
+                <span>Play Mode: Single Player</span>
+                <span>Difficulty: Medium</span>
+                <span>No Installation</span>
+            </div>
+        </div>
+
+        <div class="game-embed-container">
+            <div class="game-frame-wrapper">
+                <!-- 游戏启动卡片，代替被拒绝的iframe -->
+                <div class="game-launch-card">
+                    <div class="game-icon">🏰</div>
+                    <h3>Tower Defense Kingdom</h3>
+                    <p>Due to security restrictions, the game cannot be embedded directly. Click the button below to play in a new tab.</p>
+                    <a href="https://fastplaygames.com/embed/tower-defense" target="_blank" class="play-btn">
+                        Play Game on FastPlayGames
+                        <span class="external-icon">↗</span>
+                    </a>
+                </div>
+                <!-- 原iframe已移除，不再加载被拒绝的内容 -->
+            </div>
+            <div class="game-source">Game provided by official partner FastPlayGames.com</div>
+        </div>
+
+        <div class="game-content-section">
+            <h2>Game Overview</h2>
+            <p>Tower Defense Kingdom is a classic strategy game where players defend their castle from waves of invading enemies by placing defensive towers along the enemy path. Each tower type has unique attack characteristics, ranges, and upgrade paths, requiring thoughtful placement and resource management.</p>
+            <p>The game features multiple waves of increasing difficulty, with different enemy types including fast runners, heavily armored units, and flying enemies. Players earn gold for each enemy defeated, which can be used to place new towers or upgrade existing ones. The goal is to prevent enemies from reaching the end of the path and breaching the castle gates.</p>
+        </div>
+
+        <div class="game-content-section">
+            <h2>Game Instructions</h2>
+            <ul>
+                <li>Click on an empty tile next to the path to place a defensive tower</li>
+                <li>Each tower costs gold, which you earn by defeating enemy units</li>
+                <li>Click on an existing tower to upgrade it, increasing its damage, range, and attack speed</li>
+                <li>Arrow towers deal balanced damage at medium range and work well for general defense</li>
+                <li>Cannon towers deal area damage in a splash radius, effective against groups of weak enemies</li>
+                <li>Magic towers can target flying enemies and deal bonus damage to armored units</li>
+                <li>Start each wave manually when you are ready to begin the enemy attack</li>
+            </ul>
+        </div>
+
+        <div class="game-content-section">
+            <h2>Strategy & Tips</h2>
+            <ul>
+                <li><strong>Build at path turns:</strong> Towers placed at corners and bends in the path have more time to fire at enemies as they pass.</li>
+                <li><strong>Mix tower types:</strong> Do not rely on a single tower type. Combine damage, splash, and anti-air towers to handle all enemy varieties.</li>
+                <li><strong>Upgrade early towers first:</strong> Upgrading an existing tower is often more cost-effective than building a new one.</li>
+                <li><strong>Save gold for key waves:</strong> Do not spend all your gold immediately. Keep reserves for tough boss waves.</li>
+                <li><strong>Sell misplaced towers:</strong> If you place a tower in a poor position, you can sell it for a partial refund to reposition your defenses.</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container copyright">
+            <p>
+                <a href="../index.html">Home</a> | 
+                <a href="../privacy.html">Privacy Policy</a> | 
+                <a href="../terms.html">Terms of Service</a>
+            </p>
+            <p style="margin-top:10px;">All embedded games are intellectual property of their respective owners. Used under official embedding authorization.</p>
+        </div>
+    </footer>
+</body>
+</html>
