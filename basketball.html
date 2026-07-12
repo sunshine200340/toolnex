@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>迷你篮球投篮 - 街机版</title>
+    <style>
+        body { margin: 0; background: #F8FAFC; display: flex; flex-direction: column; align-items: center; font-family: sans-serif; }
+        #gameCanvas { background: #1e3a8a; border-radius: 8px; cursor: crosshair; touch-action: none; }
+        .ui { margin-top: 10px; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <div class="ui">
+        <h1>迷你篮球投篮</h1>
+        <p>点击并拖动屏幕进行投篮</p>
+        <div id="scoreBoard">得分: 0</div>
+    </div>
+    <canvas id="gameCanvas" width="400" height="600"></canvas>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        let score = 0;
+        let ball = { x: 200, y: 500, r: 20, vx: 0, vy: 0, dragging: false };
+
+        canvas.addEventListener('mousedown', (e) => { ball.dragging = true; });
+        canvas.addEventListener('mouseup', (e) => {
+            if(ball.dragging) {
+                ball.vy = -15; 
+                ball.vx = (e.clientX - 200) / 20;
+                ball.dragging = false;
+            }
+        });
+
+        function update() {
+            if(!ball.dragging) {
+                ball.vy += 0.5;
+                ball.x += ball.vx;
+                ball.y += ball.vy;
+            }
+            if(ball.y > 600) { ball.x = 200; ball.y = 500; ball.vx = 0; ball.vy = 0; }
+            if(ball.x > 300 && ball.x < 350 && ball.y > 100 && ball.y < 120) {
+                score += 10;
+                document.getElementById('scoreBoard').innerText = "得分: " + score;
+                ball.x = 200; ball.y = 500;
+            }
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, 400, 600);
+            ctx.fillStyle = 'orange';
+            ctx.beginPath();
+            ctx.arc(ball.x, ball.y, ball.r, 0, Math.PI*2);
+            ctx.fill();
+            ctx.fillStyle = 'white';
+            ctx.fillRect(300, 100, 50, 10);
+        }
+
+        function loop() { update(); draw(); requestAnimationFrame(loop); }
+        loop();
+    </script>
+</body>
+</html>
