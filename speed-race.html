@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Race Drift - Play Free Online | GameHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1E3A8A;
+            --primary-light: #2563EB;
+            --bg: #F8FAFC;
+            --card: #FFFFFF;
+            --text-primary: #0F172A;
+            --text-secondary: #64748B;
+            --border: #E2E8F0;
+            --shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
+            --radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 99;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: var(--primary-light);
+            font-weight: 500;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .back-btn:hover {
+            color: var(--primary);
+        }
+
+        .game-page {
+            padding: 32px 0 60px;
+        }
+
+        .game-header {
+            margin-bottom: 24px;
+        }
+
+        .game-header h1 {
+            font-size: 30px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .game-meta {
+            color: var(--text-secondary);
+            font-size: 14px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .game-tag {
+            background: #EFF6FF;
+            color: var(--primary-light);
+            padding: 3px 12px;
+            border-radius: var(--radius);
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .game-embed-container {
+            background: var(--card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 14px;
+            margin-bottom: 32px;
+            border: 1px solid var(--border);
+        }
+
+        .game-frame-wrapper {
+            position: relative;
+            padding-bottom: 75%;
+            height: 0;
+            overflow: hidden;
+            width: 100%;
+            border-radius: 6px;
+            background: #0F172A;
+        }
+
+        .game-frame-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .game-source {
+            margin-top: 12px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+
+        .ad-block {
+            background: #F1F5F9;
+            border-radius: var(--radius);
+            padding: 20px;
+            text-align: center;
+            margin: 32px 0;
+            border: 1px solid var(--border);
+        }
+
+        .ad-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .game-content-section {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .game-content-section h2 {
+            font-size: 19px;
+            font-weight: 600;
+            margin-bottom: 14px;
+            color: var(--text-primary);
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .game-content-section p {
+            color: #334155;
+            margin-bottom: 12px;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .game-content-section ul {
+            padding-left: 22px;
+            color: #334155;
+        }
+
+        .game-content-section li {
+            margin-bottom: 8px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        footer {
+            background: #0F172A;
+            padding: 36px 0 20px;
+            margin-top: 40px;
+            color: #94A3B8;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .copyright a {
+            color: #94A3B8;
+            text-decoration: none;
+            margin: 0 6px;
+        }
+
+        .copyright a:hover {
+            color: #fff;
+        }
+
+        @media screen and (max-width: 768px) {
+            .game-header h1 {
+                font-size: 24px;
+            }
+            .game-content-section {
+                padding: 20px;
+            }
+            .game-embed-container {
+                padding: 8px;
+            }
+            .game-page {
+                padding: 24px 0 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <a href="../index.html" class="logo">GameHub</a>
+            <a href="../index.html" class="back-btn">← Back to Game List</a>
+        </div>
+    </header>
+
+    <main class="container game-page">
+        <div class="game-header">
+            <h1>Speed Race Drift</h1>
+            <div class="game-meta">
+                <span class="game-tag">Racing</span>
+                <span>Play Mode: Single Player</span>
+                <span>Difficulty: Medium</span>
+                <span>No Installation</span>
+            </div>
+        </div>
+
+        <div class="game-embed-container">
+            <div class="game-frame-wrapper">
+                <iframe 
+                    src="https://fastplaygames.com/embed/street-race" 
+                    allowfullscreen
+                    title="Speed Race Drift Online Game">
+                </iframe>
+            </div>
+            <div class="game-source">Game provided by official partner FastPlayGames.com</div>
+        </div>
+
+        <div class="ad-block">
+            <div class="ad-label">Advertisement</div>
+            <div>Google AdSense Ad Unit Placeholder</div>
+        </div>
+
+        <div class="game-content-section">
+            <h2>Game Overview</h2>
+            <p>Speed Race Drift is an accessible browser-based racing game designed for casual players. It features multiple themed street tracks, intuitive drift mechanics, and progressive difficulty levels, delivering a balanced mix of speed and skill-based gameplay.</p>
+            <p>The game adopts a third-person perspective with smooth controls, allowing players to master cornering and drifting techniques without a steep learning curve. Each track includes boost zones and obstacle elements, adding strategic depth to every lap. Players can compete for the best lap time and unlock higher difficulty tracks as they progress.</p>
+        </div>
+
+        <div class="game-content-section">
+            <h2>Game Instructions</h2>
+            <ul>
+                <li>Use the left and right arrow keys or A/D keys to steer your vehicle</li>
+                <li>Press the up arrow key or W key to accelerate, and the down arrow key or S key to brake</li>
+                <li>Hold the Spacebar while turning to trigger drift and charge your nitro boost</li>
+                <li>Release the Spacebar after drifting to activate a short speed boost</li>
+                <li>Avoid trackside obstacles and off-road areas to maintain your speed</li>
+                <li>Complete 3 laps to finish the race and record your best time</li>
+            </ul>
+        </div>
+
+        <div class="game-content-section">
+            <h2>Strategy & Tips</h2>
+            <ul>
+                <li><strong>Master drift entry angles:</strong> Start drifting slightly before entering a sharp turn to maintain maximum speed through the corner.</li>
+                <li><strong>Save nitro for straightaways:</strong> Use your boost on long straight sections of the track for the greatest time savings.</li>
+                <li><strong>Avoid wide drifts:</strong> Over-drifting will cause you to lose speed and slide off the optimal racing line.</li>
+                <li><strong>Stick to the inside line:</strong> Taking the inner path on turns shortens your travel distance and improves lap times.</li>
+                <li><strong>Memorize track layouts:</strong> Learn the position of turns and obstacles in advance to prepare for each section.</li>
+            </ul>
+        </div>
+
+        <div class="ad-block">
+            <div class="ad-label">Advertisement</div>
+            <div>Google AdSense Ad Unit Placeholder</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container copyright">
+            <p>
+                <a href="../index.html">Home</a> | 
+                <a href="../privacy.html">Privacy Policy</a> | 
+                <a href="../terms.html">Terms of Service</a>
+            </p>
+            <p style="margin-top:10px;">All embedded games are intellectual property of their respective owners. Used under official embedding authorization.</p>
+        </div>
+    </footer>
+</body>
+</html>
