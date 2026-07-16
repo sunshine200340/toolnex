@@ -25,44 +25,633 @@
             --radius: 12px;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: var(--bg); color: var(--text-primary); line-height: 1.65; }
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
-        
-        /* 简化的样式部分，保留核心布局 */
-        header { background: var(--card); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 99; }
-        .header-inner { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; }
-        .logo { font-size: 22px; font-weight: 700; color: var(--primary); text-decoration: none; }
-        .main-nav ul { display: flex; list-style: none; gap: 30px; }
-        .main-nav a { text-decoration: none; color: var(--text-primary); font-weight: 500; }
-        
-        footer { background: #0F172A; padding: 56px 0 24px; color: #94A3B8; }
-        .footer-inner { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 40px; }
-        .footer-column h3 { font-size: 15px; margin-bottom: 18px; color: #F1F5F9; }
-        .footer-column ul { list-style: none; }
-        .footer-column li { margin-bottom: 10px; }
-        .footer-column a { color: #94A3B8; text-decoration: none; font-size: 14px; }
-        .footer-column a:hover { color: #fff; }
-        .copyright { text-align: center; font-size: 13px; padding-top: 24px; border-top: 1px solid #1E293B; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 99;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+            gap: 18px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.2s ease;
+            position: relative;
+        }
+
+        .main-nav a:hover,
+        .main-nav a.active {
+            color: var(--primary-light);
+        }
+
+        .main-nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -18px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: #fff;
+            padding: 6px 10px;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            width: 240px;
+            font-size: 14px;
+            color: var(--text-primary);
+            background: transparent;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 22px;
+            cursor: pointer;
+            color: var(--text-primary);
+        }
+
+        .hero {
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 4vw, 4rem);
+            margin-bottom: 18px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 1.02;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 17px;
+            max-width: 760px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
+
+        .hero-small {
+            font-size: 14px;
+            color: #64748B;
+            max-width: 760px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 30px;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            padding: 14px 24px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 12px 30px rgba(37, 99, 235, 0.14);
+        }
+
+        .btn-secondary {
+            background: #fff;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-primary:hover,
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+        }
+
+        .ad-block {
+            background: #F8FAFC;
+            border-radius: 18px;
+            padding: 26px;
+            text-align: center;
+            margin: 36px 0;
+            border: 1px solid var(--border);
+        }
+
+        .ad-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tag-section {
+            margin-bottom: 36px;
+        }
+
+        .tag-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            color: var(--text-primary);
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag-item {
+            padding: 10px 18px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            color: var(--text-secondary);
+        }
+
+        .tag-item.active,
+        .tag-item:hover {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .game-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .game-card {
+            background: var(--card);
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            height: 100%;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary-light);
+        }
+
+        .game-img {
+            width: 100%;
+            min-height: 140px;
+            background: #F1F5F9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 14px;
+            border-bottom: 1px solid var(--border);
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+        }
+
+        .game-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex: 1;
+        }
+
+        .game-name {
+            font-weight: 700;
+            font-size: 17px;
+            margin-bottom: 6px;
+            color: var(--text-primary);
+        }
+
+        .game-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            line-height: 1.7;
+            flex: 1;
+        }
+
+        .game-tag-small {
+            font-size: 12px;
+            padding: 6px 12px;
+            background: #EFF6FF;
+            color: var(--primary-light);
+            border-radius: 999px;
+            display: inline-block;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .content-section {
+            background: #fff;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            padding: 30px;
+            margin-bottom: 52px;
+        }
+
+        .content-section h2 {
+            font-size: 24px;
+            margin-bottom: 18px;
+            color: var(--text-primary);
+        }
+
+        .content-section p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.75;
+            margin-bottom: 16px;
+        }
+
+        .content-section ul {
+            list-style: disc inside;
+            color: var(--text-secondary);
+            margin-left: 0;
+            padding-left: 18px;
+        }
+
+        .content-section li {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background: #0F172A;
+            padding: 56px 0 24px;
+            color: #94A3B8;
+        }
+
+        .footer-inner {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 15px;
+            margin-bottom: 18px;
+            font-weight: 600;
+            color: #F1F5F9;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            color: #94A3B8;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-column a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 13px;
+            padding-top: 24px;
+            border-top: 1px solid #1E293B;
+            color: #64748B;
+        }
+
+        .cookie-modal {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--card);
+            padding: 22px;
+            box-shadow: 0 -4px 20px rgba(15, 23, 42, 0.1);
+            z-index: 999;
+            border-top: 1px solid var(--border);
+        }
+
+        .cookie-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .cookie-text h4 {
+            margin-bottom: 6px;
+            color: var(--text-primary);
+            font-size: 16px;
+        }
+
+        .cookie-text p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            max-width: 720px;
+            line-height: 1.6;
+        }
+
+        .cookie-buttons button {
+            padding: 9px 22px;
+            border-radius: var(--radius);
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+
+        .btn-accept {
+            background: var(--primary);
+            color: white;
+            margin-right: 10px;
+        }
+
+        .btn-accept:hover {
+            background: var(--primary-light);
+        }
+
+        .btn-decline {
+            background: #F1F5F9;
+            color: var(--text-primary);
+            border: 1px solid var(--border) !important;
+        }
+
+        .btn-decline:hover {
+            background: #E2E8F0;
+        }
+
+        @media screen and (max-width: 768px) {
+            .main-nav {
+                display: none;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .header-inner {
+                flex-wrap: wrap;
+                gap: 14px;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .hero {
+                padding: 36px 0 28px;
+            }
+            .game-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+                gap: 16px;
+            }
+            .cookie-inner {
+                flex-direction: column;
+                text-align: left;
+            }
+            .search-box input {
+                width: 100%;
+            }
+            .search-box {
+                width: 100%;
+                order: 3;
+            }
+        }
     </style>
 </head>
 <body>
+    <div class="cookie-modal">
+        <div class="cookie-inner">
+            <div class="cookie-text">
+                <h4>Cookie & Privacy Notice</h4>
+                <p>This website uses cookies to enhance content discovery and support relevant, policy-compliant advertising. Review our privacy details before continuing.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="btn-accept">Accept</button>
+                <button class="btn-decline">Decline</button>
+            </div>
+        </div>
+    </div>
 
     <header>
         <div class="container header-inner">
             <a href="index.html" class="logo">GameHub Navigator</a>
+            <div class="menu-toggle">☰</div>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#featured">Featured</a></li>
                     <li><a href="privacy.html">Privacy Policy</a></li>
                 </ul>
             </nav>
+            <div class="search-box">
+                <input type="text" placeholder="Search game categories...">
+            </div>
         </div>
     </header>
 
-    <main class="container" style="padding: 60px 20px;">
-        <h1>Welcome to GameHub Navigator</h1>
-        <p>Your portal for high-quality browser game discovery.</p>
+    <main class="container">
+        <section class="hero">
+            <h1>Curated Browser Game Directory for Global Players</h1>
+            <p>GameHub Navigator is a trusted game discovery portal that guides visitors to quality browser titles and partner destinations. This site focuses on editorial recommendations, clear categories, and advertiser-friendly content rather than direct game hosting.</p>
+            <p class="hero-small">All listings are organized for easy exploration. When you click a title, you are directed to the provider or publisher platform where the game experience is hosted.</p>
+            <div class="hero-actions">
+                <a href="#categories" class="btn-primary">Browse Categories</a>
+                <a href="#featured" class="btn-secondary">View Featured Picks</a>
+            </div>
+        </section>
+
+        <div class="ad-block">
+            <div class="ad-label">Advertisement</div>
+            <div>Ad placeholder for a clean, relevant ad unit.</div>
+        </div>
+
+        <section class="tag-section" id="categories">
+            <h2 class="tag-title">Browse Game Categories</h2>
+            <div class="tag-list">
+                <span class="tag-item active">All Games</span>
+                <span class="tag-item">Puzzle</span>
+                <span class="tag-item">Arcade</span>
+                <span class="tag-item">Racing</span>
+                <span class="tag-item">Simulation</span>
+                <span class="tag-item">Strategy</span>
+                <span class="tag-item">Family</span>
+                <span class="tag-item">Casual</span>
+                <span class="tag-item">Skill</span>
+                <span class="tag-item">Kids Friendly</span>
+            </div>
+        </section>
+
+        <section class="content-section" id="featured">
+            <h2>How to Use This Directory</h2>
+            <p>This portal provides a clear, international-friendly game navigation experience. Each recommended title links to an external partner or publisher page where the game content is hosted. The focus is on useful guidance, category discovery, and a compliant presentation for advertisers.</p>
+            <ul>
+                <li>Browse categories to find browser game recommendations.</li>
+                <li>Open any title to visit the official provider or partner page.</li>
+                <li>Enjoy a safe and family-friendly selection with sensible wording and clear expectations.</li>
+            </ul>
+        </section>
+
+        <section class="game-grid">
+            <a href="block-puzzle.html" class="game-card-link">
+                <div class="game-card">
+                    <div class="game-img">Block Puzzle</div>
+                    <div class="game-info">
+                        <h3 class="game-name">Block Puzzle Classic</h3>
+                        <p class="game-desc">A relaxing tile-matching recommendation that is easy to navigate and ideal for casual readers.</p>
+                        <span class="game-tag-small">Puzzle</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="speed-race.html" class="game-card-link">
+                <div class="game-card">
+                    <div class="game-img">Racing</div>
+                    <div class="game-info">
+                        <h3 class="game-name">Speed Race Drift</h3>
+                        <p class="game-desc">A browser racing suggestion with smooth controls and straightforward driving challenges.</p>
+                        <span class="game-tag-small">Racing</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="farm-simulator.html" class="game-card-link">
+                <div class="game-card">
+                    <div class="game-img">Simulation</div>
+                    <div class="game-info">
+                        <h3 class="game-name">Farm Village Simulator</h3>
+                        <p class="game-desc">A cozy farm guide for readers who enjoy management titles and calm, progressive gameplay.</p>
+                        <span class="game-tag-small">Simulation</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="candy-match.html" class="game-card-link">
+                <div class="game-card">
+                    <div class="game-img">Match 3</div>
+                    <div class="game-info">
+                        <h3 class="game-name">Candy Match Blast</h3>
+                        <p class="game-desc">A friendly match-three title with polished level pacing and rewarding progression.</p>
+                        <span class="game-tag-small">Match 3</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="basketball.html" class="game-card-link">
+                <div class="game-card">
+                    <div class="game-img">Sports</div>
+                    <div class="game-info">
+                        <h3 class="game-name">Mini Basketball Shootout</h3>
+                        <p class="game-desc">A sports recommendation designed for quick play sessions and intuitive controls.</p>
+                        <span class="game-tag-small">Sports</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="tower-defense.html" class="game-card-link">
+                <div class="game-card">
+                    <div class="game-img">Strategy</div>
+                    <div class="game-info">
+                        <h3 class="game-name">Tower Defense Kingdom</h3>
+                        <p class="game-desc">A smart strategy listing for readers interested in investing time in tactical gameplay.</p>
+                        <span class="game-tag-small">Strategy</span>
+                    </div>
+                </div>
+            </a>
+        </section>
+
+        <div class="ad-block">
+            <div class="ad-label">Advertisement</div>
+            <div>Ad placeholder for a clean, relevant ad placement. Ensure the final live page uses compliant ad code.</div>
+        </div>
     </main>
 
     <footer>
@@ -71,28 +660,53 @@
                 <h3>Platform</h3>
                 <ul>
                     <li><a href="index.html">Home</a></li>
+                    <li><a href="#categories">Browse Categories</a></li>
+                    <li><a href="#featured">How It Works</a></li>
                     <li><a href="privacy.html">Privacy Policy</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Company</h3>
-                <ul>
-                    <!-- 已添加 About Us 链接 -->
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h3>Resources</h3>
                 <ul>
-                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Content Guidelines</a></li>
                     <li><a href="#">Cookie Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Advertising Info</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Site Map</a></li>
+                    <li><a href="#">Publisher Disclosure</a></li>
                 </ul>
             </div>
         </div>
         <div class="container copyright">
-            © 2026 GameHub Navigator. All rights reserved.
+            © 2026 GameHub Navigator. This directory links to partner-hosted browser titles and presents recommendations for users and advertisers.
         </div>
     </footer>
+
+    <script>
+        const cookieModal = document.querySelector('.cookie-modal');
+        const acceptBtn = document.querySelector('.btn-accept');
+        const declineBtn = document.querySelector('.btn-decline');
+
+        acceptBtn.addEventListener('click', () => {
+            cookieModal.style.display = 'none';
+            localStorage.setItem('cookieConsent', 'accept');
+        });
+
+        declineBtn.addEventListener('click', () => {
+            cookieModal.style.display = 'none';
+            localStorage.setItem('cookieConsent', 'decline');
+        });
+
+        if (localStorage.getItem('cookieConsent')) {
+            cookieModal.style.display = 'none';
+        }
+    </script>
 </body>
 </html>
