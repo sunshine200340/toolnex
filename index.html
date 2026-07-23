@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>30DayLock | Custom 30 Day Challenge Lock Screen Wallpaper</title>
     <meta name="description" content="Generate your personalized 30 day habit tracker wallpaper in 10 seconds. For fitness, reading, saving and more challenges.">
-    <!-- 引入Tailwind CSS，无需本地样式文件 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -36,7 +35,6 @@
     </style>
 </head>
 <body class="bg-gray-50 font-sans text-gray-800 min-h-screen flex flex-col">
-    <!-- 顶部标题区：第一屏直接传递产品价值 -->
     <header class="py-10 px-4 text-center">
         <h1 class="text-[clamp(1.8rem,4vw,2.8rem)] font-bold text-gray-900 mb-2">30DayLock</h1>
         <p class="text-gray-600 max-w-xl mx-auto">
@@ -45,14 +43,12 @@
         </p>
     </header>
 
-    <!-- 主体内容：左侧表单 + 右侧预览 -->
     <main class="flex-1 max-w-6xl w-full mx-auto px-4 pb-16">
         <div class="grid md:grid-cols-2 gap-10 items-start">
             <!-- 左侧：自定义表单 -->
             <div class="bg-white rounded-2xl shadow-sm p-6 md:p-8">
                 <h2 class="text-xl font-semibold mb-6">Customize Your Wallpaper</h2>
                 <form id="wallpaperForm" class="space-y-5">
-                    <!-- 挑战名称 -->
                     <div>
                         <label for="challengeName" class="block text-sm font-medium text-gray-700 mb-1.5">Challenge Name</label>
                         <input 
@@ -62,8 +58,6 @@
                             class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition"
                         >
                     </div>
-
-                    <!-- 开始日期 -->
                     <div>
                         <label for="startDate" class="block text-sm font-medium text-gray-700 mb-1.5">Start Date</label>
                         <input 
@@ -72,8 +66,6 @@
                             class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition"
                         >
                     </div>
-
-                    <!-- 主题选择 -->
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Select Theme</label>
                         <div class="grid grid-cols-3 gap-3">
@@ -100,7 +92,6 @@
                             </label>
                         </div>
                     </div>
-
                     <button 
                         type="button" 
                         id="generateBtn"
@@ -115,10 +106,8 @@
             <div class="flex flex-col items-center">
                 <h2 class="text-xl font-semibold mb-4 text-center">Preview</h2>
                 <div class="phone-frame w-full max-w-[320px] bg-white shadow-lg mb-6">
-                    <!-- Canvas生成高清壁纸 1080*1920 手机锁屏比例 -->
                     <canvas id="wallpaperCanvas" width="1080" height="1920" class="w-full h-full object-cover"></canvas>
                 </div>
-
                 <div class="w-full max-w-[320px] space-y-3">
                     <button 
                         id="downloadFreeBtn"
@@ -126,19 +115,28 @@
                     >
                         Download SD (With Watermark)
                     </button>
-                    <button 
-                        id="unlockBtn"
-                        class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-3 rounded-lg transition shadow-sm"
-                    >
-                        Unlock 4K No Watermark — $1.99
-                    </button>
+                    <!-- PayPal 付款表单 -->
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <!-- 已替换为您的 PayPal 收款邮箱 -->
+                        <input type="hidden" name="business" value="qiangda68@outlook.com">
+                        <input type="hidden" name="item_name" value="Unlock 4K No Watermark">
+                        <input type="hidden" name="amount" value="1.99">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <!-- 可选跳转页面（您可以根据需要修改） -->
+                        <input type="hidden" name="return" value="https://www.toolnex.xyz/thankyou.html">
+                        <input type="hidden" name="cancel_return" value="https://www.toolnex.xyz/cancel.html">
+                        <button type="submit" 
+                                class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-3 rounded-lg transition shadow-sm">
+                            Unlock 4K No Watermark — $1.99
+                        </button>
+                    </form>
                     <p class="text-xs text-gray-500 text-center">One-time payment, no subscription</p>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- 底部合规页：谷歌Ads审核必备 -->
     <footer class="bg-white border-t border-gray-200 py-6 px-4">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
             <div>© 2026 30DayLock. All rights reserved.</div>
@@ -152,106 +150,74 @@
     </footer>
 
     <script>
-        // 三套主题配色配置
         const themes = {
-            light: {
-                bg: '#ffffff',
-                text: '#111827',
-                gridBorder: '#e5e7eb',
-                accent: '#2563eb'
-            },
-            dark: {
-                bg: '#111827',
-                text: '#f9fafb',
-                gridBorder: '#374151',
-                accent: '#60a5fa'
-            },
-            morandi: {
-                bg: '#e9f5ec',
-                text: '#2f3e46',
-                gridBorder: '#cad2c5',
-                accent: '#52796f'
-            }
+            light: { bg: '#ffffff', text: '#111827', gridBorder: '#e5e7eb', accent: '#2563eb' },
+            dark: { bg: '#111827', text: '#f9fafb', gridBorder: '#374151', accent: '#60a5fa' },
+            morandi: { bg: '#e9f5ec', text: '#2f3e46', gridBorder: '#cad2c5', accent: '#52796f' }
         };
 
         const canvas = document.getElementById('wallpaperCanvas');
         const ctx = canvas.getContext('2d');
         const generateBtn = document.getElementById('generateBtn');
         const downloadFreeBtn = document.getElementById('downloadFreeBtn');
-        const unlockBtn = document.getElementById('unlockBtn');
         const dateInput = document.getElementById('startDate');
 
-        // 默认日期设为今天
         const today = new Date();
         dateInput.valueAsDate = today;
 
-        // 核心：生成壁纸
         function generateWallpaper(includeWatermark = true) {
             const name = document.getElementById('challengeName').value || '30 Day Challenge';
             const startDate = new Date(dateInput.value);
             const themeValue = document.querySelector('input[name="theme"]:checked').value;
             const theme = themes[themeValue];
 
-            // 绘制背景
             ctx.fillStyle = theme.bg;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            // 绘制标题
             ctx.fillStyle = theme.text;
             ctx.font = 'bold 72px Inter, sans-serif';
             ctx.textAlign = 'center';
             ctx.fillText(name, canvas.width / 2, 180);
 
-            // 绘制副标题
             ctx.font = '36px Inter, sans-serif';
             ctx.fillStyle = theme.accent;
             ctx.fillText('30 Day Challenge Tracker', canvas.width / 2, 260);
 
-            // 30天网格参数
-            const cols = 5;
-            const rows = 6;
-            const cellWidth = 160;
-            const cellHeight = 160;
+            const cols = 5, rows = 6;
+            const cellWidth = 160, cellHeight = 160;
             const startX = (canvas.width - (cols * cellWidth)) / 2;
             const startY = 380;
             const gap = 20;
 
-            // 循环绘制30天日期格子
             for (let i = 0; i < 30; i++) {
                 const col = i % cols;
                 const row = Math.floor(i / cols);
                 const x = startX + col * (cellWidth + gap);
                 const y = startY + row * (cellHeight + gap);
 
-                // 计算当前日期
                 const currentDate = new Date(startDate);
                 currentDate.setDate(startDate.getDate() + i);
                 const dayNum = currentDate.getDate();
                 const monthShort = currentDate.toLocaleString('en-US', { month: 'short' });
 
-                // 绘制格子边框
                 ctx.strokeStyle = theme.gridBorder;
                 ctx.lineWidth = 3;
                 ctx.strokeRect(x, y, cellWidth, cellHeight);
 
-                // 绘制日期数字
                 ctx.fillStyle = theme.text;
                 ctx.font = 'bold 56px Inter, sans-serif';
                 ctx.textAlign = 'center';
                 ctx.fillText(dayNum, x + cellWidth / 2, y + cellHeight / 2 + 10);
 
-                // 绘制月份小字
                 ctx.font = '24px Inter, sans-serif';
                 ctx.fillStyle = theme.accent;
                 ctx.fillText(monthShort, x + cellWidth / 2, y + 40);
             }
 
-            // 底部提示文字
             ctx.fillStyle = theme.text + '80';
             ctx.font = '28px Inter, sans-serif';
             ctx.fillText('Mark each day you complete your goal', canvas.width / 2, canvas.height - 180);
 
-            // 免费版加水印
             if (includeWatermark) {
                 ctx.globalAlpha = 0.15;
                 ctx.fillStyle = theme.text;
@@ -261,13 +227,10 @@
             }
         }
 
-        // 页面加载默认生成示例
         generateWallpaper();
 
-        // 点击生成按钮
         generateBtn.addEventListener('click', () => generateWallpaper());
 
-        // 免费下载（带水印）
         downloadFreeBtn.addEventListener('click', () => {
             generateWallpaper(true);
             const link = document.createElement('a');
@@ -276,16 +239,9 @@
             link.click();
         });
 
-        // 付费解锁按钮（演示占位，生产环境接入Stripe/PayPal即可）
-        unlockBtn.addEventListener('click', () => {
-            alert('Demo: This would open checkout in production. Payment success unlocks 4K watermark-free download.');
-        });
-
-        // 切换主题实时更新预览
         document.querySelectorAll('input[name="theme"]').forEach(radio => {
             radio.addEventListener('change', () => generateWallpaper());
         });
     </script>
 </body>
 </html>
-获取Outlook for Android
