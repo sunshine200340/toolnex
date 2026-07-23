@@ -1,334 +1,894 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | ToolNex Free Cross-border E-commerce Tools</title>
-    <meta name="description" content="Contact ToolNex support team for tool feedback, business cooperation and technical questions.">
-    <meta name="google-adsense-account" content="pub-9894972538238783">
-    <!-- Google AdSense 脚本 -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9894972538238783"
-     crossorigin="anonymous"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>联系我们 - ToolNex | 在线工具平台</title>
+    <meta name="description" content="联系 ToolNex 团队，获取在线工具使用帮助、商务合作或反馈建议。我们提供免费、无需登录的在线工具服务。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     <style>
-        * {
+        /* ===== Reset & Base ===== */
+        *,
+        *::before,
+        *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
         }
+
+        :root {
+            --color-bg: #f8fafc;
+            --color-surface: #ffffff;
+            --color-primary: #1e3a8a;
+            --color-primary-light: #2563eb;
+            --color-primary-dark: #1e2a5a;
+            --color-text: #0f172a;
+            --color-text-secondary: #475569;
+            --color-text-muted: #94a3b8;
+            --color-border: #e2e8f0;
+            --color-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+            --color-shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.08);
+            --radius: 12px;
+            --radius-sm: 8px;
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --max-width: 1080px;
+            --transition: 0.2s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            background-color: #F7FAFC;
-            color: #1D2939;
-            line-height: 1.7;
+            font-family: var(--font-family);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
+
         a {
             text-decoration: none;
             color: inherit;
         }
-        ul {
-            list-style: none;
-        }
+
         .container {
-            max-width: 1280px;
+            max-width: var(--max-width);
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
-        header {
+
+        /* ===== Header ===== */
+        .site-header {
+            background: var(--color-surface);
+            border-bottom: 1px solid var(--color-border);
             position: sticky;
             top: 0;
-            background: #fff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            z-index: 99;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.92);
         }
-        .nav-wrap {
+
+        .header-inner {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            height: 70px;
+            justify-content: space-between;
+            padding: 14px 0;
+            gap: 20px;
         }
+
         .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: #165DFF;
-        }
-        .nav-menu {
             display: flex;
-            gap: 32px;
+            align-items: center;
+            gap: 10px;
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--color-primary);
+            letter-spacing: -0.5px;
         }
-        .nav-menu a {
-            font-weight: 500;
-            color: #475467;
-            transition: color 0.2s;
-        }
-        .nav-menu a:hover {
-            color: #165DFF;
-        }
-        .nav-buttons {
-            display: flex;
-            gap: 16px;
-        }
-        .btn-primary {
-            background: #165DFF;
+
+        .logo-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: var(--color-primary);
             color: #fff;
-            padding: 10px 22px;
-            border-radius: 6px;
+            border-radius: var(--radius-sm);
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: var(--color-text);
+            font-weight: 300;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+            font-size: 14px;
             font-weight: 500;
+        }
+
+        .nav-links a {
+            color: var(--color-text-secondary);
+            transition: color var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0;
+            height: 2px;
+            background: var(--color-primary-light);
+            transition: width var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--color-primary);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--color-primary);
+        }
+
+        .nav-cta {
+            background: var(--color-primary);
+            color: #fff !important;
+            padding: 8px 20px;
+            border-radius: 999px;
+            font-weight: 600;
+            transition: background var(--transition);
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--color-primary-light) !important;
+            color: #fff !important;
+        }
+
+        /* Mobile Toggle */
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
             border: none;
             cursor: pointer;
-            transition: background 0.2s;
+            padding: 4px;
         }
-        .btn-primary:hover {
-            background: #0E4BDB;
+
+        .mobile-toggle span {
+            display: block;
+            width: 26px;
+            height: 2.5px;
+            background: var(--color-text);
+            border-radius: 2px;
+            transition: var(--transition);
         }
-        .btn-outline {
-            border: 1px solid #165DFF;
-            color: #165DFF;
-            padding: 10px 22px;
-            border-radius: 6px;
-            font-weight: 500;
-            background: transparent;
-            cursor: pointer;
-            transition: background 0.2s;
+
+        /* ===== Page Hero ===== */
+        .page-hero {
+            padding: 48px 0 32px;
+            background: linear-gradient(135deg, #f0f4ff 0%, #e8edf5 100%);
+            border-bottom: 1px solid var(--color-border);
         }
-        .btn-outline:hover {
-            background: #E8F3FF;
-        }
-        .contact-main {
-            padding: 80px 0;
-        }
-        .contact-title {
-            font-size: 42px;
-            text-align: center;
-            margin-bottom: 24px;
-            color: #101828;
-        }
-        .contact-subtitle {
-            font-size: 20px;
-            text-align: center;
-            color: #475467;
-            max-width: 800px;
-            margin: 0 auto 60px;
-        }
-        .contact-block {
-            background: #fff;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-            max-width: 900px;
-            margin: 0 auto 40px;
-        }
-        .contact-block h2 {
-            font-size: 28px;
-            margin-bottom: 30px;
-            color: #101828;
-        }
-        .contact-item {
-            margin-bottom: 28px;
-            padding-bottom: 28px;
-            border-bottom: 1px solid #E5E7EB;
-        }
-        .contact-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        .contact-item h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #1D2939;
-        }
-        .contact-item p {
-            font-size: 16px;
-            color: #475467;
+
+        .page-hero h1 {
+            font-size: 36px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--color-primary);
             margin-bottom: 8px;
         }
-        .contact-link {
-            color: #165DFF;
-            font-weight: 500;
-            word-break: break-all;
+
+        .page-hero p {
+            font-size: 17px;
+            color: var(--color-text-secondary);
+            max-width: 560px;
         }
-        .contact-link:hover {
-            text-decoration: underline;
+
+        /* ===== Contact Section ===== */
+        .contact-section {
+            padding: 48px 0 64px;
         }
-        /* 广告区块样式 - 符合 AdSense 布局规范 */
-        .ads-block {
-            max-width: 900px;
-            margin: 60px auto;
-            background: #fff;
-            padding: 24px;
-            border-radius: 8px;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 48px;
+            align-items: start;
         }
-        .ads-label {
-            font-size: 12px;
-            color: #98A2B3;
+
+        /* Left Column - Info */
+        .contact-info h2 {
+            font-size: 20px;
+            font-weight: 700;
             margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
-        footer {
-            background: #1D2939;
+
+        .contact-info p {
+            color: var(--color-text-secondary);
+            font-size: 15px;
+            margin-bottom: 24px;
+        }
+
+        .info-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .info-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            background: var(--color-surface);
+            padding: 18px 20px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--color-border);
+            box-shadow: var(--color-shadow);
+            transition: box-shadow var(--transition), transform var(--transition);
+        }
+
+        .info-card:hover {
+            box-shadow: var(--color-shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .info-card .icon {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            background: #eff6ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .info-card .content h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .info-card .content p,
+        .info-card .content a {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+        }
+
+        .info-card .content a {
+            color: var(--color-primary-light);
+            transition: color var(--transition);
+        }
+
+        .info-card .content a:hover {
+            color: var(--color-primary);
+        }
+
+        /* Business Hours */
+        .hours-box {
+            background: var(--color-surface);
+            padding: 20px 24px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--color-border);
+            box-shadow: var(--color-shadow);
+        }
+
+        .hours-box h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .hours-box ul {
+            list-style: none;
+            font-size: 14px;
+            color: var(--color-text-secondary);
+        }
+
+        .hours-box ul li {
+            display: flex;
+            justify-content: space-between;
+            padding: 4px 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .hours-box ul li:last-child {
+            border-bottom: none;
+        }
+
+        .hours-box ul li .day {
+            font-weight: 500;
+            color: var(--color-text);
+        }
+
+        /* Right Column - Form */
+        .contact-form-wrapper {
+            background: var(--color-surface);
+            padding: 32px 36px;
+            border-radius: var(--radius);
+            border: 1px solid var(--color-border);
+            box-shadow: var(--color-shadow-lg);
+        }
+
+        .contact-form-wrapper h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .contact-form-wrapper .form-sub {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--color-text);
+        }
+
+        .form-group label .required {
+            color: #ef4444;
+            margin-left: 2px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 14px;
+            font-size: 14px;
+            font-family: var(--font-family);
+            border: 1.5px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            background: var(--color-bg);
+            transition: border-color var(--transition), box-shadow var(--transition);
+            color: var(--color-text);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-primary-light);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+            background: var(--color-surface);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-check {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 16px 0 20px;
+        }
+
+        .form-check input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-top: 2px;
+            accent-color: var(--color-primary-light);
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        .form-check label {
+            font-size: 13px;
+            color: var(--color-text-secondary);
+            cursor: pointer;
+        }
+
+        .form-check label a {
+            color: var(--color-primary-light);
+            font-weight: 500;
+        }
+
+        .form-check label a:hover {
+            color: var(--color-primary);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 14px 32px;
+            background: var(--color-primary);
             color: #fff;
-            padding: 60px 0 30px;
-            margin-top: 60px;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-size: 16px;
+            font-weight: 600;
+            font-family: var(--font-family);
+            cursor: pointer;
+            transition: background var(--transition), transform var(--transition);
         }
+
+        .btn-submit:hover {
+            background: var(--color-primary-light);
+            transform: translateY(-1px);
+        }
+
+        .btn-submit:active {
+            transform: scale(0.98);
+        }
+
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .form-success .check-icon {
+            font-size: 48px;
+            margin-bottom: 12px;
+        }
+
+        .form-success h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #16a34a;
+        }
+
+        .form-success p {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+        }
+
+        /* ===== Trust Badge ===== */
+        .trust-badge {
+            margin-top: 32px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            padding: 20px 0;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .trust-badge .item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: var(--color-text-secondary);
+        }
+
+        .trust-badge .item .badge-icon {
+            font-size: 20px;
+        }
+
+        /* ===== Footer ===== */
+        .site-footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 48px 0 24px;
+            margin-top: 20px;
+        }
+
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 36px;
-            margin-bottom: 40px;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #1e293b;
         }
+
+        .footer-brand h3 {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            line-height: 1.7;
+            max-width: 300px;
+        }
+
         .footer-col h4 {
-            font-size: 18px;
-            margin-bottom: 20px;
-            color: #F9FAFB;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 14px;
         }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
         .footer-col ul li {
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
+
         .footer-col ul li a {
-            color: #D0D5DD;
-            transition: color 0.2s;
+            font-size: 13px;
+            color: #94a3b8;
+            transition: color var(--transition);
         }
+
         .footer-col ul li a:hover {
             color: #fff;
         }
-        .copyright {
-            text-align: center;
-            color: #98A2B3;
-            font-size: 14px;
-        }
-        .cookie-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: #fff;
-            padding: 16px 24px;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+
+        .footer-bottom {
+            padding-top: 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 16px;
-            z-index: 999;
-        }
-        .cookie-banner p {
-            color: #475467;
-            max-width: 800px;
-            font-size: 14px;
-        }
-        .cookie-buttons {
-            display: flex;
             gap: 12px;
-            flex-shrink: 0;
+            font-size: 13px;
+            color: #64748b;
         }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-bottom-links a {
+            color: #64748b;
+            transition: color var(--transition);
+        }
+
+        .footer-bottom-links a:hover {
+            color: #fff;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 900px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 28px;
+            }
+        }
+
         @media (max-width: 768px) {
-            .nav-menu {display: none;}
-            .contact-title {font-size:32px;}
-            .contact-block {padding: 24px;}
-            .ads-block {padding: 16px; margin: 40px auto;}
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: var(--color-surface);
+                padding: 20px 24px;
+                flex-direction: column;
+                gap: 14px;
+                border-bottom: 1px solid var(--color-border);
+                box-shadow: var(--color-shadow-lg);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .page-hero h1 {
+                font-size: 28px;
+            }
+
+            .contact-form-wrapper {
+                padding: 24px 20px;
+            }
+
+            .form-row-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .trust-badge {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .page-hero {
+                padding: 32px 0 24px;
+            }
+
+            .page-hero h1 {
+                font-size: 24px;
+            }
+
+            .info-card {
+                padding: 14px 16px;
+            }
+
+            .contact-form-wrapper {
+                padding: 20px 16px;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container nav-wrap">
-            <a href="/index.html" class="logo">ToolNex</a>
-            <ul class="nav-menu">
-                <li><a href="/index.html#tools">Tools</a></li>
-                <li><a href="/index.html#guides">Guides</a></li>
-                <li><a href="/index.html#blog">Blog</a></li>
-                <li><a href="/about.html">About</a></li>
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">T</span>
+                Tool<span>Nex</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/">首页</a></li>
+                <li><a href="/tools">所有工具</a></li>
+                <li><a href="/about">关于</a></li>
+                <li><a href="/contact" class="active">联系我们</a></li>
+                <li><a href="/contact" class="nav-cta">反馈建议</a></li>
             </ul>
-            <div class="nav-buttons">
-                <a href="/index.html#tools" class="btn-primary">All Free Tools</a>
-                <a href="/contact.html" class="btn-outline">Contact Us</a>
-            </div>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="切换导航菜单">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </header>
 
-    <main class="container contact-main">
-        <h1 class="contact-title">Contact Us</h1>
-        <p class="contact-subtitle">Reach our support team for tool feedback, business cooperation and technical help.</p>
+    <!-- ===== PAGE HERO ===== -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>联系我们</h1>
+            <p>有任何问题、建议或合作意向？我们随时欢迎您的来信。</p>
+        </div>
+    </section>
 
-        <div class="contact-block">
-            <h2>Our Contact Channels</h2>
+    <!-- ===== CONTACT SECTION ===== -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Left: Contact Info -->
+                <div class="contact-info">
+                    <h2>我们的联系方式</h2>
+                    <p>选择您最方便的方式与我们取得联系，我们会在第一时间回复。</p>
 
-            <div class="contact-item">
-                <h3>WhatsApp Support</h3>
-                <p>Fast real-time chat for seller questions & cooperation</p>
-                <a href="https://wa.me/8615092833346" target="_blank" class="contact-link">
-                    https://wa.me/8615092833346
-                </a>
+                    <div class="info-cards">
+                        <!-- WhatsApp -->
+                        <div class="info-card">
+                            <div class="icon">💬</div>
+                            <div class="content">
+                                <h4>WhatsApp 实时支持</h4>
+                                <p>快速实时聊天，解答卖家问题与合作咨询</p>
+                                <a href="https://wa.me/8615092833346" target="_blank" rel="noopener">wa.me/8615092833346</a>
+                            </div>
+                        </div>
+                        <!-- Email -->
+                        <div class="info-card">
+                            <div class="icon">✉️</div>
+                            <div class="content">
+                                <h4>电子邮件支持</h4>
+                                <p>24 小时内回复详细咨询</p>
+                                <a href="mailto:qiangda68@outlook.com">qiangda68@outlook.com</a>
+                            </div>
+                        </div>
+                        <!-- 可选的额外联系方式（占位，可根据需要修改） -->
+                        <div class="info-card">
+                            <div class="icon">🌐</div>
+                            <div class="content">
+                                <h4>社交媒体</h4>
+                                <p>关注我们的最新动态与更新</p>
+                                <span style="font-size:13px; color:var(--color-text-muted);">（即将上线）</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Business Hours -->
+                    <div class="hours-box">
+                        <h4>📅 办公时间</h4>
+                        <ul>
+                            <li><span class="day">周一至周五</span><span>09:00 – 18:00 (UTC+8)</span></li>
+                            <li><span class="day">周六</span><span>10:00 – 16:00 (UTC+8)</span></li>
+                            <li><span class="day">周日及节假日</span><span>休息</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Right: Contact Form -->
+                <div class="contact-form-wrapper">
+                    <h3>发送留言</h3>
+                    <p class="form-sub">我们会尽快回复您的每一条消息。</p>
+
+                    <form id="contactForm" onsubmit="return handleSubmit(event)">
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label for="name">姓名 <span class="required">*</span></label>
+                                <input type="text" id="name" name="name" placeholder="您的姓名" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="email">邮箱 <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" placeholder="your@email.com" required />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">主题 <span class="required">*</span></label>
+                            <select id="subject" name="subject" required>
+                                <option value="">请选择主题</option>
+                                <option value="general">一般咨询</option>
+                                <option value="support">工具使用帮助</option>
+                                <option value="bug">反馈问题/Bug</option>
+                                <option value="feature">功能建议</option>
+                                <option value="cooperation">商务合作</option>
+                                <option value="other">其他</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">留言内容 <span class="required">*</span></label>
+                            <textarea id="message" name="message" placeholder="请详细描述您的问题或建议..." required></textarea>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" id="privacy" name="privacy" required />
+                            <label for="privacy">我已阅读并同意 <a href="/privacy" target="_blank">隐私政策</a>，并允许 ToolNex 存储我的信息以便回复。</label>
+                        </div>
+
+                        <button type="submit" class="btn-submit">发送留言</button>
+
+                        <div id="formSuccess" class="form-success">
+                            <div class="check-icon">✅</div>
+                            <h4>留言已发送！</h4>
+                            <p>感谢您的联系，我们将在 24 小时内回复您。</p>
+                        </div>
+                    </form>
+                </div>
             </div>
 
-            <div class="contact-item">
-                <h3>Email Support</h3>
-                <p>Reply within 24 hours for detailed inquiries</p>
-                <a href="mailto:qiangda68@outlook.com" class="contact-link">qiangda68@outlook.com</a>
+            <!-- Trust Badge -->
+            <div class="trust-badge">
+                <span class="item"><span class="badge-icon">🔒</span> 信息加密传输</span>
+                <span class="item"><span class="badge-icon">⏱️</span> 24小时响应</span>
+                <span class="item"><span class="badge-icon">🤝</span> 免费咨询</span>
+                <span class="item"><span class="badge-icon">🌍</span> 全球用户支持</span>
             </div>
         </div>
+    </section>
 
-        <!-- Google AdSense 广告单元 - 请替换 data-ad-slot 为你自己的广告位ID -->
-        <div class="ads-block">
-            <div class="ads-label">Advertisement</div>
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-9894972538238783"
-                 data-ad-slot="YOUR_AD_SLOT_ID"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-    </main>
-
-    <footer>
-        <div class="container footer-grid">
-            <div class="footer-col">
-                <h4>ToolNex</h4>
-                <ul>
-                    <li><a href="/index.html#tools">All Free Tools</a></li>
-                    <li><a href="/index.html#blog">Seller Guides Blog</a></li>
-                    <li><a href="/faq.html">FAQ Center</a></li>
-                </ul>
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>ToolNex</h3>
+                    <p>提供免费、无需登录的在线工具，助力您的工作与生活更高效。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>工具</h4>
+                    <ul>
+                        <li><a href="/tools">全部工具</a></li>
+                        <li><a href="#">热门工具</a></li>
+                        <li><a href="#">新增工具</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>公司</h4>
+                    <ul>
+                        <li><a href="/about">关于我们</a></li>
+                        <li><a href="/contact">联系我们</a></li>
+                        <li><a href="/privacy">隐私政策</a></li>
+                        <li><a href="/terms">服务条款</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>支持</h4>
+                    <ul>
+                        <li><a href="/faq">常见问题</a></li>
+                        <li><a href="/contact">反馈建议</a></li>
+                        <li><a href="mailto:qiangda68@outlook.com">邮件支持</a></li>
+                        <li><a href="https://wa.me/8615092833346" target="_blank">WhatsApp</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-col">
-                <h4>Resources</h4>
-                <ul>
-                    <li><a href="/index.html#guides">Operation Tutorial Guides</a></li>
-                    <li><a href="/contact.html">Contact Support Email</a></li>
-                </ul>
+            <div class="footer-bottom">
+                <span>&copy; 2026 ToolNex. 保留所有权利。</span>
+                <div class="footer-bottom-links">
+                    <a href="/privacy">隐私政策</a>
+                    <a href="/terms">服务条款</a>
+                    <a href="/sitemap">网站地图</a>
+                </div>
             </div>
-            <div class="footer-col">
-                <h4>Legal Pages</h4>
-                <ul>
-                    <li><a href="/privacy.html">Privacy Policy</a></li>
-                    <li><a href="/cookie.html">Cookie Policy</a></li>
-                    <li><a href="/about.html">About Us</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Contact</h4>
-                <ul>
-                    <li>qiangda68@outlook.com</li>
-                    <li>Global Online Support</li>
-                </ul>
-            </div>
-        </div>
-        <div class="copyright">
-            © 2026 ToolNex. All rights reserved.
         </div>
     </footer>
 
-    <div class="cookie-banner">
-        <p>We use cookies to optimize your browsing experience and serve personalized ads via Google AdSense. You can accept all cookies or reject non-essential cookies for ad personalization.</p>
-        <div class="cookie-buttons">
-            <button class="btn-outline" onclick="this.parentElement.parentElement.style.display='none'">Reject Non-Essential</button>
-            <button class="btn-primary" onclick="this.parentElement.parentElement.style.display='none'">Accept All Cookies</button>
-        </div>
-    </div>
+    <!-- ===== JavaScript ===== -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileToggle').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('open');
+        });
+
+        // Close menu on link click
+        document.querySelectorAll('.nav-links a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                document.getElementById('navLinks').classList.remove('open');
+            });
+        });
+
+        // Form submission handler (demo)
+        function handleSubmit(event) {
+            event.preventDefault(); // Prevent actual submission
+
+            // Hide form, show success message
+            const form = document.getElementById('contactForm');
+            const success = document.getElementById('formSuccess');
+
+            // Simple validation (already required by HTML5)
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return false;
+            }
+
+            // Hide form elements (keep only success)
+            form.querySelectorAll('.form-group, .form-row-2, .form-check, .btn-submit').forEach(function(el) {
+                el.style.display = 'none';
+            });
+
+            success.style.display = 'block';
+
+            // Optional: You can also send data via AJAX here
+            console.log('Form submitted (demo)');
+
+            return false;
+        }
+    </script>
+
 </body>
 </html>
