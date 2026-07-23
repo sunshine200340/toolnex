@@ -1,386 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service | ToolNex Free Cross-border E-commerce Tools</title>
-    <meta name="description" content="Read the Terms of Service for ToolNex. Understand your rights and obligations when using our free cross-border e-commerce tools.">
-    <meta name="google-adsense-account" content="pub-9894972538238783">
-    <!-- Google AdSense 脚本 -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9894972538238783"
      crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Toolnex</title>
     <style>
+        /* ===== Reset & Base ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
         }
+
         body {
-            background-color: #F7FAFC;
-            color: #1D2939;
-            line-height: 1.7;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: #f8f9fa;
+            margin: 0;
+            padding: 20px;
         }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        ul, ol {
-            list-style-position: inside;
-            margin-bottom: 16px;
-        }
+
         .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        /* 导航栏 - 全站统一 */
-        header {
-            position: sticky;
-            top: 0;
+            max-width: 900px;
+            margin: 40px auto;
             background: #fff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            z-index: 99;
+            padding: 48px 52px;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
         }
-        .nav-wrap {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
+
+        /* ===== Page Title ===== */
+        .page-title {
+            margin-bottom: 32px;
         }
-        .logo {
-            font-size: 24px;
+
+        .page-title h1 {
+            color: #0A2463;
+            font-size: 32px;
             font-weight: 700;
-            color: #165DFF;
+            border-bottom: 2px solid #D4AF37;
+            padding-bottom: 12px;
         }
-        .nav-menu {
-            display: flex;
-            gap: 32px;
+
+        .page-title .last-updated {
+            color: #888;
+            font-size: 14px;
+            margin-top: 8px;
         }
-        .nav-menu a {
-            font-weight: 500;
-            color: #475467;
-            transition: color 0.2s;
+
+        /* ===== Content ===== */
+        .terms-content h2 {
+            color: #0A2463;
+            font-size: 20px;
+            font-weight: 700;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #f0f2f5;
         }
-        .nav-menu a:hover {
-            color: #165DFF;
-        }
-        .nav-buttons {
-            display: flex;
-            gap: 16px;
-        }
-        .btn-primary {
-            background: #165DFF;
-            color: #fff;
-            padding: 10px 22px;
-            border-radius: 6px;
-            font-weight: 500;
-            border: none;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .btn-primary:hover {
-            background: #0E4BDB;
-        }
-        .btn-outline {
-            border: 1px solid #165DFF;
-            color: #165DFF;
-            padding: 10px 22px;
-            border-radius: 6px;
-            font-weight: 500;
-            background: transparent;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .btn-outline:hover {
-            background: #E8F3FF;
-        }
-        /* 条款主体内容 */
-        .terms-main {
-            padding: 80px 0;
-        }
-        .terms-title {
-            font-size: 42px;
-            text-align: center;
-            margin-bottom: 16px;
-            color: #101828;
-        }
-        .terms-subtitle {
-            font-size: 18px;
-            text-align: center;
-            color: #475467;
-            max-width: 800px;
-            margin: 0 auto 60px;
-        }
-        .terms-card {
-            background: #fff;
-            padding: 48px 56px;
-            border-radius: 16px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-            max-width: 960px;
-            margin: 0 auto;
-        }
-        .terms-card h2 {
-            font-size: 24px;
-            color: #101828;
-            margin: 32px 0 16px;
-        }
-        .terms-card h2:first-child {
+
+        .terms-content h2:first-of-type {
             margin-top: 0;
         }
-        .terms-card h3 {
-            font-size: 18px;
-            color: #1D2939;
-            margin: 24px 0 12px;
+
+        .terms-content p {
+            color: #444;
+            font-size: 15px;
+            margin-bottom: 14px;
+            line-height: 1.8;
         }
-        .terms-card p {
-            color: #475467;
+
+        .terms-content ul {
+            padding-left: 24px;
             margin-bottom: 16px;
-            font-size: 16px;
         }
-        .terms-card ul li,
-        .terms-card ol li {
-            color: #475467;
+
+        .terms-content ul li {
+            color: #444;
+            font-size: 15px;
             margin-bottom: 8px;
-            font-size: 16px;
+            line-height: 1.7;
         }
-        .terms-card a {
-            color: #165DFF;
-            font-weight: 500;
+
+        .terms-content ul li strong {
+            color: #0A2463;
         }
-        .terms-card a:hover {
-            text-decoration: underline;
+
+        .terms-content .highlight-box {
+            background: #f0f4ff;
+            border-left: 4px solid #0A2463;
+            padding: 16px 20px;
+            border-radius: 4px;
+            margin: 20px 0;
         }
-        .last-updated {
-            color: #98A2B3;
+
+        .terms-content .highlight-box p {
+            margin-bottom: 0;
+            color: #1a2a5a;
             font-size: 14px;
-            margin-bottom: 24px;
-            padding-bottom: 24px;
-            border-bottom: 1px solid #E5E7EB;
         }
-        /* 广告区块 - 符合 AdSense 布局规范 */
-        .ads-block {
-            max-width: 960px;
-            margin: 60px auto;
-            background: #fff;
-            padding: 24px;
-            border-radius: 8px;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-        }
-        .ads-label {
-            font-size: 12px;
-            color: #98A2B3;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        /* 页脚 - 全站统一 */
-        footer {
-            background: #1D2939;
-            color: #fff;
-            padding: 60px 0 30px;
-            margin-top: 60px;
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 36px;
-            margin-bottom: 40px;
-        }
-        .footer-col h4 {
-            font-size: 18px;
-            margin-bottom: 20px;
-            color: #F9FAFB;
-        }
-        .footer-col ul li {
-            margin-bottom: 12px;
-            list-style: none;
-        }
-        .footer-col ul li a {
-            color: #D0D5DD;
-            transition: color 0.2s;
-        }
-        .footer-col ul li a:hover {
-            color: #fff;
-        }
-        .copyright {
+
+        /* ===== Footer ===== */
+        .site-footer {
+            margin-top: 40px;
             text-align: center;
-            color: #98A2B3;
-            font-size: 14px;
+            color: #888;
+            font-size: 13px;
+            border-top: 1px solid #e9edf2;
+            padding-top: 24px;
         }
-        /* Cookie 横幅 - 符合广告隐私合规 */
-        .cookie-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: #fff;
-            padding: 16px 24px;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
-            z-index: 999;
+
+        .site-footer a {
+            color: #0A2463;
+            text-decoration: none;
+            margin: 0 10px;
         }
-        .cookie-banner p {
-            color: #475467;
-            max-width: 800px;
-            font-size: 14px;
+
+        .site-footer a:hover {
+            color: #D4AF37;
         }
-        .cookie-buttons {
-            display: flex;
-            gap: 12px;
-            flex-shrink: 0;
-        }
-        /* 移动端响应式适配 */
+
+        /* ===== Responsive ===== */
         @media (max-width: 768px) {
-            .nav-menu {display: none;}
-            .terms-title {font-size: 32px;}
-            .terms-card {padding: 24px;}
-            .ads-block {padding: 16px; margin: 40px auto;}
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 28px 20px;
+                margin: 20px auto;
+            }
+
+            .page-title h1 {
+                font-size: 26px;
+            }
+
+            .terms-content h2 {
+                font-size: 18px;
+            }
+
+            .terms-content p,
+            .terms-content ul li {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 14px;
+                margin: 12px auto;
+            }
+
+            .page-title h1 {
+                font-size: 22px;
+            }
+
+            .terms-content h2 {
+                font-size: 16px;
+            }
+
+            .terms-content .highlight-box {
+                padding: 12px 14px;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container nav-wrap">
-            <a href="/index.html" class="logo">ToolNex</a>
-            <ul class="nav-menu">
-                <li><a href="/index.html#tools">Tools</a></li>
-                <li><a href="/index.html#guides">Guides</a></li>
-                <li><a href="/index.html#blog">Blog</a></li>
-                <li><a href="/about.html">About</a></li>
-            </ul>
-            <div class="nav-buttons">
-                <a href="/index.html#tools" class="btn-primary">All Free Tools</a>
-                <a href="/contact.html" class="btn-outline">Contact Us</a>
-            </div>
+
+    <div class="container">
+        <!-- ===== PAGE TITLE ===== -->
+        <div class="page-title">
+            <h1>Terms of Service</h1>
+            <p class="last-updated">Last updated: June 26, 2026</p>
         </div>
-    </header>
 
-    <main class="container terms-main">
-        <h1 class="terms-title">Terms of Service</h1>
-        <p class="terms-subtitle">Please read these terms carefully before using ToolNex tools and services.</p>
+        <!-- ===== TERMS CONTENT ===== -->
+        <div class="terms-content">
 
-        <div class="terms-card">
-            <div class="last-updated">Last updated: July 2026</div>
+            <p>Welcome to <strong>Toolnex</strong> (www.toolnex.xyz). By using our website and services, you agree to comply with and be bound by the following terms and conditions. Please read them carefully before using our tools and services.</p>
 
-            <h2>1. Introduction</h2>
-            <p>Welcome to ToolNex ("we", "us", "our"). These Terms of Service ("Terms") govern your access to and use of the ToolNex website (www.toolnex.xyz) and all free cross-border e-commerce tools, resources, and services provided through the website.</p>
-            <p>By accessing or using our website and tools, you agree to be bound by these Terms. If you do not agree with any part of these Terms, you must discontinue use of our services immediately.</p>
+            <h2>1. Acceptance of Terms</h2>
+            <p>By accessing or using Toolnex, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our website or services.</p>
 
-            <h2>2. Description of Service</h2>
-            <p>ToolNex provides free online tools for cross-border e-commerce sellers, including but not limited to calculation tools, code generation tools, data query tools, and operational guidance content. All tools are provided for free for personal and commercial use, subject to the restrictions outlined in these Terms.</p>
-            <p>We reserve the right to modify, discontinue, or restrict any tool or feature at any time without prior notice.</p>
+            <h2>2. Description of Services</h2>
+            <p>Toolnex provides a collection of free, browser-based online tools designed to assist users with various tasks. All tools are provided "as is" and are intended for personal and commercial use. We do not guarantee that the tools will meet your specific requirements or be error-free.</p>
 
-            <h2>3. User Conduct Obligations</h2>
-            <p>When using ToolNex services, you agree to comply with all applicable local, national, and international laws and regulations. You shall not:</p>
+            <h2>3. User Conduct</h2>
+            <p>When using our services, you agree to:</p>
             <ul>
-                <li>Use our tools for any illegal, fraudulent, or unauthorized purpose</li>
-                <li>Attempt to hack, disrupt, or overload our website servers or infrastructure</li>
-                <li>Use automated scripts or crawlers to bulk access or copy our tools and content</li>
-                <li>Reproduce, redistribute, or resell our tools and content without explicit written permission</li>
-                <li>Reverse engineer or attempt to extract the source code of our online tools</li>
+                <li>Use the tools only for lawful purposes and in accordance with applicable laws and regulations.</li>
+                <li>Not attempt to disrupt or interfere with the proper functioning of our website or services.</li>
+                <li>Not upload, transmit, or distribute any malicious code, viruses, or harmful content.</li>
+                <li>Not use the tools to infringe upon the intellectual property rights of others.</li>
             </ul>
 
-            <h2>4. Intellectual Property Rights</h2>
-            <p>All content on ToolNex, including but not limited to text, graphics, logos, tool algorithms, page designs, and software code, is the exclusive property of ToolNex and is protected by international copyright and intellectual property laws.</p>
-            <p>You may not copy, modify, distribute, or commercially exploit any part of our website or tools without our prior written consent. Personal, non-commercial use of tool output results is permitted.</p>
+            <h2>4. Intellectual Property</h2>
+            <p>All content, design, graphics, and code on Toolnex are the property of Toolnex and are protected by copyright and other intellectual property laws. You may not reproduce, distribute, modify, or create derivative works of any content without our prior written consent.</p>
 
-            <h2>5. Third-Party Links and Advertisements</h2>
-            <p>Our website displays advertisements provided by Google AdSense and may contain links to third-party websites, services, or products. These third-party contents are provided for user convenience only.</p>
-            <p>We do not endorse, warrant, or assume responsibility for any third-party products, services, or website content. Your interactions with third-party websites or advertisers are solely between you and the third party. We are not liable for any loss or damage arising from such interactions.</p>
-            <p>Google AdSense may use cookies and device information to serve personalized ads. For more information, please refer to our <a href="/privacy.html">Privacy Policy</a> and Google's official ad personalization policy.</p>
+            <h2>5. Third-Party Links and Services</h2>
+            <p>Our website may contain links to third-party websites or services that are not owned or controlled by Toolnex. We are not responsible for the content, privacy policies, or practices of any third-party sites. You acknowledge and agree that Toolnex shall not be liable for any damages or losses arising from your use of such third-party services.</p>
 
             <h2>6. Disclaimer of Warranties</h2>
-            <p>All tools and content on ToolNex are provided on an "as is" and "as available" basis, without any express or implied warranties of any kind, including but not limited to:</p>
-            <ul>
-                <li>Warranties of accuracy, completeness, or reliability of tool calculation results</li>
-                <li>Warranties of uninterrupted service or error-free operation</li>
-                <li>Warranties that the tools meet your specific business needs</li>
-            </ul>
-            <p>Tool results are for reference only and do not constitute professional financial, legal, or business advice. You should independently verify all results and make decisions at your own risk.</p>
+            <div class="highlight-box">
+                <p><strong>Important:</strong> All tools and services on Toolnex are provided on an "as is" and "as available" basis. We make no warranties, express or implied, regarding the accuracy, reliability, or suitability of the tools for any particular purpose. Use of our services is at your own risk.</p>
+            </div>
 
             <h2>7. Limitation of Liability</h2>
-            <p>To the fullest extent permitted by law, ToolNex and its team shall not be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising from your use or inability to use our services, including but not limited to loss of profits, business interruption, or data loss.</p>
-            <p>This limitation applies regardless of whether we have been advised of the possibility of such damages.</p>
+            <p>To the fullest extent permitted by law, Toolnex shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, or goodwill, arising out of or in connection with your use of our services.</p>
 
-            <h2>8. Modifications to Terms</h2>
-            <p>We reserve the right to update or modify these Terms at any time. Changes will take effect immediately upon posting on this page. Your continued use of our services after the posting of revised Terms constitutes your acceptance of the changes.</p>
-            <p>We recommend that you review this page periodically to stay informed of the latest terms.</p>
-
-            <h2>9. Governing Law</h2>
-            <p>These Terms shall be governed by and construed in accordance with the laws of the People's Republic of China, without regard to its conflict of law principles. Any disputes arising from these Terms shall be resolved through friendly negotiation; if negotiation fails, both parties agree to submit to the jurisdiction of the competent courts where ToolNex is located.</p>
-
-            <h2>10. Contact Information</h2>
-            <p>If you have any questions about these Terms of Service, please contact us via:</p>
+            <h2>8. Google Ads & Third-Party Advertising</h2>
+            <p>Toolnex uses Google Ads and other third-party advertising services to display advertisements. These services may use cookies and similar technologies to collect information about your browsing behavior for personalized advertising. By using our website, you consent to the use of such cookies in accordance with our Privacy Policy.</p>
             <ul>
-                <li>Email: <a href="mailto:qiangda68@outlook.com">qiangda68@outlook.com</a></li>
-                <li>WhatsApp: <a href="https://wa.me/8615092833346" target="_blank">+86 15092833346</a></li>
+                <li><strong>Google Ads:</strong> We use Google AdSense to serve ads. Google uses cookies to serve ads based on your prior visits to our website and other websites.</li>
+                <li><strong>User Choices:</strong> You can opt out of personalized advertising by visiting Google's Ads Settings or the Digital Advertising Alliance's opt-out page.</li>
+                <li><strong>No Warranties for Ads:</strong> We do not endorse or guarantee any products or services advertised on our website.</li>
             </ul>
+
+            <h2>9. Privacy Policy</h2>
+            <p>Your use of our services is also governed by our <a href="privacy.html" style="color:#0A2463; font-weight:500;">Privacy Policy</a>, which explains how we collect, use, and protect your personal information. By using Toolnex, you consent to the collection and use of your data as described in the Privacy Policy.</p>
+
+            <h2>10. Modifications to Terms</h2>
+            <p>We reserve the right to update or modify these Terms of Service at any time without prior notice. Changes will be effective immediately upon posting on this page. Your continued use of our services after any changes constitutes your acceptance of the updated terms.</p>
+
+            <h2>11. Termination</h2>
+            <p>We reserve the right to suspend or terminate your access to Toolnex at our sole discretion, without notice or liability, for any reason, including but not limited to your violation of these terms.</p>
+
+            <h2>12. Governing Law</h2>
+            <p>These Terms of Service shall be governed by and construed in accordance with the laws of China, without regard to its conflict of law provisions. Any disputes arising under these terms shall be subject to the exclusive jurisdiction of the courts located in Linyi, Shandong, China.</p>
+
+            <h2>13. Contact Information</h2>
+            <p>If you have any questions or concerns regarding these Terms of Service, please contact us at:</p>
+            <p><strong>Email:</strong> <a href="mailto:qiangda68@outlook.com" style="color:#0A2463;">qiangda68@outlook.com</a><br>
+            <strong>WhatsApp:</strong> <a href="https://wa.me/8615092833346" target="_blank" style="color:#0A2463;">+86 150 9283 3346</a></p>
+
+            <p style="margin-top:24px; font-size:14px; color:#888;"><em>By using Toolnex, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.</em></p>
+
         </div>
 
-        <!-- Google AdSense 广告单元 - 请替换 data-ad-slot 为你自己的广告位ID -->
-        <div class="ads-block">
-            <div class="ads-label">Advertisement</div>
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-9894972538238783"
-                 data-ad-slot="YOUR_AD_SLOT_ID"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-    </main>
-
-    <footer>
-        <div class="container footer-grid">
-            <div class="footer-col">
-                <h4>ToolNex</h4>
-                <ul>
-                    <li><a href="/index.html#tools">All Free Tools</a></li>
-                    <li><a href="/index.html#blog">Seller Guides Blog</a></li>
-                    <li><a href="/faq.html">FAQ Center</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Resources</h4>
-                <ul>
-                    <li><a href="/index.html#guides">Operation Tutorial Guides</a></li>
-                    <li><a href="/contact.html">Contact Support Email</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Legal Pages</h4>
-                <ul>
-                    <li><a href="/privacy.html">Privacy Policy</a></li>
-                    <li><a href="/terms.html">Terms of Service</a></li>
-                    <li><a href="/cookie.html">Cookie Policy</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Contact</h4>
-                <ul>
-                    <li>qiangda68@outlook.com</li>
-                    <li>Global Online Support</li>
-                </ul>
-            </div>
-        </div>
-        <div class="copyright">
-            © 2026 ToolNex. All rights reserved.
-        </div>
-    </footer>
-
-    <div class="cookie-banner">
-        <p>We use cookies to optimize your browsing experience and serve personalized ads via Google AdSense. You can accept all cookies or reject non-essential cookies for ad personalization.</p>
-        <div class="cookie-buttons">
-            <button class="btn-outline" onclick="this.parentElement.parentElement.style.display='none'">Reject Non-Essential</button>
-            <button class="btn-primary" onclick="this.parentElement.parentElement.style.display='none'">Accept All Cookies</button>
-        </div>
+        <!-- ===== FOOTER ===== -->
+        <footer class="site-footer">
+            <p>
+                <a href="index.html">Home</a> |
+                <a href="privacy.html">Privacy Policy</a> |
+                <a href="terms.html">Terms of Service</a> |
+                <a href="contact.html">Contact</a>
+            </p>
+            <p style="margin-top:8px;">&copy; 2026 Toolnex. All rights reserved.</p>
+        </footer>
     </div>
+
 </body>
 </html>
