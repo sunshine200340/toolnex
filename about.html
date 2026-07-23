@@ -1,306 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9894972538238783"
-     crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | ToolNex Free Tools & HTML5 Games</title>
-    <meta name="description" content="ToolNex offers free cross-border e-commerce tools for Amazon, Shopify sellers and handpicked free-to-play HTML5 games. Free listing generator, image compressor, SEO checker & more.">
-    <meta name="google-adsense-account" content="pub-9894972538238783">
+    <title>About Us - ToolNex | Free Online Practical Tools</title>
+    <!-- Google Ads 必需Meta：页面描述、关键词，提升着陆页质量得分 -->
+    <meta name="description" content="ToolNex (toolnex.xyz) is a free all-in-one online tool website, provides image processing, text formatting, code conversion, unit calculation and cross-border operation auxiliary tools, all tools run locally in browser, safe and no charge.">
+    <meta name="keywords" content="free online tools, image compressor, json formatter, url encode decode, qr code generator, cross-border operation tools, ToolNex">
+    <meta name="robots" content="index, follow">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
         body {
-            background-color: #F7FAFC;
-            color: #1D2939;
+            background-color: #f7f9fc;
+            color: #2d3748;
             line-height: 1.7;
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        ul {
-            list-style: none;
+            padding: 40px 20px;
         }
         .container {
-            max-width: 1280px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 0 20px;
+            background: #ffffff;
+            padding: 48px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
         }
-        /* 导航栏和首页完全统一 */
-        header {
-            position: sticky;
-            top: 0;
-            background: #fff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            z-index: 99;
-        }
-        .nav-wrap {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: #165DFF;
-        }
-        .nav-menu {
-            display: flex;
-            gap: 32px;
-        }
-        .nav-menu a {
-            font-weight: 500;
-            color: #475467;
-            transition: color 0.2s;
-        }
-        .nav-menu a:hover {
-            color: #165DFF;
-        }
-        .nav-buttons {
-            display: flex;
-            gap: 16px;
-        }
-        .btn-primary {
-            background: #165DFF;
-            color: #fff;
-            padding: 10px 22px;
-            border-radius: 6px;
-            font-weight: 500;
-            border: none;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .btn-primary:hover {
-            background: #0E4BDB;
-        }
-        .btn-outline {
-            border: 1px solid #165DFF;
-            color: #165DFF;
-            padding: 10px 22px;
-            border-radius: 6px;
-            font-weight: 500;
-            background: transparent;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .btn-outline:hover {
-            background: #E8F3FF;
-        }
-        .about-main {
-            padding: 80px 0;
-        }
-        .about-title {
-            font-size: 42px;
-            text-align: center;
-            margin-bottom: 24px;
-            color: #101828;
-        }
-        .about-subtitle {
-            font-size: 20px;
-            text-align: center;
-            color: #475467;
-            max-width: 800px;
-            margin: 0 auto 60px;
-        }
-        .about-block {
-            background: #fff;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-            max-width: 900px;
-            margin: 0 auto 40px;
-        }
-        .about-block h2 {
+        h1 {
             font-size: 28px;
-            margin-bottom: 20px;
-            color: #101828;
-        }
-        .about-block p {
-            font-size: 17px;
-            margin-bottom: 16px;
-            color: #344054;
-        }
-        /* 广告位 */
-        .ads-block {
-            max-width: 900px;
-            margin: 60px auto;
-            background: #fff;
-            padding: 20px;
-            text-align: center;
-            border-radius: 8px;
-            color: #667085;
-        }
-        /* 页脚统一样式 */
-        footer {
-            background: #1D2939;
-            color: #fff;
-            padding: 60px 0 30px;
-            margin-top: 60px;
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 36px;
-            margin-bottom: 40px;
-        }
-        .footer-col h4 {
-            font-size: 18px;
-            margin-bottom: 20px;
-            color: #F9FAFB;
-        }
-        .footer-col ul li {
+            color: #2b6cb0;
             margin-bottom: 12px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
         }
-        .footer-col ul li a {
-            color: #D0D5DD;
-            transition: color 0.2s;
+        h2 {
+            font-size: 20px;
+            margin: 30px 0 12px;
+            color: #2d3748;
         }
-        .footer-col ul li a:hover {
-            color: #fff;
+        p {
+            margin-bottom: 16px;
+            font-size: 16px;
         }
-        .copyright {
-            text-align: center;
-            color: #98A2B3;
+        ul {
+            padding-left: 22px;
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .nav-link {
+            display: inline-block;
+            margin-right: 20px;
+            color: #2b6cb0;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .nav-link:hover {
+            text-decoration: underline;
+        }
+        .notice-box {
+            background-color: #ebf8ff;
+            border-left: 4px solid #3182ce;
+            padding: 16px;
+            border-radius: 6px;
+            margin: 24px 0;
+        }
+        .footer-tip {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
             font-size: 14px;
-        }
-        /* Cookie弹窗 */
-        .cookie-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: #fff;
-            padding: 16px 24px;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
-            z-index: 999;
-        }
-        .cookie-banner p {
-            color: #475467;
-            max-width: 800px;
-        }
-        .cookie-buttons {
-            display: flex;
-            gap: 12px;
-        }
-        @media (max-width: 768px) {
-            .nav-menu {display: none;}
-            .about-title {font-size:32px;}
+            color: #718096;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container nav-wrap">
-            <a href="/index.html" class="logo">ToolNex</a>
-            <ul class="nav-menu">
-                <li><a href="/index.html#tools">Tools</a></li>
-                <li><a href="/index.html#games">Games</a></li>
-                <li><a href="/index.html#guides">Guides</a></li>
-                <li><a href="/index.html#blog">Blog</a></li>
-                <li><a href="/about.html">About</a></li>
-            </ul>
-            <div class="nav-buttons">
-                <a href="/index.html#tools" class="btn-primary">All Free Tools</a>
-                <a href="/contact.html" class="btn-outline">Contact Us</a>
-            </div>
-        </div>
-    </header>
+    <div class="container">
+        <h1>About ToolNex (www.toolnex.xyz)</h1>
 
-    <main class="container about-main">
-        <h1 class="about-title">About ToolNex</h1>
-        <p class="about-subtitle">Your trusted one-stop platform for free cross-border e-commerce productivity tools and handpicked high-quality HTML5 casual games.</p>
+        <p>Welcome to ToolNex, short for Tool Nexus. This website is a non-commercial practical tool aggregation platform independently developed, dedicated to providing simple, safe and completely free online auxiliary tools for global office workers, cross-border operators, programmers, self-media practitioners and individual creators.</p>
 
-        <div class="about-block">
-            <h2>Our Brand Positioning & Mission</h2>
-            <p>ToolNex is positioned as a 100% free online service platform balancing work efficiency and daily leisure. For cross-border e-commerce practitioners, we provide lightweight and practical operation tools to reduce costs and improve efficiency; for global casual game lovers, we curate premium instant-play games to deliver clean and enjoyable entertainment experience.</p>
-            <p>We insist on the "browser-native" concept: all tools and games run directly in the browser, no mandatory registration, no hidden fees, no intrusive pop-up ads, no software download required. We are committed to building a simple, efficient, safe and reliable free online platform for users worldwide.</p>
+        <h2>1. Our Original Intention & Website Positioning</h2>
+        <p>In daily work, many people frequently need small functions such as picture compression, text formatting, encoding conversion, unit calculation, QR code generation, etc. Most similar websites have excessive advertisements, forced jumps, hidden payment traps or require downloading unknown software.</p>
+        <p>ToolNex was built to solve this pain point: <strong>focus on tool functionality only, remove redundant interference, keep the page lightweight and load fast</strong>. All tools can be used directly on the web page with one click, no registration, no login, no membership system.</p>
+
+        <h2>2. Main Categories of Free Tools on the Site</h2>
+        <ul>
+            <li>Image Tools: Image compression, format conversion, ID photo background replacement, watermark adding, picture OCR text extraction</li>
+            <li>Text & Code Tools: JSON formatting, URL encode/decode, MD5 encryption, case conversion, word count statistics, timestamp conversion</li>
+            <li>Calculation & Conversion Tools: Unit conversion, time zone conversion, base conversion, real-time rough exchange rate inquiry</li>
+            <li>Operation Auxiliary Tools: Short link generator, UA browser detection, social media character counting tool for overseas posts</li>
+        </ul>
+
+        <div class="notice-box">
+            <strong>Important Security Statement (Google Ads Compliance Core)</strong>
+            <p>Almost all core calculation and processing logic of ToolNex tools runs locally through the user's browser. The text content, picture files and other sensitive data uploaded by users will not be automatically uploaded to the server for storage or collection. We never collect personal privacy information without authorization, and will never embed malicious scripts, virus programs or forced pop-up advertisements.</p>
         </div>
 
-        <div class="about-block">
-            <h2>Who We Serve</h2>
-            <p>Our users cover two major groups: cross-border e-commerce practitioners including Amazon FBA sellers, Shopify independent store operators, Facebook & TikTok Shop social merchants and cross-border operation beginners, as well as casual game players who pursue high-quality instant-play experience.</p>
-            <p>Whether you are a solo seller looking for free operation tools, or a user who wants to relax with high-quality light games in your spare time, ToolNex's lightweight product system can match your usage scenarios and needs.</p>
-        </div>
+        <h2>3. Operation Rules & Profit Description</h2>
+        <p>ToolNex is permanently free for all individual users. The only operating income of the website comes from legitimate network advertising such as Google AdSense, which is used to cover server domain name fees and subsequent tool function iteration costs.</p>
+        <p>We promise: No hidden fees, no paid unlock functions, no mandatory sharing or attention requirements to use tools.</p>
 
-        <div class="about-block">
-            <h2>Our Core Tools</h2>
-            <p>✅ Amazon Listing Generator: Generate high-ranking titles and bullet points optimized for Amazon's A9 algorithm</p>
-            <p>✅ Store Image Resizer: One-click crop and compress product images for all mainstream store and social platforms</p>
-            <p>✅ SEO Website Checker: Quick scan of independent store page speed, keyword ranking and common SEO defects</p>
-            <p>✅ Facebook Ad Copy Maker: Instantly generate multiple versions of high-converting social media advertising copy</p>
-        </div>
+        <h2>4. Links to Important Legal Pages (Required by Google Ads Policy)</h2>
+        <p>
+            <a href="/" class="nav-link">Homepage</a>
+            <a href="/privacy.html" class="nav-link">Privacy Policy</a>
+            <a href="/terms.html" class="nav-link">Terms of Service</a>
+            <a href="/contact.html" class="nav-link">Contact Us</a>
+        </p>
 
-        <div class="about-block">
-            <h2>Our Game Curation Standards</h2>
-            <p>To ensure a high-quality and safe gaming experience for all users, every game launched on ToolNex strictly follows the 5 screening rules below:</p>
-            <p>✅ 100% Free & Instant Play: All games are completely free with no hidden charges. No download, no installation, no mandatory account required — start playing with one click directly in your browser.</p>
-            <p>✅ Strict Content Compliance: Each game undergoes a full content review. We strictly exclude any content involving violence, obscenity, gambling, fraud or other violations, to ensure a safe environment suitable for all age groups.</p>
-            <p>✅ Cross-Device Compatibility: We prioritize lightweight HTML5 games that adapt to both desktop and mobile terminals. Even low-configuration devices can run smoothly without lag or stutter.</p>
-            <p>✅ Premium Gameplay Quality: We only select games with polished mechanics, good reputation and complete experience. Low-quality works with excessive forced ads, crude production or poor playability are strictly rejected.</p>
-            <p>✅ Regular Update & Maintenance: We continuously update the game library with new high-quality works, and regularly remove invalid, outdated or poorly experienced games to maintain the overall quality of the platform.</p>
-        </div>
-    </main>
+        <h2>5. Disclaimer</h2>
+        <p>All tools on ToolNex are for personal learning and daily office auxiliary use only. We do not guarantee 100% applicability for special commercial high-standard scenarios. Users shall bear the risks arising from their own use of the tools. The website does not involve any illegal, restricted or policy-violating functional modules, and strictly abides by Google advertising platform regulations and relevant network laws and regulations.</p>
 
-    <div class="ads-block">
-        <p>Google AdSense Advertisement Slot</p>
-    </div>
-
-    <footer>
-        <div class="container footer-grid">
-            <div class="footer-col">
-                <h4>ToolNex</h4>
-                <ul>
-                    <li><a href="/index.html#tools">All Free Tools</a></li>
-                    <li><a href="/index.html#games">Free HTML5 Games</a></li>
-                    <li><a href="/index.html#blog">Seller Guides Blog</a></li>
-                    <li><a href="/faq.html">FAQ Center</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Resources</h4>
-                <ul>
-                    <li><a href="/index.html#guides">Operation Tutorial Guides</a></li>
-                    <li><a href="/contact.html">Contact Support Email</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Legal Pages</h4>
-                <ul>
-                    <li><a href="/privacy.html">Privacy Policy</a></li>
-                    <li><a href="/cookie.html">Cookie Policy</a></li>
-                    <li><a href="/about.html">About Us</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Contact</h4>
-                <ul>
-                    <li>qiangda68@outlook.com</li>
-                    <li>Global Online Support</li>
-                </ul>
-            </div>
-        </div>
-        <div class="copyright">
-            © 2026 ToolNex. All rights reserved.
-        </div>
-    </footer>
-
-    <div class="cookie-banner">
-        <p>We use cookies to improve your experience and serve Google AdSense personalized ads. You can manage or reject non-essential cookies.</p>
-        <div class="cookie-buttons">
-            <button class="btn-outline" onclick="this.parentElement.parentElement.style.display='none'">Reject Non-Essential</button>
-            <button class="btn-primary" onclick="this.parentElement.parentElement.style.display='none'">Accept All Cookies</button>
+        <div class="footer-tip">
+            © 2026 ToolNex. All Rights Reserved. Website: www.toolnex.xyz
         </div>
     </div>
 </body>
