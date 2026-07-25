@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9894972538238783"
-     crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Block Puzzle Classic | GameHub Navigator Directory</title>
-    <meta name="description" content="GameHub Navigator directory listing for Block Puzzle Classic, presenting a curated browser game recommendation and partner-hosted game preview.">
+    <title>Metro Color Rush | GameHub Navigator Directory</title>
+    <meta name="description" content="A fresh arcade-style browser challenge with quick reactions, bright visuals, and a friendly international-friendly experience.">
     <link rel="canonical" href="https://example.com/games/block-puzzle.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -226,6 +224,95 @@
             text-align: center;
         }
 
+        .color-rush-shell {
+            padding: 18px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 100%);
+            color: #fff;
+        }
+
+        .color-rush-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .color-rush-pill {
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.16);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .color-rush-target {
+            font-size: 1.15rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .color-rush-target span {
+            font-weight: 800;
+        }
+
+        .color-rush-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .color-rush-tile {
+            border: 1px solid rgba(255,255,255,0.28);
+            border-radius: 16px;
+            min-height: 92px;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.16);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .color-rush-tile:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 28px rgba(15, 23, 42, 0.24);
+        }
+
+        .color-rush-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+
+        .color-rush-footer p {
+            margin: 0;
+            color: rgba(255,255,255,0.9);
+            font-size: 0.95rem;
+        }
+
+        .color-rush-footer button {
+            border: none;
+            border-radius: 999px;
+            padding: 9px 14px;
+            background: #fff;
+            color: var(--primary);
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 768px) {
+            .color-rush-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
         /* Ad Block */
         .ad-block {
             background: #F1F5F9;
@@ -341,9 +428,9 @@
     <main class="container game-page">
         <!-- Game Title & Meta -->
         <div class="game-header">
-            <h1>Block Puzzle Classic</h1>
+            <h1>Metro Color Rush</h1>
             <div class="game-meta">
-                <span class="game-tag">Puzzle</span>
+                <span class="game-tag">Arcade</span>
                 <span>Play Mode: Single Player</span>
                 <span>Difficulty: Easy</span>
                 <span>No Installation</span>
@@ -355,11 +442,19 @@
 
         <!-- Game Embed Area -->
         <div class="game-embed-container">
-            <div class="embed-fallback">
-                <p>FastPlayGames.com does not allow direct embedding for this title, and the original partner page is not available. Use the partner portal below to search for the game or explore other browser titles.</p>
-                <a href="https://fastplaygames.com/" target="_blank" rel="noopener noreferrer">Open FastPlayGames Portal</a>
+            <div class="color-rush-shell">
+                <div class="color-rush-top">
+                    <div class="color-rush-pill">Live challenge</div>
+                    <div class="color-rush-pill" id="colorRushScore">Score: 0</div>
+                </div>
+                <div class="color-rush-target" id="colorRushTarget">Tap the <span>coral</span> tile</div>
+                <div class="color-rush-grid" id="colorRushGrid"></div>
+                <div class="color-rush-footer">
+                    <p id="colorRushMessage">Match the target color as fast as you can.</p>
+                    <button id="colorRushRestart" type="button">Restart round</button>
+                </div>
             </div>
-            <div class="game-source">Game preview and link provided by partner host FastPlayGames.com</div>
+            <div class="game-source">Built-in mini-game • designed to feel fresh, playful, and easy to enjoy internationally</div>
         </div>
 
         <!-- Top Ad Unit -->
@@ -371,31 +466,26 @@
         <!-- Game Introduction -->
         <div class="game-content-section">
             <h2>Game Overview</h2>
-            <p>Block Puzzle Classic is a widely acclaimed casual puzzle game designed for players of all age groups. The core gameplay follows the classic tile-stacking mechanic: players place geometric blocks of varying shapes onto a 10x10 grid, and complete full horizontal or vertical lines to clear tiles and accumulate scores.</p>
-            <p>Distinguished from timed puzzle titles, this game offers a pressure-free casual experience with no time limits. Players can take sufficient time to plan each placement, making it ideal for short work breaks or extended leisure sessions. The game concludes when there is no remaining valid space on the grid to place upcoming blocks.</p>
+            <p>Metro Color Rush is a fast and lively arcade-style challenge designed for visitors who want something bright, modern, and instantly understandable. The goal is simple: identify the target color quickly and tap the matching tile before the next round appears.</p>
+            <p>It stands apart from traditional puzzle mechanics because it emphasizes speed, recognition, and flow rather than block placement. That gives the page a more energetic feel and makes the experience feel fresh for international audiences.</p>
         </div>
 
-        <!-- How to Play -->
         <div class="game-content-section">
-            <h2>Game Instructions</h2>
+            <h2>How to Play</h2>
             <ul>
-                <li>Drag available blocks from the bottom panel and drop them onto the game grid to place</li>
-                <li>Fill an entire horizontal or vertical row to clear the line and free up grid space</li>
-                <li>Click on blocks to rotate them before placement for optimal positioning</li>
-                <li>Plan placements strategically to avoid running out of available grid space</li>
-                <li>Clear multiple lines simultaneously to earn bonus points and combo multipliers</li>
+                <li>Read the target color shown at the top of the board.</li>
+                <li>Tap the tile that matches it as quickly as possible.</li>
+                <li>Every correct choice increases your score and advances the round.</li>
+                <li>Use the restart button whenever you want to start a new streak.</li>
             </ul>
         </div>
 
-        <!-- Strategy Tips -->
         <div class="game-content-section">
-            <h2>Strategy & Tips</h2>
+            <h2>Quick Tips</h2>
             <ul>
-                <li><strong>Maintain a flat grid layout:</strong> Avoid stacking blocks unevenly in a single area. A level grid provides more flexible placement options for subsequent blocks.</li>
-                <li><strong>Reserve large blocks for combo clears:</strong> Keep 3x3 and other large pieces until you can clear multiple lines at once to maximize score efficiency.</li>
-                <li><strong>Reserve gaps for small blocks:</strong> Always keep 1-2 single-cell gaps available for randomly appearing 1x1 blocks.</li>
-                <li><strong>Avoid hasty placements:</strong> There is no time constraint. Take 2-3 seconds to evaluate all placement options before committing.</li>
-                <li><strong>Prioritize lower line clears:</strong> Clearing rows near the bottom first maximizes usable space and extends gameplay duration.</li>
+                <li><strong>Focus on the hue, not the position:</strong> tile placement changes each round, so matching the color matters most.</li>
+                <li><strong>Keep a steady rhythm:</strong> pacing beats panic and helps maintain accuracy.</li>
+                <li><strong>Use short sessions:</strong> the game is ideal for quick breaks and easy replay.</li>
             </ul>
         </div>
 
@@ -417,5 +507,70 @@
             <p style="margin-top:10px;">This page is a directory listing within GameHub Navigator. Embedded content is provided by partner hosts and is not directly served by this site.</p>
         </div>
     </footer>
+
+    <script>
+        (function () {
+            const scoreEl = document.getElementById('colorRushScore');
+            const targetEl = document.getElementById('colorRushTarget');
+            const gridEl = document.getElementById('colorRushGrid');
+            const messageEl = document.getElementById('colorRushMessage');
+            const restartBtn = document.getElementById('colorRushRestart');
+            const palette = [
+                { name: 'Coral', value: '#ff6b6b' },
+                { name: 'Mint', value: '#34d399' },
+                { name: 'Amber', value: '#f59e0b' },
+                { name: 'Ocean', value: '#38bdf8' },
+                { name: 'Violet', value: '#8b5cf6' },
+                { name: 'Teal', value: '#14b8a6' }
+            ];
+            let score = 0;
+
+            function shuffle(array) {
+                const result = [...array];
+                for (let i = result.length - 1; i > 0; i -= 1) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [result[i], result[j]] = [result[j], result[i]];
+                }
+                return result;
+            }
+
+            function renderRound() {
+                const target = palette[Math.floor(Math.random() * palette.length)];
+                const options = shuffle([...palette.filter((item) => item.name !== target.name), target]).slice(0, 4);
+                targetEl.innerHTML = `Tap the <span>${target.name}</span> tile`;
+                targetEl.querySelector('span').style.color = target.value;
+                gridEl.innerHTML = '';
+                options.forEach((option) => {
+                    const button = document.createElement('button');
+                    button.type = 'button';
+                    button.className = 'color-rush-tile';
+                    button.style.background = option.value;
+                    button.textContent = option.name;
+                    button.addEventListener('click', () => handleChoice(option, target));
+                    gridEl.appendChild(button);
+                });
+            }
+
+            function handleChoice(option, target) {
+                if (option.name === target.name) {
+                    score += 1;
+                    scoreEl.textContent = `Score: ${score}`;
+                    messageEl.textContent = 'Perfect! Another round is ready.';
+                    setTimeout(renderRound, 500);
+                } else {
+                    messageEl.textContent = 'Not quite. Focus on the matching hue.';
+                }
+            }
+
+            restartBtn.addEventListener('click', () => {
+                score = 0;
+                scoreEl.textContent = 'Score: 0';
+                messageEl.textContent = 'Fresh round ready.';
+                renderRound();
+            });
+
+            renderRound();
+        })();
+    </script>
 </body>
 </html>

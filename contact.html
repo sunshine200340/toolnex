@@ -5,573 +5,310 @@
      crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Toolnex</title>
+    <title>Contact Us | ToolNex Free Cross-border E-commerce Tools</title>
+    <meta name="description" content="Contact ToolNex support team for tool feedback, business cooperation and technical questions.">
+    <meta name="google-adsense-account" content="pub-9894972538238783">
     <style>
-        /* ===== Reset & Base ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
         }
-
         body {
-            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.8;
-            color: #333;
-            background: #f8f9fa;
-            margin: 0;
-            padding: 20px;
+            background-color: #F7FAFC;
+            color: #1D2939;
+            line-height: 1.7;
         }
-
-        .container {
-            max-width: 1080px;
-            margin: 40px auto;
-            background: #fff;
-            padding: 48px 52px;
-            border-radius: 8px;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        /* ===== Page Title ===== */
-        .page-title {
-            margin-bottom: 32px;
-        }
-
-        .page-title h1 {
-            color: #0A2463;
-            font-size: 32px;
-            font-weight: 700;
-            border-bottom: 2px solid #D4AF37;
-            padding-bottom: 12px;
-        }
-
-        .page-title p {
-            color: #666;
-            font-size: 16px;
-            margin-top: 10px;
-        }
-
-        /* ===== Contact Grid ===== */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 48px;
-            margin-top: 16px;
-        }
-
-        /* Left Column - Info Cards */
-        .contact-info h2 {
-            color: #0A2463;
-            font-size: 20px;
-            margin-bottom: 12px;
-        }
-
-        .contact-info .sub-text {
-            color: #666;
-            font-size: 15px;
-            margin-bottom: 24px;
-        }
-
-        .info-cards {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin-bottom: 32px;
-        }
-
-        .info-card {
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
-            padding: 18px 20px;
-            border: 1px solid #e9edf2;
-            border-radius: 8px;
-            background: #fafbfc;
-            transition: box-shadow 0.2s, transform 0.2s;
-        }
-
-        .info-card:hover {
-            box-shadow: 0 4px 16px rgba(10, 36, 99, 0.08);
-            transform: translateY(-2px);
-        }
-
-        .info-card .icon {
-            width: 42px;
-            height: 42px;
-            flex-shrink: 0;
-            background: #eef3fb;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-        }
-
-        .info-card .content h4 {
-            font-size: 14px;
-            font-weight: 600;
-            color: #0A2463;
-            margin-bottom: 2px;
-        }
-
-        .info-card .content p {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 2px;
-        }
-
-        .info-card .content a {
-            font-size: 14px;
-            color: #0A2463;
+        a {
             text-decoration: none;
-            font-weight: 500;
+            color: inherit;
         }
-
-        .info-card .content a:hover {
-            color: #D4AF37;
-        }
-
-        /* Hours Box */
-        .hours-box {
-            border: 1px solid #e9edf2;
-            border-radius: 8px;
-            padding: 20px 24px;
-            background: #fafbfc;
-        }
-
-        .hours-box h4 {
-            color: #0A2463;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .hours-box ul {
+        ul {
             list-style: none;
-            font-size: 14px;
-            color: #555;
         }
-
-        .hours-box ul li {
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            position: sticky;
+            top: 0;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            z-index: 99;
+        }
+        .nav-wrap {
             display: flex;
             justify-content: space-between;
-            padding: 4px 0;
-            border-bottom: 1px solid #f0f2f5;
+            align-items: center;
+            height: 70px;
         }
-
-        .hours-box ul li:last-child {
-            border-bottom: none;
-        }
-
-        .hours-box ul li .day {
-            font-weight: 500;
-            color: #333;
-        }
-
-        /* Right Column - Form */
-        .contact-form-wrapper {
-            border: 1px solid #e9edf2;
-            border-radius: 8px;
-            padding: 32px 36px;
-            background: #fafbfc;
-        }
-
-        .contact-form-wrapper h3 {
-            color: #0A2463;
-            font-size: 20px;
+        .logo {
+            font-size: 24px;
             font-weight: 700;
-            margin-bottom: 6px;
+            color: #165DFF;
         }
-
-        .contact-form-wrapper .form-sub {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 24px;
+        .nav-menu {
+            display: flex;
+            gap: 32px;
         }
-
-        .form-group {
-            margin-bottom: 18px;
+        .nav-menu a {
+            font-weight: 500;
+            color: #475467;
+            transition: color 0.2s;
         }
-
-        .form-group label {
-            display: block;
-            font-size: 13px;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 5px;
+        .nav-menu a:hover {
+            color: #165DFF;
         }
-
-        .form-group label .required {
-            color: #dc3545;
-            margin-left: 2px;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 11px 14px;
-            font-size: 14px;
-            font-family: 'Segoe UI', sans-serif;
-            border: 1.5px solid #dce0e6;
-            border-radius: 6px;
-            background: #fff;
-            transition: border-color 0.2s, box-shadow 0.2s;
-            color: #333;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #0A2463;
-            box-shadow: 0 0 0 3px rgba(10, 36, 99, 0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 110px;
-        }
-
-        .form-row-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+        .nav-buttons {
+            display: flex;
             gap: 16px;
         }
-
-        .form-check {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            margin: 16px 0 20px;
-        }
-
-        .form-check input[type="checkbox"] {
-            width: 17px;
-            height: 17px;
-            margin-top: 3px;
-            accent-color: #0A2463;
-            flex-shrink: 0;
-            cursor: pointer;
-        }
-
-        .form-check label {
-            font-size: 13px;
-            color: #555;
-            cursor: pointer;
-        }
-
-        .form-check label a {
-            color: #0A2463;
-            font-weight: 500;
-            text-decoration: none;
-        }
-
-        .form-check label a:hover {
-            color: #D4AF37;
-        }
-
-        .btn-submit {
-            width: 100%;
-            padding: 14px 32px;
-            background: #0A2463;
+        .btn-primary {
+            background: #165DFF;
             color: #fff;
-            border: none;
+            padding: 10px 22px;
             border-radius: 6px;
-            font-size: 16px;
-            font-weight: 600;
-            font-family: 'Segoe UI', sans-serif;
+            font-weight: 500;
+            border: none;
             cursor: pointer;
-            transition: background 0.2s, transform 0.1s;
+            transition: background 0.2s;
         }
-
-        .btn-submit:hover {
-            background: #1E3A8A;
-            transform: translateY(-1px);
+        .btn-primary:hover {
+            background: #0E4BDB;
         }
-
-        .btn-submit:active {
-            transform: scale(0.98);
+        .btn-outline {
+            border: 1px solid #165DFF;
+            color: #165DFF;
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-weight: 500;
+            background: transparent;
+            cursor: pointer;
+            transition: background 0.2s;
         }
-
-        .form-success {
-            display: none;
+        .btn-outline:hover {
+            background: #E8F3FF;
+        }
+        .contact-main {
+            padding: 80px 0;
+        }
+        .contact-title {
+            font-size: 42px;
             text-align: center;
-            padding: 20px 0;
+            margin-bottom: 24px;
+            color: #101828;
         }
-
-        .form-success .check-icon {
-            font-size: 48px;
+        .contact-subtitle {
+            font-size: 20px;
+            text-align: center;
+            color: #475467;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+        .contact-block {
+            background: #fff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            max-width: 900px;
+            margin: 0 auto 40px;
+        }
+        .contact-block h2 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #101828;
+        }
+        .contact-item {
+            margin-bottom: 28px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid #E5E7EB;
+        }
+        .contact-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .contact-item h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #1D2939;
+        }
+        .contact-item p {
+            font-size: 16px;
+            color: #475467;
+            margin-bottom: 8px;
+        }
+        .contact-link {
+            color: #165DFF;
+            font-weight: 500;
+            word-break: break-all;
+        }
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+        .ads-block {
+            max-width: 900px;
+            margin: 60px auto;
+            background: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            color: #667085;
+        }
+        footer {
+            background: #1D2939;
+            color: #fff;
+            padding: 60px 0 30px;
+            margin-top: 60px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 36px;
+            margin-bottom: 40px;
+        }
+        .footer-col h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #F9FAFB;
+        }
+        .footer-col ul li {
             margin-bottom: 12px;
         }
-
-        .form-success h4 {
-            font-size: 18px;
-            font-weight: 700;
-            color: #16a34a;
+        .footer-col ul li a {
+            color: #D0D5DD;
+            transition: color 0.2s;
         }
-
-        .form-success p {
-            font-size: 14px;
-            color: #666;
+        .footer-col ul li a:hover {
+            color: #fff;
         }
-
-        /* ===== Trust Badge ===== */
-        .trust-badge {
-            margin-top: 40px;
-            display: flex;
-            justify-content: center;
-            gap: 48px;
-            flex-wrap: wrap;
-            padding: 20px 0 10px;
-            border-top: 1px solid #e9edf2;
-        }
-
-        .trust-badge .item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 13px;
-            color: #666;
-        }
-
-        .trust-badge .item .badge-icon {
-            font-size: 20px;
-        }
-
-        /* ===== Footer ===== */
-        .site-footer {
-            margin-top: 40px;
+        .copyright {
             text-align: center;
-            color: #888;
-            font-size: 13px;
-            border-top: 1px solid #e9edf2;
-            padding-top: 24px;
+            color: #98A2B3;
+            font-size: 14px;
         }
-
-        .site-footer a {
-            color: #0A2463;
-            text-decoration: none;
-            margin: 0 10px;
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            padding: 16px 24px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            z-index: 999;
         }
-
-        .site-footer a:hover {
-            color: #D4AF37;
+        .cookie-banner p {
+            color: #475467;
+            max-width: 800px;
         }
-
-        /* ===== Responsive ===== */
-        @media (max-width: 900px) {
-            .container {
-                padding: 32px 24px;
-                margin: 20px auto;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
+        .cookie-buttons {
+            display: flex;
+            gap: 12px;
         }
-
         @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-
-            .container {
-                padding: 24px 16px;
-            }
-
-            .page-title h1 {
-                font-size: 26px;
-            }
-
-            .contact-form-wrapper {
-                padding: 24px 18px;
-            }
-
-            .form-row-2 {
-                grid-template-columns: 1fr;
-            }
-
-            .trust-badge {
-                gap: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 16px 12px;
-            }
-
-            .page-title h1 {
-                font-size: 22px;
-            }
-
-            .info-card {
-                padding: 14px 16px;
-            }
-
-            .hours-box {
-                padding: 16px;
-            }
+            .nav-menu {display: none;}
+            .contact-title {font-size:32px;}
         }
     </style>
 </head>
 <body>
-
-    <div class="container">
-        <!-- ===== PAGE TITLE ===== -->
-        <div class="page-title">
-            <h1>Contact Us</h1>
-            <p>Have questions, suggestions, or partnership ideas? We'd love to hear from you.</p>
-        </div>
-
-        <!-- ===== CONTACT SECTION ===== -->
-        <div class="contact-grid">
-            <!-- Left: Contact Info -->
-            <div class="contact-info">
-                <h2>Our Contact Channels</h2>
-                <p class="sub-text">Choose the way that works best for you. We respond promptly.</p>
-
-                <div class="info-cards">
-                    <!-- WhatsApp -->
-                    <div class="info-card">
-                        <div class="icon">💬</div>
-                        <div class="content">
-                            <h4>WhatsApp Support</h4>
-                            <p>Fast real-time chat for seller questions &amp; cooperation</p>
-                            <a href="https://wa.me/8615092833346" target="_blank" rel="noopener">wa.me/8615092833346</a>
-                        </div>
-                    </div>
-
-                    <!-- Email -->
-                    <div class="info-card">
-                        <div class="icon">✉️</div>
-                        <div class="content">
-                            <h4>Email Support</h4>
-                            <p>Reply within 24 hours for detailed inquiries</p>
-                            <a href="mailto:qiangda68@outlook.com">qiangda68@outlook.com</a>
-                        </div>
-                    </div>
-
-                    <!-- Social Media (placeholder) -->
-                    <div class="info-card">
-                        <div class="icon">🌐</div>
-                        <div class="content">
-                            <h4>Social Media</h4>
-                            <p>Follow us for updates and news</p>
-                            <span style="font-size:13px; color:#999;">(Coming soon)</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Business Hours -->
-                <div class="hours-box">
-                    <h4>📅 Business Hours</h4>
-                    <ul>
-                        <li><span class="day">Mon – Fri</span><span>9:00 AM – 6:00 PM (UTC+8)</span></li>
-                        <li><span class="day">Saturday</span><span>10:00 AM – 4:00 PM (UTC+8)</span></li>
-                        <li><span class="day">Sunday &amp; Holidays</span><span>Closed</span></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Right: Contact Form -->
-            <div class="contact-form-wrapper">
-                <h3>Send a Message</h3>
-                <p class="form-sub">We'll get back to you as soon as possible.</p>
-
-                <form id="contactForm" onsubmit="return handleSubmit(event)">
-                    <div class="form-row-2">
-                        <div class="form-group">
-                            <label for="name">Name <span class="required">*</span></label>
-                            <input type="text" id="name" name="name" placeholder="Your full name" required />
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email <span class="required">*</span></label>
-                            <input type="email" id="email" name="email" placeholder="your@email.com" required />
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="subject">Subject <span class="required">*</span></label>
-                        <select id="subject" name="subject" required>
-                            <option value="">Select a subject</option>
-                            <option value="general">General Inquiry</option>
-                            <option value="support">Tool Support / Help</option>
-                            <option value="bug">Bug Report</option>
-                            <option value="feature">Feature Suggestion</option>
-                            <option value="cooperation">Business Cooperation</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">Message <span class="required">*</span></label>
-                        <textarea id="message" name="message" placeholder="Please describe your question or suggestion in detail..." required></textarea>
-                    </div>
-
-                    <div class="form-check">
-                        <input type="checkbox" id="privacy" name="privacy" required />
-                        <label for="privacy">I have read and agree to the <a href="privacy.html" target="_blank">Privacy Policy</a> and allow Toolnex to store my information for response purposes.</label>
-                    </div>
-
-                    <button type="submit" class="btn-submit">Send Message</button>
-
-                    <div id="formSuccess" class="form-success">
-                        <div class="check-icon">✅</div>
-                        <h4>Message Sent!</h4>
-                        <p>Thank you for contacting us. We'll reply within 24 hours.</p>
-                    </div>
-                </form>
+    <header>
+        <div class="container nav-wrap">
+            <a href="/index.html" class="logo">ToolNex</a>
+            <ul class="nav-menu">
+                <li><a href="/index.html#tools">Tools</a></li>
+                <li><a href="/index.html#guides">Guides</a></li>
+                <li><a href="/index.html#blog">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="/index.html#tools" class="btn-primary">All Free Tools</a>
+                <a href="/contact.html" class="btn-outline">Contact Us</a>
             </div>
         </div>
+    </header>
 
-        <!-- ===== TRUST BADGE ===== -->
-        <div class="trust-badge">
-            <span class="item"><span class="badge-icon">🔒</span> Secure &amp; Encrypted</span>
-            <span class="item"><span class="badge-icon">⏱️</span> 24h Response Time</span>
-            <span class="item"><span class="badge-icon">🤝</span> Free Consultation</span>
-            <span class="item"><span class="badge-icon">🌍</span> Global Support</span>
+    <main class="container contact-main">
+        <h1 class="contact-title">Contact Us</h1>
+        <p class="contact-subtitle">Reach our support team for tool feedback, business cooperation and technical help.</p>
+
+        <div class="contact-block">
+            <h2>Our Contact Channels</h2>
+
+            <!-- ========== 你的WhatsApp代码放在这个区域 ========== -->
+            <div class="contact-item">
+                <h3>WhatsApp Support</h3>
+                <p>Fast real-time chat for seller questions & cooperation</p>
+                <a href="https://wa.me/8615092833346" target="_blank" class="contact-link">
+                    https://wa.me/8615092833346
+                </a>
+            </div>
+
+            <!-- 可后续再加邮箱、其他联系方式 -->
+            <div class="contact-item">
+                <h3>Email Support</h3>
+                <p>Reply within 24 hours for detailed inquiries</p>
+                <a href="mailto:qiangda68@outlook.com" class="contact-link">qiangda68@outlook.com</a>
+            </div>
         </div>
+    </main>
 
-        <!-- ===== FOOTER ===== -->
-        <footer class="site-footer">
-            <p>
-                <a href="index.html">Home</a> |
-                <a href="privacy.html">Privacy Policy</a> |
-                <a href="terms.html">Terms of Service</a> |
-                <a href="contact.html">Contact</a>
-            </p>
-            <p style="margin-top:8px;">&copy; 2026 Toolnex. All rights reserved.</p>
-        </footer>
+    <div class="ads-block">
+        <p>Google AdSense Advertisement Slot</p>
     </div>
 
-    <!-- ===== FORM HANDLER ===== -->
-    <script>
-        function handleSubmit(event) {
-            event.preventDefault();
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4>ToolNex</h4>
+                <ul>
+                    <li><a href="/index.html#tools">All Free Tools</a></li>
+                    <li><a href="/index.html#blog">Seller Guides Blog</a></li>
+                    <li><a href="/faq.html">FAQ Center</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="/index.html#guides">Operation Tutorial Guides</a></li>
+                    <li><a href="/contact.html">Contact Support Email</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal Pages</h4>
+                <ul>
+                    <li><a href="/privacy.html">Privacy Policy</a></li>
+                    <li><a href="/cookie.html">Cookie Policy</a></li>
+                    <li><a href="/about.html">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li>qiangda68@outlook.com</li>
+                    <li>Global Online Support</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 ToolNex. All rights reserved.
+        </div>
+    </footer>
 
-            const form = document.getElementById('contactForm');
-            const success = document.getElementById('formSuccess');
-
-            if (!form.checkValidity()) {
-                form.reportValidity();
-                return false;
-            }
-
-            form.querySelectorAll('.form-group, .form-row-2, .form-check, .btn-submit').forEach(el => {
-                el.style.display = 'none';
-            });
-
-            success.style.display = 'block';
-
-            // Optional: Send form data via AJAX here
-            console.log('Form submitted (demo)');
-
-            return false;
-        }
-    </script>
-
+    <div class="cookie-banner">
+        <p>We use cookies to improve your experience and serve Google AdSense personalized ads. You can manage or reject non-essential cookies.</p>
+        <div class="cookie-buttons">
+            <button class="btn-outline" onclick="this.parentElement.parentElement.style.display='none'">Reject Non-Essential</button>
+            <button class="btn-primary" onclick="this.parentElement.parentElement.style.display='none'">Accept All Cookies</button>
+        </div>
+    </div>
 </body>
 </html>
