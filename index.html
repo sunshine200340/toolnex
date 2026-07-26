@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -341,6 +340,7 @@
             border-color: var(--primary);
         }
 
+        /* ===== Game Grid (核心修改区域) ===== */
         .game-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -455,6 +455,7 @@
             margin-bottom: 10px;
         }
 
+        /* ===== Footer ===== */
         footer {
             background: #0F172A;
             padding: 56px 0 24px;
@@ -567,6 +568,7 @@
             background: #E2E8F0;
         }
 
+        /* ===== Responsive ===== */
         @media screen and (max-width: 768px) {
             .main-nav {
                 display: none;
@@ -600,6 +602,26 @@
                 order: 3;
             }
         }
+
+        @media screen and (max-width: 480px) {
+            .game-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                gap: 12px;
+            }
+            .game-info {
+                padding: 14px;
+            }
+            .game-name {
+                font-size: 15px;
+            }
+            .game-desc {
+                font-size: 13px;
+            }
+            .game-img {
+                min-height: 100px;
+                font-size: 12px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -627,11 +649,10 @@
                     <li><a href="terms.html">Terms of Service</a></li>
                     <li><a href="privacy.html">Privacy Policy</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    
                 </ul>
             </nav>
             <div class="search-box">
-                <input type="text" placeholder="Search game categories...">
+                <input type="text" placeholder="Search game categories..." id="searchInput">
             </div>
         </div>
     </header>
@@ -674,17 +695,19 @@
 
         <section class="tag-section" id="categories">
             <h2 class="tag-title">Browse Game Categories</h2>
-            <div class="tag-list">
-                <span class="tag-item active">All Games</span>
-                <span class="tag-item">Puzzle</span>
-                <span class="tag-item">Arcade</span>
-                <span class="tag-item">Racing</span>
-                <span class="tag-item">Simulation</span>
-                <span class="tag-item">Strategy</span>
-                <span class="tag-item">Family</span>
-                <span class="tag-item">Casual</span>
-                <span class="tag-item">Skill</span>
-                <span class="tag-item">Kids Friendly</span>
+            <div class="tag-list" id="categoryTags">
+                <span class="tag-item active" data-category="all">All Games</span>
+                <span class="tag-item" data-category="puzzle">Puzzle</span>
+                <span class="tag-item" data-category="arcade">Arcade</span>
+                <span class="tag-item" data-category="racing">Racing</span>
+                <span class="tag-item" data-category="simulation">Simulation</span>
+                <span class="tag-item" data-category="strategy">Strategy</span>
+                <span class="tag-item" data-category="match3">Match 3</span>
+                <span class="tag-item" data-category="sports">Sports</span>
+                <span class="tag-item" data-category="family">Family</span>
+                <span class="tag-item" data-category="casual">Casual</span>
+                <span class="tag-item" data-category="skill">Skill</span>
+                <span class="tag-item" data-category="kids">Kids Friendly</span>
             </div>
         </section>
 
@@ -698,73 +721,8 @@
             </ul>
         </section>
 
-        <section class="game-grid">
-            <a href="block-puzzle.html" class="game-card-link">
-                <div class="game-card">
-                    <div class="game-img">Arcade</div>
-                    <div class="game-info">
-                        <h3 class="game-name">Metro Color Rush</h3>
-                        <p class="game-desc">A lively color-matching challenge that feels energetic, clear, and easy for global visitors to enjoy.</p>
-                        <span class="game-tag-small">Arcade</span>
-                    </div>
-                </div>
-            </a>
-
-            <a href="speed-race.html" class="game-card-link">
-                <div class="game-card">
-                    <div class="game-img">Racing</div>
-                    <div class="game-info">
-                        <h3 class="game-name">Speed Race Drift</h3>
-                        <p class="game-desc">A browser racing suggestion with smooth controls and straightforward driving challenges.</p>
-                        <span class="game-tag-small">Racing</span>
-                    </div>
-                </div>
-            </a>
-
-            <a href="farm-simulator.html" class="game-card-link">
-                <div class="game-card">
-                    <div class="game-img">Simulation</div>
-                    <div class="game-info">
-                        <h3 class="game-name">Farm Village Simulator</h3>
-                        <p class="game-desc">A cozy farm guide for readers who enjoy management titles and calm, progressive gameplay.</p>
-                        <span class="game-tag-small">Simulation</span>
-                    </div>
-                </div>
-            </a>
-
-            <a href="candy-match.html" class="game-card-link">
-                <div class="game-card">
-                    <div class="game-img">Match 3</div>
-                    <div class="game-info">
-                        <h3 class="game-name">Candy Match Blast</h3>
-                        <p class="game-desc">A friendly match-three title with polished level pacing and rewarding progression.</p>
-                        <span class="game-tag-small">Match 3</span>
-                    </div>
-                </div>
-            </a>
-
-            <a href="basketball.html" class="game-card-link">
-                <div class="game-card">
-                    <div class="game-img">Sports</div>
-                    <div class="game-info">
-                        <h3 class="game-name">Mini Basketball Shootout</h3>
-                        <p class="game-desc">A sports recommendation designed for quick play sessions and intuitive controls.</p>
-                        <span class="game-tag-small">Sports</span>
-                    </div>
-                </div>
-            </a>
-
-            <a href="tower-defense.html" class="game-card-link">
-                <div class="game-card">
-                    <div class="game-img">Strategy</div>
-                    <div class="game-info">
-                        <h3 class="game-name">Tower Defense Kingdom</h3>
-                        <p class="game-desc">A smart strategy listing for readers interested in investing time in tactical gameplay.</p>
-                        <span class="game-tag-small">Strategy</span>
-                    </div>
-                </div>
-            </a>
-        </section>
+        <!-- ===== 游戏网格：由 JavaScript 动态渲染 ===== -->
+        <section class="game-grid" id="gameGrid"></section>
 
         <div class="ad-block">
             <div class="ad-label">Advertisement</div>
@@ -772,56 +730,401 @@
         </div>
     </main>
 
-  <footer>
-    <div class="footer-links" style="text-align:center; padding:20px 0;">
-        <a href="/"style="margin:0 12px; color:#b366ff; text-decoration:underline;">Home</a>
-        <a href="/about.html"style="margin:0 12px; color:#b366ff; text-decoration:underline;">About</a>
-        <a href="/terms.html"style="margin:0 12px; color:#b366ff; text-decoration:underline;">Terms of Use</a>
-        <a href="/privacy.html"style="margin:0 12px; color:#b366ff; text-decoration:underline;">Privacy Policy</a>
-        <a href="/contact.html"style="margin:0 12px; color:#b366ff; text-decoration:underline;">Contact Us</a>
-    </div>
-    <p class="copyright">© 2026 Toolnex. All rights reserved.</p>
-</footer>
+    <footer>
+        <div class="footer-links" style="text-align:center; padding:20px 0;">
+            <a href="/" style="margin:0 12px; color:#b366ff; text-decoration:underline;">Home</a>
+            <a href="/about.html" style="margin:0 12px; color:#b366ff; text-decoration:underline;">About</a>
+            <a href="/terms.html" style="margin:0 12px; color:#b366ff; text-decoration:underline;">Terms of Use</a>
+            <a href="/privacy.html" style="margin:0 12px; color:#b366ff; text-decoration:underline;">Privacy Policy</a>
+            <a href="/contact.html" style="margin:0 12px; color:#b366ff; text-decoration:underline;">Contact Us</a>
+        </div>
+        <p class="copyright">© 2026 Toolnex. All rights reserved.</p>
+    </footer>
+
     <script>
-        const cookieModal = document.querySelector('.cookie-modal');
-        const acceptBtn = document.querySelector('.btn-accept');
-        const declineBtn = document.querySelector('.btn-decline');
+        // ============================================================
+        // 1. 游戏数据（共30款，原有6款靠前排列）
+        // ============================================================
+        const gamesData = [
+            // ----- 原有6款（靠前） -----
+            {
+                id: 1,
+                name: 'Metro Color Rush',
+                category: 'arcade',
+                categoryLabel: 'Arcade',
+                desc: 'A lively color-matching challenge that feels energetic, clear, and easy for global visitors to enjoy.',
+                imgLabel: 'Arcade',
+                href: 'block-puzzle.html'
+            },
+            {
+                id: 2,
+                name: 'Speed Race Drift',
+                category: 'racing',
+                categoryLabel: 'Racing',
+                desc: 'A browser racing suggestion with smooth controls and straightforward driving challenges.',
+                imgLabel: 'Racing',
+                href: 'speed-race.html'
+            },
+            {
+                id: 3,
+                name: 'Farm Village Simulator',
+                category: 'simulation',
+                categoryLabel: 'Simulation',
+                desc: 'A cozy farm guide for readers who enjoy management titles and calm, progressive gameplay.',
+                imgLabel: 'Simulation',
+                href: 'farm-simulator.html'
+            },
+            {
+                id: 4,
+                name: 'Candy Match Blast',
+                category: 'match3',
+                categoryLabel: 'Match 3',
+                desc: 'A friendly match-three title with polished level pacing and rewarding progression.',
+                imgLabel: 'Match 3',
+                href: 'candy-match.html'
+            },
+            {
+                id: 5,
+                name: 'Mini Basketball Shootout',
+                category: 'sports',
+                categoryLabel: 'Sports',
+                desc: 'A sports recommendation designed for quick play sessions and intuitive controls.',
+                imgLabel: 'Sports',
+                href: 'basketball.html'
+            },
+            {
+                id: 6,
+                name: 'Tower Defense Kingdom',
+                category: 'strategy',
+                categoryLabel: 'Strategy',
+                desc: 'A smart strategy listing for readers interested in investing time in tactical gameplay.',
+                imgLabel: 'Strategy',
+                href: 'tower-defense.html'
+            },
 
-        acceptBtn.addEventListener('click', () => {
-            cookieModal.style.display = 'none';
-            localStorage.setItem('cookieConsent', 'accept');
-        });
+            // ----- Puzzle 类（新增5款） -----
+            {
+                id: 7,
+                name: 'Block Puzzle Classic',
+                category: 'puzzle',
+                categoryLabel: 'Puzzle',
+                desc: 'A timeless block-fitting puzzle that sharpens spatial reasoning and strategic thinking.',
+                imgLabel: 'Puzzle',
+                href: 'block-puzzle-classic.html'
+            },
+            {
+                id: 8,
+                name: 'Jigsaw Master',
+                category: 'puzzle',
+                categoryLabel: 'Puzzle',
+                desc: 'Assemble beautiful images piece by piece in this relaxing jigsaw puzzle experience.',
+                imgLabel: 'Puzzle',
+                href: 'jigsaw-master.html'
+            },
+            {
+                id: 9,
+                name: 'Sudoku Daily',
+                category: 'puzzle',
+                categoryLabel: 'Puzzle',
+                desc: 'Challenge your logic with daily Sudoku puzzles across multiple difficulty levels.',
+                imgLabel: 'Puzzle',
+                href: 'sudoku-daily.html'
+            },
+            {
+                id: 10,
+                name: 'Word Search Pro',
+                category: 'puzzle',
+                categoryLabel: 'Puzzle',
+                desc: 'Find hidden words in a grid of letters — a classic word puzzle for vocabulary lovers.',
+                imgLabel: 'Puzzle',
+                href: 'word-search-pro.html'
+            },
+            {
+                id: 11,
+                name: '2048 Challenge',
+                category: 'puzzle',
+                categoryLabel: 'Puzzle',
+                desc: 'Merge tiles to reach the elusive 2048 in this addictive number-sliding puzzle.',
+                imgLabel: 'Puzzle',
+                href: '2048-challenge.html'
+            },
 
-        declineBtn.addEventListener('click', () => {
-            cookieModal.style.display = 'none';
-            localStorage.setItem('cookieConsent', 'decline');
-        });
+            // ----- Arcade 类（新增4款） -----
+            {
+                id: 12,
+                name: 'Space Shooter X',
+                category: 'arcade',
+                categoryLabel: 'Arcade',
+                desc: 'Blast through enemy squadrons in this fast-paced space shooter with power-ups.',
+                imgLabel: 'Arcade',
+                href: 'space-shooter-x.html'
+            },
+            {
+                id: 13,
+                name: 'Neon Runner',
+                category: 'arcade',
+                categoryLabel: 'Arcade',
+                desc: 'Dash through a neon-lit obstacle course in this endless runner with vibrant visuals.',
+                imgLabel: 'Arcade',
+                href: 'neon-runner.html'
+            },
+            {
+                id: 14,
+                name: 'Bubble Pop Adventure',
+                category: 'arcade',
+                categoryLabel: 'Arcade',
+                desc: 'Pop colorful bubbles in this addictive arcade puzzle with delightful sound effects.',
+                imgLabel: 'Arcade',
+                href: 'bubble-pop.html'
+            },
+            {
+                id: 15,
+                name: 'Fruit Ninja Web',
+                category: 'arcade',
+                categoryLabel: 'Arcade',
+                desc: 'Slice flying fruit with precision in this classic arcade action game for all ages.',
+                imgLabel: 'Arcade',
+                href: 'fruit-ninja.html'
+            },
 
-        if (localStorage.getItem('cookieConsent')) {
-            cookieModal.style.display = 'none';
+            // ----- Racing 类（新增3款） -----
+            {
+                id: 16,
+                name: 'Highway Racer',
+                category: 'racing',
+                categoryLabel: 'Racing',
+                desc: 'Speed down busy highways, dodging traffic and racing against the clock.',
+                imgLabel: 'Racing',
+                href: 'highway-racer.html'
+            },
+            {
+                id: 17,
+                name: 'Moto X3M',
+                category: 'racing',
+                categoryLabel: 'Racing',
+                desc: 'Perform stunts and race through obstacle-filled tracks on a powerful dirt bike.',
+                imgLabel: 'Racing',
+                href: 'moto-x3m.html'
+            },
+            {
+                id: 18,
+                name: 'Drift Hunters',
+                category: 'racing',
+                categoryLabel: 'Racing',
+                desc: 'Master the art of drifting on winding tracks with responsive car physics.',
+                imgLabel: 'Racing',
+                href: 'drift-hunters.html'
+            },
+
+            // ----- Simulation 类（新增3款） -----
+            {
+                id: 19,
+                name: 'City Builder Online',
+                category: 'simulation',
+                categoryLabel: 'Simulation',
+                desc: 'Design and manage your own bustling metropolis in this city-building simulator.',
+                imgLabel: 'Simulation',
+                href: 'city-builder.html'
+            },
+            {
+                id: 20,
+                name: 'Cooking Fever Web',
+                category: 'simulation',
+                categoryLabel: 'Simulation',
+                desc: 'Run your own kitchen and serve up delicious meals in this time-management cooking game.',
+                imgLabel: 'Simulation',
+                href: 'cooking-fever.html'
+            },
+            {
+                id: 21,
+                name: 'Pet Care Simulator',
+                category: 'simulation',
+                categoryLabel: 'Simulation',
+                desc: 'Adopt and care for virtual pets — feed, groom, and play with your furry friends.',
+                imgLabel: 'Simulation',
+                href: 'pet-care.html'
+            },
+
+            // ----- Strategy 类（新增3款） -----
+            {
+                id: 22,
+                name: 'Chess Online',
+                category: 'strategy',
+                categoryLabel: 'Strategy',
+                desc: 'Challenge players worldwide in this classic strategy game of chess online.',
+                imgLabel: 'Strategy',
+                href: 'chess-online.html'
+            },
+            {
+                id: 23,
+                name: 'Checkers Classic',
+                category: 'strategy',
+                categoryLabel: 'Strategy',
+                desc: 'Enjoy the timeless board game of checkers with intuitive controls and AI opponents.',
+                imgLabel: 'Strategy',
+                href: 'checkers-classic.html'
+            },
+            {
+                id: 24,
+                name: 'Solitaire Collection',
+                category: 'strategy',
+                categoryLabel: 'Strategy',
+                desc: 'A collection of classic solitaire card games for relaxing strategic play.',
+                imgLabel: 'Strategy',
+                href: 'solitaire.html'
+            },
+
+            // ----- 额外补充（使总数达到30款） -----
+            {
+                id: 25,
+                name: 'Mahjong Dimensions',
+                category: 'strategy',
+                categoryLabel: 'Strategy',
+                desc: 'Match Mahjong tiles in this 3D puzzle strategy game with beautiful visuals.',
+                imgLabel: 'Strategy',
+                href: 'mahjong-dimensions.html'
+            },
+            {
+                id: 26,
+                name: 'Traffic Run',
+                category: 'racing',
+                categoryLabel: 'Racing',
+                desc: 'Navigate through heavy traffic in this fast-paced endless driving challenge.',
+                imgLabel: 'Racing',
+                href: 'traffic-run.html'
+            },
+            {
+                id: 27,
+                name: 'Flight Simulator Lite',
+                category: 'simulation',
+                categoryLabel: 'Simulation',
+                desc: 'Take to the skies in this accessible flight simulator with realistic controls.',
+                imgLabel: 'Simulation',
+                href: 'flight-simulator.html'
+            },
+            {
+                id: 28,
+                name: 'Pac-Man Clone',
+                category: 'arcade',
+                categoryLabel: 'Arcade',
+                desc: 'Relive the classic maze-chase game with a modern twist and smooth controls.',
+                imgLabel: 'Arcade',
+                href: 'pacman-clone.html'
+            },
+            {
+                id: 29,
+                name: 'Soccer Kick Challenge',
+                category: 'sports',
+                categoryLabel: 'Sports',
+                desc: 'Test your accuracy in this free-kick soccer challenge with realistic physics.',
+                imgLabel: 'Sports',
+                href: 'soccer-kick.html'
+            },
+            {
+                id: 30,
+                name: 'Tennis Ace',
+                category: 'sports',
+                categoryLabel: 'Sports',
+                desc: 'Compete in fast-paced tennis matches with intuitive swipe controls.',
+                imgLabel: 'Sports',
+                href: 'tennis-ace.html'
+            }
+        ];
+
+        // ============================================================
+        // 2. 渲染函数
+        // ============================================================
+        const grid = document.getElementById('gameGrid');
+
+        function renderGames(category = 'all', searchTerm = '') {
+            let filtered = gamesData;
+
+            // 分类筛选
+            if (category !== 'all') {
+                filtered = filtered.filter(g => g.category === category);
+            }
+
+            // 搜索筛选（按游戏名称）
+            if (searchTerm.trim() !== '') {
+                const term = searchTerm.toLowerCase().trim();
+                filtered = filtered.filter(g => g.name.toLowerCase().includes(term));
+            }
+
+            // 渲染卡片
+            grid.innerHTML = '';
+            if (filtered.length === 0) {
+                grid.innerHTML =
+                    `<p style="grid-column:1/-1; text-align:center; color:var(--text-secondary); padding:40px 0;">No games found matching your criteria.</p>`;
+                return;
+            }
+
+            filtered.forEach(game => {
+                const card = document.createElement('a');
+                card.className = 'game-card-link';
+                card.href = game.href;
+
+                card.innerHTML = `
+                    <div class="game-card">
+                        <div class="game-img">${game.imgLabel}</div>
+                        <div class="game-info">
+                            <h3 class="game-name">${game.name}</h3>
+                            <p class="game-desc">${game.desc}</p>
+                            <span class="game-tag-small">${game.categoryLabel}</span>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
         }
 
+        // ============================================================
+        // 3. 分类标签点击切换
+        // ============================================================
+        document.querySelectorAll('.tag-item').forEach(tag => {
+            tag.addEventListener('click', function() {
+                document.querySelectorAll('.tag-item').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                const category = this.dataset.category;
+                const searchVal = document.getElementById('searchInput').value;
+                renderGames(category, searchVal);
+            });
+        });
+
+        // ============================================================
+        // 4. 搜索功能
+        // ============================================================
+        const searchInput = document.getElementById('searchInput');
+        let searchTimer;
+
+        searchInput.addEventListener('input', function() {
+            clearTimeout(searchTimer);
+            searchTimer = setTimeout(() => {
+                const activeTag = document.querySelector('.tag-item.active');
+                const category = activeTag ? activeTag.dataset.category : 'all';
+                renderGames(category, this.value);
+            }, 300);
+        });
+
+        // ============================================================
+        // 5. 初始化：默认显示全部
+        // ============================================================
+        renderGames('all', '');
+
+        // ============================================================
+        // 6. Quiz 功能（保持不变）
+        // ============================================================
         const quizQuestions = [
-            {
-                question: 'Which city is known as the City of Light?',
-                options: ['Paris', 'Reykjavík', 'Singapore', 'Cairo'],
-                answer: 'Paris'
-            },
-            {
-                question: 'What language is spoken by most people in Brazil?',
-                options: ['Spanish', 'Portuguese', 'French', 'Italian'],
-                answer: 'Portuguese'
-            },
-            {
-                question: 'Which landmark is located in Egypt?',
-                options: ['Great Wall', 'Eiffel Tower', 'Pyramids of Giza', 'Colosseum'],
-                answer: 'Pyramids of Giza'
-            },
-            {
-                question: 'Which country is famous for the Northern Lights?',
-                options: ['Japan', 'Iceland', 'South Africa', 'Mexico'],
-                answer: 'Iceland'
-            }
+            { question: 'Which city is known as the City of Light?', options: ['Paris', 'Reykjavík', 'Singapore', 'Cairo'],
+                answer: 'Paris' },
+            { question: 'What language is spoken by most people in Brazil?', options: ['Spanish', 'Portuguese', 'French',
+                    'Italian'
+                ], answer: 'Portuguese' },
+            { question: 'Which landmark is located in Egypt?', options: ['Great Wall', 'Eiffel Tower', 'Pyramids of Giza',
+                    'Colosseum'
+                ], answer: 'Pyramids of Giza' },
+            { question: 'Which country is famous for the Northern Lights?', options: ['Japan', 'Iceland', 'South Africa',
+                    'Mexico'
+                ], answer: 'Iceland' }
         ];
 
         const quizQuestionEl = document.getElementById('quizQuestion');
@@ -888,6 +1191,28 @@
         });
 
         renderQuiz();
+
+        // ============================================================
+        // 7. Cookie 同意（保持不变）
+        // ============================================================
+        const cookieModal = document.querySelector('.cookie-modal');
+        const acceptBtn = document.querySelector('.btn-accept');
+        const declineBtn = document.querySelector('.btn-decline');
+
+        acceptBtn.addEventListener('click', () => {
+            cookieModal.style.display = 'none';
+            localStorage.setItem('cookieConsent', 'accept');
+        });
+
+        declineBtn.addEventListener('click', () => {
+            cookieModal.style.display = 'none';
+            localStorage.setItem('cookieConsent', 'decline');
+        });
+
+        if (localStorage.getItem('cookieConsent')) {
+            cookieModal.style.display = 'none';
+        }
     </script>
+
 </body>
 </html>
