@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Game Detail - GameHub</title>
+    <meta name="description" content="Play this curated browser game at GameHub Navigator.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ===== 完整样式（复用首页风格，精简部分交互） ===== */
+        :root {
+            --primary: #1E3A8A;
+            --primary-light: #2563EB;
+            --bg: #F1F5F9;
+            --card: #FFFFFF;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --border: #E2E8F0;
+            --shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+            --shadow-hover: 0 12px 40px rgba(15, 23, 42, 0.14);
+            --radius: 20px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg); color: var(--text-primary); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+        /* ===== Header ===== */
+        header {
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 99;
+            backdrop-filter: blur(8px);
+            background: rgba(255,255,255,0.9);
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            gap: 18px;
+        }
+        .logo { font-size: 24px; font-weight: 800; color: var(--primary); text-decoration: none; letter-spacing: -0.5px; }
+        .logo span { color: #D4AF37; }
+        .main-nav ul { display: flex; list-style: none; gap: 28px; flex-wrap: wrap; }
+        .main-nav a { text-decoration: none; color: var(--text-primary); font-weight: 500; font-size: 14px; transition: color 0.2s; }
+        .main-nav a:hover, .main-nav a.active { color: var(--primary-light); }
+        .search-box { display: flex; align-items: center; border: 1px solid var(--border); border-radius: 999px; background: #fff; padding: 6px 14px; }
+        .search-box input { border: none; outline: none; width: 220px; font-size: 14px; background: transparent; }
+        .menu-toggle { display: none; font-size: 24px; cursor: pointer; }
+
+        /* ===== Game Detail ===== */
+        .detail-section {
+            padding: 40px 0 60px;
+        }
+        .detail-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-hover);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .detail-banner {
+            height: 260px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            background: #E2E8F0;
+            /* 类别色块与首页一致 */
+        }
+        .cat-arcade .detail-banner { background: linear-gradient(135deg, #FDE68A, #F97316); }
+        .cat-racing .detail-banner { background: linear-gradient(135deg, #FCA5A5, #EF4444); }
+        .cat-simulation .detail-banner { background: linear-gradient(135deg, #86EFAC, #22C55E); }
+        .cat-match3 .detail-banner { background: linear-gradient(135deg, #F9A8D4, #EC4899); }
+        .cat-sports .detail-banner { background: linear-gradient(135deg, #93C5FD, #3B82F6); }
+        .cat-strategy .detail-banner { background: linear-gradient(135deg, #C4B5FD, #8B5CF6); }
+        .cat-puzzle .detail-banner { background: linear-gradient(135deg, #67E8F9, #06B6D4); }
+
+        .detail-body {
+            padding: 32px 36px;
+        }
+        .detail-body .game-category {
+            display: inline-block;
+            padding: 4px 16px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: #F1F5F9;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+        .cat-arcade .game-category { background: #FEF3C7; color: #B45309; }
+        .cat-racing .game-category { background: #FEE2E2; color: #B91C1C; }
+        .cat-simulation .game-category { background: #DCFCE7; color: #15803D; }
+        .cat-match3 .game-category { background: #FCE7F3; color: #BE185D; }
+        .cat-sports .game-category { background: #DBEAFE; color: #1D4ED8; }
+        .cat-strategy .game-category { background: #EDE9FE; color: #6D28D9; }
+        .cat-puzzle .game-category { background: #CFFAFE; color: #0E7490; }
+
+        .detail-body h1 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+        .detail-body p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+        .detail-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .btn-play {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 36px;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            text-decoration: none;
+        }
+        .btn-play:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+        .btn-back {
+            padding: 14px 28px;
+            background: #fff;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.2s;
+            text-decoration: none;
+        }
+        .btn-back:hover {
+            background: #F1F5F9;
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            background: #0F172A;
+            padding: 40px 0 24px;
+            color: #94A3B8;
+            margin-top: 40px;
+        }
+        .footer-links { text-align: center; padding: 16px 0; }
+        .footer-links a { margin: 0 14px; color: #94A3B8; text-decoration: underline; font-size: 14px; }
+        .footer-links a:hover { color: #fff; }
+        .copyright { text-align: center; font-size: 13px; padding-top: 20px; border-top: 1px solid #1E293B; color: #64748B; }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            .main-nav { display: none; }
+            .menu-toggle { display: block; }
+            .header-inner { flex-wrap: wrap; }
+            .detail-body { padding: 24px 20px; }
+            .detail-banner { height: 180px; font-size: 60px; }
+            .detail-body h1 { font-size: 26px; }
+            .search-box input { width: 100%; }
+            .search-box { width: 100%; order: 3; }
+        }
+        @media (max-width: 480px) {
+            .detail-banner { height: 140px; font-size: 44px; }
+            .detail-body h1 { font-size: 22px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== Header ===== -->
+    <header>
+        <div class="container header-inner">
+            <a href="index.html" class="logo">Game<span>Hub</span></a>
+            <div class="menu-toggle">☰</div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="Search games...">
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== Game Detail ===== -->
+    <main class="container detail-section">
+        <div class="detail-card" id="detailCard">
+            <!-- 动态内容由 JavaScript 渲染 -->
+        </div>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="terms.html">Terms of Use</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+            <p class="copyright">© 2026 Toolnex. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ============================================================
+        // 1. 游戏数据（与首页完全一致）
+        // ============================================================
+        const gamesData = [
+            // 原有6款（ID 1-6）
+            { id: 1, name: 'Metro Color Rush', category: 'arcade', categoryLabel: 'Arcade', desc: 'A lively color-matching challenge that feels energetic, clear, and easy for global visitors.', icon: '🎨' },
+            { id: 2, name: 'Speed Race Drift', category: 'racing', categoryLabel: 'Racing', desc: 'Smooth controls and straightforward driving challenges in this browser racing title.', icon: '🏎️' },
+            { id: 3, name: 'Farm Village Simulator', category: 'simulation', categoryLabel: 'Simulation', desc: 'A cozy farm management game with calm, progressive gameplay and relaxing atmosphere.', icon: '🌾' },
+            { id: 4, name: 'Candy Match Blast', category: 'match3', categoryLabel: 'Match 3', desc: 'A polished match-three title with rewarding progression and level pacing.', icon: '🍬' },
+            { id: 5, name: 'Mini Basketball Shootout', category: 'sports', categoryLabel: 'Sports', desc: 'Quick-play sports action with intuitive controls – perfect for short sessions.', icon: '🏀' },
+            { id: 6, name: 'Tower Defense Kingdom', category: 'strategy', categoryLabel: 'Strategy', desc: 'Tactical tower defense gameplay that rewards planning and strategic thinking.', icon: '🏰' },
+            // Puzzle (7-11)
+            { id: 7, name: 'Block Puzzle Classic', category: 'puzzle', categoryLabel: 'Puzzle', desc: 'Timeless block-fitting puzzle that sharpens spatial reasoning and strategic thinking.', icon: '🧩' },
+            { id: 8, name: 'Jigsaw Master', category: 'puzzle', categoryLabel: 'Puzzle', desc: 'Relaxing jigsaw puzzles with beautiful images – piece by piece.', icon: '🖼️' },
+            { id: 9, name: 'Sudoku Daily', category: 'puzzle', categoryLabel: 'Puzzle', desc: 'Daily Sudoku challenges across multiple difficulty levels to test your logic.', icon: '🔢' },
+            { id: 10, name: 'Word Search Pro', category: 'puzzle', categoryLabel: 'Puzzle', desc: 'Find hidden words in a letter grid – a classic word puzzle for vocabulary lovers.', icon: '🔍' },
+            { id: 11, name: '2048 Challenge', category: 'puzzle', categoryLabel: 'Puzzle', desc: 'Addictive number-sliding puzzle – merge tiles to reach the elusive 2048.', icon: '🔢' },
+            // Arcade (12-15)
+            { id: 12, name: 'Space Shooter X', category: 'arcade', categoryLabel: 'Arcade', desc: 'Fast-paced space shooter with power-ups and enemy squadrons to blast through.', icon: '🚀' },
+            { id: 13, name: 'Neon Runner', category: 'arcade', categoryLabel: 'Arcade', desc: 'Endless runner with neon visuals and obstacle-dodging action.', icon: '💡' },
+            { id: 14, name: 'Bubble Pop Adventure', category: 'arcade', categoryLabel: 'Arcade', desc: 'Colorful bubble-popping puzzle with satisfying sound effects and progression.', icon: '🫧' },
+            { id: 15, name: 'Fruit Ninja Web', category: 'arcade', categoryLabel: 'Arcade', desc: 'Classic fruit-slicing action – precise swipes for high scores.', icon: '🍉' },
+            // Racing (16-18)
+            { id: 16, name: 'Highway Racer', category: 'racing', categoryLabel: 'Racing', desc: 'Speed through busy highways, dodging traffic and racing the clock.', icon: '🛣️' },
+            { id: 17, name: 'Moto X3M', category: 'racing', categoryLabel: 'Racing', desc: 'Stunt-filled motocross racing with obstacle-filled tracks and physics-based jumps.', icon: '🏍️' },
+            { id: 18, name: 'Drift Hunters', category: 'racing', categoryLabel: 'Racing', desc: 'Master the art of drifting on winding tracks with responsive car physics.', icon: '🎮' }
+        ];
+
+        // ============================================================
+        // 2. 渲染详情页
+        // ============================================================
+        function renderDetail() {
+            const params = new URLSearchParams(window.location.search);
+            const id = parseInt(params.get('id'));
+            const game = gamesData.find(g => g.id === id);
+
+            const container = document.getElementById('detailCard');
+            if (!game) {
+                container.innerHTML = `
+                    <div class="detail-body" style="padding:40px;text-align:center;">
+                        <h1>Game Not Found</h1>
+                        <p>Sorry, we couldn't find the game you're looking for.</p>
+                        <a href="index.html" class="btn-back">← Back to Home</a>
+                    </div>
+                `;
+                document.title = 'Game Not Found - GameHub';
+                return;
+            }
+
+            // 更新页面标题
+            document.title = `${game.name} - GameHub`;
+
+            // 构建详情内容
+            container.innerHTML = `
+                <div class="detail-banner" style="background: ${getCategoryColor(game.category)}; font-size:80px;">
+                    ${game.icon}
+                </div>
+                <div class="detail-body cat-${game.category}">
+                    <span class="game-category">${game.categoryLabel}</span>
+                    <h1>${game.name}</h1>
+                    <p>${game.desc}</p>
+                    <div class="detail-actions">
+                        <a href="#" class="btn-play" onclick="alert('Demo: This would start the game. Replace with actual game URL.'); return false;">
+                            ▶ Play Now
+                        </a>
+                        <a href="index.html" class="btn-back">← Back to Games</a>
+                    </div>
+                </div>
+            `;
+        }
+
+        // 辅助：获取类别对应的渐变色（用于banner背景）
+        function getCategoryColor(cat) {
+            const map = {
+                arcade: 'linear-gradient(135deg, #FDE68A, #F97316)',
+                racing: 'linear-gradient(135deg, #FCA5A5, #EF4444)',
+                simulation: 'linear-gradient(135deg, #86EFAC, #22C55E)',
+                match3: 'linear-gradient(135deg, #F9A8D4, #EC4899)',
+                sports: 'linear-gradient(135deg, #93C5FD, #3B82F6)',
+                strategy: 'linear-gradient(135deg, #C4B5FD, #8B5CF6)',
+                puzzle: 'linear-gradient(135deg, #67E8F9, #06B6D4)'
+            };
+            return map[cat] || '#E2E8F0';
+        }
+
+        // ============================================================
+        // 3. 页面加载时渲染
+        // ============================================================
+        window.addEventListener('DOMContentLoaded', renderDetail);
+
+        // 监听URL变化（支持浏览器前进后退）
+        window.addEventListener('popstate', renderDetail);
+    </script>
+
+</body>
+</html>
