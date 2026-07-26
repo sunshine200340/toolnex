@@ -8,19 +8,19 @@
     <link rel="canonical" href="https://example.com/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #1E3A8A;
             --primary-light: #2563EB;
-            --bg: #F8FAFC;
+            --bg: #F1F5F9;
             --card: #FFFFFF;
             --text-primary: #0F172A;
             --text-secondary: #475569;
             --border: #E2E8F0;
-            --shadow: 0 2px 16px rgba(15, 23, 42, 0.08);
-            --shadow-hover: 0 8px 28px rgba(15, 23, 42, 0.12);
-            --radius: 12px;
+            --shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+            --shadow-hover: 0 12px 40px rgba(15, 23, 42, 0.14);
+            --radius: 20px;
         }
 
         * {
@@ -33,44 +33,48 @@
         body {
             background-color: var(--bg);
             color: var(--text-primary);
-            line-height: 1.65;
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
 
         .container {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
+        /* ===== Header ===== */
         header {
             background: var(--card);
             border-bottom: 1px solid var(--border);
             position: sticky;
             top: 0;
             z-index: 99;
+            backdrop-filter: blur(8px);
+            background: rgba(255,255,255,0.9);
         }
 
         .header-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 18px 0;
+            padding: 16px 0;
             gap: 18px;
         }
 
         .logo {
-            font-size: 22px;
-            font-weight: 700;
+            font-size: 24px;
+            font-weight: 800;
             color: var(--primary);
             text-decoration: none;
             letter-spacing: -0.5px;
         }
+        .logo span { color: #D4AF37; }
 
         .main-nav ul {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 28px;
             flex-wrap: wrap;
         }
 
@@ -78,7 +82,7 @@
             text-decoration: none;
             color: var(--text-primary);
             font-weight: 500;
-            font-size: 15px;
+            font-size: 14px;
             transition: color 0.2s ease;
             position: relative;
         }
@@ -104,13 +108,18 @@
             border: 1px solid var(--border);
             border-radius: 999px;
             background: #fff;
-            padding: 6px 10px;
+            padding: 6px 14px;
+            transition: box-shadow 0.2s;
+        }
+        .search-box:focus-within {
+            box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
+            border-color: var(--primary-light);
         }
 
         .search-box input {
             border: none;
             outline: none;
-            width: 240px;
+            width: 220px;
             font-size: 14px;
             color: var(--text-primary);
             background: transparent;
@@ -118,36 +127,37 @@
 
         .menu-toggle {
             display: none;
-            font-size: 22px;
+            font-size: 24px;
             cursor: pointer;
             color: var(--text-primary);
         }
 
+        /* ===== Hero ===== */
         .hero {
-            padding: 60px 0 40px;
+            padding: 52px 0 36px;
             text-align: center;
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 4vw, 4rem);
-            margin-bottom: 18px;
-            font-weight: 700;
+            font-size: clamp(2.2rem, 3.8vw, 3.6rem);
+            margin-bottom: 16px;
+            font-weight: 800;
             letter-spacing: -1px;
-            line-height: 1.02;
+            line-height: 1.05;
         }
 
         .hero p {
             color: var(--text-secondary);
-            font-size: 17px;
-            max-width: 760px;
-            margin: 0 auto 30px;
-            line-height: 1.8;
+            font-size: 16px;
+            max-width: 700px;
+            margin: 0 auto 24px;
+            line-height: 1.7;
         }
 
         .hero-small {
             font-size: 14px;
             color: #64748B;
-            max-width: 760px;
+            max-width: 700px;
             margin: 0 auto;
             line-height: 1.7;
         }
@@ -156,8 +166,8 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 14px;
-            margin-top: 30px;
+            gap: 12px;
+            margin-top: 28px;
         }
 
         .btn-primary,
@@ -166,17 +176,22 @@
             align-items: center;
             justify-content: center;
             border-radius: 999px;
-            padding: 14px 24px;
+            padding: 12px 28px;
             border: none;
             cursor: pointer;
             font-weight: 600;
+            font-size: 14px;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .btn-primary {
             background: var(--primary);
             color: #fff;
-            box-shadow: 0 12px 30px rgba(37, 99, 235, 0.14);
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.2);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(37, 99, 235, 0.3);
         }
 
         .btn-secondary {
@@ -184,69 +199,71 @@
             color: var(--text-primary);
             border: 1px solid var(--border);
         }
-
-        .btn-primary:hover,
         .btn-secondary:hover {
             transform: translateY(-2px);
+            border-color: var(--primary-light);
         }
 
+        /* ===== Ad Block ===== */
         .ad-block {
-            background: #F8FAFC;
-            border-radius: 18px;
-            padding: 26px;
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 24px;
             text-align: center;
-            margin: 36px 0;
+            margin: 28px 0;
             border: 1px solid var(--border);
+            box-shadow: var(--shadow);
         }
-
         .ad-label {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--text-secondary);
-            margin-bottom: 10px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
         }
 
+        /* ===== Interactive Showcase ===== */
         .interactive-showcase {
             background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 100%);
-            border-radius: 26px;
-            padding: 28px;
+            border-radius: 28px;
+            padding: 28px 32px;
             margin: 28px 0 36px;
             color: #fff;
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-hover);
         }
 
         .interactive-showcase-inner {
             display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 24px;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 28px;
             align-items: center;
         }
 
         .interactive-kicker {
             display: inline-block;
-            padding: 6px 12px;
+            padding: 4px 14px;
             border-radius: 999px;
-            background: rgba(255,255,255,0.16);
-            font-size: 12px;
+            background: rgba(255,255,255,0.18);
+            font-size: 11px;
             letter-spacing: 0.12em;
             text-transform: uppercase;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .interactive-showcase h2 {
             font-size: 24px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            font-weight: 700;
         }
-
         .interactive-showcase p {
             color: rgba(255,255,255,0.9);
             line-height: 1.7;
+            font-size: 15px;
         }
 
         .quiz-card {
             background: rgba(255,255,255,0.12);
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.18);
             border-radius: 20px;
             padding: 20px;
             backdrop-filter: blur(8px);
@@ -256,35 +273,34 @@
             display: flex;
             justify-content: space-between;
             font-size: 13px;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
             color: rgba(255,255,255,0.85);
         }
 
         .quiz-card h3 {
             font-size: 18px;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
         }
 
         .quiz-options {
             display: grid;
             gap: 10px;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
 
         .quiz-option {
             border: 1px solid rgba(255,255,255,0.2);
-            background: rgba(255,255,255,0.16);
+            background: rgba(255,255,255,0.1);
             color: #fff;
-            padding: 12px 14px;
+            padding: 10px 14px;
             border-radius: 12px;
             text-align: left;
             cursor: pointer;
-            transition: transform 0.2s ease, background 0.2s ease;
+            transition: background 0.2s, transform 0.1s;
         }
-
         .quiz-option:hover {
-            transform: translateY(-1px);
-            background: rgba(255,255,255,0.24);
+            background: rgba(255,255,255,0.2);
+            transform: scale(1.01);
         }
 
         .quiz-feedback {
@@ -299,52 +315,88 @@
             border-radius: 999px;
             background: #fff;
             color: var(--primary);
-            padding: 10px 16px;
+            padding: 8px 18px;
             font-weight: 700;
+            font-size: 13px;
             cursor: pointer;
         }
 
+        /* ===== Category Tags ===== */
         .tag-section {
-            margin-bottom: 36px;
+            margin-bottom: 32px;
         }
 
         .tag-title {
             font-size: 22px;
             font-weight: 700;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
             color: var(--text-primary);
         }
 
         .tag-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
         }
 
         .tag-item {
-            padding: 10px 18px;
+            padding: 8px 18px;
             background: var(--card);
             border: 1px solid var(--border);
             border-radius: 999px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
             transition: all 0.2s ease;
             color: var(--text-secondary);
         }
-
         .tag-item.active,
         .tag-item:hover {
             background: var(--primary);
             color: #fff;
             border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(30,58,138,0.2);
         }
 
-        /* ===== 紧凑型游戏网格 ===== */
+        /* ===== Content Section ===== */
+        .content-section {
+            background: #fff;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            padding: 28px 32px;
+            margin-bottom: 40px;
+        }
+
+        .content-section h2 {
+            font-size: 22px;
+            margin-bottom: 14px;
+            color: var(--text-primary);
+        }
+
+        .content-section p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .content-section ul {
+            list-style: disc inside;
+            color: var(--text-secondary);
+            padding-left: 4px;
+        }
+
+        .content-section li {
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        /* ===== 全新游戏卡片设计 ===== */
         .game-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 16px;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 24px;
             margin-bottom: 60px;
         }
 
@@ -352,54 +404,65 @@
             text-decoration: none;
             color: inherit;
             display: block;
+            transition: transform 0.2s ease;
+        }
+        .game-card-link:hover {
+            transform: translateY(-6px);
         }
 
         .game-card {
             background: var(--card);
-            border-radius: 16px;
+            border-radius: var(--radius);
             overflow: hidden;
             box-shadow: var(--shadow);
-            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-            height: 100%;
             border: 1px solid var(--border);
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+            height: 100%;
             display: flex;
             flex-direction: column;
         }
 
         .game-card:hover {
-            transform: translateY(-3px);
             box-shadow: var(--shadow-hover);
             border-color: var(--primary-light);
         }
 
-        .game-img {
-            width: 100%;
-            min-height: 100px;
-            background: #F1F5F9;
+        /* 卡片顶部色块 + 图标 */
+        .game-card-top {
+            height: 100px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-secondary);
-            font-weight: 600;
-            font-size: 12px;
-            border-bottom: 1px solid var(--border);
-            text-transform: uppercase;
-            letter-spacing: 0.6px;
-            padding: 8px 0;
+            font-size: 44px;
+            background: #E2E8F0; /* fallback */
+            transition: filter 0.3s;
+            position: relative;
+        }
+        .game-card:hover .game-card-top {
+            filter: brightness(1.02);
         }
 
-        .game-info {
-            padding: 14px 14px 16px;
+        /* 类别颜色映射 */
+        .cat-arcade .game-card-top { background: linear-gradient(135deg, #FDE68A, #F97316); }
+        .cat-racing .game-card-top { background: linear-gradient(135deg, #FCA5A5, #EF4444); }
+        .cat-simulation .game-card-top { background: linear-gradient(135deg, #86EFAC, #22C55E); }
+        .cat-match3 .game-card-top { background: linear-gradient(135deg, #F9A8D4, #EC4899); }
+        .cat-sports .game-card-top { background: linear-gradient(135deg, #93C5FD, #3B82F6); }
+        .cat-strategy .game-card-top { background: linear-gradient(135deg, #C4B5FD, #8B5CF6); }
+        .cat-puzzle .game-card-top { background: linear-gradient(135deg, #67E8F9, #06B6D4); }
+
+        /* 卡片内容 */
+        .game-card-body {
+            padding: 16px 18px 20px;
             display: flex;
             flex-direction: column;
-            gap: 8px;
             flex: 1;
         }
 
         .game-name {
             font-weight: 700;
-            font-size: 15px;
-            margin-bottom: 4px;
+            font-size: 16px;
+            margin-bottom: 6px;
             color: var(--text-primary);
             line-height: 1.3;
         }
@@ -407,117 +470,90 @@
         .game-desc {
             font-size: 13px;
             color: var(--text-secondary);
-            margin-bottom: 8px;
             line-height: 1.6;
+            margin-bottom: 12px;
             flex: 1;
             display: -webkit-box;
-            -webkit-line-clamp: 3;
+            -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
 
+        .game-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
         .game-tag-small {
             font-size: 11px;
-            padding: 4px 12px;
-            background: #EFF6FF;
-            color: var(--primary-light);
-            border-radius: 999px;
-            display: inline-block;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            align-self: flex-start;
-        }
-
-        .content-section {
-            background: #fff;
-            border-radius: 24px;
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow);
-            padding: 30px;
-            margin-bottom: 52px;
-        }
-
-        .content-section h2 {
-            font-size: 24px;
-            margin-bottom: 18px;
-            color: var(--text-primary);
-        }
-
-        .content-section p {
-            font-size: 15px;
+            letter-spacing: 0.4px;
+            padding: 4px 12px;
+            border-radius: 999px;
+            background: #F1F5F9;
             color: var(--text-secondary);
-            line-height: 1.75;
-            margin-bottom: 16px;
         }
+        /* 标签颜色与类别匹配 */
+        .cat-arcade .game-tag-small { background: #FEF3C7; color: #B45309; }
+        .cat-racing .game-tag-small { background: #FEE2E2; color: #B91C1C; }
+        .cat-simulation .game-tag-small { background: #DCFCE7; color: #15803D; }
+        .cat-match3 .game-tag-small { background: #FCE7F3; color: #BE185D; }
+        .cat-sports .game-tag-small { background: #DBEAFE; color: #1D4ED8; }
+        .cat-strategy .game-tag-small { background: #EDE9FE; color: #6D28D9; }
+        .cat-puzzle .game-tag-small { background: #CFFAFE; color: #0E7490; }
 
-        .content-section ul {
-            list-style: disc inside;
-            color: var(--text-secondary);
-            margin-left: 0;
-            padding-left: 18px;
+        .game-play-icon {
+            font-size: 20px;
+            opacity: 0.4;
+            transition: opacity 0.2s, transform 0.2s;
         }
-
-        .content-section li {
-            margin-bottom: 10px;
+        .game-card:hover .game-play-icon {
+            opacity: 1;
+            transform: translateX(4px);
         }
 
         /* ===== Footer ===== */
         footer {
             background: #0F172A;
-            padding: 56px 0 24px;
+            padding: 40px 0 24px;
             color: #94A3B8;
         }
 
-        .footer-inner {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+        .footer-links {
+            text-align: center;
+            padding: 16px 0;
         }
-
-        .footer-column h3 {
-            font-size: 15px;
-            margin-bottom: 18px;
-            font-weight: 600;
-            color: #F1F5F9;
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column li {
-            margin-bottom: 10px;
-        }
-
-        .footer-column a {
+        .footer-links a {
+            margin: 0 14px;
             color: #94A3B8;
-            text-decoration: none;
+            text-decoration: underline;
             font-size: 14px;
             transition: color 0.2s;
         }
-
-        .footer-column a:hover {
+        .footer-links a:hover {
             color: #fff;
         }
 
         .copyright {
             text-align: center;
             font-size: 13px;
-            padding-top: 24px;
+            padding-top: 20px;
             border-top: 1px solid #1E293B;
             color: #64748B;
         }
 
+        /* ===== Cookie Modal ===== */
         .cookie-modal {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
             background: var(--card);
-            padding: 22px;
-            box-shadow: 0 -4px 20px rgba(15, 23, 42, 0.1);
+            padding: 20px 24px;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
             z-index: 999;
             border-top: 1px solid var(--border);
         }
@@ -529,119 +565,79 @@
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 18px;
+            gap: 16px;
         }
 
         .cookie-text h4 {
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             color: var(--text-primary);
-            font-size: 16px;
+            font-size: 15px;
         }
 
         .cookie-text p {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--text-secondary);
-            max-width: 720px;
+            max-width: 700px;
             line-height: 1.6;
         }
 
         .cookie-buttons button {
-            padding: 9px 22px;
-            border-radius: var(--radius);
+            padding: 8px 20px;
+            border-radius: 999px;
             border: none;
             cursor: pointer;
             font-weight: 500;
-            font-size: 14px;
+            font-size: 13px;
             transition: background 0.2s;
         }
 
         .btn-accept {
             background: var(--primary);
             color: white;
-            margin-right: 10px;
+            margin-right: 8px;
         }
-
-        .btn-accept:hover {
-            background: var(--primary-light);
-        }
+        .btn-accept:hover { background: var(--primary-light); }
 
         .btn-decline {
             background: #F1F5F9;
             color: var(--text-primary);
-            border: 1px solid var(--border) !important;
+            border: 1px solid var(--border);
         }
-
-        .btn-decline:hover {
-            background: #E2E8F0;
-        }
+        .btn-decline:hover { background: #E2E8F0; }
 
         /* ===== Responsive ===== */
         @media screen and (max-width: 768px) {
-            .main-nav {
-                display: none;
-            }
-            .menu-toggle {
-                display: block;
-            }
-            .header-inner {
-                flex-wrap: wrap;
-                gap: 14px;
-            }
-            .hero h1 {
-                font-size: 32px;
-            }
-            .hero {
-                padding: 36px 0 28px;
-            }
-            .game-grid {
-                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-                gap: 12px;
-            }
-            .cookie-inner {
-                flex-direction: column;
-                text-align: left;
-            }
-            .search-box input {
-                width: 100%;
-            }
-            .search-box {
-                width: 100%;
-                order: 3;
-            }
+            .main-nav { display: none; }
+            .menu-toggle { display: block; }
+            .header-inner { flex-wrap: wrap; gap: 12px; }
+            .hero h1 { font-size: 28px; }
+            .hero { padding: 32px 0 24px; }
+            .game-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; }
+            .interactive-showcase-inner { grid-template-columns: 1fr; }
+            .cookie-inner { flex-direction: column; text-align: left; }
+            .search-box input { width: 100%; }
+            .search-box { width: 100%; order: 3; }
+            .game-card-top { height: 80px; font-size: 34px; }
         }
 
         @media screen and (max-width: 480px) {
-            .game-grid {
-                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-                gap: 10px;
-            }
-            .game-info {
-                padding: 10px 10px 12px;
-            }
-            .game-name {
-                font-size: 13px;
-            }
-            .game-desc {
-                font-size: 12px;
-                -webkit-line-clamp: 2;
-            }
-            .game-img {
-                min-height: 80px;
-                font-size: 10px;
-            }
-            .game-tag-small {
-                font-size: 10px;
-                padding: 3px 10px;
-            }
+            .game-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+            .game-card-body { padding: 12px 14px 16px; }
+            .game-name { font-size: 14px; }
+            .game-desc { font-size: 12px; }
+            .game-tag-small { font-size: 10px; padding: 3px 10px; }
+            .game-card-top { height: 70px; font-size: 28px; }
         }
     </style>
 </head>
 <body>
+
+    <!-- ===== Cookie Consent ===== -->
     <div class="cookie-modal">
         <div class="cookie-inner">
             <div class="cookie-text">
-                <h4>Cookie & Privacy Notice</h4>
-                <p>This website uses cookies to enhance content discovery and support relevant, policy-compliant advertising. Review our privacy details before continuing.</p>
+                <h4>🍪 Cookie & Privacy</h4>
+                <p>This website uses cookies to enhance discovery and support advertising. Review our privacy details before continuing.</p>
             </div>
             <div class="cookie-buttons">
                 <button class="btn-accept">Accept</button>
@@ -650,42 +646,47 @@
         </div>
     </div>
 
+    <!-- ===== Header ===== -->
     <header>
         <div class="container header-inner">
-            <a href="index.html" class="logo">GameHub Navigator</a>
+            <a href="index.html" class="logo">Game<span>Hub</span></a>
             <div class="menu-toggle">☰</div>
             <nav class="main-nav">
                 <ul>
                     <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="terms.html">Terms of Service</a></li>
-                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
             <div class="search-box">
-                <input type="text" placeholder="Search game categories..." id="searchInput">
+                <input type="text" placeholder="Search games..." id="searchInput">
             </div>
         </div>
     </header>
 
+    <!-- ===== Main ===== -->
     <main class="container">
+
+        <!-- Hero -->
         <section class="hero">
-            <h1>Curated Browser Game Directory for Global Players</h1>
-            <p>GameHub Navigator is a trusted game discovery portal that guides visitors to quality browser titles and partner destinations. This site focuses on editorial recommendations, clear categories, and advertiser-friendly content rather than direct game hosting.</p>
-            <p class="hero-small">All listings are organized for easy exploration. When you click a title, you are directed to the provider or publisher platform where the game experience is hosted.</p>
+            <h1>Curated Browser Game Directory</h1>
+            <p>Discover quality browser games across categories like Arcade, Racing, Puzzle, and more. Each title links to its official provider.</p>
+            <p class="hero-small">Click any game card to visit the publisher page. No downloads, no hosting — just discovery.</p>
             <div class="hero-actions">
                 <a href="#categories" class="btn-primary">Browse Categories</a>
-                <a href="#featured" class="btn-secondary">View Featured Picks</a>
+                <a href="#featured" class="btn-secondary">View Featured</a>
             </div>
         </section>
 
+        <!-- Interactive Quiz -->
         <section class="interactive-showcase">
             <div class="interactive-showcase-inner">
                 <div>
-                    <p class="interactive-kicker">Live experience</p>
+                    <p class="interactive-kicker">🌍 Live Quiz</p>
                     <h2>Global Culture Quest</h2>
-                    <p>Try a quick quiz about famous landmarks, travel habits, and world culture. It gives the directory a more lively and international feel while still staying simple and friendly.</p>
+                    <p>Test your knowledge about famous landmarks and world cultures. A fun, interactive addition to your browsing experience.</p>
                 </div>
                 <div class="quiz-card">
                     <div class="quiz-top">
@@ -700,72 +701,76 @@
             </div>
         </section>
 
+        <!-- Ad -->
         <div class="ad-block">
-            <div class="ad-label">Advertisement</div>
-            <div>Ad placeholder for a clean, relevant ad unit.</div>
+            <div class="ad-label">Sponsored</div>
+            <div>Ad placeholder — compliant with Google Ads policies.</div>
         </div>
 
+        <!-- Categories -->
         <section class="tag-section" id="categories">
-            <h2 class="tag-title">Browse Game Categories</h2>
+            <h2 class="tag-title">Browse Categories</h2>
             <div class="tag-list" id="categoryTags">
                 <span class="tag-item active" data-category="all">All Games</span>
-                <span class="tag-item" data-category="puzzle">Puzzle</span>
                 <span class="tag-item" data-category="arcade">Arcade</span>
                 <span class="tag-item" data-category="racing">Racing</span>
                 <span class="tag-item" data-category="simulation">Simulation</span>
-                <span class="tag-item" data-category="strategy">Strategy</span>
                 <span class="tag-item" data-category="match3">Match 3</span>
                 <span class="tag-item" data-category="sports">Sports</span>
-                <span class="tag-item" data-category="family">Family</span>
-                <span class="tag-item" data-category="casual">Casual</span>
-                <span class="tag-item" data-category="skill">Skill</span>
-                <span class="tag-item" data-category="kids">Kids Friendly</span>
+                <span class="tag-item" data-category="strategy">Strategy</span>
+                <span class="tag-item" data-category="puzzle">Puzzle</span>
             </div>
         </section>
 
+        <!-- Info -->
         <section class="content-section" id="featured">
             <h2>How to Use This Directory</h2>
-            <p>This portal provides a clear, international-friendly game navigation experience. Each recommended title links to an external partner or publisher page where the game content is hosted. The focus is on useful guidance, category discovery, and a compliant presentation for advertisers.</p>
+            <p>This portal provides a clear, international-friendly navigation experience. Each recommended title links to an external partner page where the game content is hosted.</p>
             <ul>
-                <li>Browse categories to find browser game recommendations.</li>
-                <li>Open any title to visit the official provider or partner page.</li>
-                <li>Enjoy a safe and family-friendly selection with sensible wording and clear expectations.</li>
+                <li>Browse categories to find curated game recommendations.</li>
+                <li>Click any game card to visit the official provider page.</li>
+                <li>Enjoy a safe, family-friendly selection with clear descriptions.</li>
             </ul>
         </section>
 
-        <!-- ===== 游戏网格：由 JavaScript 动态渲染 ===== -->
+        <!-- ===== Game Grid (18 games) ===== -->
         <section class="game-grid" id="gameGrid"></section>
 
+        <!-- Ad -->
         <div class="ad-block">
             <div class="ad-label">Advertisement</div>
-            <div>Ad placeholder for a clean, relevant ad placement. Ensure the final live page uses compliant ad code.</div>
+            <div>Ad placement for relevant offers — policy compliant.</div>
         </div>
+
     </main>
 
+    <!-- ===== Footer ===== -->
     <footer>
-        <div class="footer-links" style="text-align:center; padding:20px 0;">
-            <a href="/" style="margin:0 12px; color:#b366ff; text-decoration:underline;">Home</a>
-            <a href="/about.html" style="margin:0 12px; color:#b366ff; text-decoration:underline;">About</a>
-            <a href="/terms.html" style="margin:0 12px; color:#b366ff; text-decoration:underline;">Terms of Use</a>
-            <a href="/privacy.html" style="margin:0 12px; color:#b366ff; text-decoration:underline;">Privacy Policy</a>
-            <a href="/contact.html" style="margin:0 12px; color:#b366ff; text-decoration:underline;">Contact Us</a>
+        <div class="container">
+            <div class="footer-links">
+                <a href="/">Home</a>
+                <a href="/about.html">About</a>
+                <a href="/terms.html">Terms of Use</a>
+                <a href="/privacy.html">Privacy Policy</a>
+                <a href="/contact.html">Contact Us</a>
+            </div>
+            <p class="copyright">© 2026 Toolnex. All rights reserved.</p>
         </div>
-        <p class="copyright">© 2026 Toolnex. All rights reserved.</p>
     </footer>
 
     <script>
         // ============================================================
-        // 1. 游戏数据（共30款，原有6款靠前排列）
+        // 1. 游戏数据（仅保留 18 款，ID 1-18）
         // ============================================================
         const gamesData = [
-            // ----- 原有6款（靠前） -----
+            // ----- 原有6款 -----
             {
                 id: 1,
                 name: 'Metro Color Rush',
                 category: 'arcade',
                 categoryLabel: 'Arcade',
-                desc: 'A lively color-matching challenge that feels energetic, clear, and easy for global visitors to enjoy.',
-                imgLabel: 'Arcade',
+                desc: 'A lively color-matching challenge that feels energetic, clear, and easy for global visitors.',
+                icon: '🎨',
                 href: 'block-puzzle.html'
             },
             {
@@ -773,8 +778,8 @@
                 name: 'Speed Race Drift',
                 category: 'racing',
                 categoryLabel: 'Racing',
-                desc: 'A browser racing suggestion with smooth controls and straightforward driving challenges.',
-                imgLabel: 'Racing',
+                desc: 'Smooth controls and straightforward driving challenges in this browser racing title.',
+                icon: '🏎️',
                 href: 'speed-race.html'
             },
             {
@@ -782,8 +787,8 @@
                 name: 'Farm Village Simulator',
                 category: 'simulation',
                 categoryLabel: 'Simulation',
-                desc: 'A cozy farm guide for readers who enjoy management titles and calm, progressive gameplay.',
-                imgLabel: 'Simulation',
+                desc: 'A cozy farm management game with calm, progressive gameplay and relaxing atmosphere.',
+                icon: '🌾',
                 href: 'farm-simulator.html'
             },
             {
@@ -791,8 +796,8 @@
                 name: 'Candy Match Blast',
                 category: 'match3',
                 categoryLabel: 'Match 3',
-                desc: 'A friendly match-three title with polished level pacing and rewarding progression.',
-                imgLabel: 'Match 3',
+                desc: 'A polished match-three title with rewarding progression and level pacing.',
+                icon: '🍬',
                 href: 'candy-match.html'
             },
             {
@@ -800,8 +805,8 @@
                 name: 'Mini Basketball Shootout',
                 category: 'sports',
                 categoryLabel: 'Sports',
-                desc: 'A sports recommendation designed for quick play sessions and intuitive controls.',
-                imgLabel: 'Sports',
+                desc: 'Quick-play sports action with intuitive controls – perfect for short sessions.',
+                icon: '🏀',
                 href: 'basketball.html'
             },
             {
@@ -809,19 +814,19 @@
                 name: 'Tower Defense Kingdom',
                 category: 'strategy',
                 categoryLabel: 'Strategy',
-                desc: 'A smart strategy listing for readers interested in investing time in tactical gameplay.',
-                imgLabel: 'Strategy',
+                desc: 'Tactical tower defense gameplay that rewards planning and strategic thinking.',
+                icon: '🏰',
                 href: 'tower-defense.html'
             },
 
-            // ----- Puzzle 类（新增5款） -----
+            // ----- Puzzle (5款) -----
             {
                 id: 7,
                 name: 'Block Puzzle Classic',
                 category: 'puzzle',
                 categoryLabel: 'Puzzle',
-                desc: 'A timeless block-fitting puzzle that sharpens spatial reasoning and strategic thinking.',
-                imgLabel: 'Puzzle',
+                desc: 'Timeless block-fitting puzzle that sharpens spatial reasoning and strategic thinking.',
+                icon: '🧩',
                 href: 'block-puzzle-classic.html'
             },
             {
@@ -829,8 +834,8 @@
                 name: 'Jigsaw Master',
                 category: 'puzzle',
                 categoryLabel: 'Puzzle',
-                desc: 'Assemble beautiful images piece by piece in this relaxing jigsaw puzzle experience.',
-                imgLabel: 'Puzzle',
+                desc: 'Relaxing jigsaw puzzles with beautiful images – piece by piece.',
+                icon: '🖼️',
                 href: 'jigsaw-master.html'
             },
             {
@@ -838,8 +843,8 @@
                 name: 'Sudoku Daily',
                 category: 'puzzle',
                 categoryLabel: 'Puzzle',
-                desc: 'Challenge your logic with daily Sudoku puzzles across multiple difficulty levels.',
-                imgLabel: 'Puzzle',
+                desc: 'Daily Sudoku challenges across multiple difficulty levels to test your logic.',
+                icon: '🔢',
                 href: 'sudoku-daily.html'
             },
             {
@@ -847,8 +852,8 @@
                 name: 'Word Search Pro',
                 category: 'puzzle',
                 categoryLabel: 'Puzzle',
-                desc: 'Find hidden words in a grid of letters — a classic word puzzle for vocabulary lovers.',
-                imgLabel: 'Puzzle',
+                desc: 'Find hidden words in a letter grid – a classic word puzzle for vocabulary lovers.',
+                icon: '🔍',
                 href: 'word-search-pro.html'
             },
             {
@@ -856,19 +861,19 @@
                 name: '2048 Challenge',
                 category: 'puzzle',
                 categoryLabel: 'Puzzle',
-                desc: 'Merge tiles to reach the elusive 2048 in this addictive number-sliding puzzle.',
-                imgLabel: 'Puzzle',
+                desc: 'Addictive number-sliding puzzle – merge tiles to reach the elusive 2048.',
+                icon: '🔢',
                 href: '2048-challenge.html'
             },
 
-            // ----- Arcade 类（新增4款） -----
+            // ----- Arcade (新增4款) -----
             {
                 id: 12,
                 name: 'Space Shooter X',
                 category: 'arcade',
                 categoryLabel: 'Arcade',
-                desc: 'Blast through enemy squadrons in this fast-paced space shooter with power-ups.',
-                imgLabel: 'Arcade',
+                desc: 'Fast-paced space shooter with power-ups and enemy squadrons to blast through.',
+                icon: '🚀',
                 href: 'space-shooter-x.html'
             },
             {
@@ -876,8 +881,8 @@
                 name: 'Neon Runner',
                 category: 'arcade',
                 categoryLabel: 'Arcade',
-                desc: 'Dash through a neon-lit obstacle course in this endless runner with vibrant visuals.',
-                imgLabel: 'Arcade',
+                desc: 'Endless runner with neon visuals and obstacle-dodging action.',
+                icon: '💡',
                 href: 'neon-runner.html'
             },
             {
@@ -885,8 +890,8 @@
                 name: 'Bubble Pop Adventure',
                 category: 'arcade',
                 categoryLabel: 'Arcade',
-                desc: 'Pop colorful bubbles in this addictive arcade puzzle with delightful sound effects.',
-                imgLabel: 'Arcade',
+                desc: 'Colorful bubble-popping puzzle with satisfying sound effects and progression.',
+                icon: '🫧',
                 href: 'bubble-pop.html'
             },
             {
@@ -894,19 +899,19 @@
                 name: 'Fruit Ninja Web',
                 category: 'arcade',
                 categoryLabel: 'Arcade',
-                desc: 'Slice flying fruit with precision in this classic arcade action game for all ages.',
-                imgLabel: 'Arcade',
+                desc: 'Classic fruit-slicing action – precise swipes for high scores.',
+                icon: '🍉',
                 href: 'fruit-ninja.html'
             },
 
-            // ----- Racing 类（新增3款） -----
+            // ----- Racing (新增3款) -----
             {
                 id: 16,
                 name: 'Highway Racer',
                 category: 'racing',
                 categoryLabel: 'Racing',
-                desc: 'Speed down busy highways, dodging traffic and racing against the clock.',
-                imgLabel: 'Racing',
+                desc: 'Speed through busy highways, dodging traffic and racing the clock.',
+                icon: '🛣️',
                 href: 'highway-racer.html'
             },
             {
@@ -914,8 +919,8 @@
                 name: 'Moto X3M',
                 category: 'racing',
                 categoryLabel: 'Racing',
-                desc: 'Perform stunts and race through obstacle-filled tracks on a powerful dirt bike.',
-                imgLabel: 'Racing',
+                desc: 'Stunt-filled motocross racing with obstacle-filled tracks and physics-based jumps.',
+                icon: '🏍️',
                 href: 'moto-x3m.html'
             },
             {
@@ -924,124 +929,21 @@
                 category: 'racing',
                 categoryLabel: 'Racing',
                 desc: 'Master the art of drifting on winding tracks with responsive car physics.',
-                imgLabel: 'Racing',
+                icon: '🎮',
                 href: 'drift-hunters.html'
-            },
-
-            // ----- Simulation 类（新增3款） -----
-            {
-                id: 19,
-                name: 'City Builder Online',
-                category: 'simulation',
-                categoryLabel: 'Simulation',
-                desc: 'Design and manage your own bustling metropolis in this city-building simulator.',
-                imgLabel: 'Simulation',
-                href: 'city-builder.html'
-            },
-            {
-                id: 20,
-                name: 'Cooking Fever Web',
-                category: 'simulation',
-                categoryLabel: 'Simulation',
-                desc: 'Run your own kitchen and serve up delicious meals in this time-management cooking game.',
-                imgLabel: 'Simulation',
-                href: 'cooking-fever.html'
-            },
-            {
-                id: 21,
-                name: 'Pet Care Simulator',
-                category: 'simulation',
-                categoryLabel: 'Simulation',
-                desc: 'Adopt and care for virtual pets — feed, groom, and play with your furry friends.',
-                imgLabel: 'Simulation',
-                href: 'pet-care.html'
-            },
-
-            // ----- Strategy 类（新增4款） -----
-            {
-                id: 22,
-                name: 'Chess Online',
-                category: 'strategy',
-                categoryLabel: 'Strategy',
-                desc: 'Challenge players worldwide in this classic strategy game of chess online.',
-                imgLabel: 'Strategy',
-                href: 'chess-online.html'
-            },
-            {
-                id: 23,
-                name: 'Checkers Classic',
-                category: 'strategy',
-                categoryLabel: 'Strategy',
-                desc: 'Enjoy the timeless board game of checkers with intuitive controls and AI opponents.',
-                imgLabel: 'Strategy',
-                href: 'checkers-classic.html'
-            },
-            {
-                id: 24,
-                name: 'Solitaire Collection',
-                category: 'strategy',
-                categoryLabel: 'Strategy',
-                desc: 'A collection of classic solitaire card games for relaxing strategic play.',
-                imgLabel: 'Strategy',
-                href: 'solitaire.html'
-            },
-            {
-                id: 25,
-                name: 'Mahjong Dimensions',
-                category: 'strategy',
-                categoryLabel: 'Strategy',
-                desc: 'Match Mahjong tiles in this 3D puzzle strategy game with beautiful visuals.',
-                imgLabel: 'Strategy',
-                href: 'mahjong-dimensions.html'
-            },
-
-            // ----- 额外补充（使总数达到30款） -----
-            {
-                id: 26,
-                name: 'Traffic Run',
-                category: 'racing',
-                categoryLabel: 'Racing',
-                desc: 'Navigate through heavy traffic in this fast-paced endless driving challenge.',
-                imgLabel: 'Racing',
-                href: 'traffic-run.html'
-            },
-            {
-                id: 27,
-                name: 'Flight Simulator Lite',
-                category: 'simulation',
-                categoryLabel: 'Simulation',
-                desc: 'Take to the skies in this accessible flight simulator with realistic controls.',
-                imgLabel: 'Simulation',
-                href: 'flight-simulator.html'
-            },
-            {
-                id: 28,
-                name: 'Pac-Man Clone',
-                category: 'arcade',
-                categoryLabel: 'Arcade',
-                desc: 'Relive the classic maze-chase game with a modern twist and smooth controls.',
-                imgLabel: 'Arcade',
-                href: 'pacman-clone.html'
-            },
-            {
-                id: 29,
-                name: 'Soccer Kick Challenge',
-                category: 'sports',
-                categoryLabel: 'Sports',
-                desc: 'Test your accuracy in this free-kick soccer challenge with realistic physics.',
-                imgLabel: 'Sports',
-                href: 'soccer-kick.html'
-            },
-            {
-                id: 30,
-                name: 'Tennis Ace',
-                category: 'sports',
-                categoryLabel: 'Sports',
-                desc: 'Compete in fast-paced tennis matches with intuitive swipe controls.',
-                imgLabel: 'Sports',
-                href: 'tennis-ace.html'
             }
         ];
+
+        // 类别颜色映射（用于卡片动态添加类）
+        const categoryColorMap = {
+            arcade: 'cat-arcade',
+            racing: 'cat-racing',
+            simulation: 'cat-simulation',
+            match3: 'cat-match3',
+            sports: 'cat-sports',
+            strategy: 'cat-strategy',
+            puzzle: 'cat-puzzle'
+        };
 
         // ============================================================
         // 2. 渲染函数
@@ -1051,18 +953,15 @@
         function renderGames(category = 'all', searchTerm = '') {
             let filtered = gamesData;
 
-            // 分类筛选
             if (category !== 'all') {
                 filtered = filtered.filter(g => g.category === category);
             }
 
-            // 搜索筛选（按游戏名称）
             if (searchTerm.trim() !== '') {
                 const term = searchTerm.toLowerCase().trim();
                 filtered = filtered.filter(g => g.name.toLowerCase().includes(term));
             }
 
-            // 渲染卡片
             grid.innerHTML = '';
             if (filtered.length === 0) {
                 grid.innerHTML =
@@ -1071,26 +970,31 @@
             }
 
             filtered.forEach(game => {
-                const card = document.createElement('a');
-                card.className = 'game-card-link';
-                card.href = game.href;
+                const cardLink = document.createElement('a');
+                cardLink.className = `game-card-link cat-${game.category}`;
+                cardLink.href = game.href;
 
-                card.innerHTML = `
+                cardLink.innerHTML = `
                     <div class="game-card">
-                        <div class="game-img">${game.imgLabel}</div>
-                        <div class="game-info">
+                        <div class="game-card-top">
+                            <span style="filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));">${game.icon}</span>
+                        </div>
+                        <div class="game-card-body">
                             <h3 class="game-name">${game.name}</h3>
                             <p class="game-desc">${game.desc}</p>
-                            <span class="game-tag-small">${game.categoryLabel}</span>
+                            <div class="game-meta">
+                                <span class="game-tag-small">${game.categoryLabel}</span>
+                                <span class="game-play-icon">▶</span>
+                            </div>
                         </div>
                     </div>
                 `;
-                grid.appendChild(card);
+                grid.appendChild(cardLink);
             });
         }
 
         // ============================================================
-        // 3. 分类标签点击切换
+        // 3. 分类标签切换
         // ============================================================
         document.querySelectorAll('.tag-item').forEach(tag => {
             tag.addEventListener('click', function() {
@@ -1205,7 +1109,7 @@
         renderQuiz();
 
         // ============================================================
-        // 7. Cookie 同意（保持不变）
+        // 7. Cookie 同意
         // ============================================================
         const cookieModal = document.querySelector('.cookie-modal');
         const acceptBtn = document.querySelector('.btn-accept');
