@@ -435,11 +435,13 @@
             font-size: 44px;
             background: #E2E8F0;
             transition: filter 0.3s;
+            position: relative;
         }
         .game-card:hover .game-card-top {
             filter: brightness(1.02);
         }
 
+        /* 类别颜色映射 */
         .cat-arcade .game-card-top { background: linear-gradient(135deg, #FDE68A, #F97316); }
         .cat-racing .game-card-top { background: linear-gradient(135deg, #FCA5A5, #EF4444); }
         .cat-simulation .game-card-top { background: linear-gradient(135deg, #86EFAC, #22C55E); }
@@ -755,17 +757,18 @@
 
     <script>
         // ============================================================
-        // 1. 游戏数据（18款，ID 1-18）
+        // 1. 游戏数据（共18款，前6款链接保持不变，其余使用新文件名）
         // ============================================================
         const gamesData = [
-            // 原有6款
+            // ----- 原有6款（链接保持不变） -----
             {
                 id: 1,
                 name: 'Metro Color Rush',
                 category: 'arcade',
                 categoryLabel: 'Arcade',
                 desc: 'A lively color-matching challenge that feels energetic, clear, and easy for global visitors.',
-                icon: '🎨'
+                icon: '🎨',
+                href: 'block-puzzle.html'          // 保持不变
             },
             {
                 id: 2,
@@ -773,7 +776,8 @@
                 category: 'racing',
                 categoryLabel: 'Racing',
                 desc: 'Smooth controls and straightforward driving challenges in this browser racing title.',
-                icon: '🏎️'
+                icon: '🏎️',
+                href: 'speed-race.html'            // 保持不变
             },
             {
                 id: 3,
@@ -781,7 +785,8 @@
                 category: 'simulation',
                 categoryLabel: 'Simulation',
                 desc: 'A cozy farm management game with calm, progressive gameplay and relaxing atmosphere.',
-                icon: '🌾'
+                icon: '🌾',
+                href: 'farm-simulator.html'        // 保持不变
             },
             {
                 id: 4,
@@ -789,7 +794,8 @@
                 category: 'match3',
                 categoryLabel: 'Match 3',
                 desc: 'A polished match-three title with rewarding progression and level pacing.',
-                icon: '🍬'
+                icon: '🍬',
+                href: 'candy-match.html'           // 保持不变
             },
             {
                 id: 5,
@@ -797,7 +803,8 @@
                 category: 'sports',
                 categoryLabel: 'Sports',
                 desc: 'Quick-play sports action with intuitive controls – perfect for short sessions.',
-                icon: '🏀'
+                icon: '🏀',
+                href: 'basketball.html'            // 保持不变
             },
             {
                 id: 6,
@@ -805,16 +812,19 @@
                 category: 'strategy',
                 categoryLabel: 'Strategy',
                 desc: 'Tactical tower defense gameplay that rewards planning and strategic thinking.',
-                icon: '🏰'
+                icon: '🏰',
+                href: 'tower-defense.html'         // 保持不变
             },
-            // Puzzle (7-11)
+
+            // ----- Puzzle (5款) -----
             {
                 id: 7,
                 name: 'Block Puzzle Classic',
                 category: 'puzzle',
                 categoryLabel: 'Puzzle',
                 desc: 'Timeless block-fitting puzzle that sharpens spatial reasoning and strategic thinking.',
-                icon: '🧩'
+                icon: '🧩',
+                href: 'block-puzzle-classic.html'  // 新页面
             },
             {
                 id: 8,
@@ -822,7 +832,8 @@
                 category: 'puzzle',
                 categoryLabel: 'Puzzle',
                 desc: 'Relaxing jigsaw puzzles with beautiful images – piece by piece.',
-                icon: '🖼️'
+                icon: '🖼️',
+                href: 'jigsaw-master.html'         // 新页面
             },
             {
                 id: 9,
@@ -830,7 +841,8 @@
                 category: 'puzzle',
                 categoryLabel: 'Puzzle',
                 desc: 'Daily Sudoku challenges across multiple difficulty levels to test your logic.',
-                icon: '🔢'
+                icon: '🔢',
+                href: 'sudoku-daily.html'          // 新页面
             },
             {
                 id: 10,
@@ -838,7 +850,8 @@
                 category: 'puzzle',
                 categoryLabel: 'Puzzle',
                 desc: 'Find hidden words in a letter grid – a classic word puzzle for vocabulary lovers.',
-                icon: '🔍'
+                icon: '🔍',
+                href: 'word-search-pro.html'       // 新页面
             },
             {
                 id: 11,
@@ -846,16 +859,19 @@
                 category: 'puzzle',
                 categoryLabel: 'Puzzle',
                 desc: 'Addictive number-sliding puzzle – merge tiles to reach the elusive 2048.',
-                icon: '🔢'
+                icon: '🔢',
+                href: '2048-challenge.html'        // 新页面
             },
-            // Arcade (12-15)
+
+            // ----- Arcade (新增4款) -----
             {
                 id: 12,
                 name: 'Space Shooter X',
                 category: 'arcade',
                 categoryLabel: 'Arcade',
                 desc: 'Fast-paced space shooter with power-ups and enemy squadrons to blast through.',
-                icon: '🚀'
+                icon: '🚀',
+                href: 'space-shooter-x.html'       // 新页面
             },
             {
                 id: 13,
@@ -863,7 +879,8 @@
                 category: 'arcade',
                 categoryLabel: 'Arcade',
                 desc: 'Endless runner with neon visuals and obstacle-dodging action.',
-                icon: '💡'
+                icon: '💡',
+                href: 'neon-runner.html'           // 新页面
             },
             {
                 id: 14,
@@ -871,7 +888,8 @@
                 category: 'arcade',
                 categoryLabel: 'Arcade',
                 desc: 'Colorful bubble-popping puzzle with satisfying sound effects and progression.',
-                icon: '🫧'
+                icon: '🫧',
+                href: 'bubble-pop.html'            // 新页面
             },
             {
                 id: 15,
@@ -879,16 +897,19 @@
                 category: 'arcade',
                 categoryLabel: 'Arcade',
                 desc: 'Classic fruit-slicing action – precise swipes for high scores.',
-                icon: '🍉'
+                icon: '🍉',
+                href: 'fruit-ninja.html'           // 新页面
             },
-            // Racing (16-18)
+
+            // ----- Racing (新增3款) -----
             {
                 id: 16,
                 name: 'Highway Racer',
                 category: 'racing',
                 categoryLabel: 'Racing',
                 desc: 'Speed through busy highways, dodging traffic and racing the clock.',
-                icon: '🛣️'
+                icon: '🛣️',
+                href: 'highway-racer.html'         // 新页面
             },
             {
                 id: 17,
@@ -896,7 +917,8 @@
                 category: 'racing',
                 categoryLabel: 'Racing',
                 desc: 'Stunt-filled motocross racing with obstacle-filled tracks and physics-based jumps.',
-                icon: '🏍️'
+                icon: '🏍️',
+                href: 'moto-x3m.html'              // 新页面
             },
             {
                 id: 18,
@@ -904,12 +926,13 @@
                 category: 'racing',
                 categoryLabel: 'Racing',
                 desc: 'Master the art of drifting on winding tracks with responsive car physics.',
-                icon: '🎮'
+                icon: '🎮',
+                href: 'drift-hunters.html'         // 新页面
             }
         ];
 
         // ============================================================
-        // 2. 渲染函数（链接指向 game-detail.html?id=...）
+        // 2. 渲染函数
         // ============================================================
         const grid = document.getElementById('gameGrid');
 
@@ -935,8 +958,7 @@
             filtered.forEach(game => {
                 const cardLink = document.createElement('a');
                 cardLink.className = `game-card-link cat-${game.category}`;
-                // 关键修改：链接指向详情页，并传递 id 参数
-                cardLink.href = `game-detail.html?id=${game.id}`;
+                cardLink.href = game.href;   // 使用每个游戏指定的链接
 
                 cardLink.innerHTML = `
                     <div class="game-card">
