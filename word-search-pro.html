@@ -5,7 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Word Search Pro | Toolnex</title>
     <style>
-        :root { --primary: #1E3A8A; --primary-light: #2563EB; --bg: #F1F5F9; --card: #FFFFFF; --text-primary: #0F172A; --text-secondary: #475569; --border: #E2E8F0; }
+        :root { 
+            --primary: #1E3A8A; 
+            --primary-light: #2563EB; 
+            --bg: #F1F5F9; 
+            --card: #FFFFFF; 
+            --text-primary: #0F172A; 
+            --text-secondary: #475569; 
+            --border: #E2E8F0; 
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
         body { background-color: var(--bg); color: var(--text-primary); line-height: 1.6; }
         .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
@@ -18,11 +26,29 @@
         .game-header { padding: 40px 0 20px; text-align: center; }
         .game-header h1 { font-size: 2rem; margin-bottom: 12px; }
         .game-header p { color: var(--text-secondary); max-width: 700px; margin: 0 auto; }
-        .play-card { background: #fff; border-radius: 20px; border: 1px solid var(--border); padding: 60px 32px; text-align: center; margin: 28px 0; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06); }
+        .play-card { 
+            background: #fff; 
+            border-radius: 20px; 
+            border: 1px solid var(--border); 
+            padding: 60px 32px; 
+            text-align: center; 
+            margin: 28px 0; 
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06); 
+        }
         .play-card-icon { font-size: 48px; margin-bottom: 16px; }
         .play-card-title { font-size: 20px; font-weight: 600; margin-bottom: 8px; color: var(--text-primary); }
         .play-card-desc { font-size: 14px; color: var(--text-secondary); margin-bottom: 24px; }
-        .play-btn { display: inline-block; padding: 14px 40px; background: var(--primary-light); color: #fff; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 16px; transition: background 0.2s; }
+        .play-btn { 
+            display: inline-block; 
+            padding: 14px 40px; 
+            background: var(--primary-light); 
+            color: #fff; 
+            border-radius: 10px; 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 16px; 
+            transition: background 0.2s; 
+        }
         .play-btn:hover { background: var(--primary); }
         .ad-block { background: #fff; border-radius: 20px; padding: 24px; text-align: center; margin: 28px 0; border: 1px solid var(--border); }
         .ad-label { font-size: 11px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
@@ -36,32 +62,96 @@
         .footer-links a { margin: 0 14px; color: #94A3B8; text-decoration: underline; font-size: 14px; }
         .footer-links a:hover { color: #fff; }
         .copyright { text-align: center; font-size: 13px; padding-top: 20px; border-top: 1px solid #1E293B; color: #64748B; }
-        @media screen and (max-width: 768px) { .main-nav { display: none; } .game-header h1 { font-size: 1.5rem; } .content-section { padding: 20px; } .play-card { padding: 40px 20px; } }
+        @media screen and (max-width: 768px) { 
+            .main-nav { display: none; } 
+            .game-header h1 { font-size: 1.5rem; } 
+            .content-section { padding: 20px; } 
+            .play-card { padding: 40px 20px; } 
+        }
     </style>
 </head>
 <body>
-    <header><div class="container header-inner"><a href="/" class="logo">Toolnex</a><nav class="main-nav"><ul><li><a href="/">Home</a></li><li><a href="/about.html">About</a></li><li><a href="/terms.html">Terms</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/contact.html">Contact</a></li></ul></nav></div></header>
-    <section class="game-header"><div class="container"><h1>Word Search Pro</h1><p>This listing highlights a partner-hosted browser game preview. Toolnex is a directory and recommendation portal, with external content provided by the partner site.</p></div></section>
+    <header>
+        <div class="container header-inner">
+            <a href="/" class="logo">Toolnex</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/terms.html">Terms</a></li>
+                    <li><a href="/privacy.html">Privacy</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="game-header">
+        <div class="container">
+            <h1>Word Search Pro</h1>
+            <p>This listing highlights a partner-hosted browser game preview. Toolnex is a directory and recommendation portal, with external content provided by the partner site.</p>
+        </div>
+    </section>
+
     <div class="container">
         <div class="play-card">
-            <div class="play-card-icon">🎮</div>
+            <div class="play-card-icon">🔍</div>
             <div class="play-card-title">Play Word Search Pro</div>
-            <div class="play-card-desc">This game is hosted on CrazyGames. Click below to play directly on their platform.</div>
-            <a href="https://www.crazygames.com/game/word-city-crossed" target="_blank" rel="noopener noreferrer" class="play-btn">Play on CrazyGames →</a>
+            <div class="play-card-desc">
+                This game is hosted on CrazyGames. Click below to play directly on their platform.
+            </div>
+            <!-- ✅ FIXED LINK -->
+            <a href="https://www.crazygames.com/game/word-search" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="play-btn">
+                Play on CrazyGames →
+            </a>
         </div>
-        <div class="ad-block"><div class="ad-label">Advertisement</div><p>Google AdSense Ad Unit Placeholder</p></div>
+
+        <div class="ad-block">
+            <div class="ad-label">Advertisement</div>
+            <p>Google AdSense Ad Unit Placeholder</p>
+        </div>
+
         <div class="content-section">
-            <h2>Game Overview</h2><p>Word Search Pro challenges you to find hidden words in a letter grid. Words can appear horizontally, vertically, diagonally, and even backwards.</p>
-            <h2>How to Play</h2><ul><li>Review the word list at the bottom of the screen.</li>
-<li>Click and drag across letters to highlight a found word.</li>
-<li>Words can run in any direction: horizontal, vertical, diagonal, or reversed.</li>
-<li>Find all listed words to complete the puzzle.</li></ul>
-            <h2>Quick Tips</h2><ul><li>Scan for uncommon letters first — they narrow down possible locations.</li>
-<li>Check diagonals; many players overlook diagonal placements.</li>
-<li>Work through the word list systematically rather than scanning randomly.</li></ul>
+            <h2>Game Overview</h2>
+            <p>Word Search Pro challenges you to find hidden words in a letter grid. Words can appear horizontally, vertically, diagonally, and even backwards.</p>
+            
+            <h2>How to Play</h2>
+            <ul>
+                <li>Review the word list at the bottom of the screen.</li>
+                <li>Click and drag across letters to highlight a found word.</li>
+                <li>Words can run in any direction: horizontal, vertical, diagonal, or reversed.</li>
+                <li>Find all listed words to complete the puzzle.</li>
+            </ul>
+
+            <h2>Quick Tips</h2>
+            <ul>
+                <li>Scan for uncommon letters first — they narrow down possible locations.</li>
+                <li>Check diagonals; many players overlook diagonal placements.</li>
+                <li>Work through the word list systematically rather than scanning randomly.</li>
+            </ul>
         </div>
-        <div class="ad-block"><div class="ad-label">Advertisement</div><p>Ad placement for relevant offers — policy compliant.</p></div>
+
+        <div class="ad-block">
+            <div class="ad-label">Advertisement</div>
+            <p>Ad placement for relevant offers — policy compliant.</p>
+        </div>
     </div>
-    <footer><div class="container"><div class="footer-links"><a href="/">Home</a><a href="/about.html">About</a><a href="/terms.html">Terms of Use</a><a href="/cookie-policy.html">Cookie Policy</a><a href="/privacy.html">Privacy Policy</a><a href="/contact.html">Contact Us</a></div><p class="copyright">© 2026 Toolnex. All rights reserved.</p></div></footer>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="/">Home</a>
+                <a href="/about.html">About</a>
+                <a href="/terms.html">Terms of Use</a>
+                <a href="/cookie-policy.html">Cookie Policy</a>
+                <a href="/privacy.html">Privacy Policy</a>
+                <a href="/contact.html">Contact Us</a>
+            </div>
+            <p class="copyright">© 2026 Toolnex. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
