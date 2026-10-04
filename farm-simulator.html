@@ -1,121 +1,167 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9894972538238783"
-     crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
-    <title>农场模拟器</title>
-    <style>
-        * {margin: 0; padding: 0; box-sizing: border-box;}
-        body {background: #87CEEB; display: flex; flex-direction: column; align-items: center; padding: 20px;}
-        #gameCanvas {
-            border: 4px solid #654321;
-            background: #7ccd7c;
-        }
-        .control-panel {
-            margin-top: 12px;
-            display: flex;
-            gap: 10px;
-        }
-        button {
-            padding: 8px 16px;
-            font-size: 14px;
-            cursor: pointer;
-            background: #f4a460;
-            border: none;
-            border-radius: 4px;
-        }
-        button:hover {background: #ff8c00;}
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tiny Farm Simulator - Play Free Online | Toolnex</title>
+<meta name="description" content="Play Tiny Farm Simulator free online. Plant seeds, water crops and grow your pocket farm in this cozy incremental browser game.">
+<link rel="canonical" href="https://www.toolnex.xyz/farm-simulator.html">
+<meta property="og:title" content="Tiny Farm Simulator | Toolnex">
+<meta property="og:description" content="Play Tiny Farm Simulator free online. Plant seeds, water crops and grow your pocket farm in this cozy incremental browser game.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.toolnex.xyz/farm-simulator.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#1E3A8A;--primary-light:#2563EB;--bg:#F1F5F9;--card:#FFF;--text:#0F172A;
+--muted:#475569;--border:#E2E8F0;--shadow:0 4px 20px rgba(15,23,42,.06);--radius:16px}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+body{background:var(--bg);color:var(--text);line-height:1.65}
+.container{max-width:1080px;margin:0 auto;padding:0 20px}
+header{background:rgba(255,255,255,.92);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:99;backdrop-filter:blur(8px)}
+.header-inner{display:flex;justify-content:space-between;align-items:center;padding:14px 0;gap:16px;flex-wrap:wrap}
+.logo{font-size:23px;font-weight:800;color:var(--primary);text-decoration:none;letter-spacing:-.5px}
+.logo span{color:#D4AF37}
+nav ul{display:flex;list-style:none;gap:22px;flex-wrap:wrap}
+nav a{text-decoration:none;color:var(--text);font-weight:500;font-size:14px}
+nav a:hover{color:var(--primary-light)}
+.hero{padding:42px 0 26px;text-align:center}
+.hero h1{font-size:34px;letter-spacing:-.8px;line-height:1.25}
+.hero p{color:var(--muted);max-width:640px;margin:12px auto 0}
+.btn{display:inline-block;background:var(--primary-light);color:#fff;padding:11px 24px;border-radius:12px;text-decoration:none;font-weight:600;font-size:14px;border:none;cursor:pointer}
+.btn:hover{background:var(--primary)}
+.btn.ghost{background:#fff;color:var(--primary-light);border:1px solid var(--border)}
+section{padding:26px 0}
+h2{font-size:24px;letter-spacing:-.4px;margin-bottom:14px}
+h3{font-size:17px;margin:18px 0 8px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.game-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;text-decoration:none;color:var(--text);box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s;display:block}
+.game-card:hover{transform:translateY(-4px);box-shadow:0 12px 34px rgba(15,23,42,.12)}
+.game-card .icon{font-size:34px}
+.game-card .name{font-weight:700;margin:10px 0 4px}
+.game-card .cat{display:inline-block;background:#EFF6FF;color:var(--primary-light);font-size:12px;font-weight:600;padding:2px 10px;border-radius:99px}
+.game-card p{color:var(--muted);font-size:13.5px;margin-top:8px}
+/* game stage */
+.stage{background:#0F172A;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+.stage-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;color:#E2E8F0;margin-bottom:12px}
+.stage-head .stat{background:#1E293B;border-radius:10px;padding:6px 14px;font-size:14px}
+.stage-head .stat b{color:#FBBF24}
+.stage canvas{width:100%;max-width:720px;display:block;margin:0 auto;background:#111C33;border-radius:12px;touch-action:none}
+.stage .dom-game{max-width:720px;margin:0 auto}
+.stage button{background:var(--primary-light);border:none;color:#fff;font-weight:600;padding:9px 20px;border-radius:10px;cursor:pointer;font-size:14px}
+.stage button:hover{background:#3B82F6}
+.stage .hint{color:#94A3B8;font-size:13px;margin-top:10px;text-align:center}
+/* dom game shared */
+.g-board{display:grid;gap:6px;justify-content:center;margin:0 auto}
+.g-cell{display:flex;align-items:center;justify-content:center;font-weight:700;border-radius:8px;user-select:none;cursor:pointer}
+.msg{color:#E2E8F0;text-align:center;min-height:24px;font-weight:600;margin-top:10px}
+/* faq */
+.faq details{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin-bottom:10px}
+.faq summary{font-weight:600;cursor:pointer}
+.faq p{color:var(--muted);margin-top:10px;font-size:14.5px}
+footer{background:var(--card);border-top:1px solid var(--border);margin-top:40px}
+.footer-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;padding:26px 0;font-size:13.5px;color:var(--muted)}
+.footer-inner a{color:var(--muted);text-decoration:none;margin-right:16px}
+.footer-inner a:hover{color:var(--primary-light)}
+.prose p{margin-bottom:12px;color:#334155}
+.prose ul,.prose ol{margin:0 0 12px 22px;color:#334155}
+.prose li{margin-bottom:6px}
+.badge{display:inline-block;background:#EFF6FF;color:var(--primary-light);font-size:12.5px;font-weight:600;padding:4px 14px;border-radius:99px;margin-bottom:12px}
+@media(max-width:640px){.hero h1{font-size:26px}h2{font-size:20px}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "url": "https://www.toolnex.xyz/farm-simulator.html", "mainEntity": [{"@type": "Question", "name": "Do crops wither if I wait?", "acceptedAnswer": {"@type": "Answer", "text": "Never - Tiny Farm has no withering or real-time waiting. Crops advance when you click them."}}, {"@type": "Question", "name": "Is there an ending?", "acceptedAnswer": {"@type": "Answer", "text": "Reaching 500 coins shows a victory banner, and you can keep playing endlessly after that."}}, {"@type": "Question", "name": "Can I lose the farm?", "acceptedAnswer": {"@type": "Answer", "text": "No fail state exists - the only risk is planting seeds you cannot afford to water."}}]}</script>
 </head>
 <body>
-    <h2>2D农场模拟游戏</h2>
-    <!-- 游戏渲染画布，界面核心容器 -->
-    <canvas id="gameCanvas" width="800" height="500"></canvas>
-    <div class="control-panel">
-        <button onclick="plantWheat()">种植小麦</button>
-        <button onclick="waterCrop()">浇水</button>
-        <button onclick="harvest()">收割作物</button>
-    </div>
+<header><div class="container header-inner">
+<a class="logo" href="index.html">Tool<span>nex</span></a>
+<nav><ul><a href="index.html">Home</a><a href="games.html">Categories</a><a href="about.html">About</a><a href="contact.html">Contact</a></ul></nav>
+</div></header>
+<div class="hero container" style="text-align:left;max-width:1080px">
+<span class="badge">Simulation &middot; Free &middot; No download</span>
+<h1>Tiny Farm Simulator</h1>
+<p>Plant, water, harvest - grow a pocket farm from three plots.</p>
+</div>
+<section><div class="container">
+<div class="stage">
+<div class="stage-head">
+<div class="stat"><span>Coins: <b id="tfCoins">20</b></span><span>Goal: <b>500</b></span></div>
+<button id="btnRestart" type="button">Restart</button>
+</div>
+<div class="dom-game"><div class="g-board" id="board" style="grid-template-columns:repeat(3,120px)"></div><div class="msg" id="msg"></div><div id="seedbar" style="display:flex;gap:12px;justify-content:center;margin-top:14px"></div></div>
+<div class="hint">Click a plot to plant, water, grow or harvest</div>
+</div>
+</div></section>
+<section class="prose"><div class="container card">
+<h2>About This Game</h2>
+<p>Tiny Farm Simulator is a cozy three-by-three field where every plot runs a small lifecycle: plant a seed, water it, watch it sprout, then harvest and sell. Profits buy better seeds, better seeds sell for more, and the loop compounds into a proper little economy.</p>
+<p>There is no fail state and no timer - the pleasure is in watching a tidy grid of sprouts turn into a well-oiled harvest machine. The goal marker is 500 coins; reaching it proves you have mastered the rhythm.</p>
+<h3>How to Play</h3>
+<ol><li>Click a plot and choose a seed (wheat costs 5 coins, carrots 15).</li><li>Click a planted plot to water it - unwatered crops do not grow.</li><li>Each click on a growing crop advances it one stage.</li><li>Harvest mature crops to sell them; earn 500 coins to win the farm.</li></ol>
+<h3>Tips &amp; Strategy</h3>
+<ul><li>Wheat is your early engine: cheap in, fast out, steady profit.</li><li>Reinvest in carrots as soon as you can afford three of them - the margin compounds.</li><li>Water immediately after planting; idle plots earn nothing.</li><li>Work in columns: plant the left column, water the middle, harvest the right.</li></ul>
+</div></section>
+<section class="faq"><div class="container"><h2>Frequently Asked Questions</h2><details><summary>Do crops wither if I wait?</summary><p>Never - Tiny Farm has no withering or real-time waiting. Crops advance when you click them.</p></details><details><summary>Is there an ending?</summary><p>Reaching 500 coins shows a victory banner, and you can keep playing endlessly after that.</p></details><details><summary>Can I lose the farm?</summary><p>No fail state exists - the only risk is planting seeds you cannot afford to water.</p></details></div></section>
+<section><div class="container">
+<h2>More Simulation Games</h2>
+<div class="grid"><a class="game-card" href="block-puzzle.html">
+<div class="icon">🎨</div>
+<div class="name">Color Rush Reflex</div>
+<span class="cat">Arcade</span>
+<p>Spot the target color in a shifting grid and tap it before your streak resets.</p></a><a class="game-card" href="neon-runner.html">
+<div class="icon">⚡</div>
+<div class="name">Neon Dash</div>
+<span class="cat">Arcade</span>
+<p>An endless neon runner - jump the obstacles, chase your best distance.</p></a><a class="game-card" href="bubble-pop.html">
+<div class="icon">🫧</div>
+<div class="name">Bubble Pop Adventure</div>
+<span class="cat">Arcade</span>
+<p>Aim, bounce and pop matching bubbles before the wall closes in.</p></a></div>
+</div></section>
+<footer><div class="container footer-inner">
+<div><a href="about.html">About</a><a href="contact.html">Contact</a>
+<a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="cookie-policy.html">Cookie Policy</a></div>
+<div>&copy; 2026 Toolnex &middot; Free browser games, playable instantly.</div>
+</div></footer>
+<script>
+"use strict";
 
-    <script>
-        // 获取画布与绘图上下文
-        const canvas = document.getElementById('gameCanvas');
-        const ctx = canvas.getContext('2d');
-        // 农场地块数据
-        const farmLand = [];
-        const landSize = 100;
-        // 初始化9块农田
-        function initFarm() {
-            for(let row = 0; row < 3; row++) {
-                for(let col = 0; col < 3; col++) {
-                    farmLand.push({
-                        x: col * landSize + 50,
-                        y: row * landSize + 50,
-                        type: null, // wheat/carrot/null
-                        growStage: 0 // 0未种植 1幼苗 2成熟
-                    })
-                }
-            }
-            renderFarm();
-        }
-        // 渲染农场界面
-        function renderFarm() {
-            // 清空画布
-            ctx.clearRect(0,0,canvas.width,canvas.height);
-            // 绘制土地
-            farmLand.forEach(land => {
-                // 泥土底色
-                ctx.fillStyle = '#966b47';
-                ctx.fillRect(land.x, land.y, landSize-10, landSize-10);
-                ctx.strokeStyle = '#5a3c21';
-                ctx.strokeRect(land.x, land.y, landSize-10, landSize-10);
-                // 绘制作物
-                if(land.type === 'wheat') {
-                    if(land.growStage === 1) {
-                        ctx.fillStyle = '#90ee90';
-                        ctx.fillRect(land.x+35, land.y+40, 20, 30);
-                    } else if(land.growStage === 2) {
-                        ctx.fillStyle = '#ffd700';
-                        ctx.fillRect(land.x+30, land.y+25, 30, 45);
-                    }
-                }
-            })
-        }
-        // 种植小麦
-        function plantWheat() {
-            const emptyLand = farmLand.find(l => l.type === null);
-            if(emptyLand) {
-                emptyLand.type = 'wheat';
-                emptyLand.growStage = 1;
-                renderFarm();
-                // 自动成熟倒计时
-                setTimeout(()=>{
-                    emptyLand.growStage = 2;
-                    renderFarm();
-                }, 3000)
-            } else alert("没有空地可以种植！")
-        }
-        // 浇水（加速成熟）
-        function waterCrop() {
-            const unripe = farmLand.find(l => l.type && l.growStage === 1);
-            if(unripe) {
-                unripe.growStage = 2;
-                renderFarm();
-            } else alert("暂无幼苗需要浇水！")
-        }
-        // 收割
-        function harvest() {
-            const ripe = farmLand.find(l => l.type && l.growStage === 2);
-            if(ripe) {
-                ripe.type = null;
-                ripe.growStage = 0;
-                renderFarm();
-                alert("收割成功，获得小麦！")
-            } else alert("没有成熟作物！")
-        }
-        // 页面加载完成初始化游戏界面
-        window.onload = initFarm;
-    </script>
+const STAGES=['','🌱','🌿','🌾'];
+const SEEDS={wheat:{cost:5,sell:14,emoji:'🌾',label:'Wheat (5)'},
+carrot:{cost:15,sell:38,emoji:'🥕',label:'Carrot (15)'}};
+let coins=20,plots=Array.from({length:9},()=>({seed:null,stage:0,watered:false}));
+let chosen='wheat';
+function render(){const b=document.getElementById('board');b.innerHTML='';
+plots.forEach((p,i)=>{const d=document.createElement('div');d.className='g-cell';
+d.style.cssText='width:120px;height:120px;font-size:38px;flex-direction:column;'+
+'background:'+(p.seed?(p.stage>=3?'#166534':'#14532d'):'#3f6212')+';cursor:pointer';
+d.innerHTML=(p.seed?STAGES[Math.min(3,p.stage)]:'<span style="font-size:26px;opacity:.4">＋</span>')+
+'<span style="font-size:12px;color:#E2E8F0;opacity:.85">'+
+(p.seed?(p.stage>=3?'READY - tap to harvest':(p.watered?'growing':'needs water')):'empty')+'</span>';
+d.onclick=()=>tap(i);b.appendChild(d);});
+document.getElementById('tfCoins').textContent=coins;
+if(coins>=500){document.getElementById('msg').textContent='Farm master! 500 coins earned - keep growing!';}}
+function tap(i){const p=plots[i];
+if(!p.seed){if(coins<SEEDS[chosen].cost){document.getElementById('msg').textContent='Not enough coins';return;}
+coins-=SEEDS[chosen].cost;p.seed=chosen;p.stage=1;p.watered=false;
+document.getElementById('msg').textContent='';}
+else if(p.stage>=3){coins+=SEEDS[p.seed].sell;p.seed=null;p.stage=0;p.watered=false;}
+else if(!p.watered){p.watered=true;document.getElementById('msg').textContent='Watered! Tap to grow';}
+else p.stage++;
+render();}
+const bar=document.getElementById('seedbar');
+Object.entries(SEEDS).forEach(([k,s])=>{const d=document.createElement('div');
+d.className='g-cell';d.id='seed_'+k;
+d.style.cssText='width:130px;height:64px;background:#1E3A8A;color:#fff;font-size:15px;cursor:pointer;flex-direction:column';
+d.innerHTML=s.emoji+'<span>'+s.label+'</span>';
+d.onclick=()=>{chosen=k;document.querySelectorAll('#seedbar .g-cell').forEach(e=>e.style.outline='');
+d.style.outline='3px solid #FBBF24';};
+bar.appendChild(d);});
+document.querySelector('#seed_wheat').style.outline='3px solid #FBBF24';
+document.getElementById('btnRestart').addEventListener('click',()=>{coins=20;
+plots=Array.from({length:9},()=>({seed:null,stage:0,watered:false}));render();});
+render();
+</script>
 </body>
 </html>

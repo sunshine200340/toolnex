@@ -1,164 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9894972538238783"
-     crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Toolnex</title>
-    <style>
-        /* 原有样式保留 */
-        body { font-family: 'Segoe UI', sans-serif; line-height: 1.8; color: #333; background: #f8f9fa; margin: 0; padding: 20px; }
-        .container { max-width: 800px; margin: 40px auto; background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 2px 15px rgba(0,0,0,0.1); }
-        h1 { color: #0A2463; border-bottom: 2px solid #D4AF37; padding-bottom: 10px; }
-        h2 { color: #0A2463; margin-top: 30px; }
-        p { margin-bottom: 15px; }
-        .back-btn { display: inline-block; margin-top: 20px; padding: 10px 20px; background: #0A2463; color: #fff; text-decoration: none; border-radius: 4px; }
-        .back-btn:hover { background: #1E3A8A; }
-        
-        /* 新增：语言切换按钮样式 */
-        .lang-switch {
-            text-align: right;
-            margin-bottom: 20px;
-        }
-        .lang-btn {
-            padding: 8px 16px;
-            margin-left: 10px;
-            border: 1px solid #0A2463;
-            border-radius: 4px;
-            background: #fff;
-            color: #0A2463;
-            cursor: pointer;
-            font-size: 14px;
-        }
-        .lang-btn.active {
-            background: #0A2463;
-            color: #fff;
-        }
-        .lang-btn:hover {
-            background: #f0f4ff;
-        }
-        .lang-btn.active:hover {
-            background: #1E3A8A;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy | Toolnex</title>
+<meta name="description" content="Toolnex privacy policy: what data we collect, how cookies and advertising work, and the rights you have over your information.">
+<link rel="canonical" href="https://www.toolnex.xyz/privacy.html">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#1E3A8A;--primary-light:#2563EB;--bg:#F1F5F9;--card:#FFF;--text:#0F172A;
+--muted:#475569;--border:#E2E8F0;--shadow:0 4px 20px rgba(15,23,42,.06);--radius:16px}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+body{background:var(--bg);color:var(--text);line-height:1.65}
+.container{max-width:1080px;margin:0 auto;padding:0 20px}
+header{background:rgba(255,255,255,.92);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:99;backdrop-filter:blur(8px)}
+.header-inner{display:flex;justify-content:space-between;align-items:center;padding:14px 0;gap:16px;flex-wrap:wrap}
+.logo{font-size:23px;font-weight:800;color:var(--primary);text-decoration:none;letter-spacing:-.5px}
+.logo span{color:#D4AF37}
+nav ul{display:flex;list-style:none;gap:22px;flex-wrap:wrap}
+nav a{text-decoration:none;color:var(--text);font-weight:500;font-size:14px}
+nav a:hover{color:var(--primary-light)}
+.hero{padding:42px 0 26px;text-align:center}
+.hero h1{font-size:34px;letter-spacing:-.8px;line-height:1.25}
+.hero p{color:var(--muted);max-width:640px;margin:12px auto 0}
+.btn{display:inline-block;background:var(--primary-light);color:#fff;padding:11px 24px;border-radius:12px;text-decoration:none;font-weight:600;font-size:14px;border:none;cursor:pointer}
+.btn:hover{background:var(--primary)}
+.btn.ghost{background:#fff;color:var(--primary-light);border:1px solid var(--border)}
+section{padding:26px 0}
+h2{font-size:24px;letter-spacing:-.4px;margin-bottom:14px}
+h3{font-size:17px;margin:18px 0 8px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.game-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;text-decoration:none;color:var(--text);box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s;display:block}
+.game-card:hover{transform:translateY(-4px);box-shadow:0 12px 34px rgba(15,23,42,.12)}
+.game-card .icon{font-size:34px}
+.game-card .name{font-weight:700;margin:10px 0 4px}
+.game-card .cat{display:inline-block;background:#EFF6FF;color:var(--primary-light);font-size:12px;font-weight:600;padding:2px 10px;border-radius:99px}
+.game-card p{color:var(--muted);font-size:13.5px;margin-top:8px}
+/* game stage */
+.stage{background:#0F172A;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+.stage-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;color:#E2E8F0;margin-bottom:12px}
+.stage-head .stat{background:#1E293B;border-radius:10px;padding:6px 14px;font-size:14px}
+.stage-head .stat b{color:#FBBF24}
+.stage canvas{width:100%;max-width:720px;display:block;margin:0 auto;background:#111C33;border-radius:12px;touch-action:none}
+.stage .dom-game{max-width:720px;margin:0 auto}
+.stage button{background:var(--primary-light);border:none;color:#fff;font-weight:600;padding:9px 20px;border-radius:10px;cursor:pointer;font-size:14px}
+.stage button:hover{background:#3B82F6}
+.stage .hint{color:#94A3B8;font-size:13px;margin-top:10px;text-align:center}
+/* dom game shared */
+.g-board{display:grid;gap:6px;justify-content:center;margin:0 auto}
+.g-cell{display:flex;align-items:center;justify-content:center;font-weight:700;border-radius:8px;user-select:none;cursor:pointer}
+.msg{color:#E2E8F0;text-align:center;min-height:24px;font-weight:600;margin-top:10px}
+/* faq */
+.faq details{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin-bottom:10px}
+.faq summary{font-weight:600;cursor:pointer}
+.faq p{color:var(--muted);margin-top:10px;font-size:14.5px}
+footer{background:var(--card);border-top:1px solid var(--border);margin-top:40px}
+.footer-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;padding:26px 0;font-size:13.5px;color:var(--muted)}
+.footer-inner a{color:var(--muted);text-decoration:none;margin-right:16px}
+.footer-inner a:hover{color:var(--primary-light)}
+.prose p{margin-bottom:12px;color:#334155}
+.prose ul,.prose ol{margin:0 0 12px 22px;color:#334155}
+.prose li{margin-bottom:6px}
+.badge{display:inline-block;background:#EFF6FF;color:var(--primary-light);font-size:12.5px;font-weight:600;padding:4px 14px;border-radius:99px;margin-bottom:12px}
+@media(max-width:640px){.hero h1{font-size:26px}h2{font-size:20px}}
+</style>
 </head>
 <body>
-    <div class="container">
-        <!-- 新增：语言切换按钮 -->
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">English</button>
-            <button class="lang-btn" data-lang="zh">中文</button>
-        </div>
-
-        <!-- 所有需要切换的文本添加「data-i18n」属性，值为唯一标识 -->
-        <h1 data-i18n="privacy_policy">Privacy Policy</h1>
-        <p data-i18n="last_updated">Last updated: June 26, 2026</p>
-        
-        <p data-i18n="intro">At Toolnex, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website <strong>www.toolnex.xyz</strong>.</p>
-
-        <h2 data-i18n="info_collect">1. Information We Collect</h2>
-        <p data-i18n="info_collect_desc">We collect information you provide directly to us, such as when you fill out our contact forms for inquiries about our browser game recommendations and cross-border e-commerce tools, including your name, email, phone number, and company details.</p>
-
-        <h2 data-i18n="info_use">2. How We Use Your Information</h2>
-        <p data-i18n="info_use_desc">We use the collected data to:</p>
-        <ul>
-            <li data-i18n="use_item1">Respond to your game discovery inquiries and tool usage questions.</li>
-            <li data-i18n="use_item2">Improve our website, game curation, and service offerings.</li>
-            <li data-i18n="use_item3">Send periodic updates if you have opted into our communications.</li>
-        </ul>
-
-        <h2 data-i18n="cookies">3. Cookies and Tracking</h2>
-        <p data-i18n="cookies_desc">Our website uses cookies (including Google Ads services) to enhance your browsing experience and analyze site traffic. You can disable cookies in your browser settings if you prefer.</p>
-
-        <h2 data-i18n="data_security">4. Data Security</h2>
-        <p data-i18n="data_security_desc">We implement industry-standard security measures to protect your personal information from unauthorized access or disclosure.</p>
-
-        <h2 data-i18n="contact_us">5. Contact Us</h2>
-        <p data-i18n="contact_us_desc">If you have any questions regarding this policy, please contact us at:</p>
-        <p data-i18n="contact_info"><strong>Email:</strong> qiangda68@outlook.com<br>
-        <strong>Address:</strong> Linyi, Shandong, China</p>
-
-        <a href="index.html" class="back-btn" data-i18n="back_home">← Back to Home</a>
-    </div>
-
-    <!-- 新增：多语言核心逻辑 -->
-    <script>
-        // 步骤1：定义语言包（可扩展更多语言，如日语ja、西班牙语es等）
-        const translations = {
-            en: {
-                privacy_policy: "Privacy Policy",
-                last_updated: "Last updated: June 26, 2026",
-                intro: "At Toolnex, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website <strong>www.toolnex.xyz</strong>.",
-                info_collect: "1. Information We Collect",
-                info_collect_desc: "We collect information you provide directly to us, such as when you fill out our contact forms for inquiries about our browser game recommendations and cross-border e-commerce tools, including your name, email, phone number, and company details.",
-                info_use: "2. How We Use Your Information",
-                info_use_desc: "We use the collected data to:",
-                use_item1: "Respond to your game discovery inquiries and tool usage questions.",
-                use_item2: "Improve our website, game curation, and service offerings.",
-                use_item3: "Send periodic updates if you have opted into our communications.",
-                cookies: "3. Cookies and Tracking",
-                cookies_desc: "Our website uses cookies (including Google Ads services) to enhance your browsing experience and analyze site traffic. You can disable cookies in your browser settings if you prefer.",
-                data_security: "4. Data Security",
-                data_security_desc: "We implement industry-standard security measures to protect your personal information from unauthorized access or disclosure.",
-                contact_us: "5. Contact Us",
-                contact_us_desc: "If you have any questions regarding this policy, please contact us at:",
-                contact_info: "<strong>Email:</strong> qiangda68@outlook.com<br><strong>Address:</strong> Linyi, Shandong, China",
-                back_home: "← Back to Home"
-            },
-            zh: {
-                privacy_policy: "隐私政策",
-                last_updated: "最后更新：2026年6月26日",
-                intro: "在Toolnex，我们致力于保护您的隐私。本隐私政策阐述了当您访问我们的网站 <strong>www.toolnex.xyz</strong> 时，我们如何收集、使用和保护您的信息。",
-                info_collect: "1. 我们收集的信息",
-                info_collect_desc: "我们收集您直接向我们提供的信息，例如当您填写联系表单咨询我们的货架系统时，包括您的姓名、电子邮件、电话号码和公司详情。",
-                info_use: "2. 我们如何使用您的信息",
-                info_use_desc: "我们使用收集到的数据用于：",
-                use_item1: "回复您的产品咨询并提供报价。",
-                use_item2: "改进我们的网站和服务内容。",
-                use_item3: "如果您选择接收我们的通讯，我们会向您发送定期更新。",
-                cookies: "3. Cookie 和追踪",
-                cookies_desc: "我们的网站使用Cookie（包括谷歌广告服务）来提升您的浏览体验并分析网站流量。您可以根据自己的偏好在浏览器设置中禁用Cookie。",
-                data_security: "4. 数据安全",
-                data_security_desc: "我们实施行业标准的安全措施，以保护您的个人信息免遭未授权访问或泄露。",
-                contact_us: "5. 联系我们",
-                contact_us_desc: "如果您对本政策有任何疑问，请通过以下方式联系我们：",
-                contact_info: "<strong>邮箱：</strong> qiangda68@outlook.com<br><strong>地址：</strong> 中国山东省临沂市",
-                back_home: "← 返回首页"
-            }
-        };
-
-        // 步骤2：定义切换语言的函数
-        function setLanguage(lang) {
-            // 遍历所有带data-i18n属性的元素，替换文本
-            document.querySelectorAll('[data-i18n]').forEach(element => {
-                const key = element.getAttribute('data-i18n');
-                // 替换内容（支持HTML格式，如br、strong）
-                element.innerHTML = translations[lang][key];
-            });
-            // 更新页面lang属性（优化SEO）
-            document.documentElement.lang = lang;
-            // 切换按钮激活状态
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-            });
-            // 可选：保存语言偏好到本地存储，下次打开自动加载
-            localStorage.setItem('preferredLang', lang);
-        }
-
-        // 步骤3：绑定切换按钮事件
-        document.querySelectorAll('.lang-btn').forEach(button => {
-            button.addEventListener('click', () => {
-                const lang = button.getAttribute('data-lang');
-                setLanguage(lang);
-            });
-        });
-
-        // 步骤4：页面加载时，优先使用本地存储的语言，默认英文
-        window.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('preferredLang') || 'en';
-            setLanguage(savedLang);
-        });
-    </script>
+<header><div class="container header-inner">
+<a class="logo" href="index.html">Tool<span>nex</span></a>
+<nav><ul><a href="index.html">Home</a><a href="games.html">Categories</a><a href="about.html">About</a><a href="contact.html">Contact</a></ul></nav>
+</div></header>
+<div class="hero"><div class="container"><h1>Privacy Policy</h1></div></div>
+<section><div class="container card prose">
+<p><i>Last updated: 2026-10-04</i></p>
+<p>This Privacy Policy explains what information Toolnex ("we", "us", "this website") collects when you visit www.toolnex.xyz, how we use it, and the choices you have. By using the site you agree to this policy.</p>
+<h3>1. Information We Collect</h3>
+<ul>
+<li><b>Information you give us:</b> if you contact us by email or through our contact form, we receive your name, email address and the contents of your message.</li>
+<li><b>Local storage:</b> your game scores and settings are stored only in your own browser (local storage) and are never transmitted to us.</li>
+<li><b>Server logs:</b> like most websites, our hosting provider automatically records basic technical data (IP address, browser type, pages requested, date and time) for security and performance purposes.</li>
+</ul>
+<h3>2. Cookies and Advertising</h3>
+<p>This site is supported by advertising. We use Google AdSense to display ads, and third-party vendors including Google use cookies to serve ads based on your prior visits to this and other websites.</p>
+<ul>
+<li>Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to this site and/or other sites on the Internet.</li>
+<li>You may opt out of personalised advertising by visiting <a href="https://www.google.com/settings/ads" rel="noopener nofollow" target="_blank">Google Ads Settings</a>.</li>
+<li>You can also opt out of third-party vendor cookies for personalised advertising at <a href="https://www.aboutads.info" rel="noopener nofollow" target="_blank">www.aboutads.info</a>.</li>
+</ul>
+<p>For more details, see our <a href="cookie-policy.html">Cookie Policy</a>.</p>
+<h3>3. How We Use Information</h3>
+<ul>
+<li>To operate, maintain and improve the website and its games.</li>
+<li>To respond to your questions and feedback.</li>
+<li>To monitor for abuse, fraud and technical issues.</li>
+</ul>
+<h3>4. Children's Privacy</h3>
+<p>Toolnex is family friendly and does not knowingly collect personal information from children under 13. If you believe a child has provided us personal information, contact us and we will delete it.</p>
+<h3>5. Data Sharing</h3>
+<p>We do not sell your personal information. We share data only with the service providers listed above (hosting and advertising), as required by law, or with your consent.</p>
+<h3>6. Your Rights</h3>
+<p>Depending on where you live (for example the EU/EEA or California), you may have the right to access, correct or delete personal data we hold about you, and to object to or restrict certain processing. To exercise these rights, contact us at the address on our <a href="contact.html">contact page</a>.</p>
+<h3>7. Changes to This Policy</h3>
+<p>We may update this policy from time to time. Changes are posted on this page with an updated date.</p>
+<h3>8. Contact</h3>
+<p>Questions about this policy? Reach us through the <a href="contact.html">contact page</a>.</p>
+</div></section>
+<footer><div class="container footer-inner">
+<div><a href="about.html">About</a><a href="contact.html">Contact</a>
+<a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="cookie-policy.html">Cookie Policy</a></div>
+<div>&copy; 2026 Toolnex &middot; Free browser games, playable instantly.</div>
+</div></footer>
 </body>
 </html>

@@ -1,161 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9894972538238783"
-     crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cookie Policy - Toolnex</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.8;
-            color: #333;
-            background: #f8f9fa;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: 40px auto;
-            background: #fff;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #1E3A8A;
-            border-bottom: 2px solid #2563EB;
-            padding-bottom: 10px;
-        }
-        h2 {
-            color: #1E3A8A;
-            margin-top: 30px;
-        }
-        p {
-            margin-bottom: 15px;
-        }
-        ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-        li {
-            margin-bottom: 8px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-        th {
-            background-color: #1E3A8A;
-            color: white;
-        }
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        .back-btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: #1E3A8A;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 4px;
-        }
-        .back-btn:hover {
-            background: #2563EB;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cookie Policy | Toolnex</title>
+<meta name="description" content="How Toolnex uses cookies and local storage, including advertising cookies, and how to control them.">
+<link rel="canonical" href="https://www.toolnex.xyz/cookie-policy.html">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#1E3A8A;--primary-light:#2563EB;--bg:#F1F5F9;--card:#FFF;--text:#0F172A;
+--muted:#475569;--border:#E2E8F0;--shadow:0 4px 20px rgba(15,23,42,.06);--radius:16px}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+body{background:var(--bg);color:var(--text);line-height:1.65}
+.container{max-width:1080px;margin:0 auto;padding:0 20px}
+header{background:rgba(255,255,255,.92);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:99;backdrop-filter:blur(8px)}
+.header-inner{display:flex;justify-content:space-between;align-items:center;padding:14px 0;gap:16px;flex-wrap:wrap}
+.logo{font-size:23px;font-weight:800;color:var(--primary);text-decoration:none;letter-spacing:-.5px}
+.logo span{color:#D4AF37}
+nav ul{display:flex;list-style:none;gap:22px;flex-wrap:wrap}
+nav a{text-decoration:none;color:var(--text);font-weight:500;font-size:14px}
+nav a:hover{color:var(--primary-light)}
+.hero{padding:42px 0 26px;text-align:center}
+.hero h1{font-size:34px;letter-spacing:-.8px;line-height:1.25}
+.hero p{color:var(--muted);max-width:640px;margin:12px auto 0}
+.btn{display:inline-block;background:var(--primary-light);color:#fff;padding:11px 24px;border-radius:12px;text-decoration:none;font-weight:600;font-size:14px;border:none;cursor:pointer}
+.btn:hover{background:var(--primary)}
+.btn.ghost{background:#fff;color:var(--primary-light);border:1px solid var(--border)}
+section{padding:26px 0}
+h2{font-size:24px;letter-spacing:-.4px;margin-bottom:14px}
+h3{font-size:17px;margin:18px 0 8px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.game-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;text-decoration:none;color:var(--text);box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s;display:block}
+.game-card:hover{transform:translateY(-4px);box-shadow:0 12px 34px rgba(15,23,42,.12)}
+.game-card .icon{font-size:34px}
+.game-card .name{font-weight:700;margin:10px 0 4px}
+.game-card .cat{display:inline-block;background:#EFF6FF;color:var(--primary-light);font-size:12px;font-weight:600;padding:2px 10px;border-radius:99px}
+.game-card p{color:var(--muted);font-size:13.5px;margin-top:8px}
+/* game stage */
+.stage{background:#0F172A;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+.stage-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;color:#E2E8F0;margin-bottom:12px}
+.stage-head .stat{background:#1E293B;border-radius:10px;padding:6px 14px;font-size:14px}
+.stage-head .stat b{color:#FBBF24}
+.stage canvas{width:100%;max-width:720px;display:block;margin:0 auto;background:#111C33;border-radius:12px;touch-action:none}
+.stage .dom-game{max-width:720px;margin:0 auto}
+.stage button{background:var(--primary-light);border:none;color:#fff;font-weight:600;padding:9px 20px;border-radius:10px;cursor:pointer;font-size:14px}
+.stage button:hover{background:#3B82F6}
+.stage .hint{color:#94A3B8;font-size:13px;margin-top:10px;text-align:center}
+/* dom game shared */
+.g-board{display:grid;gap:6px;justify-content:center;margin:0 auto}
+.g-cell{display:flex;align-items:center;justify-content:center;font-weight:700;border-radius:8px;user-select:none;cursor:pointer}
+.msg{color:#E2E8F0;text-align:center;min-height:24px;font-weight:600;margin-top:10px}
+/* faq */
+.faq details{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin-bottom:10px}
+.faq summary{font-weight:600;cursor:pointer}
+.faq p{color:var(--muted);margin-top:10px;font-size:14.5px}
+footer{background:var(--card);border-top:1px solid var(--border);margin-top:40px}
+.footer-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;padding:26px 0;font-size:13.5px;color:var(--muted)}
+.footer-inner a{color:var(--muted);text-decoration:none;margin-right:16px}
+.footer-inner a:hover{color:var(--primary-light)}
+.prose p{margin-bottom:12px;color:#334155}
+.prose ul,.prose ol{margin:0 0 12px 22px;color:#334155}
+.prose li{margin-bottom:6px}
+.badge{display:inline-block;background:#EFF6FF;color:var(--primary-light);font-size:12.5px;font-weight:600;padding:4px 14px;border-radius:99px;margin-bottom:12px}
+@media(max-width:640px){.hero h1{font-size:26px}h2{font-size:20px}}
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Cookie Policy</h1>
-        <p><strong>Last updated:</strong> July 26, 2026</p>
-        
-        <p>This Cookie Policy explains how Toolnex (www.toolnex.xyz) uses cookies and similar technologies to recognize you when you visit our website.</p>
-        
-        <h2>1. What Are Cookies?</h2>
-        <p>Cookies are small text files that are placed on your computer or mobile device when you visit a website. They are widely used to make websites work more efficiently and provide information to the website owners.</p>
-        
-        <h2>2. How We Use Cookies</h2>
-        <p>We use cookies for the following purposes:</p>
-        <ul>
-            <li><strong>Essential Cookies:</strong> These cookies are necessary for the website to function properly. They enable basic functions like page navigation and access to secure areas of the website.</li>
-            <li><strong>Analytics Cookies:</strong> These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously. We use Google Analytics for this purpose.</li>
-            <li><strong>Advertising Cookies:</strong> These cookies are used to deliver advertisements that are relevant to you and your interests. We use Google Ads services to display personalized ads.</li>
-            <li><strong>Preference Cookies:</strong> These cookies allow our website to remember choices you make (such as your language preference) to provide a more personalized experience.</li>
-        </ul>
-        
-        <h2>3. Types of Cookies We Use</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Cookie Name</th>
-                    <th>Purpose</th>
-                    <th>Duration</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>cookieConsent</td>
-                    <td>Stores your cookie consent preference</td>
-                    <td>1 year</td>
-                </tr>
-                <tr>
-                    <td>preferredLang</td>
-                    <td>Stores your language preference</td>
-                    <td>1 year</td>
-                </tr>
-                <tr>
-                    <td>_ga</td>
-                    <td>Google Analytics - distinguishes users</td>
-                    <td>2 years</td>
-                </tr>
-                <tr>
-                    <td>_gid</td>
-                    <td>Google Analytics - distinguishes users</td>
-                    <td>24 hours</td>
-                </tr>
-                <tr>
-                    <td>IDE</td>
-                    <td>Google Ads - used for advertising</td>
-                    <td>1 year</td>
-                </tr>
-            </tbody>
-        </table>
-        
-        <h2>4. Third-Party Cookies</h2>
-        <p>In addition to our own cookies, we may also use various third-party cookies to report usage statistics, deliver advertisements, and improve your experience. These include:</p>
-        <ul>
-            <li><strong>Google Analytics:</strong> For website traffic analysis and user behavior insights</li>
-            <li><strong>Google Ads:</strong> For displaying relevant advertisements and measuring ad performance</li>
-            <li><strong>reCAPTCHA:</strong> For spam and bot protection on contact forms</li>
-        </ul>
-        
-        <h2>5. Managing Cookies</h2>
-        <p>You can control and manage cookies in various ways:</p>
-        <ul>
-            <li><strong>Browser Settings:</strong> Most web browsers allow you to control cookies through their settings. You can set your browser to refuse all cookies, accept only certain cookies, or notify you when a cookie is set.</li>
-            <li><strong>Opt-Out Tools:</strong> You can opt out of Google Analytics tracking by installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">Google Analytics Opt-out Browser Add-on</a>.</li>
-            <li><strong>Ad Preferences:</strong> You can manage your Google Ads preferences at <a href="https://adssettings.google.com" target="_blank">Google Ads Settings</a>.</li>
-        </ul>
-        <p>Please note that if you disable cookies, some features of our website may not function properly.</p>
-        
-        <h2>6. Changes to This Policy</h2>
-        <p>We may update this Cookie Policy from time to time to reflect changes in our practices or for legal reasons. We will notify you of any significant changes by posting the new policy on this page.</p>
-        
-        <h2>7. Contact Us</h2>
-        <p>If you have any questions about our use of cookies, please contact us at:</p>
-        <p><strong>Email:</strong> info@toolnex.xyz<br>
-        <strong>Address:</strong> Linyi, Shandong, China</p>
-        
-        <a href="/" class="back-btn">← Back to Home</a>
-    </div>
+<header><div class="container header-inner">
+<a class="logo" href="index.html">Tool<span>nex</span></a>
+<nav><ul><a href="index.html">Home</a><a href="games.html">Categories</a><a href="about.html">About</a><a href="contact.html">Contact</a></ul></nav>
+</div></header>
+<div class="hero"><div class="container"><h1>Cookie Policy</h1></div></div>
+<section><div class="container card prose">
+<p><i>Last updated: 2026-10-04</i></p>
+<h3>What Are Cookies?</h3>
+<p>Cookies are small text files that websites store on your device. They are widely used to make sites work, remember preferences, and measure how the site is used.</p>
+<h3>Cookies We Use</h3>
+<ul>
+<li><b>Essential local storage:</b> your game scores and settings are kept in your browser's local storage so your progress survives a page refresh. This data never leaves your device.</li>
+<li><b>Advertising cookies:</b> we use Google AdSense. Third-party vendors, including Google, use cookies to serve ads based on your prior visits to this and other websites. Google may use the DoubleClick cookie to serve ads based on your visit to our site and other sites on the internet.</li>
+</ul>
+<h3>Managing Cookies</h3>
+<p>You can control or delete cookies through your browser settings - every major browser lets you block or remove cookies per site. Opting out of personalised advertising does not mean you will see fewer ads, only that the ads you see will be less relevant.</p>
+<ul>
+<li>Opt out of Google personalised ads: <a href="https://www.google.com/settings/ads" rel="noopener nofollow" target="_blank">Google Ads Settings</a></li>
+<li>Opt out of many third-party ad cookies: <a href="https://www.aboutads.info" rel="noopener nofollow" target="_blank">www.aboutads.info</a></li>
+</ul>
+<p>See also our <a href="privacy.html">Privacy Policy</a>.</p>
+</div></section>
+<footer><div class="container footer-inner">
+<div><a href="about.html">About</a><a href="contact.html">Contact</a>
+<a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="cookie-policy.html">Cookie Policy</a></div>
+<div>&copy; 2026 Toolnex &middot; Free browser games, playable instantly.</div>
+</div></footer>
 </body>
 </html>

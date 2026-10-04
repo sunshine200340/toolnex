@@ -1,66 +1,190 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9894972538238783"
-     crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
-    <title>迷你篮球投篮 - 街机版</title>
-    <style>
-        body { margin: 0; background: #F8FAFC; display: flex; flex-direction: column; align-items: center; font-family: sans-serif; }
-        #gameCanvas { background: #1e3a8a; border-radius: 8px; cursor: crosshair; touch-action: none; }
-        .ui { margin-top: 10px; text-align: center; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mini Hoops Basketball - Play Free Online | Toolnex</title>
+<meta name="description" content="Play Mini Hoops Basketball free online. Drag and flick to sink baskets against the clock in this satisfying arcade shooting game.">
+<link rel="canonical" href="https://www.toolnex.xyz/basketball.html">
+<meta property="og:title" content="Mini Hoops Basketball | Toolnex">
+<meta property="og:description" content="Play Mini Hoops Basketball free online. Drag and flick to sink baskets against the clock in this satisfying arcade shooting game.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.toolnex.xyz/basketball.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#1E3A8A;--primary-light:#2563EB;--bg:#F1F5F9;--card:#FFF;--text:#0F172A;
+--muted:#475569;--border:#E2E8F0;--shadow:0 4px 20px rgba(15,23,42,.06);--radius:16px}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+body{background:var(--bg);color:var(--text);line-height:1.65}
+.container{max-width:1080px;margin:0 auto;padding:0 20px}
+header{background:rgba(255,255,255,.92);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:99;backdrop-filter:blur(8px)}
+.header-inner{display:flex;justify-content:space-between;align-items:center;padding:14px 0;gap:16px;flex-wrap:wrap}
+.logo{font-size:23px;font-weight:800;color:var(--primary);text-decoration:none;letter-spacing:-.5px}
+.logo span{color:#D4AF37}
+nav ul{display:flex;list-style:none;gap:22px;flex-wrap:wrap}
+nav a{text-decoration:none;color:var(--text);font-weight:500;font-size:14px}
+nav a:hover{color:var(--primary-light)}
+.hero{padding:42px 0 26px;text-align:center}
+.hero h1{font-size:34px;letter-spacing:-.8px;line-height:1.25}
+.hero p{color:var(--muted);max-width:640px;margin:12px auto 0}
+.btn{display:inline-block;background:var(--primary-light);color:#fff;padding:11px 24px;border-radius:12px;text-decoration:none;font-weight:600;font-size:14px;border:none;cursor:pointer}
+.btn:hover{background:var(--primary)}
+.btn.ghost{background:#fff;color:var(--primary-light);border:1px solid var(--border)}
+section{padding:26px 0}
+h2{font-size:24px;letter-spacing:-.4px;margin-bottom:14px}
+h3{font-size:17px;margin:18px 0 8px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.game-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;text-decoration:none;color:var(--text);box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s;display:block}
+.game-card:hover{transform:translateY(-4px);box-shadow:0 12px 34px rgba(15,23,42,.12)}
+.game-card .icon{font-size:34px}
+.game-card .name{font-weight:700;margin:10px 0 4px}
+.game-card .cat{display:inline-block;background:#EFF6FF;color:var(--primary-light);font-size:12px;font-weight:600;padding:2px 10px;border-radius:99px}
+.game-card p{color:var(--muted);font-size:13.5px;margin-top:8px}
+/* game stage */
+.stage{background:#0F172A;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+.stage-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;color:#E2E8F0;margin-bottom:12px}
+.stage-head .stat{background:#1E293B;border-radius:10px;padding:6px 14px;font-size:14px}
+.stage-head .stat b{color:#FBBF24}
+.stage canvas{width:100%;max-width:720px;display:block;margin:0 auto;background:#111C33;border-radius:12px;touch-action:none}
+.stage .dom-game{max-width:720px;margin:0 auto}
+.stage button{background:var(--primary-light);border:none;color:#fff;font-weight:600;padding:9px 20px;border-radius:10px;cursor:pointer;font-size:14px}
+.stage button:hover{background:#3B82F6}
+.stage .hint{color:#94A3B8;font-size:13px;margin-top:10px;text-align:center}
+/* dom game shared */
+.g-board{display:grid;gap:6px;justify-content:center;margin:0 auto}
+.g-cell{display:flex;align-items:center;justify-content:center;font-weight:700;border-radius:8px;user-select:none;cursor:pointer}
+.msg{color:#E2E8F0;text-align:center;min-height:24px;font-weight:600;margin-top:10px}
+/* faq */
+.faq details{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin-bottom:10px}
+.faq summary{font-weight:600;cursor:pointer}
+.faq p{color:var(--muted);margin-top:10px;font-size:14.5px}
+footer{background:var(--card);border-top:1px solid var(--border);margin-top:40px}
+.footer-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;padding:26px 0;font-size:13.5px;color:var(--muted)}
+.footer-inner a{color:var(--muted);text-decoration:none;margin-right:16px}
+.footer-inner a:hover{color:var(--primary-light)}
+.prose p{margin-bottom:12px;color:#334155}
+.prose ul,.prose ol{margin:0 0 12px 22px;color:#334155}
+.prose li{margin-bottom:6px}
+.badge{display:inline-block;background:#EFF6FF;color:var(--primary-light);font-size:12.5px;font-weight:600;padding:4px 14px;border-radius:99px;margin-bottom:12px}
+@media(max-width:640px){.hero h1{font-size:26px}h2{font-size:20px}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "url": "https://www.toolnex.xyz/basketball.html", "mainEntity": [{"@type": "Question", "name": "Does the ball obey real physics?", "acceptedAnswer": {"@type": "Answer", "text": "Yes - gravity, release angle and velocity all behave the way a real arc would."}}, {"@type": "Question", "name": "Why does the hoop move?", "acceptedAnswer": {"@type": "Answer", "text": "Moving targets keep the 60-second run varied; the hoop repositions only after a made basket."}}, {"@type": "Question", "name": "Can I play with one hand on mobile?", "acceptedAnswer": {"@type": "Answer", "text": "Yes - hold and drag with your thumb, release to shoot."}}]}</script>
 </head>
 <body>
+<header><div class="container header-inner">
+<a class="logo" href="index.html">Tool<span>nex</span></a>
+<nav><ul><a href="index.html">Home</a><a href="games.html">Categories</a><a href="about.html">About</a><a href="contact.html">Contact</a></ul></nav>
+</div></header>
+<div class="hero container" style="text-align:left;max-width:1080px">
+<span class="badge">Sports &middot; Free &middot; No download</span>
+<h1>Mini Hoops Basketball</h1>
+<p>Drag, release, swish - a pocket arcade of pure shooting touch.</p>
+</div>
+<section><div class="container">
+<div class="stage">
+<div class="stage-head">
+<div class="stat"><span>Score: <b id="mhScore">0</b></span><span>Time: <b id="mhTime">60</b>s</span><span>Best: <b id="mhBest">0</b></span></div>
+<button id="btnRestart" type="button">Restart</button>
+</div>
+<canvas id="gameCanvas" width="720" height="480"></canvas>
+<div class="hint">Drag from the ball to aim - release to shoot</div>
+</div>
+</div></section>
+<section class="prose"><div class="container card">
+<h2>About This Game</h2>
+<p>Mini Hoops distills basketball into its most addictive moment: the shot. Drag back on the ball, watch the dotted arc preview bend as you pull further, and release. The ball flies with real parabolic physics - power and angle both matter, and the rim is unforgiving.</p>
+<p>Sixty seconds on the clock, unlimited balls, one hoop that drifts to new positions after every make. Swishes (clean shots that never touch the rim) score three; rattled-in shots score two.</p>
+<h3>How to Play</h3>
+<ol><li>Press and hold the ball, then drag down and back to set power and angle.</li><li>A dotted preview arc shows your trajectory while dragging.</li><li>Release to shoot - the ball flies with real arc physics.</li><li>Score as many baskets as you can in 60 seconds; the hoop moves after each make.</li></ol>
+<h3>Tips &amp; Strategy</h3>
+<ul><li>Aim for just above the rim's center - high arcs drop in far more reliably than flat ones.</li><li>Use the full drag length: most misses come from under-powered shots.</li><li>The hoop moves after every make - glance at its new spot before reseting your aim.</li><li>Consistency beats speed: a repeatable shot motion scores more than rushed heaves.</li></ul>
+</div></section>
+<section class="faq"><div class="container"><h2>Frequently Asked Questions</h2><details><summary>Does the ball obey real physics?</summary><p>Yes - gravity, release angle and velocity all behave the way a real arc would.</p></details><details><summary>Why does the hoop move?</summary><p>Moving targets keep the 60-second run varied; the hoop repositions only after a made basket.</p></details><details><summary>Can I play with one hand on mobile?</summary><p>Yes - hold and drag with your thumb, release to shoot.</p></details></div></section>
+<section><div class="container">
+<h2>More Sports Games</h2>
+<div class="grid"><a class="game-card" href="block-puzzle.html">
+<div class="icon">🎨</div>
+<div class="name">Color Rush Reflex</div>
+<span class="cat">Arcade</span>
+<p>Spot the target color in a shifting grid and tap it before your streak resets.</p></a><a class="game-card" href="neon-runner.html">
+<div class="icon">⚡</div>
+<div class="name">Neon Dash</div>
+<span class="cat">Arcade</span>
+<p>An endless neon runner - jump the obstacles, chase your best distance.</p></a><a class="game-card" href="bubble-pop.html">
+<div class="icon">🫧</div>
+<div class="name">Bubble Pop Adventure</div>
+<span class="cat">Arcade</span>
+<p>Aim, bounce and pop matching bubbles before the wall closes in.</p></a></div>
+</div></section>
+<footer><div class="container footer-inner">
+<div><a href="about.html">About</a><a href="contact.html">Contact</a>
+<a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="cookie-policy.html">Cookie Policy</a></div>
+<div>&copy; 2026 Toolnex &middot; Free browser games, playable instantly.</div>
+</div></footer>
+<script>
+"use strict";
 
-    <div class="ui">
-        <h1>迷你篮球投篮</h1>
-        <p>点击并拖动屏幕进行投篮</p>
-        <div id="scoreBoard">得分: 0</div>
-    </div>
-    <canvas id="gameCanvas" width="400" height="600"></canvas>
-
-    <script>
-        const canvas = document.getElementById('gameCanvas');
-        const ctx = canvas.getContext('2d');
-        let score = 0;
-        let ball = { x: 200, y: 500, r: 20, vx: 0, vy: 0, dragging: false };
-
-        canvas.addEventListener('mousedown', (e) => { ball.dragging = true; });
-        canvas.addEventListener('mouseup', (e) => {
-            if(ball.dragging) {
-                ball.vy = -15; 
-                ball.vx = (e.clientX - 200) / 20;
-                ball.dragging = false;
-            }
-        });
-
-        function update() {
-            if(!ball.dragging) {
-                ball.vy += 0.5;
-                ball.x += ball.vx;
-                ball.y += ball.vy;
-            }
-            if(ball.y > 600) { ball.x = 200; ball.y = 500; ball.vx = 0; ball.vy = 0; }
-            if(ball.x > 300 && ball.x < 350 && ball.y > 100 && ball.y < 120) {
-                score += 10;
-                document.getElementById('scoreBoard').innerText = "得分: " + score;
-                ball.x = 200; ball.y = 500;
-            }
-        }
-
-        function draw() {
-            ctx.clearRect(0, 0, 400, 600);
-            ctx.fillStyle = 'orange';
-            ctx.beginPath();
-            ctx.arc(ball.x, ball.y, ball.r, 0, Math.PI*2);
-            ctx.fill();
-            ctx.fillStyle = 'white';
-            ctx.fillRect(300, 100, 50, 10);
-        }
-
-        function loop() { update(); draw(); requestAnimationFrame(loop); }
-        loop();
-    </script>
+const cv=document.getElementById('gameCanvas'),cx=cv.getContext('2d');
+const G=0.34,FLOOR=452;
+let ball={x:140,y:FLOOR-14,vx:0,vy:0,live:false},drag=null,hoop={x:560,y:170},score=0,t=60,alive=true,timer=null;
+document.getElementById('mhBest').textContent=localStorage.getItem('mhBest')||0;
+function reset(){score=0;t=60;alive=true;ball={x:140,y:FLOOR-14,vx:0,vy:0,live:false};hoop={x:560,y:170};
+document.getElementById('mhScore').textContent=0;
+clearInterval(timer);timer=setInterval(()=>{t--;document.getElementById('mhTime').textContent=t;if(t<=0)end();},1000);}
+function end(){alive=false;clearInterval(timer);
+const best=+localStorage.getItem('mhBest')||0;
+if(score>best){localStorage.setItem('mhBest',score);document.getElementById('mhBest').textContent=score;}}
+function pos(e){const r=cv.getBoundingClientRect();const p=e.touches?e.touches[0]:e;
+return[(p.clientX-r.left)*(720/r.width),(p.clientY-r.top)*(480/r.height)];}
+function down(e){if(!alive)return;const[mx,my]=pos(e);
+if(!ball.live&&Math.hypot(mx-ball.x,my-ball.y)<48)drag=[mx,my];}
+function move(e){if(!drag)return;[drag[2],drag[3]]=pos(e);}
+function up(e){if(!drag||drag.length<4){drag=null;return;}
+const dx=ball.x-drag[2],dy=ball.y-drag[3];
+const pow=Math.min(19,Math.hypot(dx,dy)*.22);
+ball.vx=dx/Math.hypot(dx,dy)*pow;ball.vy=dy/Math.hypot(dx,dy)*pow;
+ball.live=true;drag=null;}
+function step(){if(ball.live){ball.vy+=G;ball.x+=ball.vx;ball.y+=ball.vy;
+const rimY=hoop.y,rimL=hoop.x-34,rimR=hoop.x+34;
+if(ball.y>rimY-6&&ball.y<rimY+14){
+if(ball.x>rimL+6&&ball.x<rimR-6&&ball.vy>0){
+const swish=!ball.touched;score+=swish?3:2;
+document.getElementById('mhScore').textContent=score;
+ball.live=false;ball={x:140+Math.random()*80,y:FLOOR-14,vx:0,vy:0,live:false};
+hoop.x=200+Math.random()*420;hoop.y=140+Math.random()*110;}
+else if(Math.abs(ball.x-rimL)<8||Math.abs(ball.x-rimR)<8){ball.vx*=-.4;ball.vy*=.6;ball.touched=true;}}
+if(ball.x<12||ball.x>708){ball.vx*=-.7;ball.x=Math.max(12,Math.min(708,ball.x));}
+if(ball.y>FLOOR){ball.live=false;ball={x:140+Math.random()*80,y:FLOOR-14,vx:0,vy:0,live:false};}}
+draw();requestAnimationFrame(step);}
+function draw(){cx.fillStyle='#111C33';cx.fillRect(0,0,720,480);
+cx.fillStyle='#1E293B';cx.fillRect(0,FLOOR,720,28);
+cx.strokeStyle='#334155';cx.lineWidth=8;cx.beginPath();cx.moveTo(hoop.x,hoop.y-120);cx.lineTo(hoop.x,hoop.y);cx.stroke();
+cx.strokeStyle='#F97316';cx.lineWidth=6;cx.beginPath();cx.moveTo(hoop.x-34,hoop.y);cx.lineTo(hoop.x+34,hoop.y);cx.stroke();
+cx.strokeStyle='rgba(249,115,22,.5)';cx.lineWidth=2;
+for(let i=1;i<4;i++){cx.beginPath();cx.moveTo(hoop.x-34+i*17,hoop.y);cx.lineTo(hoop.x-34+i*17,hoop.y+22);cx.stroke();}
+cx.beginPath();cx.moveTo(hoop.x-34,hoop.y);cx.lineTo(hoop.x-30,hoop.y+22);
+cx.moveTo(hoop.x+34,hoop.y);cx.lineTo(hoop.x+30,hoop.y+22);cx.stroke();
+if(drag&&drag.length>=4){cx.setLineDash([5,7]);cx.strokeStyle='rgba(251,191,36,.8)';cx.lineWidth=2;
+let sx=ball.x,sy=ball.y,vx=(ball.x-drag[2])/Math.hypot(ball.x-drag[2],ball.y-drag[3])*Math.min(19,Math.hypot(ball.x-drag[2],ball.y-drag[3])*.22);
+let vy=(ball.y-drag[3])/Math.hypot(ball.x-drag[2],ball.y-drag[3])*Math.min(19,Math.hypot(ball.x-drag[2],ball.y-drag[3])*.22);
+for(let i=0;i<26;i++){vy+=G;sx+=vx;sy+=vy;
+i%3===0?cx.fillRect(sx,sy,3,3):0;}
+cx.setLineDash([]);}
+cx.fillStyle='#F59E0B';cx.beginPath();cx.arc(ball.x,ball.y,14,0,7);cx.fill();
+cx.strokeStyle='#B45309';cx.lineWidth=2;cx.beginPath();cx.arc(ball.x,ball.y,14,0,7);cx.stroke();
+cx.beginPath();cx.moveTo(ball.x-14,ball.y);cx.lineTo(ball.x+14,ball.y);cx.stroke();
+if(!alive){cx.fillStyle='#E2E8F0';cx.font='bold 32px Inter';cx.textAlign='center';
+cx.fillText('Time! Final score: '+score,360,220);cx.font='16px Inter';cx.fillStyle='#94A3B8';
+cx.fillText('Press Restart for a new run',360,255);}}
+cv.addEventListener('mousedown',down);cv.addEventListener('mousemove',move);cv.addEventListener('mouseup',up);
+cv.addEventListener('touchstart',e=>{e.preventDefault();down(e);},{passive:false});
+cv.addEventListener('touchmove',e=>{e.preventDefault();move(e);},{passive:false});
+cv.addEventListener('touchend',up);
+document.getElementById('btnRestart').addEventListener('click',reset);
+reset();step();
+</script>
 </body>
 </html>
