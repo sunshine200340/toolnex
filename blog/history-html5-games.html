@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>From Flash to Instant Play: The History of HTML5 Games | Toolnex</title>
+<meta name="description" content="How HTML5 replaced Flash and killed the loading bar, and why browser games like Toolnex now open in a blink.">
+<style>
+:root{--primary:#1E3A8A;--primary-light:#2563EB;--bg:#F1F5F9;--card:#FFF;--text:#0F172A;--muted:#475569;--border:#E2E8F0;--shadow:0 4px 20px rgba(15,23,42,.06);--radius:16px}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+body{background:var(--bg);color:var(--text);line-height:1.75}
+.container{max-width:760px;margin:0 auto;padding:0 20px}
+header{background:rgba(255,255,255,.92);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:99;backdrop-filter:blur(8px)}
+.header-inner{display:flex;justify-content:space-between;align-items:center;padding:14px 0;gap:16px;flex-wrap:wrap}
+.logo{font-size:23px;font-weight:800;color:var(--primary);text-decoration:none;letter-spacing:-.5px}
+.logo span{color:#D4AF37}
+nav ul{display:flex;list-style:none;gap:22px;flex-wrap:wrap}
+nav a{text-decoration:none;color:var(--text);font-weight:500;font-size:14px}
+nav a:hover{color:var(--primary-light)}
+main{padding:44px 0 60px}
+.tag{display:inline-block;background:#EFF6FF;color:var(--primary);border-radius:999px;font-size:12px;font-weight:600;padding:3px 10px;margin-bottom:12px}
+h1{font-size:32px;line-height:1.2;margin-bottom:10px;letter-spacing:-.5px}
+.meta{color:var(--muted);font-size:14px;margin-bottom:28px}
+h2{font-size:22px;margin:34px 0 12px;color:var(--primary)}
+p{margin-bottom:16px}
+ul.clean{margin:0 0 16px 22px}
+ul.clean li{margin-bottom:9px}
+.callout{background:#EFF6FF;border-left:4px solid var(--primary);border-radius:10px;padding:16px 18px;margin:18px 0;font-size:15px}
+a.inline{color:var(--primary-light);font-weight:600;text-decoration:none}
+footer{background:#0F172A;color:#CBD5E1;padding:40px 0;font-size:14px}
+.footer-inner{max-width:1080px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
+footer a{color:#93C5FD;text-decoration:none}
+footer a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<header>
+  <div class="container header-inner">
+    <a href="../index.html" class="logo">Tool<span>nex</span></a>
+    <nav><ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../games.html">Games</a></li>
+      <li><a href="index.html">Guides</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<main class="container">
+  <span class="tag">History · Tech</span>
+  <h1>From Flash to Instant Play</h1>
+  <p class="meta">How HTML5 replaced Flash and killed the loading bar · 6 min read</p>
+
+  <p>If you played browser games before 2015, you remember the ritual: click, wait for the plugin, watch a progress bar crawl, maybe install an update, then play. That era is over, and the reason Toolnex games open in under a second is the quiet revolution underneath. Here's the short version.</p>
+
+  <h2>The Flash years</h2>
+  <p>For over a decade, browser games ran on Adobe Flash. It was powerful but flawed: it needed a separate plugin, drained batteries, and was a security headache. On mobile, Flash basically never worked. By the early 2010s, the cracks were obvious.</p>
+
+  <h2>2010–2015: the slow death</h2>
+  <p>Two things killed Flash. First, Apple refused to support it on iPhone and iPad — a decision that forced the web to find another way. Second, the open web standards group (W3C) finished <strong>HTML5</strong>, which included a <em>Canvas</em> element that could draw games directly in the browser, no plugin required.</p>
+
+  <h2>What HTML5 actually changed</h2>
+  <ul class="clean">
+    <li><strong>No plugin.</strong> The game is just code the browser already understands.</li>
+    <li><strong>Mobile-native.</strong> Touch input works the same as mouse input, so one game runs everywhere.</li>
+    <li><strong>Instant load.</strong> A small HTML5 game is a few hundred KB — it appears before you blink.</li>
+    <li><strong>Safe by default.</strong> No plugin means a much smaller attack surface.</li>
+  </ul>
+  <div class="callout">Every game on Toolnex is built with HTML5 Canvas and plain JavaScript for exactly these reasons — no plugin, no download, instant on any device.</div>
+
+  <h2>Why it matters for players</h2>
+  <p>The technical shift had a human payoff: the loading bar disappeared. A game you can start in one second is a game you'll actually play during a real break, not a planned session. That's the whole design philosophy behind Toolnex — respect the player's time by removing every barrier between them and the fun.</p>
+
+  <h2>The open question</h2>
+  <p>HTML5 won, but the next shift is already here: WebAssembly lets browser games run at near-native speed, and progressive web apps let them install like apps without an app store. We're watching both. For now, plain HTML5 Canvas gives us the best mix of instant load and broad compatibility.</p>
+
+  <p>Want a behind-the-scenes look at how a specific Toolnex game is built? Request it on the <a class="inline" href="../contact.html">contact page</a>.</p>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>© <span id="yr"></span> Toolnex. Original HTML5 games & player guides.</div>
+    <div><a href="index.html">All guides</a> · <a href="../games.html">Games</a> · <a href="../contact.html">Contact</a></div>
+  </div>
+</footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>

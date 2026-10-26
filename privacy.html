@@ -4,15 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Privacy Policy | Toolnex</title>
-<meta name="description" content="Toolnex privacy policy: what data we collect, how cookies and advertising work, and the rights you have over your information.">
-<link rel="canonical" href="https://www.toolnex.xyz/privacy.html">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="description" content="How Toolnex handles your data: what we store locally, what analytics and ad cookies collect, and your GDPR and CCPA rights.">
 <style>
-:root{--primary:#1E3A8A;--primary-light:#2563EB;--bg:#F1F5F9;--card:#FFF;--text:#0F172A;
---muted:#475569;--border:#E2E8F0;--shadow:0 4px 20px rgba(15,23,42,.06);--radius:16px}
+:root{--primary:#1E3A8A;--primary-light:#2563EB;--bg:#F1F5F9;--card:#FFF;--text:#0F172A;--muted:#475569;--border:#E2E8F0;--shadow:0 4px 20px rgba(15,23,42,.06);--radius:16px}
 *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
-body{background:var(--bg);color:var(--text);line-height:1.65}
-.container{max-width:1080px;margin:0 auto;padding:0 20px}
+body{background:var(--bg);color:var(--text);line-height:1.7}
+.container{max-width:860px;margin:0 auto;padding:0 20px}
 header{background:rgba(255,255,255,.92);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:99;backdrop-filter:blur(8px)}
 .header-inner{display:flex;justify-content:space-between;align-items:center;padding:14px 0;gap:16px;flex-wrap:wrap}
 .logo{font-size:23px;font-weight:800;color:var(--primary);text-decoration:none;letter-spacing:-.5px}
@@ -20,96 +17,107 @@ header{background:rgba(255,255,255,.92);border-bottom:1px solid var(--border);po
 nav ul{display:flex;list-style:none;gap:22px;flex-wrap:wrap}
 nav a{text-decoration:none;color:var(--text);font-weight:500;font-size:14px}
 nav a:hover{color:var(--primary-light)}
-.hero{padding:42px 0 26px;text-align:center}
-.hero h1{font-size:34px;letter-spacing:-.8px;line-height:1.25}
-.hero p{color:var(--muted);max-width:640px;margin:12px auto 0}
-.btn{display:inline-block;background:var(--primary-light);color:#fff;padding:11px 24px;border-radius:12px;text-decoration:none;font-weight:600;font-size:14px;border:none;cursor:pointer}
-.btn:hover{background:var(--primary)}
-.btn.ghost{background:#fff;color:var(--primary-light);border:1px solid var(--border)}
-section{padding:26px 0}
-h2{font-size:24px;letter-spacing:-.4px;margin-bottom:14px}
-h3{font-size:17px;margin:18px 0 8px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
-.game-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;text-decoration:none;color:var(--text);box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s;display:block}
-.game-card:hover{transform:translateY(-4px);box-shadow:0 12px 34px rgba(15,23,42,.12)}
-.game-card .icon{font-size:34px}
-.game-card .name{font-weight:700;margin:10px 0 4px}
-.game-card .cat{display:inline-block;background:#EFF6FF;color:var(--primary-light);font-size:12px;font-weight:600;padding:2px 10px;border-radius:99px}
-.game-card p{color:var(--muted);font-size:13.5px;margin-top:8px}
-/* game stage */
-.stage{background:#0F172A;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
-.stage-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;color:#E2E8F0;margin-bottom:12px}
-.stage-head .stat{background:#1E293B;border-radius:10px;padding:6px 14px;font-size:14px}
-.stage-head .stat b{color:#FBBF24}
-.stage canvas{width:100%;max-width:720px;display:block;margin:0 auto;background:#111C33;border-radius:12px;touch-action:none}
-.stage .dom-game{max-width:720px;margin:0 auto}
-.stage button{background:var(--primary-light);border:none;color:#fff;font-weight:600;padding:9px 20px;border-radius:10px;cursor:pointer;font-size:14px}
-.stage button:hover{background:#3B82F6}
-.stage .hint{color:#94A3B8;font-size:13px;margin-top:10px;text-align:center}
-/* dom game shared */
-.g-board{display:grid;gap:6px;justify-content:center;margin:0 auto}
-.g-cell{display:flex;align-items:center;justify-content:center;font-weight:700;border-radius:8px;user-select:none;cursor:pointer}
-.msg{color:#E2E8F0;text-align:center;min-height:24px;font-weight:600;margin-top:10px}
-/* faq */
-.faq details{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin-bottom:10px}
-.faq summary{font-weight:600;cursor:pointer}
-.faq p{color:var(--muted);margin-top:10px;font-size:14.5px}
-footer{background:var(--card);border-top:1px solid var(--border);margin-top:40px}
-.footer-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;padding:26px 0;font-size:13.5px;color:var(--muted)}
-.footer-inner a{color:var(--muted);text-decoration:none;margin-right:16px}
-.footer-inner a:hover{color:var(--primary-light)}
-.prose p{margin-bottom:12px;color:#334155}
-.prose ul,.prose ol{margin:0 0 12px 22px;color:#334155}
-.prose li{margin-bottom:6px}
-.badge{display:inline-block;background:#EFF6FF;color:var(--primary-light);font-size:12.5px;font-weight:600;padding:4px 14px;border-radius:99px;margin-bottom:12px}
-@media(max-width:640px){.hero h1{font-size:26px}h2{font-size:20px}}
+main{padding:48px 0 64px}
+h1{font-size:34px;line-height:1.2;margin-bottom:10px;letter-spacing:-.5px}
+.lead{font-size:18px;color:var(--muted);margin-bottom:32px}
+h2{font-size:22px;margin:36px 0 14px;color:var(--primary)}
+h3{font-size:17px;margin:22px 0 8px;color:var(--text)}
+p{margin-bottom:16px}
+.article-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:26px 28px;box-shadow:var(--shadow);margin-bottom:22px}
+table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:14px}
+th,td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top}
+th{background:#EFF6FF;color:var(--primary)}
+ul.clean{margin:0 0 16px 20px}
+ul.clean li{margin-bottom:8px}
+footer{background:#0F172A;color:#CBD5E1;padding:40px 0;font-size:14px}
+.footer-inner{max-width:1080px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
+footer a{color:#93C5FD;text-decoration:none}
+footer a:hover{text-decoration:underline}
+.updated{font-size:13px;color:var(--muted);margin-top:24px}
 </style>
 </head>
 <body>
-<header><div class="container header-inner">
-<a class="logo" href="index.html">Tool<span>nex</span></a>
-<nav><ul><a href="index.html">Home</a><a href="games.html">Categories</a><a href="about.html">About</a><a href="contact.html">Contact</a></ul></nav>
-</div></header>
-<div class="hero"><div class="container"><h1>Privacy Policy</h1></div></div>
-<section><div class="container card prose">
-<p><i>Last updated: 2026-10-04</i></p>
-<p>This Privacy Policy explains what information Toolnex ("we", "us", "this website") collects when you visit www.toolnex.xyz, how we use it, and the choices you have. By using the site you agree to this policy.</p>
-<h3>1. Information We Collect</h3>
-<ul>
-<li><b>Information you give us:</b> if you contact us by email or through our contact form, we receive your name, email address and the contents of your message.</li>
-<li><b>Local storage:</b> your game scores and settings are stored only in your own browser (local storage) and are never transmitted to us.</li>
-<li><b>Server logs:</b> like most websites, our hosting provider automatically records basic technical data (IP address, browser type, pages requested, date and time) for security and performance purposes.</li>
-</ul>
-<h3>2. Cookies and Advertising</h3>
-<p>This site is supported by advertising. We use Google AdSense to display ads, and third-party vendors including Google use cookies to serve ads based on your prior visits to this and other websites.</p>
-<ul>
-<li>Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to this site and/or other sites on the Internet.</li>
-<li>You may opt out of personalised advertising by visiting <a href="https://www.google.com/settings/ads" rel="noopener nofollow" target="_blank">Google Ads Settings</a>.</li>
-<li>You can also opt out of third-party vendor cookies for personalised advertising at <a href="https://www.aboutads.info" rel="noopener nofollow" target="_blank">www.aboutads.info</a>.</li>
-</ul>
-<p>For more details, see our <a href="cookie-policy.html">Cookie Policy</a>.</p>
-<h3>3. How We Use Information</h3>
-<ul>
-<li>To operate, maintain and improve the website and its games.</li>
-<li>To respond to your questions and feedback.</li>
-<li>To monitor for abuse, fraud and technical issues.</li>
-</ul>
-<h3>4. Children's Privacy</h3>
-<p>Toolnex is family friendly and does not knowingly collect personal information from children under 13. If you believe a child has provided us personal information, contact us and we will delete it.</p>
-<h3>5. Data Sharing</h3>
-<p>We do not sell your personal information. We share data only with the service providers listed above (hosting and advertising), as required by law, or with your consent.</p>
-<h3>6. Your Rights</h3>
-<p>Depending on where you live (for example the EU/EEA or California), you may have the right to access, correct or delete personal data we hold about you, and to object to or restrict certain processing. To exercise these rights, contact us at the address on our <a href="contact.html">contact page</a>.</p>
-<h3>7. Changes to This Policy</h3>
-<p>We may update this policy from time to time. Changes are posted on this page with an updated date.</p>
-<h3>8. Contact</h3>
-<p>Questions about this policy? Reach us through the <a href="contact.html">contact page</a>.</p>
-</div></section>
-<footer><div class="container footer-inner">
-<div><a href="about.html">About</a><a href="contact.html">Contact</a>
-<a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="cookie-policy.html">Cookie Policy</a></div>
-<div>&copy; 2026 Toolnex &middot; Free browser games, playable instantly.</div>
-</div></footer>
+<header>
+  <div class="container header-inner">
+    <a href="index.html" class="logo">Tool<span>nex</span></a>
+    <nav><ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="games.html">Games</a></li>
+      <li><a href="blog/index.html">Guides</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<main class="container">
+  <h1>Privacy Policy</h1>
+  <p class="lead">This policy explains what Toolnex collects, what stays on your device, and the choices you have. It applies to toolnex.xyz and all subpages.</p>
+
+  <div class="article-card">
+    <h2>1. The short version</h2>
+    <p>Toolnex is built to respect your time and your data. You can play every game and read every guide without creating an account. We do not sell personal information, and we do not require you to hand over an email to play.</p>
+  </div>
+
+  <div class="article-card">
+    <h2>2. Data stored on your device (localStorage)</h2>
+    <p>Game progress — such as your high scores, current puzzle state, or farm layout — is saved in your browser's <strong>localStorage</strong>. This data:</p>
+    <ul class="clean">
+      <li>Never leaves your device. It is not transmitted to our servers.</li>
+      <li>Is tied to the specific browser and device you used.</li>
+      <li>Can be cleared at any time by clearing your browser data for toolnex.xyz.</li>
+    </ul>
+    <p>Because this data is local, we cannot recover it if you switch devices or clear your browser.</p>
+  </div>
+
+  <div class="article-card">
+    <h2>3. Data we collect automatically (analytics)</h2>
+    <p>To understand which guides help players and which games get played most, we use privacy-conscious analytics. This typically records:</p>
+    <ul class="clean">
+      <li>Pages visited and approximate time on page.</li>
+      <li>Browser type, device category (mobile/desktop), and country (at a regional level).</li>
+      <li>Referring site (e.g., search engine or social link).</li>
+    </ul>
+    <p>We use this in aggregate to improve the site. It is not used to identify you personally.</p>
+  </div>
+
+  <div class="article-card">
+    <h2>4. Advertising cookies</h2>
+    <p>Toolnex may display ads through third-party advertising partners (including Google AdSense). These partners may use cookies and similar technologies to serve ads based on your prior visits to this and other websites. See our <a href="cookie-policy.html">Cookie Policy</a> for the specific cookies used and how to opt out.</p>
+    <p>You can opt out of personalized advertising at any time via <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">Google Ads Settings</a> or <a href="https://optout.aboutads.info/" target="_blank" rel="noopener">YourAdChoices</a>.</p>
+  </div>
+
+  <div class="article-card">
+    <h2>5. Your rights (GDPR & CCPA)</h2>
+    <p>If you are in the European Economic Area or the United Kingdom, you have the right to access, correct, or delete personal data we hold, and to object to certain processing. If you are a California resident, you have the right to know what data is collected and to request deletion under the CCPA.</p>
+    <p>To exercise any of these rights, contact us at <a href="contact.html">our contact page</a>. We respond within the timeframes required by law (generally 30 days).</p>
+  </div>
+
+  <div class="article-card">
+    <h2>6. Children's privacy</h2>
+    <p>Toolnex is designed to be family friendly, but it is not directed specifically at children under 13, and we do not knowingly collect personal information from children. If you believe a child has provided us data, contact us and we will remove it.</p>
+  </div>
+
+  <div class="article-card">
+    <h2>7. Contact</h2>
+    <p>Questions about this policy? Reach us through the <a href="contact.html">contact page</a>. We read every message.</p>
+  </div>
+
+  <p class="updated">Last updated: October 2026.</p>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>© <span id="yr"></span> Toolnex. Original HTML5 games & player guides.</div>
+    <div>
+      <a href="about.html">About</a> ·
+      <a href="privacy.html">Privacy</a> ·
+      <a href="terms.html">Terms</a> ·
+      <a href="cookie-policy.html">Cookies</a> ·
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
 </body>
 </html>

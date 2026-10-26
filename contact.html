@@ -4,15 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact Us | Toolnex</title>
-<meta name="description" content="Contact the Toolnex team: support@toolnex.xyz. Questions, bug reports, game ideas and partnership inquiries are all welcome.">
-<link rel="canonical" href="https://www.toolnex.xyz/contact.html">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="description" content="Reach the Toolnex team with bug reports, guide suggestions, or partnership questions. We read every message.">
 <style>
-:root{--primary:#1E3A8A;--primary-light:#2563EB;--bg:#F1F5F9;--card:#FFF;--text:#0F172A;
---muted:#475569;--border:#E2E8F0;--shadow:0 4px 20px rgba(15,23,42,.06);--radius:16px}
+:root{--primary:#1E3A8A;--primary-light:#2563EB;--bg:#F1F5F9;--card:#FFF;--text:#0F172A;--muted:#475569;--border:#E2E8F0;--shadow:0 4px 20px rgba(15,23,42,.06);--radius:16px}
 *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
-body{background:var(--bg);color:var(--text);line-height:1.65}
-.container{max-width:1080px;margin:0 auto;padding:0 20px}
+body{background:var(--bg);color:var(--text);line-height:1.7}
+.container{max-width:860px;margin:0 auto;padding:0 20px}
 header{background:rgba(255,255,255,.92);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:99;backdrop-filter:blur(8px)}
 .header-inner{display:flex;justify-content:space-between;align-items:center;padding:14px 0;gap:16px;flex-wrap:wrap}
 .logo{font-size:23px;font-weight:800;color:var(--primary);text-decoration:none;letter-spacing:-.5px}
@@ -20,81 +17,88 @@ header{background:rgba(255,255,255,.92);border-bottom:1px solid var(--border);po
 nav ul{display:flex;list-style:none;gap:22px;flex-wrap:wrap}
 nav a{text-decoration:none;color:var(--text);font-weight:500;font-size:14px}
 nav a:hover{color:var(--primary-light)}
-.hero{padding:42px 0 26px;text-align:center}
-.hero h1{font-size:34px;letter-spacing:-.8px;line-height:1.25}
-.hero p{color:var(--muted);max-width:640px;margin:12px auto 0}
-.btn{display:inline-block;background:var(--primary-light);color:#fff;padding:11px 24px;border-radius:12px;text-decoration:none;font-weight:600;font-size:14px;border:none;cursor:pointer}
-.btn:hover{background:var(--primary)}
-.btn.ghost{background:#fff;color:var(--primary-light);border:1px solid var(--border)}
-section{padding:26px 0}
-h2{font-size:24px;letter-spacing:-.4px;margin-bottom:14px}
-h3{font-size:17px;margin:18px 0 8px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
-.game-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;text-decoration:none;color:var(--text);box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s;display:block}
-.game-card:hover{transform:translateY(-4px);box-shadow:0 12px 34px rgba(15,23,42,.12)}
-.game-card .icon{font-size:34px}
-.game-card .name{font-weight:700;margin:10px 0 4px}
-.game-card .cat{display:inline-block;background:#EFF6FF;color:var(--primary-light);font-size:12px;font-weight:600;padding:2px 10px;border-radius:99px}
-.game-card p{color:var(--muted);font-size:13.5px;margin-top:8px}
-/* game stage */
-.stage{background:#0F172A;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
-.stage-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;color:#E2E8F0;margin-bottom:12px}
-.stage-head .stat{background:#1E293B;border-radius:10px;padding:6px 14px;font-size:14px}
-.stage-head .stat b{color:#FBBF24}
-.stage canvas{width:100%;max-width:720px;display:block;margin:0 auto;background:#111C33;border-radius:12px;touch-action:none}
-.stage .dom-game{max-width:720px;margin:0 auto}
-.stage button{background:var(--primary-light);border:none;color:#fff;font-weight:600;padding:9px 20px;border-radius:10px;cursor:pointer;font-size:14px}
-.stage button:hover{background:#3B82F6}
-.stage .hint{color:#94A3B8;font-size:13px;margin-top:10px;text-align:center}
-/* dom game shared */
-.g-board{display:grid;gap:6px;justify-content:center;margin:0 auto}
-.g-cell{display:flex;align-items:center;justify-content:center;font-weight:700;border-radius:8px;user-select:none;cursor:pointer}
-.msg{color:#E2E8F0;text-align:center;min-height:24px;font-weight:600;margin-top:10px}
-/* faq */
-.faq details{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin-bottom:10px}
-.faq summary{font-weight:600;cursor:pointer}
-.faq p{color:var(--muted);margin-top:10px;font-size:14.5px}
-footer{background:var(--card);border-top:1px solid var(--border);margin-top:40px}
-.footer-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;padding:26px 0;font-size:13.5px;color:var(--muted)}
-.footer-inner a{color:var(--muted);text-decoration:none;margin-right:16px}
-.footer-inner a:hover{color:var(--primary-light)}
-.prose p{margin-bottom:12px;color:#334155}
-.prose ul,.prose ol{margin:0 0 12px 22px;color:#334155}
-.prose li{margin-bottom:6px}
-.badge{display:inline-block;background:#EFF6FF;color:var(--primary-light);font-size:12.5px;font-weight:600;padding:4px 14px;border-radius:99px;margin-bottom:12px}
-@media(max-width:640px){.hero h1{font-size:26px}h2{font-size:20px}}
+main{padding:48px 0 64px}
+h1{font-size:34px;line-height:1.2;margin-bottom:10px;letter-spacing:-.5px}
+.lead{font-size:18px;color:var(--muted);margin-bottom:32px}
+h2{font-size:22px;margin:36px 0 14px;color:var(--primary)}
+p{margin-bottom:16px}
+.article-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:26px 28px;box-shadow:var(--shadow);margin-bottom:22px}
+label{display:block;font-weight:600;margin:14px 0 6px}
+input,textarea{width:100%;padding:11px 13px;border:1px solid var(--border);border-radius:10px;font-size:15px;font-family:inherit;background:#fff;color:var(--text)}
+textarea{min-height:140px;resize:vertical}
+button{margin-top:18px;background:var(--primary);color:#fff;border:0;border-radius:10px;padding:12px 22px;font-size:15px;font-weight:600;cursor:pointer}
+button:hover{background:var(--primary-light)}
+.note{font-size:14px;color:var(--muted);margin-top:10px}
+ul.clean{margin:0 0 16px 20px}
+ul.clean li{margin-bottom:8px}
+footer{background:#0F172A;color:#CBD5E1;padding:40px 0;font-size:14px}
+.footer-inner{max-width:1080px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
+footer a{color:#93C5FD;text-decoration:none}
+footer a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
-<header><div class="container header-inner">
-<a class="logo" href="index.html">Tool<span>nex</span></a>
-<nav><ul><a href="index.html">Home</a><a href="games.html">Categories</a><a href="about.html">About</a><a href="contact.html" class="active">Contact</a></ul></nav>
-</div></header>
-<div class="hero"><div class="container"><h1>Contact Us</h1></div></div>
-<section><div class="container card prose">
-<p>Questions, bug reports, game ideas or partnership inquiries - we would love to hear from you.</p>
-<h3>Email</h3>
-<p>Write to us at <b>support@toolnex.xyz</b> and we will reply within 1-2 business days.</p>
-<h3>Before You Write</h3>
-<ul>
-<li><b>Game not loading?</b> Try refreshing the page, disabling aggressive ad blockers for this site, or switching to Chrome or Edge.</li>
-<li><b>Lost your high score?</b> Scores are stored in your browser's local storage - clearing browser data removes them.</li>
-<li><b>Suggestion?</b> Tell us the genre you want more of. Player requests directly shape our release schedule.</li>
-</ul>
-<h3>Contact Form</h3>
-<form class="contact-form" action="mailto:support@toolnex.xyz" method="post" enctype="text/plain" onsubmit="this.querySelector('.sent').style.display='block'">
-<label>Your name<br><input type="text" name="name" required style="width:100%;max-width:420px;padding:10px;border:1px solid var(--border);border-radius:10px;font-size:14px"></label><br><br>
-<label>Your email<br><input type="email" name="email" required style="width:100%;max-width:420px;padding:10px;border:1px solid var(--border);border-radius:10px;font-size:14px"></label><br><br>
-<label>Message<br><textarea name="message" rows="5" required style="width:100%;max-width:420px;padding:10px;border:1px solid var(--border);border-radius:10px;font-size:14px;font-family:inherit"></textarea></label><br><br>
-<button class="btn" type="submit">Send Message</button>
-<span class="sent" style="display:none;color:#16A34A;font-weight:600;margin-left:12px">Your email app should open now - just hit send!</span>
-</form>
-</div></section>
-<footer><div class="container footer-inner">
-<div><a href="about.html">About</a><a href="contact.html">Contact</a>
-<a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="cookie-policy.html">Cookie Policy</a></div>
-<div>&copy; 2026 Toolnex &middot; Free browser games, playable instantly.</div>
-</div></footer>
+<header>
+  <div class="container header-inner">
+    <a href="index.html" class="logo">Tool<span>nex</span></a>
+    <nav><ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="games.html">Games</a></li>
+      <li><a href="blog/index.html">Guides</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<main class="container">
+  <h1>Contact Us</h1>
+  <p class="lead">Found a bug? Want a guide on a specific game? Thinking about a collaboration? Send it our way — we read every message.</p>
+
+  <div class="article-card">
+    <h2>Email</h2>
+    <p>The most reliable way to reach us is email: <a href="mailto:hello@toolnex.xyz">hello@toolnex.xyz</a>. We aim to reply within 2 business days.</p>
+    <p class="note">Tip: if you're reporting a game that won't load, tell us your browser and device — it speeds up the fix a lot.</p>
+  </div>
+
+  <div class="article-card">
+    <h2>Send a message</h2>
+    <form action="mailto:hello@toolnex.xyz" method="post" enctype="text/plain">
+      <label for="name">Your name</label>
+      <input id="name" name="name" type="text" placeholder="e.g., Alex" required>
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" placeholder="you@example.com" required>
+      <label for="topic">Topic</label>
+      <input id="topic" name="topic" type="text" placeholder="Bug report / Guide request / Other">
+      <label for="msg">Message</label>
+      <textarea id="msg" name="msg" placeholder="Tell us what's going on..." required></textarea>
+      <button type="submit">Send message</button>
+      <p class="note">This opens your email app with the details pre-filled. If it doesn't, just email hello@toolnex.xyz directly.</p>
+    </form>
+  </div>
+
+  <div class="article-card">
+    <h2>What to include</h2>
+    <ul class="clean">
+      <li><strong>Bug reports:</strong> game name, what you did, what happened, browser + device.</li>
+      <li><strong>Guide requests:</strong> which game and what you're stuck on — we prioritize these for the blog.</li>
+      <li><strong>Partnerships:</strong> a one-line description of who you are and what you have in mind.</li>
+    </ul>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>© <span id="yr"></span> Toolnex. Original HTML5 games & player guides.</div>
+    <div>
+      <a href="about.html">About</a> ·
+      <a href="privacy.html">Privacy</a> ·
+      <a href="terms.html">Terms</a> ·
+      <a href="cookie-policy.html">Cookies</a> ·
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
 </body>
 </html>

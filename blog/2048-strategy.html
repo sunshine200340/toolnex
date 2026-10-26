@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Reach 2048 Without Panicking | Toolnex Guide</title>
+<meta name="description" content="A practical strategy guide for Merge Numbers 2048 on Toolnex: the corner method, a finger rule, and the move that quietly ends most runs.">
+<style>
+:root{--primary:#1E3A8A;--primary-light:#2563EB;--bg:#F1F5F9;--card:#FFF;--text:#0F172A;--muted:#475569;--border:#E2E8F0;--shadow:0 4px 20px rgba(15,23,42,.06);--radius:16px}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+body{background:var(--bg);color:var(--text);line-height:1.75}
+.container{max-width:760px;margin:0 auto;padding:0 20px}
+header{background:rgba(255,255,255,.92);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:99;backdrop-filter:blur(8px)}
+.header-inner{display:flex;justify-content:space-between;align-items:center;padding:14px 0;gap:16px;flex-wrap:wrap}
+.logo{font-size:23px;font-weight:800;color:var(--primary);text-decoration:none;letter-spacing:-.5px}
+.logo span{color:#D4AF37}
+nav ul{display:flex;list-style:none;gap:22px;flex-wrap:wrap}
+nav a{text-decoration:none;color:var(--text);font-weight:500;font-size:14px}
+nav a:hover{color:var(--primary-light)}
+main{padding:44px 0 60px}
+.tag{display:inline-block;background:#EFF6FF;color:var(--primary);border-radius:999px;font-size:12px;font-weight:600;padding:3px 10px;margin-bottom:12px}
+h1{font-size:32px;line-height:1.2;margin-bottom:10px;letter-spacing:-.5px}
+.meta{color:var(--muted);font-size:14px;margin-bottom:28px}
+h2{font-size:22px;margin:34px 0 12px;color:var(--primary)}
+p{margin-bottom:16px}
+ul.clean{margin:0 0 16px 22px}
+ul.clean li{margin-bottom:9px}
+.callout{background:#EFF6FF;border-left:4px solid var(--primary);border-radius:10px;padding:16px 18px;margin:18px 0;font-size:15px}
+a.inline{color:var(--primary-light);font-weight:600;text-decoration:none}
+footer{background:#0F172A;color:#CBD5E1;padding:40px 0;font-size:14px}
+.footer-inner{max-width:1080px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
+footer a{color:#93C5FD;text-decoration:none}
+footer a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<header>
+  <div class="container header-inner">
+    <a href="../index.html" class="logo">Tool<span>nex</span></a>
+    <nav><ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../games.html">Games</a></li>
+      <li><a href="index.html">Guides</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<main class="container">
+  <span class="tag">Puzzle · Merge Numbers 2048</span>
+  <h1>How to Reach 2048 Without Panicking</h1>
+  <p class="meta">A practical guide to Toolnex's Merge Numbers 2048 · 6 min read</p>
+
+  <p>Most people who fail at 2048 don't fail because they're bad at math. They fail because the board fills up while they chase the wrong tile. This guide covers the method we use on Toolnex's <a class="inline" href="../2048-challenge.html">Merge Numbers 2048</a> to reach the 2048 tile consistently — and, just as importantly, what to do when the board gets tight.</p>
+
+  <h2>1. Pick a corner and never leave it</h2>
+  <p>The single most reliable habit is to keep your largest tile pinned to one corner — say, the bottom-right — for the entire game. Every merge should flow toward that corner. If you let your biggest tile wander to the middle or an edge, you lose the structure that keeps the board solvable.</p>
+  <p>Pick the corner on your first move and treat it as home base. Resist the urge to merge elsewhere just because a tempting pair appears.</p>
+
+  <h2>2. The finger rule: two directions only</h2>
+  <p>Here's the trick that removes most of the panic: once you've chosen a corner, you only ever press <strong>two</strong> of the four arrow keys to move tiles toward it. If your big tile lives in the bottom-right, you press Down and Right almost exclusively. The other two keys (Up, Left) become "emergency only" — used to shift a stuck row without disturbing your corner.</p>
+  <div class="callout">Rule of thumb: if a move doesn't bring a tile closer to your home corner, don't make it unless you have no choice.</div>
+
+  <h2>3. The move that quietly ends most runs</h2>
+  <p>The silent killer is the "spread" move — pressing the direction that scatters your tiles into a neat row across the top, thinking you're organizing. You're not. You're creating two large tiles on opposite sides that can never meet. Before any move, ask: will this create a second big tile far from my corner? If yes, skip it.</p>
+
+  <h2>4. When the board gets tight</h2>
+  <p>Late game, you'll have a 256 or 512 in the corner and the rest filling in. Now sequencing matters:</p>
+  <ul class="clean">
+    <li><strong>Build in columns, not rows.</strong> Keep a tall stack near your corner so new spawns merge upward into it.</li>
+    <li><strong>Don't panic-merge.</strong> A wasted merge in the wrong spot can lock the board within three moves.</li>
+    <li><strong>Use the opposite key to cycle.</strong> If Down is blocked, a single Left can reposition a row so the next Down merges cleanly.</li>
+  </ul>
+
+  <h2>5. A simple warm-up drill</h2>
+  <p>Before going for 2048, try to reach just 512 three times in a row. If you can do that, your corner discipline is solid and the jump to 1024 and 2048 is mostly patience. The <a class="inline" href="../2048-challenge.html">game on Toolnex</a> saves your best score locally, so you can track improvement session to session.</p>
+
+  <h2>Does strategy beat luck?</h2>
+  <p>Luck decides which tiles spawn, but strategy decides whether a bad spawn ends you. Players using the corner method reach 2048 far more often than random players — not because they're smarter, but because they've removed the self-inflicted mistakes. That's the whole game.</p>
+
+  <p>Stuck on a specific board state? Tell us in the <a class="inline" href="../contact.html">contact page</a> and we may turn it into a follow-up guide.</p>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>© <span id="yr"></span> Toolnex. Original HTML5 games & player guides.</div>
+    <div><a href="index.html">All guides</a> · <a href="../games.html">Games</a> · <a href="../contact.html">Contact</a></div>
+  </div>
+</footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>

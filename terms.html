@@ -4,15 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Terms of Use | Toolnex</title>
-<meta name="description" content="Toolnex terms of use: how our free games may be used, our intellectual property, advertising and liability terms.">
-<link rel="canonical" href="https://www.toolnex.xyz/terms.html">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="description" content="The terms that govern your use of Toolnex: free games and guides provided as-is, acceptable use, and intellectual property.">
 <style>
-:root{--primary:#1E3A8A;--primary-light:#2563EB;--bg:#F1F5F9;--card:#FFF;--text:#0F172A;
---muted:#475569;--border:#E2E8F0;--shadow:0 4px 20px rgba(15,23,42,.06);--radius:16px}
+:root{--primary:#1E3A8A;--primary-light:#2563EB;--bg:#F1F5F9;--card:#FFF;--text:#0F172A;--muted:#475569;--border:#E2E8F0;--shadow:0 4px 20px rgba(15,23,42,.06);--radius:16px}
 *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
-body{background:var(--bg);color:var(--text);line-height:1.65}
-.container{max-width:1080px;margin:0 auto;padding:0 20px}
+body{background:var(--bg);color:var(--text);line-height:1.7}
+.container{max-width:860px;margin:0 auto;padding:0 20px}
 header{background:rgba(255,255,255,.92);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:99;backdrop-filter:blur(8px)}
 .header-inner{display:flex;justify-content:space-between;align-items:center;padding:14px 0;gap:16px;flex-wrap:wrap}
 .logo{font-size:23px;font-weight:800;color:var(--primary);text-decoration:none;letter-spacing:-.5px}
@@ -20,82 +17,95 @@ header{background:rgba(255,255,255,.92);border-bottom:1px solid var(--border);po
 nav ul{display:flex;list-style:none;gap:22px;flex-wrap:wrap}
 nav a{text-decoration:none;color:var(--text);font-weight:500;font-size:14px}
 nav a:hover{color:var(--primary-light)}
-.hero{padding:42px 0 26px;text-align:center}
-.hero h1{font-size:34px;letter-spacing:-.8px;line-height:1.25}
-.hero p{color:var(--muted);max-width:640px;margin:12px auto 0}
-.btn{display:inline-block;background:var(--primary-light);color:#fff;padding:11px 24px;border-radius:12px;text-decoration:none;font-weight:600;font-size:14px;border:none;cursor:pointer}
-.btn:hover{background:var(--primary)}
-.btn.ghost{background:#fff;color:var(--primary-light);border:1px solid var(--border)}
-section{padding:26px 0}
-h2{font-size:24px;letter-spacing:-.4px;margin-bottom:14px}
-h3{font-size:17px;margin:18px 0 8px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
-.game-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;text-decoration:none;color:var(--text);box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s;display:block}
-.game-card:hover{transform:translateY(-4px);box-shadow:0 12px 34px rgba(15,23,42,.12)}
-.game-card .icon{font-size:34px}
-.game-card .name{font-weight:700;margin:10px 0 4px}
-.game-card .cat{display:inline-block;background:#EFF6FF;color:var(--primary-light);font-size:12px;font-weight:600;padding:2px 10px;border-radius:99px}
-.game-card p{color:var(--muted);font-size:13.5px;margin-top:8px}
-/* game stage */
-.stage{background:#0F172A;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
-.stage-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;color:#E2E8F0;margin-bottom:12px}
-.stage-head .stat{background:#1E293B;border-radius:10px;padding:6px 14px;font-size:14px}
-.stage-head .stat b{color:#FBBF24}
-.stage canvas{width:100%;max-width:720px;display:block;margin:0 auto;background:#111C33;border-radius:12px;touch-action:none}
-.stage .dom-game{max-width:720px;margin:0 auto}
-.stage button{background:var(--primary-light);border:none;color:#fff;font-weight:600;padding:9px 20px;border-radius:10px;cursor:pointer;font-size:14px}
-.stage button:hover{background:#3B82F6}
-.stage .hint{color:#94A3B8;font-size:13px;margin-top:10px;text-align:center}
-/* dom game shared */
-.g-board{display:grid;gap:6px;justify-content:center;margin:0 auto}
-.g-cell{display:flex;align-items:center;justify-content:center;font-weight:700;border-radius:8px;user-select:none;cursor:pointer}
-.msg{color:#E2E8F0;text-align:center;min-height:24px;font-weight:600;margin-top:10px}
-/* faq */
-.faq details{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin-bottom:10px}
-.faq summary{font-weight:600;cursor:pointer}
-.faq p{color:var(--muted);margin-top:10px;font-size:14.5px}
-footer{background:var(--card);border-top:1px solid var(--border);margin-top:40px}
-.footer-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;padding:26px 0;font-size:13.5px;color:var(--muted)}
-.footer-inner a{color:var(--muted);text-decoration:none;margin-right:16px}
-.footer-inner a:hover{color:var(--primary-light)}
-.prose p{margin-bottom:12px;color:#334155}
-.prose ul,.prose ol{margin:0 0 12px 22px;color:#334155}
-.prose li{margin-bottom:6px}
-.badge{display:inline-block;background:#EFF6FF;color:var(--primary-light);font-size:12.5px;font-weight:600;padding:4px 14px;border-radius:99px;margin-bottom:12px}
-@media(max-width:640px){.hero h1{font-size:26px}h2{font-size:20px}}
+main{padding:48px 0 64px}
+h1{font-size:34px;line-height:1.2;margin-bottom:10px;letter-spacing:-.5px}
+.lead{font-size:18px;color:var(--muted);margin-bottom:32px}
+h2{font-size:22px;margin:36px 0 14px;color:var(--primary)}
+p{margin-bottom:16px}
+.article-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:26px 28px;box-shadow:var(--shadow);margin-bottom:22px}
+ul.clean{margin:0 0 16px 20px}
+ul.clean li{margin-bottom:8px}
+footer{background:#0F172A;color:#CBD5E1;padding:40px 0;font-size:14px}
+.footer-inner{max-width:1080px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
+footer a{color:#93C5FD;text-decoration:none}
+footer a:hover{text-decoration:underline}
+.updated{font-size:13px;color:var(--muted);margin-top:24px}
 </style>
 </head>
 <body>
-<header><div class="container header-inner">
-<a class="logo" href="index.html">Tool<span>nex</span></a>
-<nav><ul><a href="index.html">Home</a><a href="games.html">Categories</a><a href="about.html">About</a><a href="contact.html">Contact</a></ul></nav>
-</div></header>
-<div class="hero"><div class="container"><h1>Terms of Use</h1></div></div>
-<section><div class="container card prose">
-<p><i>Last updated: 2026-10-04</i></p>
-<p>Welcome to Toolnex. By accessing or using www.toolnex.xyz you agree to these Terms of Use. If you do not agree, please do not use the site.</p>
-<h3>1. Use of the Site</h3>
-<p>Toolnex provides free browser games for personal, non-commercial entertainment. You may play any game, on any device, as often as you like. You agree not to misuse the site - for example by attempting to hack it, scrape it at scale, or interfere with other visitors' enjoyment.</p>
-<h3>2. Intellectual Property</h3>
-<p>All games, artwork, text and design on Toolnex are created by and owned by Toolnex unless otherwise stated. You may not copy, republish, sell or redistribute our games or content without written permission. Deep-linking or embedding our game pages inside other websites or apps is not permitted.</p>
-<h3>3. User-Provided Content</h3>
-<p>If you send us feedback, ideas or suggestions, you grant us a non-exclusive, royalty-free right to use them to improve the site. Do not send us confidential information.</p>
-<h3>4. Availability</h3>
-<p>We work hard to keep the site available and bug-free, but Toolnex is provided "as is" without warranties of any kind. We may add, change, suspend or remove games or features at any time.</p>
-<h3>5. Limitation of Liability</h3>
-<p>To the maximum extent permitted by law, Toolnex and its operators are not liable for any indirect, incidental or consequential damages arising from your use of the site.</p>
-<h3>6. Advertising</h3>
-<p>The site displays advertising (including Google AdSense). Ad content is provided by third parties; we are not responsible for the products or services advertised. See our <a href="privacy.html">Privacy Policy</a> for details on advertising cookies.</p>
-<h3>7. Changes to These Terms</h3>
-<p>We may update these terms occasionally. Continued use of the site after changes means you accept the updated terms.</p>
-<h3>8. Contact</h3>
-<p>Questions about these terms? Reach us through the <a href="contact.html">contact page</a>.</p>
-</div></section>
-<footer><div class="container footer-inner">
-<div><a href="about.html">About</a><a href="contact.html">Contact</a>
-<a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="cookie-policy.html">Cookie Policy</a></div>
-<div>&copy; 2026 Toolnex &middot; Free browser games, playable instantly.</div>
-</div></footer>
+<header>
+  <div class="container header-inner">
+    <a href="index.html" class="logo">Tool<span>nex</span></a>
+    <nav><ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="games.html">Games</a></li>
+      <li><a href="blog/index.html">Guides</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<main class="container">
+  <h1>Terms of Use</h1>
+  <p class="lead">By using Toolnex you agree to the terms below. They are written in plain language so you actually know where you stand.</p>
+
+  <div class="article-card">
+    <h2>1. What Toolnex is</h2>
+    <p>Toolnex (toolnex.xyz) provides free, browser-based HTML5 games and player guides. The service is provided "as is" and "as available" without warranty of any kind.</p>
+  </div>
+
+  <div class="article-card">
+    <h2>2. Acceptable use</h2>
+    <p>You agree to use the site lawfully and not to:</p>
+    <ul class="clean">
+      <li>Attempt to reverse-engineer, copy, or redistribute the games or guides except as permitted by law.</li>
+      <li>Use automated tools (bots, scrapers) to overload the site or extract content at scale.</li>
+      <li>Upload or transmit malicious code through any contact or submission feature.</li>
+      <li>Impersonate Toolnex or another user.</li>
+    </ul>
+  </div>
+
+  <div class="article-card">
+    <h2>3. Intellectual property</h2>
+    <p>The games, artwork, text guides, and site design are the property of Toolnex unless otherwise noted. You may share links to the site freely. You may not republish the guides or game code without written permission.</p>
+  </div>
+
+  <div class="article-card">
+    <h2>4. Saved progress</h2>
+    <p>High scores and game state are stored locally in your browser. Toolnex is not responsible for lost progress resulting from clearing browser data, switching devices, or browser updates.</p>
+  </div>
+
+  <div class="article-card">
+    <h2>5. Third-party content & ads</h2>
+    <p>The site may display advertising and links served by third parties (including Google AdSense). Those parties have their own terms and privacy policies, which apply to their content.</p>
+  </div>
+
+  <div class="article-card">
+    <h2>6. Limitation of liability</h2>
+    <p>To the fullest extent permitted by law, Toolnex is not liable for any indirect or consequential loss arising from use of the site. If a game fails to load, your recourse is to reload or contact us.</p>
+  </div>
+
+  <div class="article-card">
+    <h2>7. Changes to these terms</h2>
+    <p>We may update these terms as the site evolves. Material changes will be reflected by the "last updated" date below. Continued use after changes constitutes acceptance.</p>
+  </div>
+
+  <p class="updated">Last updated: October 2026.</p>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>© <span id="yr"></span> Toolnex. Original HTML5 games & player guides.</div>
+    <div>
+      <a href="about.html">About</a> ·
+      <a href="privacy.html">Privacy</a> ·
+      <a href="terms.html">Terms</a> ·
+      <a href="cookie-policy.html">Cookies</a> ·
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
 </body>
 </html>

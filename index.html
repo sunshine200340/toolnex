@@ -3,21 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Toolnex - Play Free Online Games Instantly | No Downloads</title>
-<meta name="description" content="Toolnex is a free browser-game portal: puzzle, racing, arcade, strategy and sports games you can play instantly in your browser. No downloads, no sign-ups, no install.">
-<link rel="canonical" href="https://www.toolnex.xyz/">
-<meta property="og:title" content="Toolnex - Play Free Online Games Instantly">
-<meta property="og:description" content="Free browser games across arcade, racing, puzzle, match-3, sports, simulation and strategy. Play instantly, no downloads.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.toolnex.xyz/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Toolnex — Free HTML5 Games & Player Guides (No Downloads)</title>
+<meta name="description" content="Toolnex is a small studio publishing 18 original HTML5 browser games and practical, player-tested guides across arcade, racing, puzzle, match-3, sports, simulation, and strategy. Play free, no accounts, no redirects.">
 <style>
-:root{--primary:#1E3A8A;--primary-light:#2563EB;--bg:#F1F5F9;--card:#FFF;--text:#0F172A;
---muted:#475569;--border:#E2E8F0;--shadow:0 4px 20px rgba(15,23,42,.06);--radius:16px}
+:root{--primary:#1E3A8A;--primary-light:#2563EB;--bg:#F1F5F9;--card:#FFF;--text:#0F172A;--muted:#475569;--border:#E2E8F0;--shadow:0 4px 20px rgba(15,23,42,.06);--radius:16px}
 *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
-body{background:var(--bg);color:var(--text);line-height:1.65}
+body{background:var(--bg);color:var(--text);line-height:1.7}
 .container{max-width:1080px;margin:0 auto;padding:0 20px}
 header{background:rgba(255,255,255,.92);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:99;backdrop-filter:blur(8px)}
 .header-inner{display:flex;justify-content:space-between;align-items:center;padding:14px 0;gap:16px;flex-wrap:wrap}
@@ -26,163 +17,152 @@ header{background:rgba(255,255,255,.92);border-bottom:1px solid var(--border);po
 nav ul{display:flex;list-style:none;gap:22px;flex-wrap:wrap}
 nav a{text-decoration:none;color:var(--text);font-weight:500;font-size:14px}
 nav a:hover{color:var(--primary-light)}
-.hero{padding:42px 0 26px;text-align:center}
-.hero h1{font-size:34px;letter-spacing:-.8px;line-height:1.25}
-.hero p{color:var(--muted);max-width:640px;margin:12px auto 0}
-.btn{display:inline-block;background:var(--primary-light);color:#fff;padding:11px 24px;border-radius:12px;text-decoration:none;font-weight:600;font-size:14px;border:none;cursor:pointer}
-.btn:hover{background:var(--primary)}
-.btn.ghost{background:#fff;color:var(--primary-light);border:1px solid var(--border)}
-section{padding:26px 0}
-h2{font-size:24px;letter-spacing:-.4px;margin-bottom:14px}
-h3{font-size:17px;margin:18px 0 8px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
-.game-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;text-decoration:none;color:var(--text);box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s;display:block}
-.game-card:hover{transform:translateY(-4px);box-shadow:0 12px 34px rgba(15,23,42,.12)}
-.game-card .icon{font-size:34px}
-.game-card .name{font-weight:700;margin:10px 0 4px}
-.game-card .cat{display:inline-block;background:#EFF6FF;color:var(--primary-light);font-size:12px;font-weight:600;padding:2px 10px;border-radius:99px}
-.game-card p{color:var(--muted);font-size:13.5px;margin-top:8px}
-/* game stage */
-.stage{background:#0F172A;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
-.stage-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;color:#E2E8F0;margin-bottom:12px}
-.stage-head .stat{background:#1E293B;border-radius:10px;padding:6px 14px;font-size:14px}
-.stage-head .stat b{color:#FBBF24}
-.stage canvas{width:100%;max-width:720px;display:block;margin:0 auto;background:#111C33;border-radius:12px;touch-action:none}
-.stage .dom-game{max-width:720px;margin:0 auto}
-.stage button{background:var(--primary-light);border:none;color:#fff;font-weight:600;padding:9px 20px;border-radius:10px;cursor:pointer;font-size:14px}
-.stage button:hover{background:#3B82F6}
-.stage .hint{color:#94A3B8;font-size:13px;margin-top:10px;text-align:center}
-/* dom game shared */
-.g-board{display:grid;gap:6px;justify-content:center;margin:0 auto}
-.g-cell{display:flex;align-items:center;justify-content:center;font-weight:700;border-radius:8px;user-select:none;cursor:pointer}
-.msg{color:#E2E8F0;text-align:center;min-height:24px;font-weight:600;margin-top:10px}
-/* faq */
-.faq details{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin-bottom:10px}
-.faq summary{font-weight:600;cursor:pointer}
-.faq p{color:var(--muted);margin-top:10px;font-size:14.5px}
-footer{background:var(--card);border-top:1px solid var(--border);margin-top:40px}
-.footer-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;padding:26px 0;font-size:13.5px;color:var(--muted)}
-.footer-inner a{color:var(--muted);text-decoration:none;margin-right:16px}
-.footer-inner a:hover{color:var(--primary-light)}
-.prose p{margin-bottom:12px;color:#334155}
-.prose ul,.prose ol{margin:0 0 12px 22px;color:#334155}
-.prose li{margin-bottom:6px}
-.badge{display:inline-block;background:#EFF6FF;color:var(--primary-light);font-size:12.5px;font-weight:600;padding:4px 14px;border-radius:99px;margin-bottom:12px}
-@media(max-width:640px){.hero h1{font-size:26px}h2{font-size:20px}}
+/* hero */
+.hero{background:linear-gradient(135deg,#1E3A8A 0%,#2563EB 100%);color:#fff;padding:64px 0 60px;margin-bottom:48px}
+.hero h1{font-size:42px;line-height:1.15;margin-bottom:16px;letter-spacing:-1px;max-width:760px}
+.hero p{font-size:18px;opacity:.92;max-width:680px;margin-bottom:26px}
+.hero a.cta{display:inline-block;background:#D4AF37;color:#1E3A8A;font-weight:700;padding:13px 24px;border-radius:12px;text-decoration:none;margin-right:12px}
+.hero a.cta.alt{background:rgba(255,255,255,.15);color:#fff}
+.section-title{font-size:26px;margin:0 0 6px;color:var(--primary);letter-spacing:-.3px}
+.section-sub{color:var(--muted);margin-bottom:24px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:48px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);transition:transform .15s}
+.card:hover{transform:translateY(-3px)}
+.card h3{font-size:17px;margin-bottom:8px;color:var(--primary)}
+.card p{font-size:14px;color:var(--muted);margin:0}
+.card a{color:inherit;text-decoration:none}
+.tag{display:inline-block;background:#EFF6FF;color:var(--primary);border-radius:999px;font-size:12px;font-weight:600;padding:3px 10px;margin-bottom:10px}
+.feature-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:48px}
+.feature{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+.feature h3{font-size:18px;margin-bottom:8px;color:var(--primary)}
+.feature p{font-size:14px;color:var(--muted);margin-bottom:12px}
+.feature a{font-weight:600;color:var(--primary-light);text-decoration:none}
+.banner{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--primary);border-radius:12px;padding:20px 24px;margin-bottom:48px;box-shadow:var(--shadow)}
+.banner h3{font-size:18px;color:var(--primary);margin-bottom:6px}
+.banner p{font-size:14px;color:var(--muted)}
+footer{background:#0F172A;color:#CBD5E1;padding:40px 0;font-size:14px;margin-top:24px}
+.footer-inner{max-width:1080px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
+footer a{color:#93C5FD;text-decoration:none}
+footer a:hover{text-decoration:underline}
+@media(max-width:760px){.grid{grid-template-columns:1fr}.feature-row{grid-template-columns:1fr}.hero h1{font-size:32px}}
 </style>
 </head>
 <body>
-<header><div class="container header-inner">
-<a class="logo" href="index.html">Tool<span>nex</span></a>
-<nav><ul><a href="index.html" class="active">Home</a><a href="games.html">Categories</a><a href="about.html">About</a><a href="contact.html">Contact</a></ul></nav>
-</div></header>
-<div class="hero">
+<header>
+  <div class="container header-inner">
+    <a href="index.html" class="logo">Tool<span>nex</span></a>
+    <nav><ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="games.html">Games</a></li>
+      <li><a href="blog/index.html">Guides</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Free HTML5 games you can actually finish — plus guides that help you win</h1>
+    <p>Toolnex is a small studio that builds original browser games and writes the practical guides that make them click. No downloads, no accounts, no redirects to other sites. Just play, on this page, in under a second.</p>
+    <a class="cta" href="games.html">Browse 18 games</a>
+    <a class="cta alt" href="blog/index.html">Read the guides</a>
+  </div>
+</section>
+
 <div class="container">
-<h1>Play Free Online Games, Instantly in Your Browser</h1>
-<p>Toolnex brings together 18 original browser games across seven categories - arcade, racing, puzzle, match-3, sports, simulation and strategy. Every game runs directly on this page's link: no downloads, no accounts, no waiting.</p>
-<a class="btn" href="#games">Browse All Games</a>
-<a class="btn ghost" href="games.html">Explore by Category</a>
+
+  <div class="banner">
+    <h3>New here? Start with the guides.</h3>
+    <p>Every game on Toolnex has a strategy behind it. Our <a href="blog/index.html" style="color:var(--primary-light);font-weight:600">player guides</a> break down the mechanics, the scoring, and the habits that turn a frustrating round into a high score.</p>
+  </div>
+
+  <h2 class="section-title">Latest guides</h2>
+  <p class="section-sub">Written by players, for players. Updated as we ship new games.</p>
+  <div class="grid">
+    <a class="card" href="blog/2048-strategy.html">
+      <span class="tag">Puzzle</span>
+      <h3>How to reach 2048 without panicking</h3>
+      <p>A corner strategy, a finger rule, and the one move that quietly loses most games.</p>
+    </a>
+    <a class="card" href="blog/tower-defense-guide.html">
+      <span class="tag">Strategy</span>
+      <h3>Tower Defense, explained in 10 waves</h3>
+      <p>Where to place your first tower in Castle Guard Defense and why the path matters.</p>
+    </a>
+    <a class="card" href="blog/racing-tips.html">
+      <span class="tag">Racing</span>
+      <h3>The drift line that shaves seconds off</h3>
+      <p>Traffic weaving and cornering tips that work in Skyline Speed Race and Highway Racer.</p>
+    </a>
+    <a class="card" href="blog/match3-psychology.html">
+      <span class="tag">Match-3</span>
+      <h3>Why we can't stop swapping gems</h3>
+      <p>The loop behind Gem Match Blast, and how to chain combos before the clock ends.</p>
+    </a>
+    <a class="card" href="blog/puzzle-brain.html">
+      <span class="tag">Science</span>
+      <h3>What puzzle games do to your brain</h3>
+      <p>A plain-language look at the research on Sudoku, sliding puzzles, and focus.</p>
+    </a>
+    <a class="card" href="blog/best-browser-games.html">
+      <span class="tag">Roundup</span>
+      <h3>10 browser games worth a break</h3>
+      <p>Our editor's list of the most replayable titles on Toolnex, and who each suits.</p>
+    </a>
+  </div>
+
+  <h2 class="section-title">Seven categories, eighteen original games</h2>
+  <p class="section-sub">All built in-house with HTML5 Canvas. Your scores save locally — we never see them.</p>
+  <div class="grid">
+    <a class="card" href="games.html"><h3>Arcade</h3><p>Color Rush Reflex, Neon Dash, Bubble Pop, Fruit Slice — fast, twitchy, satisfying.</p></a>
+    <a class="card" href="games.html"><h3>Racing</h3><p>Skyline Speed Race, Highway Racer, Moto Hill Jump, Drift Master.</p></a>
+    <a class="card" href="games.html"><h3>Puzzle</h3><p>Merge 2048, Block Fit, Jigsaw Slide, Sudoku Daily, Word Search Pro.</p></a>
+    <a class="card" href="games.html"><h3>Match-3</h3><p>Gem Match Blast — swap, chain, beat the 60-second clock.</p></a>
+    <a class="card" href="games.html"><h3>Sports</h3><p>Mini Hoops Basketball — pure shooting touch in your pocket.</p></a>
+    <a class="card" href="games.html"><h3>Simulation</h3><p>Tiny Farm Simulator — plant, water, harvest, repeat.</p></a>
+    <a class="card" href="games.html"><h3>Strategy</h3><p>Castle Guard Defense, Star Defender — hold the line, ten waves.</p></a>
+    <a class="card" href="blog/index.html"><h3>+ Guides</h3><p>Every category has strategy write-ups. That's the point of Toolnex.</p></a>
+  </div>
+
+  <h2 class="section-title">Why Toolnex is different</h2>
+  <div class="feature-row">
+    <div class="feature">
+      <h3>Instant play, zero friction</h3>
+      <p>Every game loads in under a second, right inside the page. No installs, no "open in a new window" detours, no account walls.</p>
+      <a href="about.html">Our promise →</a>
+    </div>
+    <div class="feature">
+      <h3>Guides that earn their place</h3>
+      <p>We don't pad the site with spun text. Each guide is player-tested and specific to the game it covers.</p>
+      <a href="blog/index.html">Read them →</a>
+    </div>
+    <div class="feature">
+      <h3>Original, not aggregated</h3>
+      <p>No third-party game iframe sits on this domain. What you click is what we built.</p>
+      <a href="about.html">How we build →</a>
+    </div>
+    <div class="feature">
+      <h3>Transparent by default</h3>
+      <p>Read exactly what we collect (almost nothing) and what stays on your device in our privacy policy.</p>
+      <a href="privacy.html">Privacy →</a>
+    </div>
+  </div>
+
 </div>
-</div>
-<section id="games"><div class="container">
-<h2>All Games</h2>
-<div class="grid"><a class="game-card" href="block-puzzle.html">
-<div class="icon">🎨</div>
-<div class="name">Color Rush Reflex</div>
-<span class="cat">Arcade</span>
-<p>Spot the target color in a shifting grid and tap it before your streak resets.</p></a><a class="game-card" href="neon-runner.html">
-<div class="icon">⚡</div>
-<div class="name">Neon Dash</div>
-<span class="cat">Arcade</span>
-<p>An endless neon runner - jump the obstacles, chase your best distance.</p></a><a class="game-card" href="bubble-pop.html">
-<div class="icon">🫧</div>
-<div class="name">Bubble Pop Adventure</div>
-<span class="cat">Arcade</span>
-<p>Aim, bounce and pop matching bubbles before the wall closes in.</p></a><a class="game-card" href="fruit-ninja.html">
-<div class="icon">🍉</div>
-<div class="name">Fruit Slice Challenge</div>
-<span class="cat">Arcade</span>
-<p>Swipe to slice flying fruit - but never touch the bombs.</p></a><a class="game-card" href="speed-race.html">
-<div class="icon">🏎️</div>
-<div class="name">Skyline Speed Race</div>
-<span class="cat">Racing</span>
-<p>Weave through city traffic, grab stars, and push your speed to the limit.</p></a><a class="game-card" href="highway-racer.html">
-<div class="icon">🛣️</div>
-<div class="name">Highway Racer</div>
-<span class="cat">Racing</span>
-<p>Pure highway speed: four lanes, no brakes, one distance record.</p></a><a class="game-card" href="moto-x3m.html">
-<div class="icon">🏍️</div>
-<div class="name">Moto Hill Jump</div>
-<span class="cat">Racing</span>
-<p>Hold the throttle, hit the ramps, and stick the landing.</p></a><a class="game-card" href="drift-hunters.html">
-<div class="icon">🏁</div>
-<div class="name">Drift Master</div>
-<span class="cat">Racing</span>
-<p>Slide through checkpoints on a midnight circuit - style earns points.</p></a><a class="game-card" href="basketball.html">
-<div class="icon">🏀</div>
-<div class="name">Mini Hoops Basketball</div>
-<span class="cat">Sports</span>
-<p>Drag, release, swish - a pocket arcade of pure shooting touch.</p></a><a class="game-card" href="2048-challenge.html">
-<div class="icon">🔢</div>
-<div class="name">Merge Numbers 2048</div>
-<span class="cat">Puzzle</span>
-<p>Slide, merge and double your way to the legendary 2048 tile.</p></a><a class="game-card" href="block-puzzle-classic.html">
-<div class="icon">🧩</div>
-<div class="name">Block Fit Puzzle</div>
-<span class="cat">Puzzle</span>
-<p>Fit wooden blocks, clear full lines, and outsmart the empty board.</p></a><a class="game-card" href="jigsaw-master.html">
-<div class="icon">🖼️</div>
-<div class="name">Jigsaw Slide Master</div>
-<span class="cat">Puzzle</span>
-<p>A sliding picture puzzle - restore the image one move at a time.</p></a><a class="game-card" href="sudoku-daily.html">
-<div class="icon">🔟</div>
-<div class="name">Sudoku Daily</div>
-<span class="cat">Puzzle</span>
-<p>A fresh 6x6 sudoku every time - small grid, real deduction.</p></a><a class="game-card" href="word-search-pro.html">
-<div class="icon">🔤</div>
-<div class="name">Word Search Pro</div>
-<span class="cat">Puzzle</span>
-<p>Six hidden words, one grid - find them all against the clock.</p></a><a class="game-card" href="candy-match.html">
-<div class="icon">💎</div>
-<div class="name">Gem Match Blast</div>
-<span class="cat">Match 3</span>
-<p>Swap neighboring gems, chain big combos, beat the 60-second clock.</p></a><a class="game-card" href="farm-simulator.html">
-<div class="icon">🌾</div>
-<div class="name">Tiny Farm Simulator</div>
-<span class="cat">Simulation</span>
-<p>Plant, water, harvest - grow a pocket farm from three plots.</p></a><a class="game-card" href="tower-defense.html">
-<div class="icon">🏰</div>
-<div class="name">Castle Guard Defense</div>
-<span class="cat">Strategy</span>
-<p>Place towers along the invasion path and guard the castle through ten waves.</p></a><a class="game-card" href="space-shooter-x.html">
-<div class="icon">🚀</div>
-<div class="name">Star Defender</div>
-<span class="cat">Strategy</span>
-<p>Hold the line against descending waves - one ship, endless stars.</p></a></div>
-</div></section>
-<section><div class="container card prose">
-<h2>Why Play on Toolnex?</h2>
-<p>We built Toolnex around a simple idea: a games site should respect your time. Every title here was designed (and is hosted) by us, so what you click is what you play - there are no redirects to other portals, no "open in a new window" detours, and no installs of any kind.</p>
-<ul>
-<li><b>Instant play.</b> Every game loads in under a second on desktop and mobile, right inside the page.</li>
-<li><b>Truly free.</b> No accounts, no paywalls, no energy timers. Your progress is saved locally in your browser.</li>
-<li><b>Family friendly.</b> Clean, colorful visuals and gentle difficulty curves make every title suitable for players of all ages.</li>
-<li><b>Original design.</b> Our games are built in-house with HTML5, so the guides and tips you read here come straight from the people who made them.</li>
-</ul>
-<p>New titles are added regularly. If you enjoy a game, bookmark its page - your high scores are stored on your device so you can chase your own records any time.</p>
-</div></section>
-<section class="faq"><div class="container">
-<h2>Frequently Asked Questions</h2>
-<details><summary>Do I need to download or install anything?</summary><p>No. Every game on Toolnex is built with HTML5 and runs directly in your browser - Chrome, Edge, Firefox and Safari are all supported, on desktop and mobile alike.</p></details>
-<details><summary>Is Toolnex really free?</summary><p>Yes, completely. There are no accounts, subscriptions or in-game purchases. The site is supported by unobtrusive advertising, which keeps every game free for everyone.</p></details>
-<details><summary>Are the games safe for kids?</summary><p>All games on Toolnex are family friendly: no violence beyond cartoon-style action, no chat, no user-generated content and no external links inside gameplay.</p></details>
-<details><summary>How do I save my high score?</summary><p>Scores are stored automatically in your browser's local storage. If you clear your browser data or switch devices, scores start fresh.</p></details>
-</div></section>
-<footer><div class="container footer-inner">
-<div><a href="about.html">About</a><a href="contact.html">Contact</a>
-<a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="cookie-policy.html">Cookie Policy</a></div>
-<div>&copy; 2026 Toolnex &middot; Free browser games, playable instantly.</div>
-</div></footer>
+
+<footer>
+  <div class="footer-inner">
+    <div>© <span id="yr"></span> Toolnex. Original HTML5 games & player guides.</div>
+    <div>
+      <a href="about.html">About</a> ·
+      <a href="privacy.html">Privacy</a> ·
+      <a href="terms.html">Terms</a> ·
+      <a href="cookie-policy.html">Cookies</a> ·
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
 </body>
 </html>
