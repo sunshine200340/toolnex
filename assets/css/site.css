@@ -25,7 +25,11 @@
 }
 
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:88px;-webkit-text-size-adjust:100%}
+/* Anchor landing is controlled by JS (precise, layout-stable). Global smooth
+   scrolling caused fragment navigation to land ~400-500px off once webfonts
+   and lazy images changed document height. */
+html{scroll-behavior:auto;-webkit-text-size-adjust:100%}
+section[id]{scroll-margin-top:40px}
 body{
   margin:0;background:var(--cream);color:var(--deep);
   font-family:var(--sans);font-size:16px;line-height:1.65;

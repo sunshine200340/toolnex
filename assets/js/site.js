@@ -54,6 +54,24 @@
     revealTargets.forEach(function (el) { revealObserver.observe(el); });
   }
 
+  /* Show every reveal element inside a section immediately.
+     This guarantees a hash-linked section is never blank on arrival. */
+  function showRevealsIn(scope) {
+    if (!scope) return;
+    var els = scope.querySelectorAll ? scope.querySelectorAll(".reveal:not(.is-visible)") : [];
+    Array.prototype.forEach.call(els, function (el) { el.classList.add("is-visible"); });
+    if (scope.classList && scope.classList.contains("reveal")) scope.classList.add("is-visible");
+  }
+
+  /* Safety net: anything currently in the viewport must never stay invisible,
+     even if IntersectionObserver is unavailable or fails to fire. */
+  function revealFailsafe() {
+    document.querySelectorAll(".reveal:not(.is-visible)").forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) el.classList.add("is-visible");
+    });
+  }
+
   /* ---------- Active nav link ---------- */
   var sectionIds = ["products", "factory", "customization", "catalog", "about", "contact"];
   var sections = sectionIds
@@ -61,16 +79,98 @@
     .filter(Boolean);
   var navLinks = document.querySelectorAll(".primary-nav a");
 
+  function setActive(hash) {
+    navLinks.forEach(function (link) {
+      link.classList.toggle("is-active", link.getAttribute("href") === hash);
+    });
+  }
+
   if ("IntersectionObserver" in window && sections.length) {
     var navObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
-        navLinks.forEach(function (link) {
-          link.classList.toggle("is-active", link.getAttribute("href") === "#" + entry.target.id);
-        });
+        setActive("#" + entry.target.id);
       });
     }, { rootMargin: "-35% 0px -55% 0px" });
     sections.forEach(function (s) { navObserver.observe(s); });
+  }
+
+  /* ---------- Precise in-page anchor navigation ----------
+     Global CSS smooth scrolling is intentionally disabled: when a URL contains
+     #hash, the browser starts a smooth scroll before webfonts / lazy images
+     finish, and the final position drifts. We scroll only after layout settles,
+     and we reveal the destination content before scrolling. */
+  var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function hashTarget(hash) {
+    if (!hash || hash === "#" || hash.length < 2) return null;
+    try { return document.querySelector(hash); } catch (e) { return null; }
+  }
+
+  function goToHash(hash, behavior) {
+    var el = hashTarget(hash);
+    if (!el) return false;
+
+    showRevealsIn(el);
+    if (hash === "#top" || hash === "#main") {
+      window.scrollTo({ top: 0, behavior: behavior === "smooth" ? "smooth" : "auto" });
+      return true;
+    }
+    try {
+      el.scrollIntoView({ behavior: behavior, block: "start" });
+    } catch (e) {
+      var y = el.getBoundingClientRect().top + window.pageYOffset - 40;
+      window.scrollTo(0, y);
+    }
+    return true;
+  }
+
+  function settleHash() {
+    if (!location.hash) return;
+    /* A hash URL is a direct arrival, not a scroll journey: reveal the whole
+       page at once so no section can ever appear blank on landing. */
+    showRevealsIn(document.body);
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        goToHash(location.hash, "auto");
+        setActive(location.hash);
+      });
+    });
+  }
+
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+    if (!a) return;
+    var hash = a.getAttribute("href");
+    if (!hash || hash === "#") return;
+    if (!hashTarget(hash)) return;
+    e.preventDefault();
+    goToHash(hash, prefersReduced ? "auto" : "smooth");
+    try { history.pushState(null, "", hash); } catch (err) { /* file:// or restricted */ }
+    setActive(hash);
+    closeNav();
+  });
+
+  window.addEventListener("load", function () {
+    settleHash();
+    /* Re-anchor once webfonts and hero imagery have settled the layout. */
+    setTimeout(function () { if (location.hash) goToHash(location.hash, "auto"); }, 400);
+    setTimeout(revealFailsafe, 1500);
+  });
+  window.addEventListener("hashchange", function () {
+    settleHash();
+    if (location.hash) showRevealsIn(hashTarget(location.hash));
+  });
+  window.addEventListener("pageshow", settleHash);
+
+  /* ---------- Retire legacy Service Worker ----------
+     The old game site shipped sw.js which fetched scripts from a third-party
+     domain. The B2B site does not use a Service Worker; remove any stale
+     registration so it cannot interfere with navigation or caching. */
+  if ("serviceWorker" in navigator && navigator.serviceWorker.getRegistrations) {
+    navigator.serviceWorker.getRegistrations().then(function (regs) {
+      regs.forEach(function (reg) { reg.unregister(); });
+    }).catch(function () { /* ignore */ });
   }
 
   /* ---------- RFQ form : mailto fallback ---------- */
