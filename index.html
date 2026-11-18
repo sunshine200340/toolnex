@@ -18,6 +18,52 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/site.css">
+<style>
+/* Floating WhatsApp entry (added 2026-11-18) */
+.wa-float{
+  position:fixed;right:24px;bottom:24px;z-index:200;
+  display:inline-flex;align-items:center;gap:10px;
+  padding:10px 18px 10px 10px;border-radius:999px;
+  background:#25D366;color:#fff;
+  font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:.01em;
+  text-decoration:none;white-space:nowrap;
+  box-shadow:0 8px 24px rgba(18,110,61,.28),0 2px 6px rgba(0,0,0,.12);
+  transition:transform .2s ease,box-shadow .2s ease,background .2s ease;
+}
+.wa-float:hover{
+  transform:translateY(-3px);background:#20BD5A;
+  box-shadow:0 12px 30px rgba(18,110,61,.34),0 3px 8px rgba(0,0,0,.14);
+}
+.wa-float:active{transform:translateY(-1px)}
+.wa-float:focus-visible{outline:3px solid var(--deep);outline-offset:3px}
+.wa-float-icon{
+  width:34px;height:34px;flex:none;display:grid;place-items:center;
+  background:#fff;color:#25D366;border-radius:50%;
+}
+.wa-float-label{line-height:1}
+.wa-float-pulse{
+  position:absolute;top:-3px;right:-3px;width:12px;height:12px;
+  border-radius:50%;background:#fff;border:2px solid #25D366;
+  box-shadow:0 0 0 0 rgba(37,211,102,.6);
+  animation:wa-pulse 2.2s infinite;
+}
+@keyframes wa-pulse{
+  0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}
+  70%{box-shadow:0 0 0 12px rgba(37,211,102,0)}
+  100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}
+}
+@media (max-width:640px){
+  .wa-float{right:16px;bottom:16px;padding:8px;border-radius:50%}
+  .wa-float-icon{width:44px;height:44px}
+  .wa-float-icon svg{width:26px;height:26px}
+  .wa-float-label{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .wa-float,.wa-float:hover{transform:none;transition:none}
+  .wa-float-pulse{animation:none;box-shadow:none}
+}
+@media print{.wa-float{display:none!important}}
+</style>
 </head>
 <body>
 
@@ -401,6 +447,20 @@
     <p><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms</a> · <a href="sitemap.xml">Sitemap</a></p>
   </div>
 </footer>
+
+<!-- ============ FLOATING WHATSAPP (click to open chat) ============ -->
+<a class="wa-float" id="waFloat"
+   href="https://wa.me/8615092833346?text=Hi%20Toolnex%2C%20I%27d%20like%20to%20inquire%20about%20your%20artificial%20flowers%20and%20faux%20botanicals.%20Could%20you%20send%20me%20a%20catalog%20and%20pricing%3F"
+   target="_blank" rel="noopener noreferrer"
+   aria-label="Chat with Toolnex on WhatsApp, +86 150 9283 3346">
+  <span class="wa-float-icon" aria-hidden="true">
+    <svg viewBox="0 0 32 32" width="28" height="28" fill="currentColor" focusable="false">
+      <path d="M16.004 0h-.008C7.174 0 .001 7.176 0 15.998c0 2.828.74 5.588 2.145 8.022L0 32l8.196-2.148a15.9 15.9 0 0 0 7.8 1.99h.007c8.823 0 15.997-7.176 15.997-15.998C32 7.176 24.826 0 16.004 0zm0 29.19c-2.456 0-4.865-.66-6.968-1.908l-.5-.297-4.864 1.275 1.298-4.742-.324-.516A13.15 13.15 0 0 1 2.858 16c0-7.25 5.897-13.146 13.15-13.146 3.513 0 6.81 1.368 9.293 3.852a13.06 13.06 0 0 1 3.845 9.294c0 7.25-5.897 13.146-13.142 13.146zm7.21-9.84c-.395-.198-2.335-1.152-2.697-1.283-.362-.132-.626-.198-.89.198-.263.395-1.022 1.283-1.253 1.547-.23.263-.46.296-.855.099-.395-.198-1.668-.615-3.178-1.961-1.174-1.047-1.967-2.339-2.197-2.734-.23-.395-.025-.609.173-.806.178-.177.395-.46.592-.69.198-.23.263-.395.395-.658.132-.263.066-.494-.033-.692-.099-.198-.89-2.147-1.22-2.94-.321-.77-.647-.666-.89-.678h-.757c-.263 0-.69.099-1.051.494-.362.395-1.38 1.35-1.38 3.29s1.413 3.816 1.61 4.08c.198.263 2.78 4.244 6.738 5.95.941.407 1.676.65 2.249.832.945.3 1.805.258 2.485.157.758-.113 2.335-.955 2.665-1.876.329-.922.329-1.712.23-1.876-.099-.165-.362-.263-.757-.46z"/>
+    </svg>
+  </span>
+  <span class="wa-float-label">Chat on WhatsApp</span>
+  <span class="wa-float-pulse" aria-hidden="true"></span>
+</a>
 
 <script src="assets/js/site.js" defer></script>
 </body>
