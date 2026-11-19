@@ -137,7 +137,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .section-head-row .section-lead{max-width:520px}
 
 /* ---------- Category cards ---------- */
-.category-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.category-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .cat-card{
   background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
   padding:26px 22px 24px;display:flex;flex-direction:column;min-height:252px;
@@ -377,4 +377,57 @@ ul,ol{margin:0;padding:0;list-style:none}
   .site-header,.nav-toggle,.hero-cta,.catalog-band,.rfq-form,.btn{display:none!important}
   body{background:#fff}
   .section{padding:24px 0}
+}
+
+
+/* ---------- Artificial grass & green walls ---------- */
+.cat-card-new{background:var(--mint);border-color:#BFD8C6}
+.cat-card-new .cat-num{color:var(--green)}
+.cat-card-new .cat-num em{
+  font-style:normal;margin-left:8px;background:var(--green);color:var(--white);
+  border-radius:4px;padding:3px 8px;font-size:9px;letter-spacing:.1em;text-transform:uppercase;
+}
+.range-specs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:54px}
+.spec-card{
+  background:var(--white);border:1px solid var(--line);border-top:3px solid var(--green);
+  border-radius:var(--radius);padding:28px 26px;
+}
+.spec-tag{
+  display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--green);margin-bottom:14px;
+}
+.spec-card h3{font-size:20px;margin-bottom:10px}
+.spec-card p{font-size:13.5px;line-height:1.72;color:var(--slate)}
+.gallery-label{
+  display:flex;align-items:baseline;gap:12px;
+  font-size:24px;margin:0 0 22px;
+}
+.gallery-label span{
+  font-family:var(--sans);font-size:12px;font-weight:700;
+  letter-spacing:.14em;color:var(--green);flex:none;
+}
+.gallery-grid{margin-bottom:54px}
+.gw-card .product-img{aspect-ratio:1/1}
+.gw-card .product-meta p{letter-spacing:.01em}
+.range-cta{
+  display:flex;align-items:center;justify-content:space-between;gap:36px;
+  background:var(--white);border:1px solid var(--line);
+  border-radius:var(--radius);padding:34px 38px;
+}
+.range-cta h3{font-size:24px;margin-bottom:9px}
+.range-cta p{font-size:14px;line-height:1.72;color:var(--slate);max-width:600px}
+.range-cta-actions{display:flex;gap:12px;flex-wrap:wrap;flex:none}
+.catalog-actions{display:flex;gap:12px;flex-wrap:wrap;flex:none}
+.btn-outline-light{background:transparent;color:var(--white);border-color:rgba(255,255,255,.55)}
+.btn-outline-light:hover{background:rgba(255,255,255,.12);color:var(--white)}
+@media (max-width:900px){
+  .range-specs{grid-template-columns:1fr;gap:14px;margin-bottom:40px}
+  .range-cta{flex-direction:column;align-items:flex-start;gap:22px;padding:28px 26px}
+  .gallery-label{font-size:21px}
+  .catalog-inner .catalog-actions{width:100%}
+}
+@media (max-width:640px){
+  .gallery-label{font-size:19px}
+  .range-cta-actions,.catalog-actions{width:100%}
+  .range-cta-actions .btn,.catalog-actions .btn{width:100%}
 }
