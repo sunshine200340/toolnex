@@ -39,7 +39,7 @@
 
   /* ---------- Scroll reveal ---------- */
   var revealTargets = document.querySelectorAll(
-    ".cat-card, .product-card, .app-card, .cert-card, .steps li, .factory-photo, .oem-panel, .rfq-panel, .rfq-form"
+    ".cat-card, .product-card, .app-card, .cert-card, .spec-card, .steps li, .factory-photo, .oem-panel, .rfq-panel, .rfq-form"
   );
   if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     revealTargets.forEach(function (el) { el.classList.add("reveal"); });
@@ -73,7 +73,7 @@
   }
 
   /* ---------- Active nav link ---------- */
-  var sectionIds = ["products", "factory", "customization", "catalog", "about", "contact"];
+  var sectionIds = ["products", "grass-walls", "factory", "customization", "catalog", "about", "contact"];
   var sections = sectionIds
     .map(function (id) { return document.getElementById(id); })
     .filter(Boolean);
